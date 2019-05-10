@@ -1,0 +1,60 @@
+<view class='hx'></view>
+<view class='zfsy'>
+  <view class="sysj">支付剩余时间</view>
+  <view class='jsq'>
+    <view>1</view>
+    <view>2</view>
+    <view class='mh'>:</view>
+    <view>3</view>
+    <view>3</view>
+  </view>
+</view>
+<view class='hx'></view>
+<view class='zfsy'> 
+  <view class='cart'>
+    <view class='cart-item'>
+      <image src="/pages/img/deas.png" class='img'></image>
+      <view class='cart-item-1'>
+          <view class='title1'>古庄主营养有机米 10Kg</view>
+          <view class='title2'>10Kg</view>
+          <view class='title3'>￥66.69</view>
+      </view>
+    </view>
+  </view>
+  <view class='cart'>
+    <view class='cart-item'>
+      <image src="/pages/img/deas.png" class='img'></image>
+      <view class='cart-item-1'>
+          <view class='title1'>古庄主营养有机米 10Kg</view>
+          <view class='title2'>10Kg</view>
+          <view class='title3'>￥66.69</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class='zfsy'> 
+  <view class='cart'> 
+    <view class='cart-item'>
+      <image src="/pages/img/k.png" class='img1'></image>
+      <view class='cart-item-1 hyzf'>
+          <view class='title1_1'>电子会员卡支付</view>
+          <view class='title2_1'>电子会员卡余额支付</view>
+      </view>
+      <checkbox class='check'></checkbox>
+    </view>
+  </view>
+
+  <view class='cart'> 
+    <view class='cart-item'>
+      <image src="/pages/img/wxzf.png" class='img2'></image>
+      <view class='cart-item-1 hyzf1'>
+          <view class='title1_1'>微信支付</view>
+          <view class='title2_1'>推荐安装最新版微信，支付更加便捷</view>
+      </view>
+      <checkbox class='check'></checkbox>
+    </view>
+  </view>
+</view>
+
+<view class='qrzf' bindtap='ddxq'>确认支付：¥99.8</view>

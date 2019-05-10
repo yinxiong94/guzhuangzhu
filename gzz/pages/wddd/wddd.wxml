@@ -1,0 +1,76 @@
+<view class='header'>
+    <view class='ls'>全部</view>
+    <view>待付款</view>
+    <view>待提货</view>
+</view> 
+
+<view class='all'>
+  <view class='deas'>
+      <text class='t1'>2019-05-08</text>
+      <text class='t2'>待提货</text> 
+  </view>
+  <view class='cart'>
+      <view class='cart-item'>
+        <image src="/pages/img/deas.png" class='img'></image>
+        <view class='cart-item-1'>
+            <view class='title1'>古庄主营养有机米 10Kg</view>
+            <view class='title2'>标准：10Kg</view>
+        </view>
+        <view class='jg'>
+          <view class='jg1'>￥169</view>
+          <view class='jg2'>X2</view>
+        </view>
+      </view>
+  </view> 
+  <view class='hj'>
+      <view class='hj_1'>共1件商品，合计：<text>￥169.00</text></view>
+      <text class='t_2'>去提货</text>
+  </view>
+</view>
+
+<view class='all'>
+  <view class='deas'>
+      <text class='t1'>2019-05-08</text>
+      <text class='t2'>待提货</text> 
+  </view>
+  <view class='cart'>
+      <view class='cart-item'>
+        <image src="/pages/img/deas.png" class='img'></image>
+        <view class='cart-item-1'>
+            <view class='title1'>古庄主营养有机米 10Kg</view>
+            <view class='title2'>标准：10Kg</view>
+        </view>
+        <view class='jg'>
+          <view class='jg1'>￥169</view>
+          <view class='jg2'>X2</view>
+        </view>
+      </view>
+  </view> 
+  <view class='hj'>
+      <view class='hj_1'>共1件商品，合计：<text>￥169.00</text></view>
+      <text class='t_2'>去提货</text>
+  </view>
+</view>
+
+<view class='all'>
+  <view class='deas'>
+      <text class='t1'>2019-05-08</text>
+      <text class='t2'>待提货</text> 
+  </view>
+  <view class='cart'>
+      <view class='cart-item'>
+        <image src="/pages/img/deas.png" class='img'></image>
+        <view class='cart-item-1'>
+            <view class='title1'>古庄主营养有机米 10Kg</view>
+            <view class='title2'>标准：10Kg</view>
+        </view>
+        <view class='jg'>
+          <view class='jg1'>￥169</view>
+          <view class='jg2'>X2</view>
+        </view>
+      </view>
+  </view> 
+  <view class='hj'>
+      <view class='hj_1'>共1件商品，合计：<text>￥169.00</text></view>
+  </view>
+</view>

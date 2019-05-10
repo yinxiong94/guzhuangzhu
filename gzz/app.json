@@ -1,0 +1,52 @@
+{
+  "pages": [
+    "pages/map/map",
+    "pages/wddd/wddd",
+    "pages/index/index",
+    "pages/ddxq/ddxq",
+    "pages/ddzf/ddzf",
+    "pages/gwc/gwc",
+    "pages/logs/logs" 
+  ],
+  "window": {
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "pages/img/home1.png",
+        "selectedIconPath": "pages/img/home.png"
+      },
+      {
+        "pagePath": "pages/gwc/gwc",
+        "text": "购物车",
+        "iconPath": "pages/img/gwc1.png",
+        "selectedIconPath": "pages/img/gwc2.png"
+      },
+      {
+        "pagePath": "pages/map/map",
+        "text": "附近设备",
+        "iconPath": "pages/img/sb.png",
+        "selectedIconPath": "pages/img/sb1.png"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "发现",
+        "iconPath": "pages/img/fx.png",
+        "selectedIconPath": "pages/img/fx1.png"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "我的",
+        "iconPath": "pages/img/wd.png",
+        "selectedIconPath": "pages/img/wd1.png"
+      }
+    ]
+  }
+}

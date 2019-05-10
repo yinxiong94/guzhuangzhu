@@ -1,0 +1,54 @@
+<view class='slider'> 
+    <swiper autoplay='4000' indicatorDots="true"> 
+    <swiper-item > 
+    <image src="/pages/img/banner.png" lazy-load='true' ></image> 
+    </swiper-item> 
+    <swiper-item> 
+    <image src="/pages/img/banner.png" lazy-load='true'></image> 
+    </swiper-item> 
+    </swiper> 
+  </view>
+  <view class='hx'></view>
+  <view class='hy'>
+    <view class='v1'></view>
+    <view class='v2'></view>
+    <view class="hy1">电子会员卡</view>
+    <view class='v2'></view>
+    <view class='v1'></view>
+  </view>
+  <view class='more'>更多</view>
+  <view class='hyk'>
+      <image src="/pages/img/f2.png" class='left'></image>
+      <image src="/pages/img/k.png" class='hyk1'></image>
+      <image src="/pages/img/f.png" class='right'></image>
+  </view>
+  <view class='kt'>立即开通</view>
+  <view class='hx hx1'></view>
+  <view class='hy_1'>
+    <view class='v1'></view>
+    <view class='v2'></view>
+    <view class="hy1">大米商城</view>
+    <view class='v2'></view>
+    <view class='v1'></view>
+  </view>
+  <view class='more more1'>更多</view>
+  <view class='deas_all'>
+      <view class='deas_list'>
+        <image src="/pages/img/xq.png" class='deas_img'></image>  
+        <image src="/pages/img/db.png" class='deas_img1'></image>  
+        <view class='deas_text'>谷庄主泰国香米10kg</view>     
+        <view class='deas_text1'>一小段文字介绍这个大米的优势</view>
+        <view class='deas_text2'>￥76.00</view>
+        <image src="/pages/img/gwc.png" class='gwc'></image>
+        <image src="/pages/img/gm.png" class='gm'></image>
+      </view>
+      <view class='deas_list'>
+        <image src="/pages/img/xq1.png" class='deas_img'></image>  
+        <image src="/pages/img/db.png" class='deas_img1'></image>  
+        <view class='deas_text'>谷庄主泰国香米10kg</view>     
+        <view class='deas_text1'>一小段文字介绍这个大米的优势</view>
+        <view class='deas_text2'>￥76.00</view>
+        <image src="/pages/img/gwc.png" class='gwc'></image>
+        <image src="/pages/img/gm.png" class='gm'></image>
+      </view>
+  </view>

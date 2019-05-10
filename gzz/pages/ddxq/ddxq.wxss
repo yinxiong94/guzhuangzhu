@@ -1,0 +1,234 @@
+page{
+  background: #f1f1f1
+}
+.cart{
+  position: relative;
+  padding-top: 30rpx;
+  width: 95%;
+  margin: auto;
+  border-bottom: 1rpx solid rgba(219,219,219,1);
+  padding-bottom: 30rpx;
+  background: #fff;
+  margin-top: 30rpx;
+  border-radius: 14rpx
+}
+.cart:last-child{
+  border: 0
+}
+.check{
+  transform:scale(.6);
+  position: relative;
+  top:-10rpx;
+  right: -80rpx
+}
+checkbox .wx-checkbox-input{
+    border-radius: 28rpx;
+    height: 56rpx;
+    width: 56rpx;
+    margin-top: -4rpx;
+    border: 2rpx solid #c6c6c6;
+}
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  background: #2c9b0e;
+}
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  width: 40rpx;
+  height: 28rpx;
+  line-height: 28rpx;
+  text-align: center;
+  font-size: 38rpx;
+  color: #fff;
+  background: transparent;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+}
+.cart-item{
+  display: inline-block;
+  vertical-align: middle;
+  position: relative
+}
+.img{
+  display: inline-block;
+  width: 140rpx;
+  height: 140rpx;
+  margin-top: 10rpx;
+  margin-left: 30rpx
+}
+.cart-item-1{
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 10rpx
+}
+.cart-item-1 view{
+  padding: 0rpx 20rpx
+}
+.title1{
+  width:400rpx;
+  font-size: 30rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color:rgba(62,65,66,1);
+}
+.title2{
+  font-size:24rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(156,156,156,1);
+  margin-top: 25rpx
+}
+.jg{
+  position: absolute;
+  top:4rpx;
+  right: -30rpx;
+  text-align: right
+}
+.jg1{
+  font-size:30rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(0,0,0,1);
+}
+.jg2{
+  font-size:24rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(170,170,170,1);
+  margin-top: 10rpx
+}
+.bb{
+  width: 720rpx;
+  height: 58rpx;
+  margin-left: 15rpx;
+  margin-top: 15rpx
+}
+.qhm{
+  width: 95%;
+  margin: auto;
+  line-height: 136rpx;
+  background: #fff;
+  border-radius: 14rpx;
+  height: 136rpx
+}
+.t1{
+  font-size:28rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(67,67,67,1);
+  display: inline-block;
+  margin-left: 15rpx;
+  height: 136rpx;
+  vertical-align: top
+}
+.t2{
+  font-size:54rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(44,155,14,1);
+  display: inline-block;
+  margin-left: 112rpx;
+  height: 136rpx
+}
+.sb{
+  width: 95%;
+  margin: auto;
+  height: 504rpx;
+  background: #fff;
+  border-radius: 14rpx;
+  margin-top: 10rpx
+}
+.fjsb{
+  font-size:30rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(67,67,67,1);
+  padding-top: 20rpx;
+  margin-left: 20rpx
+}
+.img2{
+  width: 50rpx;
+  height: 50rpx;
+  margin-top: 10rpx;
+  margin-left: 10rpx
+}
+.title1_1{
+  font-size: 26rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color:rgba(62,65,66,1);
+}
+.title2_1{
+  font-size:22rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(156,156,156,1);
+  margin-top: 10rpx
+}
+.hyzf{
+  margin-left: 50rpx
+}
+.hyzf1{
+  margin-left: 60rpx
+}
+.cart-item text{
+  vertical-align: top;
+  display: inline-block;
+  margin-top: 10rpx
+}
+.ca{
+  width: 684rpx;
+  padding: 0 50rpx;
+  box-sizing: border-box;
+  padding-bottom: 20rpx
+}
+.more{
+  font-size:24rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(114,114,114,1);
+  line-height:45rpx;
+  text-align: center;
+  margin-top: 20rpx
+}
+.hot{
+  width: 95%;
+  margin: auto;
+  margin-top: 10rpx;
+  background: #fff;
+  padding-bottom: 30rpx;
+  padding-top: 30rpx;
+  padding-left: 15rpx;
+  border-radius: 14rpx;
+  padding-right: 15rpx;
+  box-sizing: border-box
+}
+.title_item{
+  font-size:30rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(0,0,0,1);
+}
+.title_item_1{
+  font-size:28rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(44,155,14,1);
+  line-height:40rpx;
+  margin-top: 30rpx
+}
+.mmm{
+  display: flex;
+  justify-content: space-around
+}
+.mmm image{
+  width: 224rpx;
+  height: 170rpx
+}
+.img8{
+  width: 50rpx;
+  height: 70rpx;
+  position: absolute;
+  top:0;
+  right:-200rpx;
+}

@@ -1,0 +1,46 @@
+<view class='header'></view>
+<view class="title">古庄主官方自营</view>
+<view class='cart'>
+  <checkbox class='check'></checkbox>
+  <view class='cart-item'>
+    <image src="/pages/img/deas.png" class='img'></image>
+    <view class='cart-item-1'>
+        <view class='title1'>古庄主营养有机米 10Kg</view>
+        <view class='title2'>10Kg</view>
+        <view class='title3'>￥66.69</view>
+    </view>
+    <view class='butt'>
+      <text>-</text>
+      <text class='sl'>5</text>
+      <text>+</text>
+    </view>
+  </view>
+</view>
+
+<view class="title">古庄主官方自营</view>
+<view class='cart'>
+  <checkbox class='check'></checkbox>
+  <view class='cart-item'>
+    <image src="/pages/img/deas.png" class='img'></image>
+    <view class='cart-item-1'>
+        <view class='title1'>古庄主营养有机米 10Kg</view>
+        <view class='title2'>10Kg</view>
+        <view class='title3'>￥66.69</view>
+    </view>
+    <view class='butt'>
+      <text>-</text>
+      <text class='sl'>5</text>
+      <text>+</text>
+    </view>
+  </view>
+</view>
+
+
+<view class='dbnav'>
+    <checkbox class='check' bindtap='all' checked='{{c}}'></checkbox>
+    <text>全选</text>
+    <button class='butt1' bindtap='nowshop'>购买结算</button>
+    <text class='zj'>￥600.00</text>
+    <text class='hj'>商品总价：</text>
+    
+</view>

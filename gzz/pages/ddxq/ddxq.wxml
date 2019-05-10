@@ -1,0 +1,69 @@
+    <view class='cart'>
+    <view class='cart-item'>
+      <image src="/pages/img/deas.png" class='img'></image>
+      <view class='cart-item-1'>
+          <view class='title1'>古庄主营养有机米 10Kg</view>
+          <view class='title2'>标准：10Kg</view>
+      </view>
+      <view class='jg'>
+        <view class='jg1'>￥169</view>
+        <view class='jg2'>X2</view>
+      </view>
+    </view>
+  </view>
+
+  <image src="/pages/img/bb.png" class='bb'></image>
+
+  <view class='qhm'>
+      <text class='t1'>我的取货码</text>
+      <text class='t2'>888888</text>
+  </view>
+  
+  <view class='sb'>
+      <view class='fjsb'>附近设备</view> 
+      <view class='cart ca'> 
+        <view class='cart-item'>
+          <text>1</text>
+          <image src="/pages/img/smj.png" class='img2'></image>
+          <view class='cart-item-1'>
+              <view class='title1_1'>九峰小区北区12栋1号机</view>
+              <view class='title2_1'>距离我所在位置2.1KM</view>
+          </view>
+          <image src="/pages/img/dh.png" class='img8'></image>
+        </view>
+      </view>
+      <view class='cart ca'> 
+        <view class='cart-item'>
+          <text>2</text>
+          <image src="/pages/img/smj.png" class='img2'></image>
+          <view class='cart-item-1'>
+              <view class='title1_1'>九峰小区北区12栋1号机</view>
+              <view class='title2_1'>距离我所在位置2.1KM</view>
+          </view>
+          <image src="/pages/img/dh.png" class='img8'></image>
+        </view>
+      </view>
+      <view class='cart ca'> 
+        <view class='cart-item'>
+          <text>3</text>
+          <image src="/pages/img/smj.png" class='img2'></image>
+          <view class='cart-item-1'>
+              <view class='title1_1'>九峰小区北区12栋1号机</view>
+              <view class='title2_1'>距离我所在位置2.1KM</view>
+          </view>
+          <image src="/pages/img/dh.png" class='img8'></image>
+        </view>
+      </view>
+      <view class='more'>查看更多设备</view>
+  </view>
+
+  <view class='hot'>
+      <view class='title_item'>热门文章</view>
+      <view class='title_item_1'>谷庄主泰国稻花香米，纯精品泰国进口，36道工序精挑细选</view>
+      <view class='mmm'>
+        <image src="/pages/img/xff.png"></image>
+        <image src="/pages/img/xff.png"></image>
+        <image src="/pages/img/xff.png"></image>
+      </view>
+      
+  </view>
