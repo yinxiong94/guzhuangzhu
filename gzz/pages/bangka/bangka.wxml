@@ -1,0 +1,26 @@
+<view class="db">
+  <view class="header">
+    <view class="list">
+      <view class="text">姓名</view>
+      <input type='text' placeholder='请输入您的姓名'></input>
+    </view>
+    <view class="list">
+      <view class="text">手机号码</view>
+      <input type='text' placeholder='请输入您的手机号码'></input>
+    </view>
+    <view class="list">
+      <view class="text">验证码</view>
+      <input type='text' placeholder='请输入验证码'></input>
+      <view class="yzm">
+      获取验证码
+      </view>
+    </view>
+    <view class="list">
+      <view class="text">办卡小区</view>
+      <input type='text' placeholder='请选择你实体卡的小区'></input>
+    </view>
+  </view>
+  <view class="footer">
+    <view class="btn">提交信息</view>
+  </view>
+</view>

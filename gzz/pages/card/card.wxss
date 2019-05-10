@@ -1,0 +1,56 @@
+.db {
+  width: 100%;
+  background-color: #eee;
+  padding: 50rpx 0;
+}
+
+.db .header {
+  width: 93%;
+  margin: 0 auto;
+  background-color: #fff;
+  box-sizing: border-box;
+  border-radius: 30rpx;
+  padding-bottom: 30rpx;
+  overflow: hidden;
+}
+
+.db .header .list {
+  display: flex;
+  flex-direction: column;
+  width: 600rpx;
+  margin: 0 auto;
+  margin-top: 47rpx;
+}
+
+.db .header .list .text {
+  font-size: 28rpx;
+  font-family: Adobe Heiti Std R;
+  font-weight: normal;
+}
+
+.db .header .list input {
+  font-size: 28rpx;
+  font-family: Adobe Heiti Std R;
+  font-weight: normal;
+  color: rgba(153, 153, 153, 1);
+  margin-top: 43rpx;
+  border-bottom: 1rpx solid #eee;
+}
+/* footer */
+.db .footer{
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 60rpx;
+  background-color: #eee;
+
+}
+.db .footer .btn{
+  width: 700rpx;
+  background-color: #32933e;
+  height: 88rpx;
+  border-radius: 10rpx;
+  margin: 0 auto;
+  color: #fff;
+  text-align: center;
+  line-height: 88rpx;
+}

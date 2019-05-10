@@ -6,7 +6,15 @@
     "pages/ddxq/ddxq",
     "pages/ddzf/ddzf",
     "pages/gwc/gwc",
-    "pages/logs/logs" 
+    "pages/bangka/bangka",
+    "pages/card/card",
+    "pages/commodity/commodity",
+    "pages/personal/personal",
+    "pages/membership/membership",
+    "pages/member/member",
+    "pages/find/find",
+    "pages/article /article",
+    "pages/logs/logs"
   ],
   "window": {
     "enablePullDownRefresh": true,
@@ -48,5 +56,6 @@
         "selectedIconPath": "pages/img/wd1.png"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

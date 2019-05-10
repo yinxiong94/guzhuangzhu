@@ -1,0 +1,20 @@
+<view class="db">
+  <view class="header">
+    <view class="header_title">
+      谷庄主营养有机米，教你识别什么是营养有机 米，什么是人工抛光米
+    </view>
+    <view class="header_tiem">
+      <image lazy-load='true' src="/pages/img/gu1.png"></image>
+      <view class='tiem'>发布于：2019-10-23</view>
+    </view>
+    <view class="text">
+      <view class="text_wz">
+        谷庄主营养有机米，教你识别什么是营养有机米，什么是人工抛光米，古庄主营养有机米，经过36道人工精挑细选，保证品质优越，无虫米，坏米
+      </view>
+      <image lazy-load='true' src="/pages/img/img3.png"></image>
+      <view class="text_wz">
+        谷庄主营养有机米，教你识别什么是营养有机米，什么是人工抛光米，古庄主营养有机米，经过36道人工精挑细选，保证品质优越，无虫米，坏米谷庄主营养有机米，教你识别什么是营养有机米，什么是人工抛光米，古庄主营养有机米，经过36道人工精挑细选，保证品质优越，无虫米，坏米谷庄主营养有机米，教你识别什么是营养有机米，什么是人工抛光米，古庄主营养有机米，经过36道人工精挑细选，保证品质优越，无虫米，坏米谷庄主营养有机米，教你识别什么是营养有机米，什么是人工抛光米。
+      </view>
+    </view>
+  </view>
+</view>

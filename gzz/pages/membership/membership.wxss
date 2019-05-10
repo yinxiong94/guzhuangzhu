@@ -1,0 +1,68 @@
+.db {
+  width: 100%;
+  background-color: #f1f1f1;
+  padding-bottom: 78rpx;
+}
+
+.db .header {
+  width: 92%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.db .header .header_img {
+  width: 696rpx;
+  height: 437rpx;
+}
+
+.db .header .header_img image {
+  width: 696rpx;
+  height: 437rpx;
+}
+
+.db .mian {
+  width: 92%;
+  margin: 0 auto;
+  margin-top: 50rpx;
+}
+
+.db .mian .mian_title {
+  font-size: 36rpx;
+  font-weight: 500;
+  color: rgba(33, 33, 33, 1);
+}
+
+.db .mian .discount {
+  margin-top: 40rpx;
+  display: flex;
+}
+
+.db .mian .discount image {
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 19rpx;
+}
+
+.db .mian .discount text {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: rgba(33, 33, 33, 1);
+}
+
+.db .footer {
+  width: 92%;
+  margin: 0 auto;
+  margin-top: 180rpx;
+}
+.db .footer .btn{
+  width: 670rpx;
+  height: 88rpx;
+  background-color: rgba(44, 155, 14, 1);
+  margin: 0 auto;
+  text-align: center;
+  line-height: 88rpx;
+  color: #fff;
+  font-size: 34rpx;
+  border-radius: 44rpx;
+}

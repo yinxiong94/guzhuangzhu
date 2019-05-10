@@ -1,0 +1,155 @@
+@import "../icon/stylesheet.wxss";
+.db {
+  width: 100%;
+}
+
+.db .header {
+  width: 92%;
+  margin: 0 auto;
+}
+
+.db .header .header_top {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 21rpx;
+}
+
+.db .header .header_top .header_left {
+  flex: 1;
+  height: 140rpx;
+  padding-top: 34rpx;
+  padding-left: 18rpx;
+}
+
+.db .header .header_top .header_left .title {
+  font-size: 44rpx;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+  color: rgba(34, 34, 34, 1);
+}
+
+.db .header .header_top .header_left .img {
+  margin-top: 20rpx;
+  display: flex;
+}
+
+.db .header .header_top .header_left .img image {
+  width: 19rpx;
+  height: 29rpx;
+}
+
+.db .header .header_top .header_left .img text {
+  margin-left: 12rpx;
+  font-size: 28rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(81, 81, 81, 1);
+  line-height: 36rpx;
+}
+
+.db .header .header_top .header_right {
+  width: 140rpx;
+  height: 140rpx;
+}
+
+.db .header .header_top .header_right image {
+  width: 140rpx;
+  height: 140rpx;
+}
+
+/* 板块2 */
+
+.db .mian {
+  width: 92%;
+  margin: 0 auto;
+  margin-top: 40rpx;
+  height: 314rpx;
+}
+
+.db .mian .title {
+  font-size: 30rpx;
+  font-family: PingFang-SC-Medium;
+  color: rgba(34, 34, 34, 1);
+  font-weight: bold;
+}
+
+.db .mian .img {
+  width: 698rpx;
+  height: 255rpx;
+  margin: 0 auto;
+  margin-top: 20rpx;
+  position: absolute;
+}
+
+.db .mian .img image {
+  width: 698rpx;
+  height: 255rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.db .mian .img .pirce {
+  display: flex;
+  position: absolute;
+  z-index: 10;
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.db .mian .img .pirce .pirce_item1 {
+  font-size: 30rpx;
+  line-height: 100rpx;
+}
+
+.db .mian .img .pirce .pirce_item2 {
+  font-size: 60rpx;
+  margin-left: 20rpx;
+}
+
+.db .mian .img .integral {
+  position: absolute;
+  z-index: 10;
+  color: #fff;
+  font-size: 26rpx;
+  bottom: 24rpx;
+  left: 20rpx;
+}
+
+/* list */
+
+.db .list {
+  width: 92%;
+  margin: 0 auto;
+  padding: 0 10rpx;
+  margin-top: 40rpx;
+}
+
+.db .list .item {
+  display: flex;
+  margin-bottom: 73rpx;
+}
+
+.db .list .item .item_left {
+  flex: 1;
+  display: flex;
+}
+
+.db .list .item .item_left image {
+  width: 38rpx;
+  height: 40rpx;
+}
+
+.db .list .item .item_left text {
+  font-size: 32rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(35, 35, 35, 1);
+  margin-left: 30rpx;
+}
+.db .list .item .jiantou{
+  line-height: 42rpx;
+}
