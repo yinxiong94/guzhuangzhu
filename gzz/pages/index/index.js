@@ -5,9 +5,9 @@ Page({
    */
   data: {
     imgUrls: [
-      '/pages/img/deas.png',
-      '/pages/img/deas.png',
-      '/pages/img/deas.png'
+      '/pages/img/hui500.png',
+      '/pages/img/hui500.png',
+      '/pages/img/hui500.png'
     ],
     swiperIndex: 1
   },
