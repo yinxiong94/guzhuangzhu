@@ -124,7 +124,7 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
   font-size:54rpx;
   font-family:PingFang-SC-Bold;
   font-weight:bold;
-  color:rgba(44,155,14,1);
+  color:#fbc00e;
   display: inline-block;
   margin-left: 112rpx;
   height: 136rpx
@@ -146,9 +146,8 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
   margin-left: 20rpx
 }
 .img2{
-  width: 50rpx;
-  height: 50rpx;
-  margin-top: 10rpx;
+  width: 70rpx;
+  height: 70rpx;
   margin-left: 10rpx
 }
 .title1_1{
@@ -213,7 +212,6 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
   font-size:28rpx;
   font-family:PingFang-SC-Bold;
   font-weight:bold;
-  color:rgba(44,155,14,1);
   line-height:40rpx;
   margin-top: 30rpx
 }
@@ -226,8 +224,8 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
   height: 170rpx
 }
 .img8{
-  width: 50rpx;
-  height: 70rpx;
+  width: 52rpx;
+  height: 86rpx;
   position: absolute;
   top:0;
   right:-200rpx;

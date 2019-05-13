@@ -4,7 +4,7 @@
     <view>待提货</view>
 </view> 
 
-<view class='all'>
+<view class='all' bindtap='ddxq'>
   <view class='deas'>
       <text class='t1'>2019-05-08</text>
       <text class='t2'>待提货</text> 

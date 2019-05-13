@@ -1,0 +1,305 @@
+.db {
+  width: 100%;
+}
+
+.db .ggg {
+  width: 750rpx;
+  height: 360rpx;
+}
+
+.db .header {
+  width: 91%;
+  margin: 0 auto;
+  margin-top: 20rpx;
+  padding-bottom: 7rpx;
+}
+
+.db .header .title {
+}
+
+.db .header .title .title_h1 {
+  font-size: 30rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(68, 68, 68, 1);
+}
+
+.db .header .title .title_h2 {
+  font-size: 36rpx;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+  color: rgba(44, 155, 14, 1);
+  margin-top: 15rpx;
+}
+
+.db .header .title .title_h3 {
+  font-size: 22rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(44, 155, 14, 1);
+  margin-top: 22rpx;
+}
+
+.db .header .title .title_h4 {
+  margin-top: 20rpx;
+}
+
+.db .header .title .title_h4 .title_kg {
+  font-size: 20rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(161, 161, 161, 1);
+}
+
+.db .header .title .title_h4 .title_num {
+  font-size: 20rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(161, 161, 161, 1);
+  margin-left: 35rpx;
+}
+
+.db .hhh {
+  width: 750rpx;
+  height: 20rpx;
+  background: rgba(240, 240, 240, 1);
+}
+
+/* ng */
+
+.db .ng {
+  width: 91%;
+  margin: 0 auto;
+  padding-top: 39rpx;
+}
+
+.db .ng .ng_nei {
+  display: flex;
+  padding-bottom: 46rpx;
+  border-bottom: 2px solid #eee;
+}
+
+.db .ng .title {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 25rpx;
+  border-bottom: 2px solid #eee;
+}
+
+.db .ng .title text {
+  font-size: 32rpx;
+  font-family: PingFang-SC-Heavy;
+  font-weight: 800;
+  color: rgba(33, 32, 32, 1);
+}
+
+.db .ng .title .title_right {
+  position: relative;
+}
+
+.db .ng .title .title_right input {
+  border: 1px solid #eee;
+  width: 311rpx;
+  height: 38rpx;
+  line-height: 38rpx;
+  border-radius: 30rpx;
+  font-size: 20rpx;
+  padding-left: 60rpx;
+}
+
+.db .ng .title .title_right image {
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  top: 10rpx;
+  left: 16rpx;
+}
+
+.db .ng .ng_nei .title_item {
+  padding: 0 27rpx;
+  padding-top: 40rpx;
+  display: flex;
+  flex: 1;
+}
+
+.db .ng .ng_nei .title_item .title_item_text {
+  font-size: 30rpx;
+  font-family: PingFang-SC-Heavy;
+  font-weight: 800;
+  color: rgba(33, 32, 32, 1);
+  margin-right: 14rpx;
+  margin-top: 18rpx;
+}
+
+.db .ng .ng_nei .title_item .img {
+  width: 51rpx;
+  height: 50rpx;
+  margin-top: 9rpx;
+  margin-right: 22rpx;
+}
+
+.db .ng .ng_nei .title_item .img image {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.db .ng .ng_nei .position {
+  flex: 1;
+}
+
+.db .ng .ng_nei .position .position_top {
+  margin-bottom: 21rpx;
+  margin-top: -9rpx;
+}
+
+.db .ng .ng_nei .position .position_top text {
+  font-size: 26rpx;
+  font-family: PingFang-SC-Heavy;
+  font-weight: 800;
+  color: rgba(33, 32, 32, 1);
+}
+
+.db .ng .ng_nei .position .position_bottom {
+  margin-top: -26rpx;
+}
+
+.db .ng .ng_nei .position .position_bottom text {
+  font-size: 24rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(155, 154, 154, 1);
+}
+
+.db .ng .ng_nei .title_right {
+  margin-right: 27rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.db .ng .ng_nei .title_right image {
+  width: 52rpx;
+  height: 86rpx;
+  margin-top: 36rpx;
+}
+
+.db .ng .ng_nei .title_right text {
+  font-size: 24rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(44, 155, 14, 1);
+  margin-top: 9rpx;
+}
+
+.db .ng .show {
+  width: 100%;
+  font-size: 24rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(155, 154, 154, 1);
+  text-align: center;
+  margin-top: 53rpx;
+  padding-bottom: 14rpx;
+}
+
+.db .details {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.db .details .details_text {
+  text-align: center;
+  font-size: 30rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: #fbc00e;
+  height: 54rpx;
+  line-height: 54rpx;
+}
+
+.db .details image {
+  width: 750rpx;
+  height: 2950rpx;
+}
+
+.db .footer {
+  width: 91%;
+  margin: 0 auto;
+  display: flex;
+}
+
+.db .footer .footer_left {
+  width: 100rpx;
+  margin-top: 14rpx;
+}
+
+.db .footer .footer_left .shopping {
+  display: flex;
+  flex-direction: column;
+  width: 100rpx;
+  height: 100rpx;
+  text-align: center;
+  position: relative;
+}
+
+.db .footer .footer_left .shopping image {
+  width: 47rpx;
+  height: 43rpx;
+  margin: 0 auto;
+}
+
+.db .footer .footer_left .shopping text {
+  font-size: 22rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(51, 51, 51, 1);
+  line-height: 44px;
+  margin-top: -20rpx;
+}
+
+.db .footer .footer_left .shopping .yuan {
+  background-color: #fbc00e;
+  width: 25rpx;
+  height: 25rpx;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 88rpx;
+  right: 18rpx;
+  color: #fff;
+  font-size: 22rpx;
+  line-height: 25rpx;
+}
+
+.db .footer .footer_right {
+  flex: 1;
+  height: 80rpx;
+}
+
+.db .footer .footer_right .footer_btn {
+  width: 520rpx;
+  height: 80rpx;
+  display: flex;
+  margin: 0 auto;
+  font-size: 26rpx;
+  font-weight: 500;
+}
+
+.db .footer .footer_right .footer_btn .left {
+  width: 50%;
+  height: 80rpx;
+  background-color: #a3821d;
+  border-radius: 40rpx 0 0 40rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 80rpx;
+}
+
+.db .footer .footer_right .footer_btn .right {
+  width: 50%;
+  height: 80rpx;
+  background-color: #fbc00e;
+  border-radius: 0 40rpx 40rpx 0;
+  color: #fff;
+  text-align: center;
+  line-height: 80rpx;
+}

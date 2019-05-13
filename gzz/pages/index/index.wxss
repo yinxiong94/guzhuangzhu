@@ -21,14 +21,14 @@ swiper{
 .hy .v2{
   width:26rpx;
   height:26rpx;
-  background:rgba(205,174,128,1);
+  background:#fbc00e;
   border-radius:50%;
   margin: auto 0
 }
 .hy .v1{
   width:20rpx;
   height:20rpx;
-  background:rgba(205,174,128,1);
+  background:#fbc00e;
   opacity:0.5;
   border-radius:50%;
   margin: auto 0
@@ -39,7 +39,7 @@ swiper{
   font-size:34rpx;
   font-family:PingFang-SC-Medium;
   font-weight:500;
-  color:rgba(205,174,128,1);
+  color:#fbc00e;
   line-height:40rpx;
   text-align: center
 }
@@ -84,8 +84,7 @@ swiper{
   width: 217rpx;
   height: 60rpx;
   margin: auto;
-  margin-top: 396rpx;
-  background: #cdae80;
+  background: #fbc00e;
   border-radius: 30rpx;
   text-align: center;
   line-height: 60rpx;
@@ -112,14 +111,14 @@ swiper{
 .hy_1 .v2{
   width:26rpx;
   height:26rpx;
-  background:rgba(44,155,14,1);
+  background:#fbc00e;
   border-radius:50%;
   margin: auto 0
 }
 .hy_1 .v1{
   width:20rpx;
   height:20rpx;
-  background:rgba(44,155,14,1);
+  background:#fbc00e;
   opacity:0.5;
   border-radius:50%;
   margin: auto 0
@@ -130,12 +129,12 @@ swiper{
   font-size:34rpx;
   font-family:PingFang-SC-Medium;
   font-weight:500;
-  color:rgba(44,155,14,1);
+  color:#fbc00e;
   line-height:40rpx;
   text-align: center
 }
 .more1{
-  top:994rpx
+  top:1015rpx
 }
 .deas_all{
   width: 96%;
@@ -178,20 +177,38 @@ swiper{
   font-size:36rpx;
   font-family:PingFang-SC-Bold;
   font-weight:bold;
-  color:rgba(44,155,14,1);
+  color:#fbc00e;
   margin-top: 10rpx
 }
 .gwc{
-  width: 44rpx;
-  height: 40rpx;
+  width: 59rpx;
+  height: 54rpx;
   position: absolute;
   top:435rpx;
   right: 205rpx
 }
 .gm{
-  width: 138rpx;
-  height: 40rpx;
+  width: 154rpx;
+  height: 55rpx;
   position: absolute;
   right: 15rpx;
   top:435rpx
+}
+.list swiper{
+  width: 750rpx;
+  height: 420rpx;
+}
+.list swiper-item{
+  padding-top: 50rpx;
+}
+.list swiper-item image{
+  width: 526rpx;
+  height: 302rpx;
+  position: absolute;
+  left: 50%;
+  margin-left: -263rpx;
+}
+.list swiper-item image.active{
+  transform: scale(1.14);
+  transition:all .2s ease-in 0s;
 }

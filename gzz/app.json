@@ -1,12 +1,22 @@
 {
   "pages": [
+    
+    "pages/index/index",
+    "pages/article/article",
+    "pages/commodity/commodity",
+    "pages/membership/membership",
+    "pages/member/member",
+    "pages/personal/personal",
+    "pages/card/card",
+    "pages/bangka/bangka",
+    "pages/find/find",
     "pages/map/map",
     "pages/wddd/wddd",
-    "pages/index/index",
     "pages/ddxq/ddxq",
     "pages/ddzf/ddzf",
     "pages/gwc/gwc",
-    "pages/logs/logs" 
+    "pages/logs/logs"
+    
   ],
   "window": {
     "enablePullDownRefresh": true,
@@ -16,6 +26,7 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
+    "selectedColor": "#fbc00e",
     "list": [
       {
         "pagePath": "pages/index/index",
@@ -32,17 +43,17 @@
       {
         "pagePath": "pages/map/map",
         "text": "附近设备",
-        "iconPath": "pages/img/sb.png",
+        "iconPath": "pages/img/fanmaiji.png",
         "selectedIconPath": "pages/img/sb1.png"
       },
       {
-        "pagePath": "pages/logs/logs",
+        "pagePath": "pages/find/find",
         "text": "发现",
         "iconPath": "pages/img/fx.png",
         "selectedIconPath": "pages/img/fx1.png"
       },
       {
-        "pagePath": "pages/logs/logs",
+        "pagePath": "pages/personal/personal",
         "text": "我的",
         "iconPath": "pages/img/wd.png",
         "selectedIconPath": "pages/img/wd1.png"

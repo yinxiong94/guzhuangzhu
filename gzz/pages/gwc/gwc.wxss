@@ -29,7 +29,7 @@
   font-size:30rpx;
   font-family:PingFang-SC-Bold;
   font-weight:bold;
-  color:rgba(44,155,14,1);
+  color:#c92f2f;
 }
 .cart{
   margin-top:20rpx;
@@ -49,7 +49,7 @@ checkbox .wx-checkbox-input{
     border: 2rpx solid #c6c6c6;
 }
 checkbox .wx-checkbox-input.wx-checkbox-input-checked {
-  background: #2c9b0e;
+  background: #fbc00e;
 }
 checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
   width: 40rpx;
@@ -134,7 +134,7 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
 .zj{
   float: right;
   margin-right: 30rpx;
-  color: #2c9b0e
+  color: #c92f2f
 }
 .price{
   display: inline-block;
@@ -143,8 +143,9 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
 .butt1{
     width: 250rpx;
     height: 75rpx;
-    background: #2c9b0e;
-    color:#fff;
-    border-radius:0;
-    float: right
+    background: #fbc00e;
+    color:#000;
+    float: right;
+    line-height: 75rpx;
+    border-radius:0 !important
 }

@@ -7,26 +7,13 @@ map{
   position: absolute;
   top:0
 }
-input{
+.img1{
   width: 700rpx;
   height: 50rpx;
-  background: rgba(255,255,255,0.7);
-  position: relative;
-  top:20rpx;
-  z-index: 2;
-  padding-left: 75rpx;
-  box-sizing: border-box;
-  left: 25rpx;
-  font-size: 24rpx;
-  color:rgba(153,153,153,1);
-}
-.img1{
-  width: 30rpx;
-  height: 30rpx;
   position: absolute;
   top:30rpx;
   z-index: 5;
-  left: 50rpx
+  left: 25rpx
 }
 .xs{
   z-index: 10;
@@ -220,9 +207,8 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
   margin-left: 20rpx
 }
 .img3{
-  width: 50rpx;
-  height: 50rpx;
-  margin-top: 10rpx;
+  width: 70rpx;
+  height: 70rpx;
   margin-left: 10rpx
 }
 .title1_1{
@@ -294,8 +280,8 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
   height: 170rpx
 }
 .img5{
-  width: 50rpx;
-  height: 70rpx;
+  width: 52rpx;
+  height: 86rpx;
   margin-left:200rpx 
 }
 .sl{

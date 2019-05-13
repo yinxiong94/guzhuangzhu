@@ -1,0 +1,128 @@
+.db {
+  width: 100%;
+}
+
+.db .header {
+  width: 92%;
+  margin: 0 auto;
+  position: relative;
+  height: 255rpx;
+}
+
+.db .header image {
+  width: 698rpx;
+  height: 255rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.db .header .header_pirce {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.db .header .header_pirce .balance {
+  color: #fff;
+  font-size: 30rpx;
+  margin-right: 20rpx;
+}
+
+.db .header .header_pirce .num {
+  color: #fff;
+  font-size: 60rpx;
+}
+
+.db .nav {
+  width: 92%;
+  margin: 0 auto;
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.db .nav .nav_left{
+  flex: 1;
+  padding-top: 6rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.db .nav .nav_left .list{
+  flex: 1;
+  text-align: center;
+  position: relative;
+  margin-right: 54rpx;
+}
+.db .nav .nav_left .list text{
+  text-align: center;
+  font-size: 30rpx;
+}
+.db .nav .nav_left .list image{
+  width: 36rpx;
+  height: 6rpx;
+  position: absolute;
+  left:50%;
+  bottom:-10rpx;
+  transform: translate(-50%,-50%);
+}
+.db .nav .nav_right {
+  width: 34rpx;
+  margin-top: 12rpx;
+}
+
+.db .nav .nav_right image {
+  width: 34rpx;
+  height: 36rpx;
+}
+.green{
+  color:#2C9B0E;
+}
+/* 底部 */
+.db .item {
+  width: 92%;
+  margin: 0 auto;
+  margin-top: 40rpx;
+}
+
+.db .item .item_list {
+  display: flex;
+  margin-bottom: 56rpx;
+}
+
+.db .item .item_list .item_list_right {
+  flex: 1;
+}
+
+.db .item .item_list .item_list_right .item_list_top {
+  display: flex;
+  justify-content: space-between;
+}
+.db .item .item_list .item_list_right .item_list_top .blue{
+  color: #2C9B0E;
+}
+.db .item .item_list .item_list_right .item_list_top text {
+  font-size: 26rpx;
+  color: rgba(41, 41, 41, 1);
+}
+
+.db .item .item_list .item_list_right .item_list_bottom {
+  display: flex;
+  justify-content: space-between;
+  margin-top:14rpx;
+}
+.db .item .item_list .item_list_right .item_list_bottom text{
+  font-size:22rpx;
+  color:rgba(110,108,108,1);
+}
+.red{
+  color: #FF6666 !important
+}
+.db .item .item_list image {
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 14rpx;
+}

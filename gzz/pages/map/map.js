@@ -1,24 +1,24 @@
-
 Page({
   data: {
     mapCtx: null,
     mapWidth: 200,
     mapHeight: 200,
-    longitude:"",
-    latitude:"",
+    longitude: "",
+    latitude: "",
     markers: [{
       "id": 1,
-      "title": "永州市中心医院",
-      "longitude": "111.62852107566833",
-      "latitude": "26.42142999357519"
+      "title": "马王堆汉墓",
+      "longitude": "113.02306",
+      "latitude": "28.20954"
     },
     {
       "id": 2,
-      "title": "永州市中医院",
-      "longitude": "111.5972679762268",
-      "latitude": "26.44470581245983"
+      "title": "翡翠云天",
+      "longitude": "113.0438467115164",
+      "latitude": "28.107189929519915"
     }
     ],
+    jl:[],
     textData: { name: '', desc: '' },
     //0:加载完成  1:加载中
     searchLoadingStatus: 0,
@@ -28,7 +28,7 @@ Page({
       latitude: 0
     }
   },
-  add:function(){
+  add: function () {
     var _this = this;
     wx.chooseLocation({
       success: function (res) {
@@ -46,6 +46,18 @@ Page({
     })
   },
   onReady: function (e) {
+    var a=this.data.markers;  
+    for(var i=0;i<a.length;i++){
+     var l1 = a[i].latitude * Math.PI / 180.0;
+      var l2 = this.data.latitude * Math.PI / 180.0;
+      var l3=l1-l2;
+      var l4 = a[i].longitude * Math.PI / 180.0 - this.data.longitude * Math.PI / 180.0;
+      var s = 2 * Math.asin(Math.sqrt(Math.pow(Math.sin(l3 / 2), 2) + Math.cos(l1) * Math.cos(l2) * Math.pow(Math.sin(l4 / 2), 2)));
+      s = s * 6378.137;
+      s = s.toFixed(2);
+      this.setData({ ['jl[' + i + ']']:s})
+    }
+    console.log(this.data.jl)
     var that = this;
     // 使用 wx.createMapContext 获取 map 上下文
     that.mapCtx = wx.createMapContext('loactionMap', this);
@@ -61,7 +73,6 @@ Page({
   authorAddress: function () {
     var that = this;
     that.getCurrentLocation('gcj02', function (res) {
-      console.log(res);
       that.setData({
         longitude: res.longitude,
         latitude: res.latitude

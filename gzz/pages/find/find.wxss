@@ -1,0 +1,94 @@
+.db {
+  width: 100%;
+}
+
+.db .header {
+  width: 92%;
+  margin: 0 auto;
+  margin-top: 17rpx;
+}
+
+.db .header image {
+  width: 100%;
+  height: 320rpx;
+}
+
+.db .title {
+  width: 100%;
+  background-color: #ecffe7;
+  height: 64rpx;
+  font-size: 24rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(32, 32, 32, 1);
+  line-height: 64rpx;
+  text-align: center;
+}
+
+.db .header .mian {
+  margin-top: 29rpx;
+}
+
+.db .header .mian .mian_list {
+  margin-top: 27rpx;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid rgba(243, 243, 243, 1);
+  padding-bottom: 19rpx;
+}
+
+.db .header .mian_list .mian_title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: rgba(33, 33, 33, 1);
+}
+
+.db .header .mian_list .mian_text {
+  font-size: 24rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  margin-top: 27rpx;
+}
+
+.db .header .mian_list1 {
+  margin-top: 27rpx;
+  border-bottom: 1px solid rgba(243, 243, 243, 1);
+  padding-bottom: 30rpx;
+}
+.db .header .mian_list1 .mian_title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: rgba(33, 33, 33, 1);
+}
+.db .header .mian_list1 .mian_img {
+  display: flex;
+  margin-top: 17rpx;
+}
+
+.db .header .mian_list1 .mian_img image {
+  width: 224rpx;
+  height: 170rpx;
+  margin-right: 15rpx;
+}
+
+.db .header .mian_list1 .mian_img image:nth-child(3n) {
+  margin-right: 0;
+}
+.list swiper{
+  width: 750rpx;
+  height: 420rpx;
+}
+.list swiper-item{
+  padding-top: 50rpx;
+}
+.list swiper-item image{
+  width: 526rpx;
+  height: 302rpx;
+  position: absolute;
+  left: 50%;
+  margin-left: -263rpx;
+}
+.list swiper-item image.active{
+  transform: scale(1.14);
+  transition:all .2s ease-in 0s;
+}

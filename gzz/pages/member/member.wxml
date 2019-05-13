@@ -1,0 +1,54 @@
+<view class="db">
+  <view class="header">
+    <image lazy-load='true' src='/pages/img/top1.png'></image>
+    <view class="header_pirce">
+      <text class="balance">余额:</text>
+      <text class="num">500元</text>
+    </view>
+  </view>
+  <view class="nav">
+    <view class="nav_left">
+      <view class="list">
+        <text class="green">全部</text>
+        <image lazy-load='true' src='/pages/img/xian.png'></image>
+      </view>
+      <view class="list">
+        <text>消费记录</text>
+      </view>
+      <view class="list">
+        <text>充值记录</text>
+      </view>
+    </view>
+    <view class="nav_right">
+      <image lazy-load='true' src="/pages/img/ril.png"></image>
+    </view>
+  </view>
+  <view class="item">
+    <view class="item_list">
+      <image lazy-load='true' src="/pages/img/cartoon.png"></image>
+      <view class="item_list_right">
+        <view class="item_list_top">
+          <text>充值电子会员卡</text>
+          <text class='red'>-16.00</text>
+        </view>
+        <view class="item_list_bottom">
+          <text>2019-04-28</text>
+          <text>余额：568</text>
+        </view>
+      </view>
+    </view>
+    <view class="item_list">
+      <image lazy-load='true' src="/pages/img/cartoon.png"></image>
+      <view class="item_list_right">
+        <view class="item_list_top">
+          <text>充值电子会员卡</text>
+          <text class="blue">+16.00</text>
+        </view>
+        <view class="item_list_bottom">
+          <text>2019-04-28</text>
+          <text>余额：568</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

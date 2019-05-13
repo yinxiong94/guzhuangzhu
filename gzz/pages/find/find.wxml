@@ -1,0 +1,36 @@
+<view class="db">
+  <view class="title">又发现了10条新内容</view>
+  <view class='list' bindtap='kthy'>
+  <swiper  autoplay="{{false}}" previous-margin="{{'70rpx'}}" next-margin="{{'70rpx'}}" bindchange="swiperChange" current='1'>
+    <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image {{swiperIndex == index ? 'active' : ''}}"/>
+      </swiper-item>
+    </block>
+  </swiper>
+  </view>
+  <view class="header">
+    
+    <view class="mian">
+      <view class="mian_list" bindtap='wzxq'>
+        <text class="mian_title">谷庄主营养有机米，教你识别什么是营养有机米，什么是人工抛光米</text>
+        <text class="mian_text">古庄主精选 · 2分钟前</text>
+      </view>
+      <view class="mian_list1">
+        <text class="mian_title">谷庄主营养有机米，教你识别什么是营养有机米，什么是人工抛光米</text>
+        <view class="mian_img">
+          <image lazy-load='ture' src="/pages/img/img1.png"></image>
+          <image lazy-load='ture' src="/pages/img/img2.png"></image>
+          <image lazy-load='ture' src="/pages/img/img1.png"></image>
+        </view>
+      </view>
+      <view class="mian_list1">
+        <text class="mian_title">谷庄主营养有机米，教你识别什么是营养有机米，什么是人工抛光米</text>
+        <view class="mian_img">
+          <image lazy-load='ture' src="/pages/img/img1.png"></image>
+          <image lazy-load='ture' src="/pages/img/img2.png"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

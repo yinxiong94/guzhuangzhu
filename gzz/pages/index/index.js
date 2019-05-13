@@ -4,9 +4,28 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    imgUrls: [
+      '/pages/img/deas.png',
+      '/pages/img/deas.png',
+      '/pages/img/deas.png'
+    ],
+    swiperIndex: 1
   },
-
+  swiperChange(e) {
+    this.setData({
+      swiperIndex: e.detail.current
+    })
+  },
+  kthy:function(){
+    wx.navigateTo({
+      url: '/pages/membership/membership',
+    })
+  },
+  spxq:function(){
+    wx.navigateTo({
+      url: '/pages/commodity/commodity',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

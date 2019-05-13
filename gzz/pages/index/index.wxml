@@ -17,12 +17,16 @@
     <view class='v1'></view>
   </view>
   <view class='more'>更多</view>
-  <view class='hyk'>
-      <image src="/pages/img/f2.png" class='left'></image>
-      <image src="/pages/img/k.png" class='hyk1'></image>
-      <image src="/pages/img/f.png" class='right'></image>
+  <view class='list' bindtap='kthy'>
+  <swiper  autoplay="{{false}}" previous-margin="{{'70rpx'}}" next-margin="{{'70rpx'}}" bindchange="swiperChange" current='1'>
+    <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image {{swiperIndex == index ? 'active' : ''}}"/>
+      </swiper-item>
+    </block>
+  </swiper>
   </view>
-  <view class='kt'>立即开通</view>
+  <view class='kt' bindtap='kthy'>立即开通</view>
   <view class='hx hx1'></view>
   <view class='hy_1'>
     <view class='v1'></view>
@@ -34,7 +38,7 @@
   <view class='more more1'>更多</view>
   <view class='deas_all'>
       <view class='deas_list'>
-        <image src="/pages/img/xq.png" class='deas_img'></image>  
+        <image src="/pages/img/swiper.png" class='deas_img' bindtap='spxq'></image>  
         <image src="/pages/img/db.png" class='deas_img1'></image>  
         <view class='deas_text'>谷庄主泰国香米10kg</view>     
         <view class='deas_text1'>一小段文字介绍这个大米的优势</view>
@@ -43,7 +47,7 @@
         <image src="/pages/img/gm.png" class='gm'></image>
       </view>
       <view class='deas_list'>
-        <image src="/pages/img/xq1.png" class='deas_img'></image>  
+        <image src="/pages/img/swiper1.png" class='deas_img'></image>  
         <image src="/pages/img/db.png" class='deas_img1'></image>  
         <view class='deas_text'>谷庄主泰国香米10kg</view>     
         <view class='deas_text1'>一小段文字介绍这个大米的优势</view>

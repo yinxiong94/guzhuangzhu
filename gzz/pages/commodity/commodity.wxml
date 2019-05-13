@@ -1,0 +1,95 @@
+<view class="db">
+  <image class="ggg" lazy-load='true' src="/pages/img/swiper1.png"></image>
+  <view class="header">
+    <view class="title">
+      <view class="title_h1">
+        古庄主|五常·稻花香米|10Kg
+      </view>
+      <view class="title_h2">
+        ￥38.8
+      </view>
+      <view class="title_h3">
+        下单成功后，即生成取米码，可前往离您最近的大米设备进行取米
+      </view>
+      <view class="title_h4">
+        <text class="title_kg">重量：10Kg</text>
+        <text class="title_num">累计销量：45</text>
+      </view>
+    </view>
+  </view>
+  <view class="hhh"></view>
+  <view class="ng">
+    <view class="title">
+      <text>大米设备</text>
+      <view class="title_right">
+        <input type='text' placeholder='请输入您所在的小区'></input>
+        <image lazy-load='true' src="/pages/img/fdj.png"></image>
+      </view>
+    </view>
+    <view class="ng_nei">
+      <view class="title_item">
+        <text class="title_item_text">1</text>
+        <view class="img">
+          <image lazy-load='true' src="/pages/img/smj.png"></image>
+        </view>
+        <view class="position">
+          <view class="position_top">
+            <text>九峰小区北区12栋1号机</text>
+          </view>
+          <view class="position_bottom">
+            <text>距离我所在位置2.1KM</text>
+          </view>
+        </view>
+      </view>
+      <view class="title_right">
+        <image src="/pages/img/dh.png"></image>
+      </view>
+    </view>
+    <view class="ng_nei">
+      <view class="title_item">
+        <text class="title_item_text">2</text>
+        <view class="img">
+          <image lazy-load='true' src="/pages/img/smj.png"></image>
+        </view>
+        <view class="position">
+          <view class="position_top">
+            <text>九峰小区北区12栋1号机</text>
+          </view>
+          <view class="position_bottom">
+            <text>距离我所在位置2.1KM</text>
+          </view>
+        </view>
+      </view>
+      <view class="title_right">
+        <image src="/pages/img/dh.png"></image>
+      </view>
+    </view>
+    <view class="show">
+      显示更多设备
+    </view>
+  </view>
+  <view class="hhh"></view>
+  <view class="details">
+    <view class="details_text">详情介绍</view>
+    <image lazy-load='true' src="/pages/img/footer.png"></image>
+  </view>
+  <view class="footer">
+    <view class="footer_left">
+      <view class="shopping">
+        <image lazy-load='true' src="/pages/img/shopping.png"></image>
+        <text>购物车</text>
+        <view class="yuan">1</view>
+      </view>
+    </view>
+    <view class="footer_right">
+      <view class="footer_btn">
+        <view class="left">
+          加入购物车
+        </view>
+        <view class="right">
+          立即购买
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
