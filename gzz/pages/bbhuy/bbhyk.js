@@ -1,4 +1,4 @@
-// pages/personal/personal.js
+// pages/bbhuy/bbhyk.js
 Page({
 
   /**
@@ -8,26 +8,6 @@ Page({
 
   },
 
-  wddd:function(){
-    wx.navigateTo({
-      url: '/pages/wddd/wddd',
-    })
-  },
-  bdhyk:function(){
-    wx.navigateTo({
-      url: '/pages/bangka/bangka',
-    })
-  },
-  wdhyk:function(){
-    wx.navigateTo({
-      url: '/pages/member/member',
-    })
-  },
-  bbhyk:function(){
-    wx.navigateTo({
-      url: '/pages/bbhuy/bbhyk',
-    })
-  },
   /**
    * 生命周期函数--监听页面加载
    */

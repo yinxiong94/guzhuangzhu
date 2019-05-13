@@ -46,7 +46,7 @@
       </view>
       <view class="iconfont icon-jiantou jiantou"></view>
     </view>
-    <view class="item" bindtap='wdhyk'>
+    <view class="item" bindtap='bbhyk'>
       <view class="item_left">
         <image lazy-load='true' src="/pages/img/dd2.png" class='img20'></image>
         <text>补办会员卡</text>

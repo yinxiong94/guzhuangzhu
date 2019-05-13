@@ -1,0 +1,19 @@
+<view class="db">
+  <view class="header">
+    <view class="list">
+      <view class="text">姓名</view>
+      <input type='text' placeholder='请输入您的姓名'></input>
+    </view>
+    <view class="list">
+      <view class="text">手机号码</view>
+      <input type='text' placeholder='请输入您的手机号码'></input>
+    </view>
+    <view class="list">
+      <view class="text">备注</view>
+      <input type='text' placeholder='请输入您想备注的信息'></input>
+    </view>
+  </view>
+  <view class="footer">
+    <view class="btn">提交信息</view>
+  </view>
+</view>
