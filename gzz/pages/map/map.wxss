@@ -18,7 +18,6 @@ map{
 .xs{
   z-index: 10;
   position: absolute;
-  top:860rpx;
   width: 720rpx;
   left: 15rpx;
   padding-left: 43rpx;
@@ -26,7 +25,10 @@ map{
   box-sizing: border-box;
   background: #fff;
   border-top-left-radius: 14rpx;
-  border-top-right-radius: 14rpx
+  border-top-right-radius: 14rpx;
+}
+.top{
+  top:0;
 }
 .img2{
   width: 144rpx;
@@ -280,9 +282,9 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
   height: 170rpx
 }
 .img5{
-  width: 52rpx;
+  width: 54rpx;
   height: 86rpx;
-  margin-left:200rpx 
+  margin-left:120rpx 
 }
 .sl{
   display: inline-block;

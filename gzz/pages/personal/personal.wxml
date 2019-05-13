@@ -24,7 +24,7 @@
         <text class="pirce_item2">500元</text>
       </view>
       <view class="integral">我的积分: 36积分</view>
-      <image lazy-load='true' src="/pages/img/hui2.png"></image>
+      <image lazy-load='true' src="/pages/img/hui2.png" bindtap='cz'></image>
     </view>
   </view>
   <view class="list">

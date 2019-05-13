@@ -5,6 +5,9 @@ Page({
     mapHeight: 200,
     longitude: "",
     latitude: "",
+    clientY:"",
+    clientY1:"",
+    height:"",
     markers: [{
       "id": 1,
       "title": "马王堆汉墓",
@@ -16,8 +19,32 @@ Page({
       "title": "翡翠云天",
       "longitude": "113.0438467115164",
       "latitude": "28.107189929519915"
-    }
+    },
+      {
+        "id": 3,
+        "title": "翡翠云天",
+        "longitude": "113.0438467115164",
+        "latitude": "28.107189929519915"
+      },
+      {
+        "id": 4,
+        "title": "翡翠云天",
+        "longitude": "113.0438467115164",
+        "latitude": "28.107189929519915"
+      }, {
+        "id": 5,
+        "title": "翡翠云天",
+        "longitude": "113.0438467115164",
+        "latitude": "28.107189929519915"
+      },
+      {
+        "id": 6,
+        "title": "翡翠云天",
+        "longitude": "113.0438467115164",
+        "latitude": "28.107189929519915"
+      }
     ],
+    d:0,
     jl:[],
     textData: { name: '', desc: '' },
     //0:加载完成  1:加载中
@@ -27,6 +54,23 @@ Page({
       longitude: 0,
       latitude: 0
     }
+  },
+  a:function(e){
+   this.setData({ clientY: e.changedTouches[0].clientY})
+ },
+  b: function (e) {
+    this.setData({ clientY1: e.changedTouches[0].clientY })
+    var a = this.data.clientY - this.data.clientY1;
+    this.setData({d:a})
+    if (a > 0) { 
+      if (this.data.height != 800) { this.setData({ height: a }), console.log(this.data.height) }
+      else { this.setData({height:800})}
+      }
+  },
+  c: function (e) {
+    if (this.data.d > 0) { this.setData({ clientY1: e.changedTouches[0].clientY, height: 800 })}
+    else { this.setData({height:0}) }
+    
   },
   add: function () {
     var _this = this;
@@ -63,8 +107,8 @@ Page({
     that.mapCtx = wx.createMapContext('loactionMap', this);
   },
   onLoad(options) {
-    var that = this;
 
+    var that = this;
     that.authorAddress();
     that.setMapSize();
     that.getShareLocation(options);

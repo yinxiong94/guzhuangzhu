@@ -1,0 +1,73 @@
+<view class="db">
+  <view class="header">
+    <image lazy-load='true' src="/pages/img/bg698.png"></image>
+    <view class="words">
+      <text class='words_x'>余额:</text>
+      <text class='words_d'>328元</text>
+    </view>
+  </view>
+  <view class="mian">
+    <view class="list red">
+      <view>
+        <text>30元</text>
+        <text class="list_s">送30元</text>
+      </view>
+    </view>
+    <view class="list">
+      <view>
+        <text>50元</text>
+        <text class="list_s">送50元</text>
+      </view>
+    </view>
+    <view class="list">
+      <view>
+        <text>100元</text>
+        <text class="list_s">送100元</text>
+      </view>
+    </view>
+    <view class="list">
+      <view>
+        <text>300元</text>
+        <text class="list_s">送300元</text>
+      </view>
+    </view>
+    <view class="list">
+      <view>
+        <text>1000元</text>
+        <text class="list_s">送1000元</text>
+      </view>
+    </view>
+    <view class="list">
+      <view>
+        <text>5000元</text>
+        <text class="list_s">送5000元</text>
+      </view>
+    </view>
+  </view>
+  <view class="payment">
+    <view class='item'>
+      <view class="item_left">
+        <image lazy-load='true' src="/pages/img/zhifu1.png"></image>
+        <text>微信支付</text>
+      </view>
+      <view class="item_right">
+        <checkbox class='check'></checkbox>
+      </view>
+    </view>
+    <view class='item'>
+      <view class="item_left">
+        <image lazy-load='true' src="/pages/img/zhifu2.png"></image>
+        <text>微信支付</text>
+      </view>
+      <view class="item_right">
+        <checkbox class='check'></checkbox>
+      </view>
+    </view>
+  </view>
+  <view class="footer">
+    <view class="Agreement">点击充值表示你已同意
+      <text>《充值协议》</text>
+    </view>
+  </view>
+  <view class="btn">去充值</view>
+</view>
