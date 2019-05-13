@@ -30,6 +30,20 @@
   padding-top: 34rpx;
   padding-left: 18rpx;
   display: flex;
+  position: relative;
+}
+.db .header .header_top .header_left .right{
+  width: 167rpx;
+  height: 36rpx;
+  position: absolute;
+  right: -30rpx;
+  top:109rpx;
+  font-size: 24rpx;
+  color:#7a7a7a;
+  background-color: rgba(255,255,255,0.6);
+  border-radius: 18rpx 0 0 18rpx;
+  text-align: center;
+  line-height: 36rpx;
 }
 .db .header .header_top .header_left .img{
   width: 140rpx;
@@ -90,10 +104,8 @@
   margin: 0 auto;
   margin-top: 20rpx;
   position: absolute;
-
   overflow: hidden;
   border-radius: 36rpx 36rpx 0 0;
-
 }
 
 .db .mian .img image {

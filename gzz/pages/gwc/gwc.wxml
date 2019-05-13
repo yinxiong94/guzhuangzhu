@@ -39,7 +39,7 @@
 <view class='dbnav'>
     <checkbox class='check' bindtap='all' checked='{{c}}'></checkbox>
     <text>全选</text>
-    <button class='butt1' bindtap='nowshop'>购买结算</button>
+    <view class='butt1' bindtap='nowshop'>购买结算</view>
     <text class='zj'>￥600.00</text>
     <text class='hj'>商品总价：</text>
     

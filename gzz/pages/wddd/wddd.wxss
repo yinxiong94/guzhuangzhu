@@ -15,9 +15,9 @@ page{
 }
 .header .ls{
   font-size: 30rpx;
-  color:rgba(44,155,14,1);
+  color:#fbc00e;
   padding-bottom: 10rpx;
-  border-bottom:4rpx solid rgba(44,155,14,1)
+  border-bottom:4rpx solid #fbc00e
 }
 .deas{
   padding: 25rpx  30rpx;
@@ -159,14 +159,16 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
 }
 .t_2{
   width: 134rpx;
-  height: 46rpx;
-  border:1rpx solid #2C9B0E;
-  font-size:20rpx;
+  height: 56rpx;
+  border:1rpx solid #fbc00e;
+  font-size:24rpx;
   font-family:PingFang-SC-Medium;
   font-weight:500;
-  color:#2C9B0E;
-  padding: 12rpx 18rpx;
-  margin-left: 10rpx
+  color:#fbc00e;
+  display: inline-block;
+  box-sizing: border-box;
+  line-height: 56rpx;
+  text-align: center
 }
 .all{
   margin-bottom: 20rpx

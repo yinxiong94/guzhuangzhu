@@ -3,6 +3,9 @@
     <view class="header_top">
       <view class="header_left">
         <image class="img" lazy-load='true' src="/pages/img/tx.png"></image>
+        <view class="right">
+        修改手机号码
+        </view>
         <view class="title">
           <text class="title_text">谷庄主大米</text>
           <view class="img">

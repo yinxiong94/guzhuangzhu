@@ -118,7 +118,7 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
   box-sizing: border-box;
 }
 .dbnav text{
-  line-height: 75rpx;
+  line-height: 85rpx;
   font-size: 26rpx
 }
 .title{
@@ -142,10 +142,13 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
 }
 .butt1{
     width: 250rpx;
-    height: 75rpx;
+    height:85rpx;
     background: #fbc00e;
     color:#000;
     float: right;
-    line-height: 75rpx;
-    border-radius:0 !important
+    line-height: 85rpx;
+    border-radius:0 !important;
+    font-size: 30rpx;
+    border:0 !important;
+    text-align: center
 }
