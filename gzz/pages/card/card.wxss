@@ -46,7 +46,6 @@ page{
   box-sizing: border-box;
   margin-top: 60rpx;
   background-color: #F4F4F4;
-
 }
 .db .footer .btn{
   width: 700rpx;

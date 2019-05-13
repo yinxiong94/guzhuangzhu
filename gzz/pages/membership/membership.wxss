@@ -66,6 +66,7 @@ page{
   color: #fff;
   font-size: 34rpx;
   border-radius: 44rpx;
+
 }
 .list swiper{
   width: 750rpx;

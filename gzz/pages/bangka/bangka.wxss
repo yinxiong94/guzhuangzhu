@@ -1,9 +1,10 @@
 page{
   background: #F4F4F4
 }
+
 .db {
   width: 100%;
-  background-color: #F4F4F4;
+  background-color:#F4F4F4;
   padding: 50rpx 0;
 }
 

@@ -7,6 +7,7 @@ Page({
   data: {
 
   },
+
   wddd:function(){
     wx.navigateTo({
       url: '/pages/wddd/wddd',
@@ -22,6 +23,7 @@ Page({
       url: '/pages/member/member',
     })
   },
+
   /**
    * 生命周期函数--监听页面加载
    */

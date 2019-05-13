@@ -90,8 +90,10 @@
   margin: 0 auto;
   margin-top: 20rpx;
   position: absolute;
+
   overflow: hidden;
   border-radius: 36rpx 36rpx 0 0;
+
 }
 
 .db .mian .img image {

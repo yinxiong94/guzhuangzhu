@@ -16,7 +16,6 @@
     "pages/ddzf/ddzf",
     "pages/gwc/gwc",
     "pages/logs/logs"
-    
   ],
   "window": {
     "enablePullDownRefresh": true,
@@ -59,5 +58,6 @@
         "selectedIconPath": "pages/img/wd1.png"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

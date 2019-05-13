@@ -118,9 +118,11 @@
   font-size:22rpx;
   color:rgba(110,108,108,1);
 }
+
 .red{
   color: #FF6666 !important
 }
+
 .db .item .item_list image {
   width: 80rpx;
   height: 80rpx;

@@ -14,8 +14,6 @@
   padding-bottom: 7rpx;
 }
 
-.db .header .title {
-}
 
 .db .header .title .title_h1 {
   font-size: 30rpx;
@@ -130,6 +128,7 @@
   color: rgba(33, 32, 32, 1);
   margin-right: 14rpx;
   margin-top: 18rpx;
+
 }
 
 .db .ng .ng_nei .title_item .img {

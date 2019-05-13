@@ -26,6 +26,7 @@ Page({
       url: '/pages/article/article',
     })
   },
+
   onLoad: function (options) {
 
   },
