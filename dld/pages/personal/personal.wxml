@@ -1,0 +1,32 @@
+<view class="top"></view>
+
+<view class='tx'>
+    <image src="/pages/img/tx.png"></image>
+    <view class='xx'>
+        <view class='t1'>小浣熊</view>
+        <view class='t2'>长沙市天心区九峰小区</view>
+    </view>
+</view>
+
+<view class='xxx'>
+    <view class='xq'>
+        <image src="/pages/img/jyjl.png" class='img1 m0'></image>
+        <view>交易记录</view>
+    </view>
+    <view class='xq'>
+        <image src="/pages/img/sk.png" class='img2 m0'></image>
+        <view>我的提现</view>
+    </view>
+    <view class='xq'>
+        <image src="/pages/img/yj.png" class='img3'></image>
+        <view>我的佣金</view>
+    </view>
+    <view class='xq' bindtap='mymember'>
+        <image src="/pages/img/hy.png" class='img4'></image>
+        <view>我的会员</view>
+    </view>
+    <view class='xq'>
+        <image src="/pages/img/yhk.png" class='img5'></image>
+        <view>我的银行卡</view>
+    </view>
+</view>

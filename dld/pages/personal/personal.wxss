@@ -1,0 +1,87 @@
+.top{
+  width: 750rpx;
+  height: 1rpx;
+  background:rgba(203,203,203,1);
+}
+.tx{
+  width: 84%;
+  margin: auto;
+  margin-top: 38rpx
+}
+.tx image{
+  width: 160rpx;
+  height: 160rpx;
+  display: inline-block
+}
+.xx{
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 33rpx;
+  margin-top: 36rpx
+}
+.t1{
+  font-size: 36rpx;
+  font-weight: bold
+}
+.t2{
+  font-size: 30rpx;
+  font-weight: 500rpx
+}
+.xxx{
+  width: 89.33%;
+  margin: auto;
+  margin-top: 108rpx;
+  display: flex;
+  flex-wrap: wrap
+}
+.xq{
+  width: 50%;
+  text-align: center;
+  height: 262rpx;
+  border-bottom: 2rpx solid rgba(231,233,248,1);
+  border-right: 2rpx solid rgba(231,233,248,1);
+  box-sizing: border-box
+}
+.xxx .xq:nth-child(2n){
+  border-bottom: 2rpx solid rgba(231,233,248,1);
+  border-right: 0;
+  box-sizing: border-box
+}
+.xxx .xq:nth-child(1),.xxx .xq:nth-child(2){
+  height: 191rpx;
+}
+.xxx .xq:last-child{
+  border-bottom: 0
+}
+.xq view{
+  font-size: 26rpx;
+  margin-top: 45rpx
+}
+.img1{
+  width:40rpx;
+  height: 46rpx ;
+  margin-top: 77rpx
+}
+.img2{
+  width:55rpx;
+  height: 46rpx ;
+  margin-top: 77rpx
+}
+.m0{
+  margin-top: 0
+}
+.img3{
+  width: 48rpx;
+  height: 49rpx;
+   margin-top: 75rpx
+}
+.img4{
+  width: 64rpx;
+  height: 52rpx;
+   margin-top: 75rpx
+}
+.img5{
+  width: 55rpx;
+  height: 43rpx;
+  margin-top: 77rpx
+}

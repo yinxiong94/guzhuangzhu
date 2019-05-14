@@ -1,0 +1,33 @@
+{
+  "pages": [
+    "pages/tixian/tixian",
+    "pages/bound/bound",
+    "pages/personal/personal",
+    "pages/mymember/mymember",
+    "pages/mydevice/mydevice",
+    "pages/logs/logs"
+    
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/mydevice/mydevice",
+        "text": "我的设备",
+        "iconPath": "/pages/img/fmj.png",
+        "selectedIconPath": "/pages/img/fmj1.png"
+      },
+      {
+        "pagePath": "pages/personal/personal",
+        "text": "个人中心",
+        "iconPath": "/pages/img/wd.png",
+        "selectedIconPath": "/pages/img/wd1.png"
+      }
+    ]
+  }
+}

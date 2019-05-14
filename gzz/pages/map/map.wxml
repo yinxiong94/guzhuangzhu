@@ -1,6 +1,6 @@
 <cover-image src="/pages/img/e.png" class='img1' bindtap='add'></cover-image>  
 <map  longitude="{{longitude}}" latitude="{{latitude}}" scale="17" show-location="true"  markers="{{markers}}"></map>
-<cover-view class="xs" bindtouchstart='a' bindtouchmove='b' bindtouchend='c' style="top:{{800-height}}rpx">
+<cover-view style="transform:translateY({{800-height}}rpx)" class="xs" bindtouchstart='a' bindtouchmove='b' bindtouchend='c' >
     <cover-view class='img2'></cover-view>
     <cover-view class='fjsb'>
         <cover-view class='wdfj'>我附近的设备</cover-view>     

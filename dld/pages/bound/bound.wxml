@@ -1,0 +1,9 @@
+<view class="top"></view>
+<image src="/pages/img/bdyhk.png" class='yhk'></image>
+<image src="/pages/img/js.png" class='js'></image>
+<view class='kkk'>
+    <view class='kk'>建设银行<text class='kk1'>银行卡</text></view>
+    <view class='kk2'>···· ···· ···· <text>0718</text></view>
+</view>
+
+<image src="/pages/img/gh.png" class='gh'></image>

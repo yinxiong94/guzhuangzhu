@@ -1,0 +1,53 @@
+.top{
+  width: 750rpx;
+  height: 1rpx;
+  background:rgba(203,203,203,1);
+}
+.yhk{
+  width: 750rpx;
+  height: 350rpx;
+  position: absolute
+}
+.js{
+  width: 64rpx;
+  height: 64rpx;
+  position: absolute;
+  top:79rpx;
+  left: 68rpx
+}
+.kkk{
+  position: absolute;
+  top:90rpx;
+  left: 149rpx
+}
+.kk{
+  font-size: 28rpx;
+  color:#fff
+}
+.kk1{
+  display: inline-block;
+  border:1rpx solid #fff;
+  font-size: 22rpx;
+  padding-left: 16rpx;
+  padding-right: 16rpx;
+  margin-left: 10rpx
+}
+.kk2{
+  font-size: 80rpx;
+  color:#fff;
+  line-height: 32rpx;
+  margin-top: 50rpx
+}
+.kk2 text{
+  font-size: 36rpx;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 2rpx
+}
+.gh{
+  width: 559rpx;
+  height: 133rpx;
+  position: absolute;
+  bottom:216rpx;
+  left: 90rpx
+}

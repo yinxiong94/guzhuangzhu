@@ -7,7 +7,7 @@ Page({
     latitude: "",
     clientY:"",
     clientY1:"",
-    height:"",
+    height:0,
     markers: [{
       "id": 1,
       "title": "马王堆汉墓",
@@ -55,17 +55,25 @@ Page({
       latitude: 0
     }
   },
+  functionPending:null,
   a:function(e){
    this.setData({ clientY: e.changedTouches[0].clientY})
  },
   b: function (e) {
-    this.setData({ clientY1: e.changedTouches[0].clientY })
+    if(this.functionPending) return
+    this.functionPending =setTimeout(()=>{
+      this.functionPending=null
+    },30)
+
+    const changeData={}
+    changeData.clientY1=e.changedTouches[0].clientY
     var a = this.data.clientY - this.data.clientY1;
-    this.setData({d:a})
+    changeData.d=a   
     if (a > 0) { 
-      if (this.data.height != 800) { this.setData({ height: a }), console.log(this.data.height) }
-      else { this.setData({height:800})}
+      if (this.data.height != 800) { changeData.height=a, console.log(this.data.height) }
+      else { changeData.height = 800}
       }
+    this.setData(changeData)
   },
   c: function (e) {
     if (this.data.d > 0) { this.setData({ clientY1: e.changedTouches[0].clientY, height: 800 })}
@@ -111,7 +119,7 @@ Page({
     var that = this;
     that.authorAddress();
     that.setMapSize();
-    that.getShareLocation(options);
+    // that.getShareLocation(options);
   },
   //用户地理位置授权
   authorAddress: function () {
@@ -121,7 +129,7 @@ Page({
         longitude: res.longitude,
         latitude: res.latitude
       });
-      that.showMarkerInfo(res.longitude, res.latitude);
+      // that.showMarkerInfo(res.longitude, res.latitude);
     });
   },
   //初始化当前位置
