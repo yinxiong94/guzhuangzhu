@@ -1,0 +1,26 @@
+.db {
+  width: 100%;
+  background-color: #f1f1f1;
+  padding-top: 125rpx;
+}
+
+.db .header {
+  width: 546rpx;
+  height: 410rpx;
+  margin: 0 auto;
+}
+
+.db .header image {
+  width: 546rpx;
+  height: 410rpx;
+}
+.db .btn{
+  width: 293rpx;
+  height: 87rpx;
+  margin: 0 auto;
+  margin-top: 266rpx;
+}
+.db .btn image{
+  width: 293rpx;
+  height: 87rpx;
+}

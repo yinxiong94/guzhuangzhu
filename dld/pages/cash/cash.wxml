@@ -1,0 +1,102 @@
+<view class="db">
+  <view class="header">
+    <view class="header_item">
+      <view class="item ash">
+        <view class="item_t">
+          <text>2019年5月</text>
+          <view class="iconfont icon-jiantou jiantou"></view>
+        </view>
+        <view class="item_b">
+          <text>支出￥100.00  收入￥1060.00</text>
+        </view>
+      </view>
+      <view class="list white">
+        <view class="list_left">
+          <text class="left_ka">余额提现到建设银行***056</text>
+          <text class="left_date">6月29日 13:56</text>
+        </view>
+        <view class="list_right">
+          <text class="pirce">￥</text>
+          <text class="money">100.00</text>
+        </view>
+      </view>
+      <view class="hhh"></view>
+      <view class="list white">
+        <view class="list_left">
+          <text class="left_ka">余额提现到建设银行***056</text>
+          <text class="left_date">6月29日 13:56</text>
+        </view>
+        <view class="list_right">
+          <text class="pirce">￥</text>
+          <text class="money">100.00</text>
+        </view>
+      </view>
+      <view class="hhh"></view>
+    </view>
+    <view class="header_item">
+      <view class="item ash">
+        <view class="item_t">
+          <text>2019年4月</text>
+          <view class="iconfont icon-jiantou jiantou"></view>
+        </view>
+        <view class="item_b">
+          <text>支出￥100.00  收入￥1060.00</text>
+        </view>
+      </view>
+      <view class="list white">
+        <view class="list_left">
+          <text class="left_ka">余额提现到建设银行***056</text>
+          <text class="left_date">6月29日 13:56</text>
+        </view>
+        <view class="list_right">
+          <text class="pirce">￥</text>
+          <text class="money">100.00</text>
+        </view>
+      </view>
+      <view class="hhh"></view>
+      <view class="list white">
+        <view class="list_left">
+          <text class="left_ka">余额提现到建设银行***056</text>
+          <text class="left_date">6月29日 13:56</text>
+        </view>
+        <view class="list_right">
+          <text class="pirce">￥</text>
+          <text class="money">100.00</text>
+        </view>
+      </view>
+    </view>
+    <view class="header_item">
+      <view class="item ash">
+        <view class="item_t">
+          <text>2019年4月</text>
+          <view class="iconfont icon-jiantou jiantou"></view>
+        </view>
+        <view class="item_b">
+          <text>支出￥100.00  收入￥1060.00</text>
+        </view>
+      </view>
+    </view>
+    <view class="header_item">
+      <view class="item ash">
+        <view class="item_t">
+          <text>2019年4月</text>
+          <view class="iconfont icon-jiantou jiantou"></view>
+        </view>
+        <view class="item_b">
+          <text>支出￥100.00  收入￥1060.00</text>
+        </view>
+      </view>
+    </view>
+    <view class="header_item">
+      <view class="item ash">
+        <view class="item_t">
+          <text>2019年4月</text>
+          <view class="iconfont icon-jiantou jiantou"></view>
+        </view>
+        <view class="item_b">
+          <text>支出￥100.00  收入￥1060.00</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

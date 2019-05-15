@@ -1,0 +1,8 @@
+<view class="db">
+  <view class="header">
+    <image lazy-load='true' src="/pages/img/bg1.png"></image>
+  </view>
+  <view class="btn">
+  <image lazy-load='true' src='/pages/img/bangding.png'></image>
+  </view>
+</view>

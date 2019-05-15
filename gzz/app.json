@@ -1,8 +1,7 @@
 {
   "pages": [
-    
-    "pages/index/index",
     "pages/recharge/recharge",
+    "pages/index/index",
     "pages/article/article",
     "pages/commodity/commodity",
     "pages/membership/membership",
