@@ -1,20 +1,17 @@
 {
   "pages": [
-<<<<<<< HEAD
+
     "pages/cash/cash",
     "pages/binding/binding",
     "pages/transaction/transaction",
     "pages/royalty/royalty",
-    "pages/index/index"
-=======
+    "pages/index/index",
     "pages/tixian/tixian",
     "pages/bound/bound",
     "pages/personal/personal",
     "pages/mymember/mymember",
     "pages/mydevice/mydevice",
     "pages/logs/logs"
-    
->>>>>>> 1a1fdea4bf39aa7e59c959ca2d6ca923353365f2
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -22,9 +19,6 @@
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
   },
-<<<<<<< HEAD
-  "sitemapLocation": "sitemap.json"
-=======
   "tabBar": {
     "list": [
       {
@@ -41,5 +35,4 @@
       }
     ]
   }
->>>>>>> 1a1fdea4bf39aa7e59c959ca2d6ca923353365f2
 }
