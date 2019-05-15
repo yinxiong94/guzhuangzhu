@@ -1,0 +1,20 @@
+<view class='top'></view>
+<image src="/pages/img/bdyhk.png" class='yhk'></image>
+<image src="/pages/img/js.png" class='js'></image>
+<view class='kkk'>
+    <view class='kk'>建设银行<text class='kk1'>银行卡</text></view>
+    <view class='kk2'>···· ···· ···· <text>0718</text></view>
+</view>
+
+<view class='ktx'>可提现金额:<text>12,100.00</text>元</view>
+
+<view class='tx1'>
+    <text class='aaa'>￥</text><input></input>
+    <view class='tx2'>全部提现</view>
+</view>
+
+<view class='tx_1'>
+      <view class='t1'>每次提现不得少于100元</view>
+      <view class='t2'>查看提现记录</view>
+</view>
+<image src="/pages/img/ljcz.png" class='img9'></image>

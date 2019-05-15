@@ -177,7 +177,7 @@ swiper{
   font-size:36rpx;
   font-family:PingFang-SC-Bold;
   font-weight:bold;
-  color:#fbc00e;
+  color:#000;
   margin-top: 10rpx
 }
 .gwc{
