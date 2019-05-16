@@ -134,7 +134,7 @@ swiper{
   text-align: center
 }
 .more1{
-  top:1015rpx
+  top:1298rpx
 }
 .deas_all{
   width: 96%;
@@ -211,4 +211,21 @@ swiper{
 .list swiper-item image.active{
   transform: scale(1.14);
   transition:all .2s ease-in 0s;
+}
+.yhq{ 
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30rpx;
+  margin-bottom: 35rpx
+}
+.more2{
+  top:695rpx
+}
+.yhq view{
+  width: 237rpx
+}
+.yhq image{
+  width: 237rpx;
+  height: 115rpx
 }

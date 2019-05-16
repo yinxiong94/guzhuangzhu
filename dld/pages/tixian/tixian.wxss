@@ -55,7 +55,7 @@
     color:#000
   }
   input{
-    width: 92%;
+    width: 84%;
     margin: auto;
     border-bottom: 2rpx solid rgba(254,229,154,1);
     display: inline-block;
@@ -65,7 +65,6 @@
     font-size: 60rpx;
     padding-left: 50rpx;
     color:#F5D164;
-    box-sizing: border-box
   }
   .aaa{
     display: inline-block;

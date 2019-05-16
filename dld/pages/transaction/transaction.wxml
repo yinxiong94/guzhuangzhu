@@ -1,0 +1,93 @@
+<view class="db">
+  <view class="header">
+    <view class="calendar">
+      <image lazy-load='true' src="/pages/img/rl.png"></image>
+    </view>
+    <text class="text">今日  交易总额</text>
+    <view class="xian"></view>
+    <text class="pirce">10,500.00</text>
+    <image lazy-load='true' src="/pages/img/bg.png"></image>
+  </view>
+    <view class="list">
+    <view class="list_zc">
+      <view class="item">
+        <view class="list_item">
+          <image lazy-load='true' src="/pages/img/nav.png"></image>
+          <text class="text">设备：九峰小区12栋1号设备</text>
+        </view>
+        <view class="list_item_right">
+          <text>￥3200.00</text>
+          <view class="iconfont icon-jiantou"></view>
+        </view>
+      </view>
+      <view class="list_td">
+        <text class="tiem">12:22</text>
+        <text class="title">古庄主泰国稻花香米10Kg</text>
+        <text class="pirce">+120.00</text>
+      </view>
+      <view class="list_td">
+        <text class="tiem">12:22</text>
+        <text class="title">古庄主泰国稻花香米10Kg</text>
+        <text class="pirce">+120.00</text>
+      </view>
+      <view class="list_td">
+        <text class="tiem">12:22</text>
+        <text class="title">古庄主泰国稻花香米10Kg</text>
+        <text class="pirce">+120.00</text>
+      </view>
+      <view class="list_td">
+        <text class="tiem">12:22</text>
+        <text class="title">古庄主泰国稻花香米10Kg</text>
+        <text class="pirce">+120.00</text>
+      </view>
+    </view>
+    <view class="list_zc">
+      <view class="item">
+        <view class="list_item">
+          <image lazy-load='true' src="/pages/img/nav.png"></image>
+          <text class="text">设备：九峰小区12栋1号设备</text>
+        </view>
+        <view class="list_item_right">
+          <text>￥3200.00</text>
+          <view class="iconfont icon-jiantou"></view>
+        </view>
+      </view>
+    </view>
+    <view class="list_zc">
+      <view class="item">
+        <view class="list_item">
+          <image lazy-load='true' src="/pages/img/nav.png"></image>
+          <text class="text">设备：九峰小区12栋1号设备</text>
+        </view>
+        <view class="list_item_right">
+          <text>￥3200.00</text>
+          <view class="iconfont icon-jiantou"></view>
+        </view>
+      </view>
+    </view>
+    <view class="list_zc">
+      <view class="item">
+        <view class="list_item">
+          <image lazy-load='true' src="/pages/img/nav.png"></image>
+          <text class="text">设备：九峰小区12栋1号设备</text>
+        </view>
+        <view class="list_item_right">
+          <text>￥3200.00</text>
+          <view class="iconfont icon-jiantou"></view>
+        </view>
+      </view>
+    </view>
+    <view class="list_zc">
+      <view class="item">
+        <view class="list_item">
+          <image lazy-load='true' src="/pages/img/nav.png"></image>
+          <text class="text">设备：九峰小区12栋1号设备</text>
+        </view>
+        <view class="list_item_right">
+          <text>￥3200.00</text>
+          <view class="iconfont icon-jiantou"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

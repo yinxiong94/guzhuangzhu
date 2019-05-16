@@ -172,3 +172,18 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
   border-radius:14rpx;
   box-shadow: 1px 1px 2px #fbc00e;
 }
+.kh{
+  font-size: 38rpx;
+  position: absolute;
+  top:47rpx;
+  left: 27rpx
+}
+.czkh{
+  font-size: 38rpx;
+  border-bottom: 1rpx solid rgba(221,222,226,1);
+  width: 698rpx;
+  margin: auto;
+  padding-left: 100rpx;
+  box-sizing: border-box;
+  margin-top: 47rpx
+}

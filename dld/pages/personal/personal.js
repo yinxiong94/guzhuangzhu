@@ -12,6 +12,26 @@ Page({
       url: '/pages/mymember/mymember',
     })
   },
+  wdtx:function(){
+    wx.navigateTo({
+      url: '/pages/tixian/tixian',
+    })
+  },
+  jyjl:function(){
+    wx.navigateTo({
+      url: '/pages/transaction/transaction',
+    })
+  },
+  myyj:function(){
+    wx.navigateTo({
+      url: '/pages/royalty/royalty',
+    })
+  },
+  yhk:function(){
+    wx.navigateTo({
+      url: '/pages/index/index',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

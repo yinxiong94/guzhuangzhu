@@ -1,0 +1,144 @@
+@import "../icon/stylesheet.wxss";
+
+.db {
+  width: 100%;
+  background-color: #f1f1f1;
+}
+
+.db .header {
+  width: 100%;
+  height: 400rpx;
+  position: relative;
+}
+
+.db .header .calendar {
+  width: 40rpx;
+  height: 42rpx;
+  position: absolute;
+  top: 20rpx;
+  right: 30rpx;
+}
+
+.db .header .calendar image {
+  width: 40rpx;
+  height: 42rpx;
+}
+
+.db .header .text {
+  text-align: center;
+  color: #fff;
+  position: absolute;
+  top: 76rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.db .header .xian {
+  width: 39rpx;
+  height: 4rpx;
+  position: absolute;
+  background-color: #fff;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 133rpx;
+}
+
+.db .header .pirce {
+  position: absolute;
+  top: 189rpx;
+  color: #fff;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 60rpx;
+  font-weight: bold;
+}
+
+.db .header image {
+  width: 100%;
+  height: 400rpx;
+}
+
+.db .list {
+  width: 93%;
+  margin: 0 auto;
+  border-radius: 12rpx;
+  background-color: #fff;
+  margin-top:-44rpx;
+  position: relative;
+  z-index: 10;
+}
+
+.db .list .list_zc .item {
+  width: 100%;
+  display: flex;
+}
+
+.db .list .list_zc .item .list_item {
+  width: 550rpx;
+  height: 78rpx;
+  display: flex;
+  box-sizing: border-box;
+  padding: 20rpx 26rpx 0 13rpx;
+}
+
+.db .list .list_zc .item .list_item image {
+  width: 29rpx;
+  height: 35rpx;
+  margin-top: 4rpx;
+}
+
+.db .list .list_zc .item .list_item .text {
+  font-size: 30rpx;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+  color: rgba(51, 51, 51, 1);
+  margin-left: 33rpx;
+}
+
+.db .list .list_zc .item .list_item_right {
+  display: flex;
+}
+
+.db .list .list_zc .item .list_item_right text {
+  font-size: 24rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(79, 143, 243, 1);
+  margin-top: 27rpx;
+}
+
+.db .list .list_zc .item .list_item_right view {
+  line-height: 78rpx;
+  margin-left: 20rpx;
+  margin-right: 25rpx;
+}
+
+.db .list .list_zc .list_td {
+  display: flex;
+  height: 78rpx;
+  line-height: 78rpx;
+}
+
+.db .list .list_zc .list_td .tiem {
+  font-size: 22rpx;
+  width: 80rpx;
+  text-align: center;
+}
+
+.db .list .list_zc .list_td .title {
+  flex: 1;
+  font-size: 26rpx;
+  margin-left: 73rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(36, 36, 36, 1);
+}
+
+.db .list .list_zc .list_td .pirce {
+  width: 160rpx;
+  font-size: 26rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(79, 143, 243, 1);
+  text-align: center;
+}

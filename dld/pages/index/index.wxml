@@ -1,4 +1,15 @@
 <view class="top"></view>
+
+<view class="db" wx:if="{{show==1}}">
+  <view class="header">
+    <image lazy-load='true' src="/pages/img/bg1.png"></image>
+  </view>
+  <view class="btn" bindtap='bdyhk'>
+  <image lazy-load='true' src='/pages/img/bangding.png'></image>
+  </view>
+</view>
+
+<view class='db1' wx:if="{{show==0}}">
 <image src="/pages/img/bdyhk.png" class='yhk'></image>
 <image src="/pages/img/js.png" class='js'></image>
 <view class='kkk'>
@@ -7,3 +18,4 @@
 </view>
 
 <image src="/pages/img/gh.png" class='gh'></image>
+</view>

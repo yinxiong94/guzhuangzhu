@@ -92,3 +92,85 @@
   transform: scale(1.14);
   transition:all .2s ease-in 0s;
 }
+.deas_all{
+  width: 96%;
+  margin: auto;
+  margin-top: 30rpx
+}
+.deas_list{
+  position: relative;
+  margin-bottom: 50rpx;
+  margin-top: 30rpx
+}
+.deas_img{
+  width: 720rpx;
+  height: 385rpx
+}
+.deas_img1{
+  width: 735rpx;
+  height: 197rpx;
+  position: absolute;
+  top:385rpx;
+  left: 0rpx
+}
+.deas_list view{
+  position: relative;
+  left: 30rpx;
+  width: 634rpx;
+}
+.deas_text{
+  font-size:30rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(0,0,0,1); 
+}
+.deas_text1{
+  font-size:26rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(161,161,161,1);
+  margin-top: 30rpx
+}
+.deas_text2{
+  font-size:36rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:#000;
+  margin-top: 30rpx
+}
+.gwc{
+  width: 59rpx;
+  height: 54rpx;
+  position: absolute;
+  top:435rpx;
+  right: 205rpx
+}
+.gm{
+  width: 154rpx;
+  height: 55rpx;
+  position: absolute;
+  right: 15rpx;
+  top:435rpx
+}
+.list swiper{
+  width: 750rpx;
+  height: 420rpx;
+}
+.list swiper-item{
+  padding-top: 50rpx;
+}
+.list swiper-item image{
+  width: 526rpx;
+  height: 302rpx;
+  position: absolute;
+  left: 50%;
+  margin-left: -263rpx;
+}
+.list swiper-item image.active{
+  transform: scale(1.14);
+  transition:all .2s ease-in 0s;
+}
+.kong{
+  width: 100%;
+  height: 30rpx
+}

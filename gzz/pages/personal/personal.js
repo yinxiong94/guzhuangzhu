@@ -33,6 +33,16 @@ Page({
       url: '/pages/bbhuy/bbhyk',
     })
   },
+  gsj:function(){
+    wx.navigateTo({
+      url: '/pages/gsj/gsj',
+    })
+  },
+  yhqzx:function(){
+    wx.navigateTo({
+      url: '/pages/discount/discount',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

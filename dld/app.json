@@ -1,12 +1,14 @@
 {
   "pages": [
-    "pages/tixian/tixian",
-    "pages/bound/bound",
     "pages/personal/personal",
+    "pages/index/index",
+    "pages/cash/cash",    
+    "pages/tixian/tixian",
     "pages/mymember/mymember",
-    "pages/mydevice/mydevice",
-    "pages/logs/logs"
-    
+    "pages/mydevice/mydevice",   
+    "pages/royalty/royalty",
+    "pages/transaction/transaction",
+    "pages/binding/binding" 
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -15,6 +17,7 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
+    "selectedColor": "#fbc00e",
     "list": [
       {
         "pagePath": "pages/mydevice/mydevice",

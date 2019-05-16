@@ -12,11 +12,25 @@
   <view class='hy'>
     <view class='v1'></view>
     <view class='v2'></view>
+    <view class="hy1">优惠券中心</view>
+    <view class='v2'></view>
+    <view class='v1'></view>
+  </view>
+  <view class='yhq'>
+      <view><image src="/pages/img/q20.png"></image></view>
+      <view><image src="/pages/img/q50.png"></image></view>
+      <view><image src="/pages/img/q80.png"></image></view>
+  </view>
+  <view class='more' bindtap='yhqzx'>更多</view>
+  <view class='hx'></view>
+  <view class='hy'>
+    <view class='v1'></view>
+    <view class='v2'></view>
     <view class="hy1">电子会员卡</view>
     <view class='v2'></view>
     <view class='v1'></view>
   </view>
-  <view class='more'>更多</view>
+  <view class='more more2'>更多</view>
   <view class='list' bindtap='kthy'>
   <swiper  autoplay="{{false}}" previous-margin="{{'80rpx'}}" next-margin="{{'80rpx'}}" bindchange="swiperChange" current='1'>
     <block wx:for="{{imgUrls}}" wx:key="{{index}}">

@@ -3,7 +3,7 @@
     <view class="header_top">
       <view class="header_left">
         <image class="img" lazy-load='true' src="/pages/img/tx.png"></image>
-        <view class="right">
+        <view class="right" bindtap='gsj'>
         修改手机号码
         </view>
         <view class="title">
@@ -39,6 +39,13 @@
       <view class="item_left">
         <image lazy-load='true' src="/pages/img/dd1.png" class='img0'></image>
         <text>我的会员卡</text>
+      </view>
+      <view class="iconfont icon-jiantou jiantou"></view>
+    </view>
+     <view class="item" bindtap='yhqzx'>
+      <view class="item_left">
+        <image lazy-load='true' src="/pages/img/yhq.png" class='img10'></image>
+        <text>优惠券中心</text>
       </view>
       <view class="iconfont icon-jiantou jiantou"></view>
     </view>

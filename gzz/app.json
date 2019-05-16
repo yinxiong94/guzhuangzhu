@@ -1,8 +1,10 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/map/map",
+    "pages/discount/discount",
     
+    "pages/gsj/gsj",
+    "pages/map/map",
     "pages/recharge/recharge",
     "pages/article/article",
     "pages/commodity/commodity",
@@ -12,14 +14,12 @@
     "pages/card/card",
     "pages/bangka/bangka",
     "pages/find/find",
-    
     "pages/wddd/wddd",
     "pages/ddxq/ddxq",
     "pages/ddzf/ddzf",
     "pages/gwc/gwc",
     "pages/logs/logs",
     "pages/bbhuy/bbhyk"
-    
   ],
   "window": {
     "enablePullDownRefresh": true,

@@ -1,4 +1,4 @@
-// pages/bound/bound.js
+// pages/royalty/royalty.js
 Page({
 
   /**

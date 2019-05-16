@@ -1,0 +1,49 @@
+<view class="db">
+  <view class="header">
+    <view class="identity">请输入身份信息</view>
+    <view class="item">
+      <text>真实姓名</text>
+      <input class="input" type='text' placeholder='请输入姓名'></input>
+      <checkbox></checkbox>
+    </view>
+    <view class="item">
+      <text>身份证号</text>
+      <input class="input" type='text' placeholder='请输入身份证号码'></input>
+      <checkbox></checkbox>
+    </view>
+  </view>
+  <view class="mian">
+    <view class="identity">
+      <text class="text1">请输入银行卡号</text>
+      <text class="text2">查看支持银行</text>
+    </view>
+    <view class="list">
+      <text>银行卡号</text>
+      <input type='text' placeholder='请输入银行卡号'></input>
+    </view>
+    <view class="list">
+      <image class="img" lazy-load='true' src="/pages/img/yin.png"></image>
+      <view class="iconfont icon-arrow jiantou"></view>
+    </view>
+    <view class="list">
+      <text>手机号码</text>
+      <input type='text' placeholder='请输入手机号码'></input>
+    </view>
+    <view class="list">
+      <text>短信验证</text>
+      <input type='text' placeholder='请输入验证码'></input>
+      <image class="btn" lazy-load='true' src="/pages/img/btn.png"></image>
+    </view>
+  </view>
+  <view class="footer">
+    <view class="footer_a">
+      <checkbox></checkbox>
+      <view class="footer_text">
+        同意
+        <text>用户协议</text>
+        及其服务条款
+      </view>
+    </view>
+    <image lazy-load='true' src="/pages/img/btn1.png"></image>
+  </view>
+</view>

@@ -9,15 +9,15 @@
 </view>
 
 <view class='xxx'>
-    <view class='xq'>
+    <view class='xq' bindtap='jyjl'>
         <image src="/pages/img/jyjl.png" class='img1 m0'></image>
         <view>交易记录</view>
     </view>
-    <view class='xq'>
+    <view class='xq' bindtap='wdtx'>
         <image src="/pages/img/sk.png" class='img2 m0'></image>
         <view>我的提现</view>
     </view>
-    <view class='xq'>
+    <view class='xq' bindtap='myyj'>
         <image src="/pages/img/yj.png" class='img3'></image>
         <view>我的佣金</view>
     </view>
@@ -25,7 +25,7 @@
         <image src="/pages/img/hy.png" class='img4'></image>
         <view>我的会员</view>
     </view>
-    <view class='xq'>
+    <view class='xq' bindtap='yhk'>
         <image src="/pages/img/yhk.png" class='img5'></image>
         <view>我的银行卡</view>
     </view>
