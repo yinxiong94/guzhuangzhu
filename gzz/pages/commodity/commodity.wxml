@@ -122,7 +122,7 @@
 </view>
 
 <view class="db">
-  <image class="ggg" lazy-load='true' src="/pages/img/swiper1.png"></image>
+  <image class="ggg" lazy-load='true' src="/pages/img/xq.png"></image>
   <view class="header">
     <view class="title">
       <view class="title_h1">

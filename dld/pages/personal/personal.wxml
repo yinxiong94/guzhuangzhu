@@ -1,9 +1,9 @@
 <view class="top"></view>
 
 <view class='tx'>
-    <image src="/pages/img/tx.png"></image>
+    <image  class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
     <view class='xx'>
-        <view class='t1'>小浣熊</view>
+        <view class='t1'>{{userInfo.nickName}}</view>
         <view class='t2'>长沙市天心区九峰小区</view>
     </view>
 </view>

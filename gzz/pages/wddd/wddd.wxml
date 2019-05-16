@@ -11,7 +11,7 @@
   </view>
   <view class='cart'>
       <view class='cart-item'>
-        <image src="/pages/img/deas.png" class='img'></image>
+        <image src="/pages/img/img1.png" class='img'></image>
         <view class='cart-item-1'>
             <view class='title1'>古庄主营养有机米 10Kg</view>
             <view class='title2'>标准：10Kg</view>
@@ -35,7 +35,7 @@
   </view>
   <view class='cart'>
       <view class='cart-item'>
-        <image src="/pages/img/deas.png" class='img'></image>
+        <image src="/pages/img/img2.png" class='img'></image>
         <view class='cart-item-1'>
             <view class='title1'>古庄主营养有机米 10Kg</view>
             <view class='title2'>标准：10Kg</view>
@@ -59,7 +59,7 @@
   </view>
   <view class='cart'>
       <view class='cart-item'>
-        <image src="/pages/img/deas.png" class='img'></image>
+        <image src="/pages/img/img1.png" class='img'></image>
         <view class='cart-item-1'>
             <view class='title1'>古庄主营养有机米 10Kg</view>
             <view class='title2'>标准：10Kg</view>

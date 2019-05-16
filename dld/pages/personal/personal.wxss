@@ -85,3 +85,8 @@
   height: 43rpx;
   margin-top: 77rpx
 }
+.userinfo-avatar{
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%
+}

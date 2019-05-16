@@ -1,8 +1,8 @@
 <view class="db">
   <view class="title">又发现了10条新内容</view>
    <view class='deas_all'>
-      <view class='deas_list'>
-        <image src="/pages/img/swiper.png" class='deas_img' bindtap='spxq'></image>  
+      <view class='deas_list' bindtap='wzxq'>
+        <image src="/pages/img/xq.png" class='deas_img' bindtap='spxq'></image>  
         <image src="/pages/img/db.png" class='deas_img1'></image>  
         <view class='deas_text'>听说谷庄主泰国稻花香米正式上线了|好米，精挑
 细选|好米，万里挑一</view>     
@@ -11,7 +11,7 @@
       </view>
       
       <view class='deas_list'>
-        <image src="/pages/img/swiper1.png" class='deas_img'></image>  
+        <image src="/pages/img/xq1.png" class='deas_img'></image>  
         <image src="/pages/img/db.png" class='deas_img1'></image>  
         <view class='deas_text'>听说谷庄主泰国稻花香米正式上线了|好米，精挑
 细选|好米，万里挑一</view>     

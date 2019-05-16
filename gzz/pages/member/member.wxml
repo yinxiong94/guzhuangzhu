@@ -1,6 +1,6 @@
 <view class="db">
   <view class="header">
-    <image lazy-load='true' src='/pages/img/top1.png'></image>
+    <image lazy-load='true' src='/pages/img/bg698.png'></image>
     <view class="header_pirce">
       <text class="balance">余额:</text>
       <text class="num">500元</text>

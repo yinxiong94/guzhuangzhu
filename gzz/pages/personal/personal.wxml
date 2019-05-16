@@ -2,12 +2,12 @@
   <view class="header">
     <view class="header_top">
       <view class="header_left">
-        <image class="img" lazy-load='true' src="/pages/img/tx.png"></image>
+        <image  class="userinfo-avatar img" src="{{userInfo.avatarUrl}}" mode="cover"></image>
         <view class="right" bindtap='gsj'>
         修改手机号码
         </view>
         <view class="title">
-          <text class="title_text">谷庄主大米</text>
+          <text class="title_text">{{userInfo.nickName}}</text>
           <view class="img">
             <image lazy-load='true' src="/pages/img/shouji.png"></image>
             <text>135****4521</text>
@@ -23,7 +23,11 @@
         <text class="pirce_item1">余额:</text>
         <text class="pirce_item2">500元</text>
       </view>
-      <view class="integral">我的积分: 36积分</view>
+      <view class='kh1'>
+          <text>卡号：</text>
+          <text>79516151</text>
+      </view>
+      <view class="integral">我的积分：36积分</view>
       <image lazy-load='true' src="/pages/img/hui2.png" bindtap='cz'></image>
     </view>
   </view>
