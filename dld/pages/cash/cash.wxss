@@ -18,6 +18,7 @@
 }
 
 .db .header .header_item .item .item_t {
+  margin-top: 15rpx;
   display: flex;
 }
 

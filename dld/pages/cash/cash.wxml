@@ -1,3 +1,4 @@
+
 <view class="top"></view>
 <view class="db">
   <view class="header">
@@ -32,6 +33,7 @@
           <text class="money">100.00</text>
         </view>
       </view>
+      <view class="hhh"></view>
     </view>
     <view class="header_item">
       <view class="item ash">

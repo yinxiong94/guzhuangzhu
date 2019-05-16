@@ -4,6 +4,7 @@
   height: 1rpx;
   background:rgba(203,203,203,1);
 }
+
 .db {
   width: 100%;
   background-color: #f1f1f1;
@@ -79,6 +80,7 @@
   top:-70rpx;
   right: 24rpx;
 }
+
 .db .list {
   width: 93%;
   margin: 0 auto;
