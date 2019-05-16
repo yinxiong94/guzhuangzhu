@@ -2,8 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/article/article",
-    
-    "pages/discount/discount",   
+    "pages/discount/discount",
     "pages/gsj/gsj",
     "pages/map/map",
     "pages/recharge/recharge",
