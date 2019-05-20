@@ -1,0 +1,19 @@
+<view class="db">
+  <view class="header">
+    <image lazy-load='true' src="/pages/img/logo.png"></image>
+  </view>
+  <view class="mian">
+    <view class="list">
+      <input type='text' placeholder='请输入您的账号'></input>
+      <image class="ren" lazy-load='true' src="/pages/img/ren.png"></image>
+    </view>
+    <view class="list">
+      <input type='text' placeholder='请输入密码'></input>
+      <image class="ren" lazy-load='true' src="/pages/img/suo.png"></image>
+      <image class="yan" lazy-load='true' src="/pages/img/yan.png"></image>
+    </view>
+  </view>
+  <view class="btn">
+    登录
+  </view>
+</view>
