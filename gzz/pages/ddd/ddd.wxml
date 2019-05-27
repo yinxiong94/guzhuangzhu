@@ -1,5 +1,0 @@
-
-<wxs module="ddd" src="./ddd.wxs"></wxs>
-<view class='wrap' catchtouchstart='{{ddd.touchstart}}' catchtouchmove='{{ddd.touchmove}}' catchtouchend='{{ddd.touchend}}'>
-  <view class='red'></view>
-</view>

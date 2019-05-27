@@ -1,8 +1,0 @@
-/* pages/ddd/ddd.wxss */
-.red{
-  background: #000;
-  width:200rpx;
-  height: 200rpx;
-  position: absolute;
-  top:800rpx
-}

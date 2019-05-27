@@ -2,7 +2,6 @@
   "pages": [
      
     "pages/index/index",
-    "pages/ddd/ddd",
     "pages/article/article",
     "pages/discount/discount",
     "pages/gsj/gsj",
