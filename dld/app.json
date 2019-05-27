@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/sign/sign",
     "pages/personal/personal",
     "pages/index/index",
     "pages/bound/bound",
@@ -34,5 +35,6 @@
         "selectedIconPath": "/pages/img/wd1.png"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

@@ -1,6 +1,8 @@
 {
   "pages": [
+     
     "pages/index/index",
+    "pages/ddd/ddd",
     "pages/article/article",
     "pages/discount/discount",
     "pages/gsj/gsj",
@@ -18,7 +20,8 @@
     "pages/ddzf/ddzf",
     "pages/gwc/gwc",
     "pages/logs/logs",
-    "pages/bbhuy/bbhyk"
+    "pages/bbhuy/bbhyk",
+    "pages/d520/d520"
   ],
   "window": {
     "enablePullDownRefresh": true,
