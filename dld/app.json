@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/sign/sign",
     "pages/personal/personal",
+    "pages/sign/sign",
+    
     "pages/index/index",
     "pages/bound/bound",
     "pages/cash/cash",

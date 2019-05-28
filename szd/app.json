@@ -1,0 +1,30 @@
+{
+  "pages": [
+    "pages/personal/personal",
+    "pages/mydevice/mydevice",
+    "pages/logs/logs",
+    "pages/device/device"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/device/device",
+        "text": "我的设备",
+        "iconPath": "/pages/img/shebei.png",
+        "selectedIconPath": "/pages/img/shebei1.png"
+      },
+      {
+        "pagePath": "pages/personal/personal",
+        "text": "个人中心",
+        "iconPath": "/pages/img/home1.png",
+        "selectedIconPath": "/pages/img/home.png"
+      }
+    ]
+  }
+}

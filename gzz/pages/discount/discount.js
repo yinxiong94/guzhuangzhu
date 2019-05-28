@@ -1,18 +1,37 @@
 // pages/discount/discount.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+      id:1,
+      list:[]
   },
-
+  quan:function(e){
+    this.setData({ id:e.target.dataset.id})
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this;
+    var a = wx.getStorageSync('Token');
+    console.log(a)
+    var timespan = new Date().getTime();
+    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
+    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
+      wx.request({
+        url: app.globalData.url + '/api/coupon/couponList',
+        method: "POST",
+        header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+        data: { openId: '00001' },
+        success(res) {
+          console.log(res)
+          that.setData({ list: res.data.result })
+        }
+      })
   },
 
   /**

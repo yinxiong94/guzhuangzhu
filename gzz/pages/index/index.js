@@ -1,3 +1,4 @@
+const app = getApp()
 Page({
 
   /**
@@ -5,12 +6,17 @@ Page({
    */
   data: {
     imgUrls: [
-      '/pages/img/hui500.png',
-      '/pages/img/hui500.png',
-      '/pages/img/hui500.png'
+      '/pages/img/hui.png',
+      '/pages/img/hui.png',
+      '/pages/img/hui.png',
     ],
-    swiperIndex: 1
+    list:[],
+    swiperIndex: 1,
+    list1:[],
+    row:[],
+    row1:[]
   },
+  
   swiperChange(e) {
     this.setData({
       swiperIndex: e.detail.current
@@ -34,8 +40,48 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    
+  onLoad: function (options) {  
+    var that=this;  
+    var a=wx.getStorageSync('Token');
+    console.log(a)
+    var timespan = new Date().getTime();   
+    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
+    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
+    wx.request({
+      url: app.globalData.url + '/api/rotationChart/rotationChartList',
+      method:"POST",
+      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature},
+      success(res){
+        that.setData({list:res.data.result})
+      }
+    }),
+    wx.request({
+      url: app.globalData.url +'/api/coupon/couponList',
+      method: "POST",
+      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      data:{openId:'00001'},
+      success(res){
+        that.setData({list1:res.data.result})
+      }
+    }),
+    wx.request({
+      url: app.globalData.url +'/api/memberCard/memberCardConfigList',
+      method: "POST",
+      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      success(res){
+        console.log(res)
+        that.setData({ imgUrls: res.data.result })
+      }
+    }),
+    wx.request({
+      url: app.globalData.url +'/api/product/productByHomeList',
+      method: "POST",
+      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      success(res) {
+        console.log(res);
+        that.setData({row1:res.data.result})
+      }
+    })
   },
 
   /**

@@ -1,0 +1,15 @@
+<view class='canvasBox'>
+  <image src="/pages/img/bg.png" class='bg'></image>
+  <image class='bigCircle' src="/pages/img/mbg.png"></image>
+   <canvas canvas-id="runCanvas" id="runCanvas" class='canvas'></canvas>
+   <view class='text'>米量储备正常。。。</view>
+   <view class='text_1'>
+      <view>米量储存：<text>78</text>%</view>
+      <view>设备状态：<text>正常</text></view>
+   </view>
+   <view class='img'>
+      <image src="/pages/img/liushui.png"></image>
+      <image src="/pages/img/zz.png"></image>
+      <image src="/pages/img/shenbao.png"></image>
+   </view>
+</view>
