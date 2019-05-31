@@ -3,18 +3,12 @@ App({
   onLaunch: function () {
     var that=this
     //展示本地存储能力
-    // wx.removeStorage({
-    //   key:'Token',
-    //   success(res){
-    //     console.log(res)
-    //   }
-    // })
+    wx.clearStorageSync()
     var a = wx.getStorageSync('Token');
-    console.log(a)
     console.log(!a)
     if (!a || new Date(a.timespan) <= new Date()) {
-      //如果Token过期请求Token
       console.log(1)
+      //如果Token过期请求Token
       var timespan = new Date().getTime();        //时间戳
       var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));     //随机数
       var signKey = '123456';        //请求秘钥
@@ -53,7 +47,6 @@ App({
         'content-type': 'application/json'
       },
       success: function (res) {
-        console.log(res)
         that.globalData.openid = res.data.openid //返回openid
       }
     })
@@ -76,8 +69,7 @@ App({
           })
         }
       }
-    }),
-    console.log(this.globalData)
+    })
   },
   globalData: {
     userInfo: null,

@@ -47,14 +47,17 @@ Page({
     var timespan = new Date().getTime();   
     var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
     var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
+    // 轮播图
     wx.request({
       url: app.globalData.url + '/api/rotationChart/rotationChartList',
       method:"POST",
-      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature},
+      header: { 'content-type': 'application/json', signKey:a.signId, timespan: timespan, nonce: nonce, signature: signature},
       success(res){
+        console.log(res)
         that.setData({list:res.data.result})
       }
     }),
+    // 优惠券 
     wx.request({
       url: app.globalData.url +'/api/coupon/couponList',
       method: "POST",
@@ -64,21 +67,21 @@ Page({
         that.setData({list1:res.data.result})
       }
     }),
+    // 电子会员卡
     wx.request({
       url: app.globalData.url +'/api/memberCard/memberCardConfigList',
       method: "POST",
       header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
       success(res){
-        console.log(res)
         that.setData({ imgUrls: res.data.result })
       }
     }),
+    // 商品展示
     wx.request({
       url: app.globalData.url +'/api/product/productByHomeList',
       method: "POST",
       header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
       success(res) {
-        console.log(res);
         that.setData({row1:res.data.result})
       }
     })

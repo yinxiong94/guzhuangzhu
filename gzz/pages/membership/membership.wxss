@@ -5,7 +5,12 @@ page{
   width: 100%;
   padding-bottom: 78rpx;
 }
-
+.slider image{
+  width: 100%
+}
+swiper{
+  height: 335rpx
+}
 .db .header {
   width: 92%;
   margin: 0 auto;
@@ -33,7 +38,17 @@ page{
   font-weight: 500;
   color: rgba(33, 33, 33, 1);
 }
-
+.iii{
+ position: absolute;
+ top:177rpx;
+ left:207rpx;
+ font-size:60rpx;
+font-family:SourceHanSansCN-Bold;
+font-weight:bold;
+color:rgba(255,255,255,1);
+line-height:40rpx;
+text-shadow:2rpx 3rpx 4rpx rgba(47,0,6,0.45);
+}
 .db .mian .discount {
   margin-top: 40rpx;
   display: flex;
@@ -68,6 +83,7 @@ page{
   border-radius: 44rpx;
 
 }
+.list{position: relative}
 .list swiper{
   width: 750rpx;
   height: 420rpx;

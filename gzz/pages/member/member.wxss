@@ -127,4 +127,5 @@
   width: 80rpx;
   height: 80rpx;
   margin-right: 14rpx;
+  border-radius: 40rpx
 }

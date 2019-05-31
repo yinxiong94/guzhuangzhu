@@ -10,7 +10,56 @@ Page({
       list:[]
   },
   quan:function(e){
-    this.setData({ id:e.target.dataset.id})
+    var that=this;
+    var a = e.target.dataset.id
+    this.setData({ id:a})
+    if(a==2){
+      var a = wx.getStorageSync('Token');
+      var timespan = new Date().getTime();
+      var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
+      var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
+      wx.request({
+        url: app.globalData.url + '/api/coupon/MemberCouponList',
+        method: "POST",
+        header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+        data: { openId: '00001' },
+        success(res){
+          that.setData({list:res.data.result})
+          console.log(res)
+        }
+      })
+    } else if(a==3){
+      var a = wx.getStorageSync('Token');
+      var timespan = new Date().getTime();
+      var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
+      var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
+      wx.request({
+        url: app.globalData.url + '/api/coupon/MemberCouponByExpireList',
+        method: "POST",
+        header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+        data: { userId: '00001',page:1,size:10},
+        success(res) {
+          that.setData({ list: res.data.result })
+          console.log(res)
+        }
+      })
+    } else{
+      var that = this;
+      var a = wx.getStorageSync('Token');
+      var timespan = new Date().getTime();
+      var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
+      var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
+      wx.request({
+        url: app.globalData.url + '/api/coupon/couponList',
+        method: "POST",
+        header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+        data: { openId: '00001' },
+        success(res) {
+          console.log(res)
+          that.setData({ list: res.data.result })
+        }
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面加载
@@ -18,7 +67,6 @@ Page({
   onLoad: function (options) {
     var that = this;
     var a = wx.getStorageSync('Token');
-    console.log(a)
     var timespan = new Date().getTime();
     var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
     var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();

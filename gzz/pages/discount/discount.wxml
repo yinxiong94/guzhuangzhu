@@ -19,16 +19,16 @@
     <view class="data">
       <view class="effective">有效期</view>
       <view class="date">
-        2018.9.11-2019.9.11
+        {{item.createTime}}-{{item.effectiveTime}}
       </view>
       <view class="surplus">
         <view>剩余10张</view>
       </view>
     </view>
     <view class="img">
-      <view class="text">
-        立即领取
-      </view>
+      <view class="text" wx:if="{{id==1}}">立即领取</view>
+      <view class="text" wx:if="{{id==2}}">立即使用</view>
+      <view class="text" wx:if="{{id==3}}">已过期</view>
       <image lazy-load='true' src="/pages/img/ttt.png"></image>
     </view>
   </view>

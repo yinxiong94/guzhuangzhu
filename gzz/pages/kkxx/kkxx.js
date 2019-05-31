@@ -1,4 +1,4 @@
-// pages/bangka/bangka.js
+// pages/kkxx/kkxx.js
 const app = getApp()
 Page({
 
@@ -6,30 +6,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-    obj:[],
-    info:[],
-    obj1:[],
+    date: '请选择日期',
+    fun_id: 2,
+    time: '获取验证码', //倒计时 
+    currentTime: 60,
+    obj1: [],
     info1: [],
     obj2: [],
     info2: [],
     obj3: [],
     info3: [],
     obj4: [],
-    info4: [],
-    date: '请选择日期',
-    fun_id: 2,
-    time: '获取验证码', //倒计时 
-    currentTime: 60
-  },
-  inputedit: function (e) {
-    // 1. input 和 info 双向数据绑定
-    let dataset = e.currentTarget.dataset;
-    //data-开头的是自定义属性，可以通过dataset获取到，dataset是一个json对象，有obj和item属性，可以通过这两个实现双向数据绑定，通过更改这两个值，对不同name的变量赋值
-    let value = e.detail.value;
-    this.data[dataset.obj][dataset.item] = value;
-    this.setData({
-      obj: this.data[dataset.obj]
-    });
+    info4: []
+
   },
   inputedit1: function (e) {
     // 1. input 和 info 双向数据绑定
@@ -92,48 +81,50 @@ Page({
   getVerificationCode() {
     this.getCode();
     var that = this
-    that.setData({disabled: true});
+    that.setData({ disabled: true });
     var a = wx.getStorageSync('Token');
     var timespan = new Date().getTime();
     var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
     var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
     wx.request({
-      url: app.globalData.url + '/api/common/getVerificationCode',
+      url: app.globalData.url + '/api/memberCard/bindMemberCard',
       method: "POST",
       header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
-      data: { phone: this.data.obj2.manager2, effectiveTime:60},
+      data: { phone: this.data.obj2.manager2, effectiveTime: 60 },
       success(res) {
       }
     })
   },
   tj:function(){
+    console.log(this.data.obj1.manager1,this.data.obj1.manager1,  this.data.obj2.manager2, this.data.obj3.manager3, this.data.obj4.manager4)
     var a = wx.getStorageSync('Token');
     var timespan = new Date().getTime();
     var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
     var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
     wx.request({
-      url: app.globalData.url + '/api/memberCard/bindEntityCard',
+      url: app.globalData.url + '/api/memberCard/bindMemberCard',
       method: "POST",
       header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
-      data: { entityCardNo: this.data.obj.manager, nickName: this.data.obj1.manager1, phone: this.data.obj2.manager2, code: this.data.obj3.manager3, address: this.data.obj4.manager4, openId:'00001' },
+      data: { memberName: this.data.obj1.manager1, nickName: this.data.obj1.manager1, phone: this.data.obj2.manager2, code: this.data.obj3.manager3, address: this.data.obj4.manager4, openId: '00001' },
       success(res) {
-        if(res.data.code==200){
-          wx.showToast({
-            title: '绑定成功',
-            duration: 2000
-          }),
-          setTimeout(function(){
-            wx.switchTab({
-              url: '/pages/personal/personal',
+        console.log(res)
+          if(res.data.code==200){
+            wx.showToast({
+              title: '信息提交成功',
+              duration: 2000
             })
-          },2000)
-        } else{
-          wx.showToast({
-            title: '填写正确的信息',
-            icon:'none',
-            duration:2000
-          })
-        }
+            setTimeout(function(){
+              wx.switchTab({
+                url: '/pages/index/index',
+              })
+            },2000)
+          } else{
+            wx.showToast({
+              title: '请检查信息',
+              duration: 2000,
+              icon: 'none',
+            })
+          }
       }
     })
   },
@@ -141,7 +132,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-   
+
   },
 
   /**

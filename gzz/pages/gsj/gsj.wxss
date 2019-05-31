@@ -23,7 +23,7 @@ input{
   margin-top: 40rpx
 }
 .yzm_1{
-  width:148rpx;
+  width:168rpx;
   height:44rpx;
   background:#F5D164;
   border-radius:22rpx;
@@ -34,7 +34,8 @@ input{
   position: absolute;
   top:360rpx;
   right: 76rpx;
-  z-index: 10
+  z-index: 10;
+  padding: 0 20rpx
 }
 .gh{
   width:696rpx;

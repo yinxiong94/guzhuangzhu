@@ -33,13 +33,13 @@
   </view>
   <view class='more more2'>更多</view>
   <view class='list' bindtap='kthy'>
-  <swiper  autoplay="{{false}}" previous-margin="{{'80rpx'}}" next-margin="{{'80rpx'}}" bindchange="swiperChange" current='0'>
-    <block wx:for="{{imgUrls}}" wx:key="{{index}}">
-      <swiper-item>
+  <swiper  autoplay="{{false}}" previous-margin="{{'80rpx'}}" next-margin="{{'80rpx'}}" bindchange="swiperChange" current='1'>
+   
+      <swiper-item  wx:for="{{imgUrls}}" wx:key="{{index}}">
         <image src="{{item.background}}" class="slide-image {{swiperIndex == index ? 'active' : ''}}" lazy-load='true'/>
-        <text class='iii'>500<text>元</text></text>  
+        <text class='iii'>{{item.quota}}<text>元</text></text>  
       </swiper-item>
-    </block>
+    
   </swiper>
   </view>
   <view class='kt' bindtap='kthy'>立即开通</view>

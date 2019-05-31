@@ -1,4 +1,5 @@
 // pages/find/find.js
+const app = getApp()
 Page({
 
   /**
@@ -10,7 +11,8 @@ Page({
       '/pages/img/deas.png',
       '/pages/img/deas.png'
     ],
-    swiperIndex: 1
+    swiperIndex: 1,
+    list:[]
   },
   swiperChange(e) {
     this.setData({
@@ -18,17 +20,33 @@ Page({
     })
   },
 
+  wzxq: function (e) {
+    var a=e.target.dataset.uid
+    wx.navigateTo({
+      url: '/pages/article/article?img=' + this.data.list[a].articleImg + "&title=" + this.data.list[a].articleName + "&content=" + this.data.list[a].articleContent + "&time=" + this.data.list[a].createTime,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
-  wzxq:function(){
-    wx.navigateTo({
-      url: '/pages/article/article',
-    })
-  },
+
 
   onLoad: function (options) {
-
+    var that=this;
+    var a = wx.getStorageSync('Token');
+    var timespan = new Date().getTime();
+    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
+    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
+    wx.request({
+      url: app.globalData.url + '/api/Article/ArticleList',
+      method: "POST",
+      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      data: { page: 1, size: 10 },
+      success(res) {
+        console.log(res)
+        that.setData({list:res.data.result})
+      }
+    })
   },
 
   /**

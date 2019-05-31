@@ -1,3 +1,4 @@
+const app = getApp()
 Page({
   data: {
     mapCtx: null,
@@ -109,17 +110,28 @@ Page({
       s = s.toFixed(2);
       this.setData({ ['jl[' + i + ']']:s})
     }
-    console.log(this.data.jl)
     var that = this;
     // 使用 wx.createMapContext 获取 map 上下文
     that.mapCtx = wx.createMapContext('loactionMap', this);
   },
   onLoad(options) {
-
     var that = this;
     that.authorAddress();
     that.setMapSize();
-    // that.getShareLocation(options);
+    var a = wx.getStorageSync('Token');
+    var timespan = new Date().getTime();
+    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
+    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
+    wx.request({
+      url: app.globalData.url + '/api/machine/NearMachinePageList',
+      method: "POST",
+      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      data: { page: 1, size: 10, longitude:that.data.longitude,latitude:that.data.latitude},
+      success(res) {
+       console.log(res)
+
+      }
+    })
   },
   //用户地理位置授权
   authorAddress: function () {

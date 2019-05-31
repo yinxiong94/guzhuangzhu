@@ -1,9 +1,5 @@
 <view class="db">
   <view class="header">
-  <view class="list">
-      <view class="text">会员卡卡号</view>
-      <input type='number' placeholder='请输入实体卡卡号' bindinput="inputedit" data-obj="info"  data-item="manager" value="{{info.manager}}"></input>
-    </view>
     <view class="list">
       <view class="text">姓名</view>
       <input type='text' placeholder='请输入您的姓名' bindinput="inputedit1" data-obj1="info1"  data-item1="manager1" value="{{info.manager1}}"></input>

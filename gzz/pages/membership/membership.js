@@ -1,15 +1,12 @@
 // pages/membership/membership.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    imgUrls: [
-      '/pages/img/hui500.png',
-      '/pages/img/hui500.png',
-      '/pages/img/hui500.png'
-    ],
+    imgUrls: [],
     swiperIndex: 1
   },
   swiperChange(e) {
@@ -17,12 +14,43 @@ Page({
       swiperIndex: e.detail.current
     })
   },
-
+  kt:function(){
+      wx.navigateTo({
+        url: '/pages/kkxx/kkxx',
+      })
+    var that = this;
+    var a = wx.getStorageSync('Token');
+    var timespan = new Date().getTime();
+    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
+    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
+    wx.request({
+      url: app.globalData.url + '/api/MemberCard/BuyMemberCardOrder',
+      method: "POST",
+      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      data: { openId: "00001", memberConfigId: this.data.imgUrls[this.data.swiperIndex].configId },
+      success(res) {
+        console.log(res)
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad: function (options) {  
+    var that = this;
+    var a = wx.getStorageSync('Token');
+    var timespan = new Date().getTime();
+    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
+    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
+    wx.request({
+      url: app.globalData.url + '/api/memberCard/memberCardConfigList',
+      method: "POST",
+      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      success(res) {
+        console.log(res.data.result)
+        that.setData({ imgUrls: res.data.result })
+      }
+    })
   },
 
   /**
