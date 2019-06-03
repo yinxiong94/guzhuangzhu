@@ -1,5 +1,9 @@
-<view class='canvasBox'>
-  <view class='bigCircle'></view>
-  <view class='littleCircle'></view>
-   <canvas canvas-id="runCanvas" id="runCanvas" class='canvas'></canvas>
+<view class="bg">
+    <view>新电话号码</view>
+    <input type='text' placeholder='请输入您的电话号码' bindinput="inputedit" data-obj="info"  data-item="manager" value="{{info.manager}}"></input>
+    <view class='yzm'>验证码</view>
+    <input type='text' placeholder='请输入验证码' bindinput="inputedit1" data-obj1="info1"  data-item1="manager1" value="{{info.manager1}}"></input>
+    <button class='yzm_1' disabled='{{disabled}}' data-id="2" bindtap="getVerificationCode">{{time}}</button>
 </view>
+
+<button class='gh' disabled='{{disabled1}}' bindtap='gh'>确认更换</button>

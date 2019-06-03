@@ -8,7 +8,8 @@ Page({
   data: {
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    list:[]
   },
 
   wddd:function(){
@@ -23,7 +24,7 @@ Page({
   },
   wdhyk:function(){
     wx.navigateTo({
-      url: '/pages/member/member',
+      url: '/pages/member/member?balance=' + this.data.list.balance,
     })
   },
   cz:function(){
@@ -75,7 +76,21 @@ Page({
           })
         }
       })
-    }
+    };
+    var that = this;
+    var a = wx.getStorageSync('Token');
+    var timespan = new Date().getTime();
+    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
+    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
+    wx.request({
+      url: app.globalData.url + '/api/MemberCard/MemberInfo',
+      method: "POST",
+      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      data:  { openId:'00001' },
+      success(res) {
+        that.setData({ list: res.data.result })
+      }
+    })
   },
 
   /**

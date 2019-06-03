@@ -1,13 +1,31 @@
 // pages/binding/binding.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    
   },
-
+  yhxy:function(){
+    var that = this;
+    var id = wx.getStorageSync('userId');
+    var a = wx.getStorageSync('Token');
+    var timespan = new Date().getTime();
+    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
+    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
+    wx.request({
+      url: app.globalData.url + '/api/Users/UpdateBackCard',
+      method: "POST",
+      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      // data: { cardUserName:, cardsfzCard:, idCard:, backName:, cardTel:, userId:id },
+      success(res) {
+        console.log(res)
+        that.setData({ list: res.data.result })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

@@ -14,7 +14,7 @@
 </view>
 
 <view class='tx_1'>
-      <view class='t1'>每次提现不得少于100元</view>
+      <view class='t1'>每次提现不得少于{{price}}元</view>
       <view class='t2' bindtap='txjl'>查看提现记录</view>
 </view>
 <image src="/pages/img/ljcz.png" class='img9'></image>

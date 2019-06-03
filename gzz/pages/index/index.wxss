@@ -194,6 +194,7 @@ swiper{
   right: 15rpx;
   top:435rpx
 }
+.list{position: relative}
 .list swiper{
   width: 750rpx;
   height: 420rpx;
@@ -229,3 +230,48 @@ swiper{
   width: 237rpx;
   height: 115rpx
 }
+.iii{
+ position: absolute;
+ top:177rpx;
+ left:207rpx;
+ font-size:60rpx;
+font-family:SourceHanSansCN-Bold;
+font-weight:bold;
+color:rgba(255,255,255,1);
+line-height:40rpx;
+text-shadow:2rpx 3rpx 4rpx rgba(47,0,6,0.45);
+}
+.yhq_1{position: relative}
+.yhq_1_1{
+  position: absolute;
+  top:0rpx;
+  color:#fff;
+  font-size: 20rpx;
+  left: 35rpx
+}
+.big{
+  font-size: 46rpx;
+  letter-spacing: -1rpx
+  }
+  .yhq_1_2{
+    font-size: 28rpx;
+    position: absolute;
+    top:50rpx;
+    left: 40rpx;
+    color:#fff
+  }
+  .yhq_1_3{
+    font-size: 16rpx;
+    position: absolute;
+    top:90rpx;
+    left: 40rpx;
+    color:#fff
+  }
+  .yhq_1 .yhq_1_4{
+    font-size: 20rpx;
+    color:#2c9b0e;
+    width: 50rpx;
+    position: absolute;
+    top:30rpx;
+    left:180rpx
+  }

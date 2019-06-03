@@ -3,8 +3,8 @@
 <view class='tx'>
     <image  class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
     <view class='xx'>
-        <view class='t1'>{{userInfo.nickName}}</view>
-        <view class='t2'>长沙市天心区九峰小区</view>
+        <view class='t1'>{{list[0].userName}}</view>
+        <view class='t2'>{{list[0].address}}</view>
     </view>
 </view>
 

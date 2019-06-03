@@ -1,10 +1,7 @@
 <view class='slider'> 
     <swiper autoplay='4000' indicatorDots="true"> 
-    <swiper-item > 
-    <image src="/pages/img/xq1.png" lazy-load='true' ></image> 
-    </swiper-item> 
-    <swiper-item> 
-    <image src="/pages/img/xq.png" lazy-load='true'></image> 
+    <swiper-item wx:for="{{list}}"> 
+    <image src="{{item.rotationImg}}" lazy-load='true' ></image> 
     </swiper-item> 
     </swiper> 
   </view>
@@ -17,9 +14,13 @@
     <view class='v1'></view>
   </view>
   <view class='yhq'>
-      <view><image src="/pages/img/q20.png"></image></view>
-      <view><image src="/pages/img/q50.png"></image></view>
-      <view><image src="/pages/img/q80.png"></image></view>
+      <view class='yhq_1' wx:for="{{list1}}">
+      <image src="/pages/img/q20.png"></image>
+      <view class='yhq_1_1'>￥<text class='big'>{{item.couponMoney}}</text></view>      
+      <view class='yhq_1_2'>优惠券</view>
+      <view class='yhq_1_3'>{{item.couponName}}</view>
+      <view class='yhq_1_4'>点击领取</view>
+      </view>
   </view>
   <view class='more' bindtap='yhqzx'>更多</view>
   <view class='hx'></view>
@@ -33,11 +34,12 @@
   <view class='more more2'>更多</view>
   <view class='list' bindtap='kthy'>
   <swiper  autoplay="{{false}}" previous-margin="{{'80rpx'}}" next-margin="{{'80rpx'}}" bindchange="swiperChange" current='1'>
-    <block wx:for="{{imgUrls}}" wx:key="{{index}}">
-      <swiper-item>
-        <image src="{{item}}" class="slide-image {{swiperIndex == index ? 'active' : ''}}"/>
+   
+      <swiper-item  wx:for="{{imgUrls}}" wx:key="{{index}}">
+        <image src="{{item.background}}" class="slide-image {{swiperIndex == index ? 'active' : ''}}" lazy-load='true'/>
+        <text class='iii'>{{item.quota}}<text>元</text></text>  
       </swiper-item>
-    </block>
+    
   </swiper>
   </view>
   <view class='kt' bindtap='kthy'>立即开通</view>
@@ -51,21 +53,12 @@
   </view>
   <view class='more more1'>更多</view>
   <view class='deas_all'>
-      <view class='deas_list'>
-        <image src="/pages/img/xq.png" class='deas_img' bindtap='spxq'></image>  
+      <view class='deas_list' wx:for="{{row1}}">
+        <image src="{{item.productImg}}" class='deas_img' bindtap='spxq'></image>  
         <image src="/pages/img/db.png" class='deas_img1'></image>  
-        <view class='deas_text'>谷庄主泰国香米10kg</view>     
-        <view class='deas_text1'>一小段文字介绍这个大米的优势</view>
-        <view class='deas_text2'>￥76.00</view>
-        <image src="/pages/img/gwc.png" class='gwc'></image>
-        <image src="/pages/img/gm.png" class='gm'></image>
-      </view>
-      <view class='deas_list'>
-        <image src="/pages/img/xq1.png" class='deas_img'></image>  
-        <image src="/pages/img/db.png" class='deas_img1'></image>  
-        <view class='deas_text'>谷庄主泰国香米10kg</view>     
-        <view class='deas_text1'>一小段文字介绍这个大米的优势</view>
-        <view class='deas_text2'>￥76.00</view>
+        <view class='deas_text'>{{item.productName}}</view>     
+        <view class='deas_text1'>{{item.productIntroduce}}</view>
+        <view class='deas_text2'>￥{{item.productPrice}}.00</view>
         <image src="/pages/img/gwc.png" class='gwc'></image>
         <image src="/pages/img/gm.png" class='gm'></image>
       </view>

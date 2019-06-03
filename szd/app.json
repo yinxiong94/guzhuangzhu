@@ -1,5 +1,6 @@
 {
   "pages": [
+<<<<<<< HEAD
     "pages/Return/Return",
     "pages/withdrawal/withdrawal",
     "pages/fault/fault",
@@ -7,6 +8,12 @@
     "pages/flowing/flowing",
     "pages/zhuangzheng/zhuangzheng",
     "pages/index/index"
+=======
+    "pages/personal/personal",
+    "pages/mydevice/mydevice",
+    "pages/logs/logs",
+    "pages/device/device"
+>>>>>>> 55d60892a07dd72ea3992738b9a89dfd7b01070d
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -14,5 +21,24 @@
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
   },
+<<<<<<< HEAD
   "sitemapLocation": "sitemap.json"
+=======
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/device/device",
+        "text": "我的设备",
+        "iconPath": "/pages/img/shebei.png",
+        "selectedIconPath": "/pages/img/shebei1.png"
+      },
+      {
+        "pagePath": "pages/personal/personal",
+        "text": "个人中心",
+        "iconPath": "/pages/img/home1.png",
+        "selectedIconPath": "/pages/img/home.png"
+      }
+    ]
+  }
+>>>>>>> 55d60892a07dd72ea3992738b9a89dfd7b01070d
 }

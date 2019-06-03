@@ -1,21 +1,12 @@
 <view class="db">
   <view class="title">又发现了10条新内容</view>
-   <view class='deas_all'>
-      <view class='deas_list' bindtap='wzxq'>
-        <image src="/pages/img/xq.png" class='deas_img' bindtap='spxq'></image>  
-        <image src="/pages/img/db.png" class='deas_img1'></image>  
-        <view class='deas_text'>听说谷庄主泰国稻花香米正式上线了|好米，精挑
-细选|好米，万里挑一</view>     
-        <view class='deas_text1'>来，点进去看看谷庄主想对您说的话吧！</view>
+   <view class='deas_all' wx:for="{{list}}">
+      <view class='deas_list' data-uid="{{index}}" bindtap='wzxq' >
+        <image src="{{item.articleImg}}" class='deas_img'  data-uid="{{index}}"></image>  
+        <image src="/pages/img/db.png" class='deas_img1'  data-uid="{{index}}"></image>  
+        <view class='deas_text'  data-uid="{{index}}">{{item.articleName}}</view>     
+        <view class='deas_text1'  data-uid="{{index}}">{{item.articleContent}}</view>
         <view class='kong'></view>
-      </view>
-      
-      <view class='deas_list'>
-        <image src="/pages/img/xq1.png" class='deas_img'></image>  
-        <image src="/pages/img/db.png" class='deas_img1'></image>  
-        <view class='deas_text'>听说谷庄主泰国稻花香米正式上线了|好米，精挑
-细选|好米，万里挑一</view>     
-        <view class='deas_text1'>来，点进去看看谷庄主想对您说的话吧！</view>
-      </view>
+      </view>   
   </view>
 </view>

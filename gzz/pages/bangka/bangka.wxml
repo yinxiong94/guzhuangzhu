@@ -2,29 +2,27 @@
   <view class="header">
   <view class="list">
       <view class="text">会员卡卡号</view>
-      <input type='text' placeholder='请输入实体卡卡号'></input>
+      <input type='number' placeholder='请输入实体卡卡号' bindinput="inputedit" data-obj="info"  data-item="manager" value="{{info.manager}}"></input>
     </view>
     <view class="list">
       <view class="text">姓名</view>
-      <input type='text' placeholder='请输入您的姓名'></input>
+      <input type='text' placeholder='请输入您的姓名' bindinput="inputedit1" data-obj1="info1"  data-item1="manager1" value="{{info.manager1}}"></input>
     </view>
     <view class="list">
       <view class="text">手机号码</view>
-      <input type='text' placeholder='请输入您的手机号码'></input>
+      <input type='number' placeholder='请输入您的手机号码' bindinput="inputedit2" data-obj2="info2"  data-item2="manager2" value="{{info.manager2}}"></input>
     </view>
     <view class="list">
       <view class="text">验证码</view>
-      <input type='text' placeholder='请输入验证码'></input>
-      <view class="yzm">
-      获取验证码
-      </view>
+      <input type='number' placeholder='请输入验证码' bindinput="inputedit3" data-obj3="info3"  data-item3="manager3" value="{{info.manager3}}"></input>
+      <button class="yzm"  disabled='{{disabled}}' data-id="2" bindtap="getVerificationCode">{{time}}</button>
     </view>
     <view class="list">
       <view class="text">办卡小区</view>
-      <input type='text' placeholder='请选择你实体卡的小区'></input>
+      <input type='text' placeholder='请选择你实体卡的小区' bindinput="inputedit4" data-obj4="info4"  data-item4="manager4" value="{{info.manager4}}"></input>
     </view>
   </view>
   <view class="footer">
-    <view class="btn">提交信息</view>
+    <view class="btn" bindtap='tj'>提交信息</view>
   </view>
 </view>

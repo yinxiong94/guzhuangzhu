@@ -31,6 +31,12 @@
   text-align: center;
 }
 
+
+
+
+
+
+
 .db .header .header_tiem image {
   width: 122rpx;
   height: 41rpx;

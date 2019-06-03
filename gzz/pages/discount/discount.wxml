@@ -1,41 +1,38 @@
 <view class="db">
   <view class="header">
-    <view class="jin">
-      领券
-      <view class="xian"></view>
-    </view>
-    <view>我的券</view>
-    <view>到期</view>
+    <view bindtap='quan' data-id="1" class="{{id==1?'jin':''}}">领券</view>
+    <view bindtap='quan' data-id="2" class="{{id==2?'jin':''}}">我的券</view>
+    <view bindtap='quan' data-id="3" class="{{id==3?'jin':''}}">到期</view>
   </view>
-  <view class="item">
+  <view class="item" wx:for="{{list}}">
     <view class="item_left">
       <view class="box">
         <view class="pirce">
           <text class="box_pirce">￥</text>
-          <text class="money">50</text>
+          <text class="money">{{item.couponMoney}}</text>
         </view>
         <view class="tips">
-          满500可用
+          {{item.couponName}}
         </view>
       </view>
     </view>
     <view class="data">
       <view class="effective">有效期</view>
       <view class="date">
-        2018.9.11-2019.9.11
+        {{item.createTime}}-{{item.effectiveTime}}
       </view>
       <view class="surplus">
         <view>剩余10张</view>
       </view>
     </view>
     <view class="img">
-      <view class="text">
-        立即领取
-      </view>
+      <view class="text" wx:if="{{id==1}}">立即领取</view>
+      <view class="text" wx:if="{{id==2}}">立即使用</view>
+      <view class="text" wx:if="{{id==3}}">已过期</view>
       <image lazy-load='true' src="/pages/img/ttt.png"></image>
     </view>
   </view>
-  <view class="item">
+    <!-- <view class="item">
     <view class="item_left">
       <view class="box">
         <view class="pirce">
@@ -146,5 +143,5 @@
       </view>
       <image lazy-load='true' src="/pages/img/ttt1.png"></image>
     </view>
-  </view>
+  </view> -->
 </view>

@@ -13,14 +13,21 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.7.0",
+<<<<<<< HEAD
 	"appid": "wxfacfc9a34535692e",
+=======
+	"appid": "wx5d83e67075314494",
+>>>>>>> 55d60892a07dd72ea3992738b9a89dfd7b01070d
 	"projectname": "szd",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
 	"isGameTourist": false,
+<<<<<<< HEAD
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
+=======
+>>>>>>> 55d60892a07dd72ea3992738b9a89dfd7b01070d
 	"condition": {
 		"search": {
 			"current": -1,

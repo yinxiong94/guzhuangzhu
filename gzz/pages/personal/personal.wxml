@@ -21,13 +21,13 @@
     <view class="img">
       <view class="pirce">
         <text class="pirce_item1">余额:</text>
-        <text class="pirce_item2">500元</text>
+        <text class="pirce_item2">{{list.balance}}元</text>
       </view>
       <view class='kh1'>
           <text>卡号：</text>
-          <text>79516151</text>
+          <text>{{list.cardNum}}</text>
       </view>
-      <view class="integral">我的积分：36积分</view>
+      <view class="integral">我的积分：{{list.point}}积分</view>
       <image lazy-load='true' src="/pages/img/hui2.png" bindtap='cz'></image>
     </view>
   </view>
@@ -56,7 +56,7 @@
         <view class="item" bindtap='bdhyk'>
       <view class="item_left">
         <image lazy-load='true' src="/pages/img/dd3.png" class='img10'></image>
-        <text>绑定会员卡</text>
+        <text>绑定实体卡</text>
       </view>
       <view class="iconfont icon-jiantou jiantou"></view>
     </view>

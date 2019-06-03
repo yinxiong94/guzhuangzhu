@@ -40,7 +40,7 @@
       <checkbox></checkbox>
       <view class="footer_text">
         同意
-        <text>用户协议</text>
+        <text bindtap='yhxy'>用户协议</text>
         及其服务条款
       </view>
     </view>

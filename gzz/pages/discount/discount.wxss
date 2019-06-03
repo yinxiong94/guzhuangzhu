@@ -27,6 +27,7 @@
 
 .db .header .jin {
   color: #fbc00e;
+  border-bottom:6rpx solid #fbc00e
 }
 
 .db .header view .xian {
@@ -37,6 +38,7 @@
   bottom: 20rpx;
   left: 50%;
   transform: translateX(-50%);
+  top: 10rpx
 }
 
 .db .header view:nth-child(3) {
