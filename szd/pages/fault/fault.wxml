@@ -1,0 +1,36 @@
+<view class="db">
+  <image lazy-load='true' src='../img/top22.png'></image>
+  <view class="top">
+    请填写以下信息
+  </view>
+  <view class="from">
+    <view class="list">
+      <view class="left">
+        姓名：
+      </view>
+      <input type='text' placeholder='请在这里输入您的姓名'></input>
+      <image src='/pages/img/right.png'></image>
+    </view>
+        <view class="list">
+      <view class="left">
+        所在小区：
+      </view>
+      <input type='text' placeholder='请选择这台机器所在的小区'></input>
+      <image src='/pages/img/right.png'></image>
+    </view>
+        <view class="list">
+      <view class="left">
+        机器编码：
+      </view>
+      <input type='text' placeholder='请在这里输入这台机器编码'></input>
+      <image src='/pages/img/right.png'></image>
+    </view>
+        <view class="list">
+      <view class="left">
+        备注：
+      </view>
+      <input type='text' placeholder='请在这里输入故障问题'></input>
+      <image src='/pages/img/right.png'></image>
+    </view>
+  </view>
+</view>

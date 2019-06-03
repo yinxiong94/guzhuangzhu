@@ -1,0 +1,34 @@
+<view class="db">
+  <view class="img">
+    <image lazy-load='true' src='../img/bg.png'></image>
+    <view class="title">实习社长转正申请</view>
+    <view class="title2">
+      <view class="xian"></view>
+      <view class="text">转正成社长 项五大权限</view>
+      <view class="xian"></view>
+    </view>
+  </view>
+  <view class="conter">
+    <view class="list">
+      <view class="left">
+        <image lazy-load='true' src='../img/list1.png'></image>
+      </view>
+      <view class="right">
+        <view class="equipment">设备归属</view>
+        <view class="equipment1">设备认证后归属于你</view>
+      </view>
+    </view>
+    <view class="list">
+      <view class="left">
+        <image lazy-load='true' src='../img/list1.png'></image>
+      </view>
+      <view class="right">
+        <view class="equipment">设备归属</view>
+        <view class="equipment1">设备认证后归属于你</view>
+      </view>
+    </view>
+  </view>
+  <view class="btn">
+    立即申请
+  </view>
+</view>

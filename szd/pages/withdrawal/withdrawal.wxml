@@ -1,0 +1,52 @@
+<view class="db">
+  <view class="top">
+    <view class="title">账户余额将提现到微信</view>
+    <view class="pirce">
+      <text>￥</text>
+      <text>563.23</text>
+    </view>
+    <view class="pirce_1">
+      <text class="left">账户余额：￥8563.23</text>
+      <text class="right">提现记录</text>
+    </view>
+  </view>
+  <view class="input">提现到微信</view>
+  <view class="list">
+    <view class="coco">
+      <view class="left">
+        ￥2569.30
+      </view>
+      <view class="right">
+        <text>2018-01-02  12:32  提现</text>
+        <text>2018-01-02  12:32  提现</text>
+      </view>
+    </view>
+    <view class="coco">
+      <view class="left">
+        ￥2569.30
+      </view>
+      <view class="right">
+        <text>2018-01-02  12:32  提现</text>
+        <text>2018-01-02  12:32  提现</text>
+      </view>
+    </view>
+    <view class="coco">
+      <view class="left">
+        ￥2569.30
+      </view>
+      <view class="right">
+        <text>2018-01-02  12:32  提现</text>
+        <text>2018-01-02  12:32  提现</text>
+      </view>
+    </view>
+    <view class="coco">
+      <view class="left">
+        ￥2569.30
+      </view>
+      <view class="right">
+        <text>2018-01-02  12:32  提现</text>
+        <text>2018-01-02  12:32  提现</text>
+      </view>
+    </view>
+  </view>
+</view>

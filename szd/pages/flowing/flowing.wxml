@@ -1,0 +1,59 @@
+<view class="db">
+  <view class="top">
+    <view class="banxin">
+      <view class="top_left">
+        <view class="list">今天</view>
+        <view class="list">本周</view>
+        <view class="list">本月</view>
+      </view>
+      <image lazy-load='true' src='../img/rl.png'></image>
+    </view>
+  </view>
+  <view class="top1">
+    <view class="banxin">
+      <view class="left">
+        本月设备收益：
+        <text>￥366.86</text>
+      </view>
+      <view class="right">
+        今日设备收益：
+        <text>￥50.00</text>
+      </view>
+    </view>
+  </view>
+  <view class="conter">
+    <view class="item blue">
+      <view class="banxin">
+        <view class="left">
+          <view class="jiaoyi">成交泰国香米10Kg</view>
+          <view class="time">2019-03-01 12:00</view>
+        </view>
+        <view class="right">
+          +10.00
+        </view>
+      </view>
+    </view>
+    <view class="item">
+      <view class="banxin">
+        <view class="left">
+          <view class="jiaoyi">成交泰国香米10Kg</view>
+          <view class="time">2019-03-01 12:00</view>
+        </view>
+        <view class="right">
+          +10.00
+        </view>
+      </view>
+    </view>
+    <view class="item blue">
+      <view class="banxin">
+        <view class="left">
+          <view class="jiaoyi">成交泰国香米10Kg</view>
+          <view class="time">2019-03-01 12:00</view>
+        </view>
+        <view class="right">
+          +10.00
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

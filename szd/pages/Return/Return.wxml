@@ -1,0 +1,36 @@
+<view class="db">
+  <view class="top">
+    <image src="/pages/img/bg1.png" lazy-load='true'></image>
+    <text class="text_1">我的返佣</text>
+    <view class="pirce">
+      <text>¥</text>6005
+    </view>
+    <view class="input">申请提现</view>
+  </view>
+  <view class="vip">
+    <view class="vip_nav">
+      <view class="nav_l">
+        会员推广返佣
+      </view>
+      <view class="nav_r">
+        兑换记录
+      </view>
+    </view>
+    <view class="conter">
+      <view class="list">
+        <view class="recommend">
+          <text class="recommend_1">推荐会员张三</text>
+          <text class="recommend_2">2019-05-10   18:00</text>
+        </view>
+        <text>¥105</text>
+      </view>
+      <view class="list">
+        <view class="recommend">
+          <text class="recommend_1">推荐会员张三</text>
+          <text class="recommend_2">2019-05-10   18:00</text>
+        </view>
+        <text>¥105</text>
+      </view>
+    </view>
+  </view>
+</view>
