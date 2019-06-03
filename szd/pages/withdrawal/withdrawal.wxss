@@ -1,0 +1,115 @@
+.db {
+  width: 750rpx;
+}
+
+.db .top {
+  width: 690rpx;
+  height: 385rpx;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 0px 20rpx 0px rgba(0, 0, 0, 0.1);
+  border-radius: 20rpx;
+  margin: 0 auto;
+  margin-top: 40rpx;
+  padding: 40rpx;
+  box-sizing: border-box;
+}
+
+.db .top .title {
+  height: 26rpx;
+  font-size: 28rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(124, 131, 141, 1);
+  line-height: 26rpx;
+}
+
+.db .top .pirce {
+  height: 92rpx;
+  border-bottom: 1px solid #e4e4ee;
+  margin-top: 80rpx;
+  display: flex;
+}
+
+.db .top .pirce text {
+  font-size: 72rpx;
+  font-family: PingFang-SC-Heavy;
+  font-weight: 800;
+  color: rgba(18, 25, 34, 1);
+  height: 54rpx;
+  line-height: 54rpx;
+}
+
+.db .top .pirce_1 {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 78rpx;
+}
+
+.db .top .pirce_1 text {
+  height: 26rpx;
+  font-size: 28rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(124, 131, 141, 1);
+  line-height: 26rpx;
+}
+
+.db .top .pirce_1 text:nth-child(2) {
+  color: rgba(142, 195, 31, 1);
+  font-weight: bold;
+}
+
+.input {
+  width: 690rpx;
+  height: 96rpx;
+  background-color: #8ec31f;
+  border-radius: 48rpx;
+  text-align: center;
+  line-height: 96rpx;
+  font-size: 32rpx;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 1);
+  margin: 0 auto;
+  margin-top: 51rpx;
+}
+
+.db .list {
+  width: 750rpx;
+  border-top: 1px solid #f1f1f1;
+  margin-top: 66rpx;
+}
+
+.db .list .coco {
+  width: 690rpx;
+  height: 140rpx;
+  border-bottom: 1px solid #f1f1f1;
+  margin: 0 auto;
+  display: flex;
+}
+
+.db .list .coco .left {
+  width: 50%;
+  line-height: 140rpx;
+  height: 140rpx;
+  font-size: 30rpx;
+  font-family: PingFang-SC-Heavy;
+  font-weight: 800;
+  color: rgba(18, 25, 34, 1);
+}
+
+.db .list .coco .right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.db .list .coco .right text {
+  font-size: 28rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(124, 131, 141, 1);
+  line-height: 26rpx;
+  height: 26rpx;
+}

@@ -35,7 +35,7 @@
       <image lazy-load='true' src="/pages/img/ttt.png"></image>
     </view>
   </view>
-    <view class="item">
+  <view class="item">
     <view class="item_left">
       <view class="box">
         <view class="pirce">
@@ -63,7 +63,7 @@
       <image lazy-load='true' src="/pages/img/ttt.png"></image>
     </view>
   </view>
-    <view class="item">
+  <view class="item">
     <view class="item_left">
       <view class="box">
         <view class="pirce">
@@ -91,7 +91,7 @@
       <image lazy-load='true' src="/pages/img/ttt.png"></image>
     </view>
   </view>
-    <view class="item">
+  <view class="item">
     <view class="item_left">
       <view class="box">
         <view class="pirce">

@@ -1,0 +1,95 @@
+.db {
+  width: 100%;
+}
+
+.db .img {
+  position: relative;
+}
+
+.db .img>image {
+  width: 100%;
+  height: 285rpx;
+}
+
+.db .img .title {
+  font-size: 40rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+  position: absolute;
+  top: 61rpx;
+  left: 217rpx;
+}
+
+.db .img .title2 {
+  display: flex;
+  position: absolute;
+  width: 410rpx;
+  top: 141rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.db .img .title2 .xian {
+  width: 23px;
+  height: 3px;
+  background: rgba(255, 255, 255, 1);
+  margin-top: 15rpx;
+}
+
+.db .img .title2 >.text {
+  font-size: 28rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+  margin: 0 15rpx;
+}
+
+.db .list {
+  width: 686rpx;
+  height: 150rpx;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  margin: 0 auto;
+  padding-top: 35rpx;
+}
+
+.db .list .left image {
+  width: 75rpx;
+  height: 75rpx;
+}
+
+.db .list .right {
+  margin-left: 20rpx;
+}
+
+.db .list .right .equipment {
+  font-size: 30rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(15, 15, 15, 1);
+}
+
+.db .list .right .equipment1 {
+  font-size: 26rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(140, 139, 138, 1);
+  margin-top: 18rpx;
+}
+
+.db .btn {
+  width: 385rpx;
+  height: 82rpx;
+  box-shadow: 0px 6px 28px 1px rgba(142, 195, 31, 0.26);
+  border-radius: 41rpx;
+  background-color: #8ec31f;
+  text-align: center;
+  line-height: 82rpx;
+  font-size: 36rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+  margin: 0 auto;
+  margin-top: 182rpx;
+}

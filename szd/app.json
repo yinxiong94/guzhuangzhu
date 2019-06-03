@@ -1,0 +1,18 @@
+{
+  "pages": [
+    "pages/Return/Return",
+    "pages/withdrawal/withdrawal",
+    "pages/fault/fault",
+    "pages/member/member",
+    "pages/flowing/flowing",
+    "pages/zhuangzheng/zhuangzheng",
+    "pages/index/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
+}

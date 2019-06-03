@@ -1,0 +1,26 @@
+<view class="db">
+  <view class="item">
+    <image src='../img/tx.png'></image>
+    <view class="item_right">
+      <view class="name">胖大海</view>
+      <view class="address">长沙市天心区九峰小区</view>
+      <view class="address">联系方式：15986203495</view>
+    </view>
+  </view>
+  <view class="item">
+    <image src='../img/tx.png'></image>
+    <view class="item_right">
+      <view class="name">胖大海</view>
+      <view class="address">长沙市天心区九峰小区</view>
+      <view class="address">联系方式：15986203495</view>
+    </view>
+  </view>
+  <view class="item">
+    <image src='../img/tx.png'></image>
+    <view class="item_right">
+      <view class="name">胖大海</view>
+      <view class="address">长沙市天心区九峰小区</view>
+      <view class="address">联系方式：15986203495</view>
+    </view>
+  </view>
+</view>

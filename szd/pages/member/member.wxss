@@ -1,0 +1,40 @@
+.db {
+  width: 100%;
+}
+
+.db .item {
+  border-top: 1px solid #ccc;
+  width: 100%;
+  height: 158rpx;
+  display: flex;
+}
+
+.db .item>image {
+  width: 89rpx;
+  height: 89rpx;
+  margin-left: 34rpx;
+  margin-top: 26rpx;
+}
+
+.db .item .item_right {
+  margin-left: 31rpx;
+  height: 158rpx;
+  flex: 1;
+  padding-top: 26rpx;
+}
+
+.db .item .item_right .name {
+  height: 29rpx;
+  font-size: 30rpx;
+  font-family: MicrosoftYaHei;
+  font-weight: 400;
+  color: rgba(50, 50, 50, 1);
+}
+
+.db .item .item_right .address {
+  font-size: 22rpx;
+  font-family: MicrosoftYaHei;
+  font-weight: 400;
+  color: rgba(120, 120, 120, 1);
+  margin-top: 15rpx;
+}

@@ -1,0 +1,19 @@
+<view class="db">
+  <view class="top"></view>
+  <view class="title">请填写以下信息</view>
+  <view class="from">
+    <view class="item">
+      <view class="left">机器编码：</view>
+      <input type='text' placeholder='请在这里输入这台机器编码'></input>
+    </view>
+    <view class="item">
+      <view class="left">机器编码：</view>
+      <input type='text' placeholder='请在这里输入这台机器编码'></input>
+    </view>
+    <view class="item">
+      <view class="left">机器编码：</view>
+      <input type='text' placeholder='请在这里输入这台机器编码'></input>
+    </view>
+    <view class="btn">提交</view>
+  </view>
+</view>

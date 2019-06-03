@@ -26,9 +26,7 @@ App({
               // 所以此处加入 callback 以防止这种情况
               if (this.userInfoReadyCallback) {
                 this.userInfoReadyCallback(res)
-             
               }
-
             }
           })
         }
@@ -36,7 +34,6 @@ App({
     })
   },
   globalData: {
-    userInfo: null,
-    url: "http://192.168.188:81"
+    userInfo: null
   }
 })
