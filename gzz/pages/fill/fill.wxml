@@ -1,0 +1,86 @@
+<!-- 填写订单 -->
+<view class="db">
+  <view class="top" wx:if='{{iftrue}}'>
+    <image class="img" src='/pages/img/dizhi.png' lazy-load='true'></image>
+    <view class="conter">
+      <view class="coco">
+        麦兜啊
+        <text>15698324568</text>
+      </view>
+      <view class="coco_1">田厦金牛广场702</view>
+      <view class="coco_2"> 广东省深圳市南山区</view>
+    </view>
+    <image class="img1" src='/pages/img/right.png' lazy-load='true'></image>
+  </view>
+  <view class="xinxi">
+    <view class="list">
+      <image src="/pages/img/list1.png" lazy-load='true'></image>
+      <view class="right">
+        <view class='title'>
+          夏季新款反绒真皮裹带高跟鞋侧镂空宴会尖头细跟......
+        </view>
+        <view class="color">
+          颜色分类：酒红色；尺码：36
+        </view>
+        <view class="pirce">
+          <view class='text_1'>￥299</view>
+          <view class='text_2'>x1</view>
+        </view>
+      </view>
+    </view>
+    <view class="list">
+      <image src="/pages/img/list1.png" lazy-load='true'></image>
+      <view class="right">
+        <view class='title'>
+          夏季新款反绒真皮裹带高跟鞋侧镂空宴会尖头细跟......
+        </view>
+        <view class="color">
+          颜色分类：酒红色；尺码：36
+        </view>
+        <view class="pirce">
+          <view class='text_1'>￥299</view>
+          <view class='text_2'>x1</view>
+        </view>
+      </view>
+    </view>
+    <view class="total" style='border-top:0;margin-top: 10rpx;'>
+      <view class="left">商品总额：</view>
+      <view class="right">￥299</view>
+    </view>
+    <view class="total">
+      <view class="left">优惠券</view>
+      <view class="right">-￥20</view>
+      <image class="jian" src="/pages/img/right.png" lazy-load='true'></image>
+    </view>
+    <view class="total">
+      <view class="left">配送方式</view>
+      <view class="right">
+        <view class="xuan">自取</view>
+        <view class="xuan" style='margin-left:16rpx;'>快递</view>
+      </view>
+    </view>
+    <!-- <view class="total">
+      <view class="left">运费：</view>
+      <view class="right">￥0</view>
+    </view> -->
+    <view class="total">
+      <view class="left">
+        <text>留言</text>
+        <textarea placeholder='给卖家留言'></textarea>
+      </view>
+    </view>
+    <view class="total" style='margin-top: 150rpx;border-top:0;'>
+      <view class="left">实付金额：</view>
+      <view class="right">￥299</view>
+    </view>
+  </view>
+  <view class="footer">
+    <view class="left">
+      实付金额:
+      <text>￥299</text>
+    </view>
+    <view class="right">
+      提交订单
+    </view>
+  </view>
+</view>

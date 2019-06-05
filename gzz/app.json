@@ -1,11 +1,15 @@
 {
   "pages": [
+    "pages/personal/personal",
+    "pages/fill/fill",
+    "pages/After/After",
+    "pages/reason/reason",
+    "pages/refund/refund",
     "pages/index/index",
     "pages/bbhuy/bbhyk",
     "pages/wddd/wddd",
     "pages/find/find",
     "pages/card/card",
-    "pages/personal/personal",
     "pages/member/member",
     "pages/membership/membership",
     "pages/commodity/commodity",

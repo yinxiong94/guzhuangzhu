@@ -1,0 +1,22 @@
+<view class="db">
+  <view class="dw"></view>
+  <view class="from">
+    <view class="list">
+      <text>未按约定时间发货</text>
+      <image src='/pages/img/quan.png' lazy-load='true'></image>
+    </view>
+    <view class="list">
+      <text>未按约定时间发货</text>
+      <image src='/pages/img/quan1.png' lazy-load='true'></image>
+    </view>
+    <view class="list">
+      <text>未按约定时间发货</text>
+      <image src='/pages/img/quan1.png' lazy-load='true'></image>
+    </view>
+    <view class="list">
+      <text>其他</text>
+      <image src='/pages/img/quan1.png' lazy-load='true'></image>
+    </view>
+  </view>
+  <view class="btn">确定</view>
+</view>
