@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {},
+  "navigationBarTitleText": "返佣明细",
+  "navigationBarBackgroundColor": "#8ec31f",
+  "navigationBarTextStyle": "white"
 }

@@ -1,19 +1,16 @@
 {
   "pages": [
-<<<<<<< HEAD
+    "pages/personal/personal",
     "pages/Return/Return",
     "pages/withdrawal/withdrawal",
     "pages/fault/fault",
     "pages/member/member",
     "pages/flowing/flowing",
     "pages/zhuangzheng/zhuangzheng",
-    "pages/index/index"
-=======
-    "pages/personal/personal",
+    "pages/extension/extension",
     "pages/mydevice/mydevice",
     "pages/logs/logs",
     "pages/device/device"
->>>>>>> 55d60892a07dd72ea3992738b9a89dfd7b01070d
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -21,9 +18,6 @@
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
   },
-<<<<<<< HEAD
-  "sitemapLocation": "sitemap.json"
-=======
   "tabBar": {
     "list": [
       {
@@ -40,5 +34,4 @@
       }
     ]
   }
->>>>>>> 55d60892a07dd72ea3992738b9a89dfd7b01070d
 }

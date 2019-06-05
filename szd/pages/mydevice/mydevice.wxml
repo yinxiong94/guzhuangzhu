@@ -1,3 +1,4 @@
+<!-- 我的设备 -->
 <view class='canvasBox'>
   <image src="/pages/img/bg.png" class='bg'></image>
   <image class='bigCircle' src="/pages/img/mbg.png"></image>
@@ -8,8 +9,8 @@
       <view>设备状态：<text>正常</text></view>
    </view>
    <view class='img'>
-      <image src="/pages/img/liushui.png"></image>
-      <image src="/pages/img/zz.png"></image>
-      <image src="/pages/img/shenbao.png"></image>
+      <image src="/pages/img/liushui.png" bindtap='tols'></image>
+      <image src="/pages/img/zz.png" bindtap='tozz'></image>
+      <image src="/pages/img/shenbao.png" bindtap='tosb'></image>
    </view>
 </view>

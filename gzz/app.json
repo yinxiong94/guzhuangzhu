@@ -1,6 +1,14 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/ddxq1/ddxq1",
+    "pages/fill/fill",
+    "pages/txdd/txdd",
+    "pages/ddxq/ddxq",
+    "pages/refund/refund",
+    "pages/tjdz/tjdz",
+    "pages/dz/dz",
+    "pages/commodity/commodity",
     "pages/bbhuy/bbhyk",
     "pages/wddd/wddd",
     "pages/find/find",
@@ -8,19 +16,20 @@
     "pages/personal/personal",
     "pages/member/member",
     "pages/membership/membership",
-    "pages/commodity/commodity",
     "pages/recharge/recharge",
     "pages/map/map",
     "pages/gsj/gsj",
     "pages/discount/discount",
     "pages/article/article",
     "pages/bangka/bangka",
-    "pages/ddxq/ddxq",
     "pages/ddzf/ddzf",
     "pages/gwc/gwc",
     "pages/logs/logs",
     "pages/d520/d520",
-    "pages/kkxx/kkxx"
+    "pages/After/After",
+    "pages/reason/reason",
+    "pages/kkxx/kkxx",
+    "pages/tjdz1/tjdz1"
   ],
   "window": {
     "enablePullDownRefresh": true,

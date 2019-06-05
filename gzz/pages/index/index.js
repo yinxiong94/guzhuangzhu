@@ -27,9 +27,9 @@ Page({
       url: '/pages/membership/membership',
     })
   },
-  spxq:function(){
+  spxq:function(e){
     wx.navigateTo({
-      url: '/pages/commodity/commodity',
+      url: '/pages/commodity/commodity?id='+e.target.dataset.sid,
     })
   },
   yhqzx:function(){
@@ -43,7 +43,6 @@ Page({
   onLoad: function (options) {  
     var that=this;  
     var a=wx.getStorageSync('Token');
-    console.log(a)
     var timespan = new Date().getTime();   
     var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
     var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();

@@ -1,23 +1,25 @@
 <view class='header'></view>
+<view  wx:for="{{list}}">
 <view class="title">古庄主官方自营</view>
 <view class='cart'>
-  <checkbox class='check'></checkbox>
+  <checkbox class='check' data-productNum="{{count[index]}}" data-productPrice="{{item.productPrice}}"  bindtap='change' data-ind='{{index}}' checked='{{checked[index]}}'></checkbox>
   <view class='cart-item'>
-    <image src="/pages/img/img1.png" class='img'></image>
+    <image src="{{item.productImg}}" class='img'></image>
     <view class='cart-item-1'>
-        <view class='title1'>古庄主营养有机米 10Kg</view>
-        <view class='title2'>10Kg</view>
-        <view class='title3'>￥66.69</view>
+        <view class='title1'>{{item.productName}}</view>
+        <view class='title2'>{{item.productWeight/1000}}kg</view>
+        <view class='title3'>￥{{item.productPrice}}</view>
     </view>
     <view class='butt'>
-      <text>-</text>
-      <text class='sl'>5</text>
-      <text>+</text>
+      <text bindtap='jian' data-id="{{index}}" data-uid="{{item.productCartId}}">-</text>
+      <text class='sl'>{{count[index]}}</text>
+      <text bindtap='jia' data-id="{{index}}" data-uid="{{item.productCartId}}">+</text>
     </view>
+    <image src="/pages/img/shanchu.png" class='img_19' bindtap='del' data-uid="{{item.productCartId}}"></image>
   </view>
 </view>
-
-<view class="title">古庄主官方自营</view>
+</view>
+<!-- <view class="title">古庄主官方自营</view>
 <view class='cart'>
   <checkbox class='check'></checkbox>
   <view class='cart-item'>
@@ -33,14 +35,14 @@
       <text>+</text>
     </view>
   </view>
-</view>
+</view> -->
 
 
 <view class='dbnav'>
     <checkbox class='check' bindtap='all' checked='{{c}}'></checkbox>
     <text>全选</text>
     <view class='butt1' bindtap='nowshop'>购买结算</view>
-    <text class='zj'>￥600.00</text>
+    <text class='zj'>￥{{productPrice}}</text>
     <text class='hj'>商品总价：</text>
     
 </view>

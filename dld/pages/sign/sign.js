@@ -50,7 +50,7 @@ Page({
             })
             wx.setStorage({
               key: 'userId',
-              data: res.data.result.userId,
+              data: res.data.result.UserId,
             })
             setTimeout(function(){
               wx.switchTab({
@@ -68,11 +68,19 @@ Page({
       }
       })
   },
+  
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // var id = wx.getStorageSync('userId');
+    // console.log(id)
+    // if(id!=null){
+    //   console.log(1)
+    //   wx.navigateTo({
+    //     url: '/pages/personal/personal',
+    //   })
+    // }
   },
 
   /**

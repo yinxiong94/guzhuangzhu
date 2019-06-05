@@ -129,7 +129,13 @@ Page({
       data: { page: 1, size: 10, longitude:that.data.longitude,latitude:that.data.latitude},
       success(res) {
        console.log(res)
-
+      //  var bb=res.data.result
+      //  for(var i=0;i<bb.length;i++){
+      //   var cc= bb[a].splice(0, 1) ;
+      //    that.setData({ markers:cc})
+      //  }
+      that.setData({markers:res.data.result})
+      //   console.log(that.data.markers)
       }
     })
   },

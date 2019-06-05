@@ -12,12 +12,12 @@
 <view class='list'>
     <image src="/pages/img/grzxbg.png" class='bg'></image>
     <view class='t_1'>我的钱包</view>
-    <view class='t_2'>8888.88</view>
+    <view class='t_2' bindtap='tofy'>8888.88</view>
     <view class='t_3'>资产总金额（元）</view>
-    <view class='t_4'>申请提现</view>
+    <view class='t_4' bindtap='totx'>申请提现</view>
 </view>
 
-<view class="item m330">
+<view class="item m330"  bindtap='tozz'>
     <view class="left">
       <image lazy-load='true' src="/pages/img/zzsq.png" class='img0'></image>
       <text>见习社长转正申请</text>
@@ -25,7 +25,7 @@
     <image class='right' src="/pages/img/right.png"></image>
 </view>
 
-<view class="item">
+<view class="item"  bindtap='tomyhy'>
     <view class="left">
       <image lazy-load='true' src="/pages/img/myvip.png" class='img1'></image>
       <text>我的会员</text>
@@ -33,7 +33,7 @@
     <image class='right' src="/pages/img/right.png"></image>
 </view>
 
-<view class="item">
+<view class="item" bindtap='totg'>
     <view class="left">
       <image lazy-load='true' src="/pages/img/mytg.png" class='img2'></image>
       <text>我的推广</text>

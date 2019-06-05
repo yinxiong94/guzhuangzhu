@@ -10,7 +10,7 @@
           <text class="title_text">{{userInfo.nickName}}</text>
           <view class="img">
             <image lazy-load='true' src="/pages/img/shouji.png"></image>
-            <text>135****4521</text>
+            <text>{{phone}}</text>
           </view>
         </view>
       </view>
@@ -64,6 +64,13 @@
       <view class="item_left">
         <image lazy-load='true' src="/pages/img/dd2.png" class='img20'></image>
         <text>补办会员卡</text>
+      </view>
+      <view class="iconfont icon-jiantou jiantou"></view>
+    </view>
+    <view class="item" bindtap='dz'>
+      <view class="item_left">
+        <image lazy-load='true' src="/pages/img/dingwei.png" class='img21'></image>
+        <text>我的地址</text>
       </view>
       <view class="iconfont icon-jiantou jiantou"></view>
     </view>

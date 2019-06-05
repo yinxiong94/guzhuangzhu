@@ -1,8 +1,9 @@
+<!-- 流水明细 -->
 <view class="db">
   <view class="top">
     <view class="banxin">
       <view class="top_left">
-        <view class="list">今天</view>
+        <view class="list click">今天</view>
         <view class="list">本周</view>
         <view class="list">本月</view>
       </view>

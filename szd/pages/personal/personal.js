@@ -19,6 +19,31 @@ Page({
       hasUserInfo: true
     })
   },
+  tomyhy:function(){
+    wx.navigateTo({
+      url: '/pages/member/member',
+    })
+  },
+  tozz:function(){
+    wx.navigateTo({
+      url: '/pages/zhuangzheng/zhuangzheng',
+    })
+  },
+  tofy:function(){
+    wx.navigateTo({
+      url: '/pages/Return/Return',
+    })
+  },
+  totx:function(){
+    wx.navigateTo({
+      url: '/pages/withdrawal/withdrawal',
+    })
+  },
+  totg:function(){
+    wx.navigateTo({
+      url: '/pages/extension/extension',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

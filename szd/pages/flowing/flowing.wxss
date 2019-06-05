@@ -25,6 +25,7 @@
   text-align: center;
   line-height: 62rpx;
   margin-right: 40rpx;
+  font-size: 28rpx
 }
 
 .db .top .banxin>image {
@@ -90,4 +91,9 @@
 
 .blue {
   background: rgba(62, 148, 244, 0.05);
+}
+.click{
+  color:#8EC31F;
+  border:2rpx solid #8EC31F !important;
+  font-size: 32rpx !important
 }

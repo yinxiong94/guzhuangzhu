@@ -1,3 +1,4 @@
+<!-- 返佣 -->
 <view class="db">
   <view class="top">
     <image src="/pages/img/bg1.png" lazy-load='true'></image>

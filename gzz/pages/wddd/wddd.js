@@ -12,6 +12,11 @@ Page({
      url: '/pages/ddxq/ddxq',
    })
  },
+ tk:function(){
+   wx.navigateTo({
+     url: '/pages/refund/refund',
+   })
+ },
   /**
    * 生命周期函数--监听页面加载
    */

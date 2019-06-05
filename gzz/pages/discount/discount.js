@@ -61,6 +61,32 @@ Page({
       })
     }
   },
+  ljlq:function(e){
+      console.log(e.target.dataset.id)
+    var that = this;
+    var a = wx.getStorageSync('Token');
+    var timespan = new Date().getTime();
+    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
+    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
+    wx.request({
+      url: app.globalData.url + '/api/coupon/ReceiveCoupon',
+      method: "POST",
+      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      data: { openId: app.globalData.openId, couponId: e.target.dataset.id},
+      success(res) {
+        wx.request({
+          url: app.globalData.url + '/api/coupon/couponList',
+          method: "POST",
+          header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+          data: { openId: '00001' },
+          success(res) {
+            console.log(res)
+            that.setData({ list: res.data.result })
+          }
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

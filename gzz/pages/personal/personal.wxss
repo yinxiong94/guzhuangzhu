@@ -194,3 +194,7 @@
 .db .list .item .jiantou{
   line-height: 42rpx;
 }
+.img21{
+  width: 41rpx !important;
+  height: 52rpx !important;
+}

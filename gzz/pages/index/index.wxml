@@ -54,7 +54,7 @@
   <view class='more more1'>更多</view>
   <view class='deas_all'>
       <view class='deas_list' wx:for="{{row1}}">
-        <image src="{{item.productImg}}" class='deas_img' bindtap='spxq'></image>  
+        <image src="{{item.productImg}}" class='deas_img' bindtap='spxq' data-sid="{{item.productId}}"></image>  
         <image src="/pages/img/db.png" class='deas_img1'></image>  
         <view class='deas_text'>{{item.productName}}</view>     
         <view class='deas_text1'>{{item.productIntroduce}}</view>

@@ -1,0 +1,235 @@
+.db {
+  width: 100%;
+  background-color: #efeff4;
+  overflow: hidden;
+}
+
+.top {
+  width: 710rpx;
+  height: 230rpx;
+  margin: 0 auto;
+  background-color: #fff;
+  margin-top: 20rpx;
+  border-radius: 10rpx;
+  display: flex;
+}
+
+.top .img {
+  width: 60rpx;
+  height: 60rpx;
+  margin-top: 85rpx;
+  margin-left: 30rpx;
+}
+
+.top .img1 {
+  width: 21rpx;
+  height: 21rpx;
+  margin-top: 105rpx;
+  margin-right: 30rpx;
+}
+
+.top .conter {
+  flex: 1;
+  margin-left: 30rpx;
+  margin-top: 43rpx;
+}
+
+.top .conter .coco {
+  color: #1d2023;
+  font-size: 28rpx;
+  font-family: PingFangSC;
+  font-weight: 400;
+  height: 26rpx;
+  line-height: 26rpx;
+}
+
+.top .conter .coco text {
+  color: #999;
+}
+
+.top .conter .coco_1 {
+  height: 31rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC;
+  font-weight: 400;
+  color: rgba(29, 32, 35, 1);
+  margin-top: 30rpx;
+  line-height: 31rpx;
+}
+
+.top .conter .coco_2 {
+  height: 27rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC;
+  font-weight: 400;
+  color: #999;
+  line-height: 27rpx;
+  margin-top: 30rpx;
+}
+
+.xinxi {
+  width: 710rpx;
+  margin: 0 auto;
+  margin-top: 20rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  overflow: hidden;
+  padding-top: 10rpx;
+}
+
+.xinxi .list {
+  display: flex;
+  width: 650rpx;
+  margin: 0 auto;
+  margin-top: 30rpx;
+}
+
+.xinxi .list image {
+  width: 219rpx;
+  height: 220rpx;
+}
+
+.xinxi .list .right {
+  flex: 1;
+  margin-left: 30rpx;
+}
+
+.xinxi .list .right .title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  font-size: 28rpx;
+  font-family: PingFangSC;
+  font-weight: 400;
+  color: rgba(29, 32, 35, 1);
+}
+
+.xinxi .list .right .color {
+  font-size: 22rpx;
+  font-family: PingFangSC;
+  font-weight: 400;
+  color: rgba(153, 153, 153, 1);
+  height: 21rpx;
+  line-height: 21rpx;
+  margin-top: 19rpx;
+}
+
+.xinxi .list .right .pirce {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 60rpx;
+}
+
+.xinxi .list .right .pirce .text_1 {
+  height: 28rpx;
+  line-height: 28rpx;
+  font-size: 26rpx;
+  font-family: PingFangSC;
+  font-weight: 400;
+  color: rgba(255, 83, 60, 1);
+}
+
+.xinxi .list .right .pirce .text_2 {
+  height: 28rpx;
+  line-height: 28rpx;
+  font-size: 28rpx;
+  font-family: Adobe Heiti Std R;
+  font-weight: normal;
+  color: rgba(29, 32, 35, 1);
+}
+
+.xinxi .total {
+  width: 650rpx;
+  height: 90rpx;
+  border-top: 1px solid #ccc;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.xinxi .total .left {
+  flex: 1;
+  font-size: 28rpx;
+  font-family: PingFangSC;
+  font-weight: bold;
+  color: rgba(63, 69, 75, 1);
+  height: 90rpx;
+  line-height: 90rpx;
+  display: flex;
+}
+
+.xinxi .total .left textarea {
+  flex: 1;
+  font-size: 28rpx;
+  font-family: PingFangSC;
+  font-weight: bold;
+  color: rgba(63, 69, 75, 1);
+  margin-top: 31rpx;
+  margin-left: 40rpx;
+}
+
+.xinxi .total .right {
+  flex: 1;
+  font-size: 24rpx;
+  font-family: PingFangSC;
+  font-weight: 400;
+  color: rgba(255, 83, 60, 1);
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: right;
+  display: flex;
+}
+
+.xinxi .total .right .xuan {
+  width: 100rpx;
+  height: 40rpx;
+  font-size: 24rpx;
+  background-color: #fbc00e;
+  text-align: center;
+  line-height: 40rpx;
+  border-radius: 20rpx;
+  margin-top: 25rpx;
+  color: #fff;
+}
+
+.xinxi .total .jian {
+  width: 12rpx;
+  height: 22rpx;
+  margin-left: 24rpx;
+  margin-top: 35rpx;
+}
+
+.footer {
+  display: flex;
+  margin-top: 20rpx;
+}
+
+.footer .left {
+  flex: 50%;
+  background-color: #fff;
+  height: 98rpx;
+  line-height: 98rpx;
+  text-align: center;
+  font-size: 32rpx;
+  font-family: PingFangSC;
+  font-weight: 400;
+  color: rgba(29, 32, 35, 1);
+}
+
+.footer .left text {
+  color: #ff533c;
+  margin-left: 40rpx;
+}
+
+.footer .right {
+  width: 50%;
+  height: 98rpx;
+  background: rgba(251, 192, 14, 1);
+  text-align: center;
+  font-size: 32rpx;
+  font-family: PingFangSC;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  line-height: 98rpx;
+}

@@ -1,0 +1,38 @@
+<!-- 地址管理 -->
+<view class='hx'></view>
+<view wx:if="{{show1==0}}">
+
+    <image src="/pages/img/dz.png" lazy-load='true' class="img"></image>
+    <view class='ty'></view>
+    <view class='t1'>亲，你还没有添加地址哦~</view>
+    <view class='t2' bindtap='tosh'>添加地址</view>
+</view>
+
+<radio-group>
+<view wx:if="{{show1==1}}">
+    <view class='list' wx:for="{{list}}">
+        <view class='list_item'>
+            <view class='t_1'>{{item.consignee}}</view>
+            <view class='t_1'>{{item.phone}}</view>
+        </view>
+        <view class='t_2'>{{item.area}}
+        {{item.address}}</view>
+        <view class='hx_1'></view>
+        <view class='list_item1'>
+            <view class='item'>
+              <radio class='check' checked="{{item.isDefault==0}}" color="#fbc00e" data-fid="{{item.addressId}}" bindtap='f123'></radio>
+              <view>设为默认地址</view>
+            </view>  
+            <view class='item'>       
+              <image src="/pages/img/bianji.png" class='img2' bindtap='bj1' data-fid="{{item.addressId}}" data-uid="{{index}}"></image>
+              <image src="/pages/img/shanchu.png" class='img3' bindtap='del1' data-fid="{{item.addressId}}"></image>
+            </view>  
+        </view>
+    </view>
+
+    <view class='hx22'></view>
+
+    <view class='text' bindtap='tosh'>新增收货地址</view>
+
+</view> 
+</radio-group>

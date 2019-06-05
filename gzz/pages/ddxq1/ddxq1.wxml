@@ -1,0 +1,48 @@
+<view class='item_3'>
+    <view class='t_11'>卖家已发货</view>
+    <view class='t_22'>剩余7天20时自动确认</view>
+</view>
+
+    <view class='cart'>
+    <view class='cart-item'>
+      <image src="/pages/img/deas.png" class='img'></image>
+      <view class='cart-item-1'>
+          <view class='title1'>古庄主营养有机米 10Kg</view>
+          <view class='title2'>标准：10Kg</view>
+      </view>
+      <view class='jg'>
+        <view class='jg1'>￥169</view>
+        <view class='jg2'>X2</view>
+      </view>
+      <view class='tet'>申请退款</view>
+    </view>
+  </view>
+
+  <image src="/pages/img/bb.png" class='bb'></image>
+  <view class="address">
+    <image src="/pages/img/dizhi .png"></image>
+    <view class="Contact">
+      <text class="name">麦兜</text><text class="phone">15698324568</text>
+      <text class="dizhi">广东省深圳市南山区田厦金牛广场702</text>
+    </view>
+  </view>
+  <view class="logistics">
+      <view><text>我的物流信息</text></view>
+      <image src="/pages/img/已发货.png"></image>
+      <view class="shou">
+        <text class="state">包裹正在等待揽收</text>
+        <text class="time">2019-05-15  11:27:28</text>
+      </view>
+      <image id="right" src="/pages/img/right.png"></image>
+  </view>
+
+  <view class='hot'>
+      <view class='title_item'>热门文章</view>
+      <view class='title_item_1'>谷庄主泰国稻花香米，纯精品泰国进口，36道工序精挑细选</view>
+      <view class='mmm'>
+        <image src="/pages/img/xff.png"></image>
+        <image src="/pages/img/xff.png"></image>
+        <image src="/pages/img/xff.png"></image>
+      </view>
+      
+  </view>

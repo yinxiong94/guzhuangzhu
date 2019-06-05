@@ -1,0 +1,45 @@
+<!-- 推广拓扑图 -->
+<view class="db">
+  <view class="conter">
+    <view class="list">
+      <view class="item">
+        <image class="img1" src='/pages/img/tou.png' lazy-load='true'></image>
+        <view class="name">
+          <text class="name_1">浣熊</text>
+          <text class="name_2">手机号：15698736548</text>
+        </view>
+        <image class="img2" src='/pages/img/xiaji1.png' lazy-load='true'></image>
+      </view>
+    </view>
+    <view class="list_1">
+      <view class="list_b">
+        <image class="img1" src='/pages/img/tou.png' lazy-load='true'></image>
+        <view class="name">
+          <text class="name_1">浣熊</text>
+          <text class="name_2">手机号：15698736548</text>
+        </view>
+      </view>
+      <view class="list_b">
+        <image class="img1" src='/pages/img/tou.png' lazy-load='true'></image>
+        <view class="name">
+          <text class="name_1">浣熊</text>
+          <text class="name_2">手机号：15698736548</text>
+        </view>
+      </view>
+    </view>
+  </view>
+    <view class="conter">
+    <view class="list">
+      <view class="item">
+        <image class="img1" src='/pages/img/tou.png' lazy-load='true'></image>
+        <view class="name">
+          <text class="name_1">浣熊</text>
+          <text class="name_2">手机号：15698736548</text>
+        </view>
+        <image class="img2" src='/pages/img/sj.png' lazy-load='true'></image>
+      </view>
+    </view>
+    <view class="list_1">
+    </view>
+  </view>
+</view>

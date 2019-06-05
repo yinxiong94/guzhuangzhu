@@ -5,9 +5,7 @@ App({
     //展示本地存储能力
     wx.clearStorageSync()
     var a = wx.getStorageSync('Token');
-    console.log(!a)
     if (!a || new Date(a.timespan) <= new Date()) {
-      console.log(1)
       //如果Token过期请求Token
       var timespan = new Date().getTime();        //时间戳
       var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));     //随机数
@@ -17,7 +15,6 @@ App({
         header: { 'content-type': 'application/json', signKey: signKey, timespan: timespan, nonce: nonce },
         data: { signKey: 123456 },
         success(res) {
-          console.log(res)
           if (res.code = 200) {
             wx.setStorage({
               key: 'Token',
@@ -77,6 +74,6 @@ App({
     userInfo: null,
     url:"http://192.168.1.188:81",
     code:"",
-    openid:""
+    openId:"00001"
   }
 })

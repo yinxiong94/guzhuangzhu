@@ -1,3 +1,8 @@
+<view class='item_3'>
+    <view class='t_11'>订单已生效</view>
+    <view class='t_22'>请尽快前往距离最近的机器取米</view>
+</view>
+
     <view class='cart'>
     <view class='cart-item'>
       <image src="/pages/img/deas.png" class='img'></image>
@@ -9,6 +14,7 @@
         <view class='jg1'>￥169</view>
         <view class='jg2'>X2</view>
       </view>
+      <view class='tet'>申请退款</view>
     </view>
   </view>
 

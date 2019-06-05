@@ -1,0 +1,55 @@
+.db {
+  width: 750rpx;
+  background-color: rgba(239, 239, 244, 1);
+}
+
+.db .from {
+  width: 750rpx;
+  background-color: #fff;
+}
+
+.db .from .list {
+  width: 690rpx;
+  height: 100rpx;
+  margin: 0 auto;
+  border-top: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  line-height: 100rpx;
+  font-size: 30rpx;
+  font-family: PingFangSC;
+  font-weight: 400;
+  color: rgba(29, 32, 35, 1);
+}
+
+.db .from .list:nth-child(1) {
+  border-top: 0;
+}
+
+.db .from .list image {
+  width: 36rpx;
+  height: 36rpx;
+  margin-top: 32rpx;
+}
+
+.dw {
+  width: 100%;
+  height: 2px;
+  box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.3);
+}
+
+.btn {
+  width: 690rpx;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  background: rgba(251, 192, 14, 1);
+  border-radius: 10px;
+  margin: 0 auto;
+  margin-top: 60rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+}

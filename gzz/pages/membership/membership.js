@@ -15,9 +15,6 @@ Page({
     })
   },
   kt:function(){
-      wx.navigateTo({
-        url: '/pages/kkxx/kkxx',
-      })
     var that = this;
     var a = wx.getStorageSync('Token');
     var timespan = new Date().getTime();
@@ -30,6 +27,15 @@ Page({
       data: { openId: "00001", memberConfigId: this.data.imgUrls[this.data.swiperIndex].configId },
       success(res) {
         console.log(res)
+        if(res.data.code==200){
+          wx.navigateTo({
+            url: '/pages/kkxx/kkxx',
+          })
+        } else {
+          wx.navigateTo({
+            url: '/pages/recharge/recharge',
+          })
+        }
       }
     })
   },

@@ -1,3 +1,4 @@
+<!-- 社长转正 -->
 <view class="db">
   <view class="img">
     <image lazy-load='true' src='../img/bg.png'></image>
@@ -20,11 +21,29 @@
     </view>
     <view class="list">
       <view class="left">
-        <image lazy-load='true' src='../img/list1.png'></image>
+        <image lazy-load='true' src='../img/yj.png'></image>
       </view>
       <view class="right">
-        <view class="equipment">设备归属</view>
-        <view class="equipment1">设备认证后归属于你</view>
+        <view class="equipment">高佣提成</view>
+        <view class="equipment1">区别于不同于实习社长的提成，上浮0.3个点</view>
+      </view>
+    </view>
+    <view class="list">
+      <view class="left">
+        <image lazy-load='true' src='../img/qy.png'></image>
+      </view>
+      <view class="right">
+        <view class="equipment">负责区域</view>
+        <view class="equipment1">负责区域更大、更广，负责的机器也更多</view>
+      </view>
+    </view>
+    <view class="list">
+      <view class="left">
+        <image lazy-load='true' src='../img/kf.png'></image>
+      </view>
+      <view class="right">
+        <view class="equipment">专属客服</view>
+        <view class="equipment1">人工客服专线，交流用心更体贴</view>
       </view>
     </view>
   </view>

@@ -9,7 +9,8 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    list:[]
+    list:[],
+    phone:""
   },
 
   wddd:function(){
@@ -45,6 +46,11 @@ Page({
   yhqzx:function(){
     wx.navigateTo({
       url: '/pages/discount/discount',
+    })
+  },
+  dz:function(){
+    wx.navigateTo({
+      url: '/pages/dz/dz',
     })
   },
   /**
@@ -88,7 +94,10 @@ Page({
       header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
       data:  { openId:'00001' },
       success(res) {
-        that.setData({ list: res.data.result })
+        console.log(res)
+          var a = res.data.result.phone;
+          var b = a.replace(/^(\w{3})\w{4}(.*)$/, '$1****$2')
+        that.setData({ list: res.data.result ,phone:b})
       }
     })
   },

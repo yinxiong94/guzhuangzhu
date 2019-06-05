@@ -1,0 +1,61 @@
+<!-- 退货申请 -->
+<view class="db">
+  <view class="conter">
+    <view class="list">
+      <image class="img1" src='/pages/img/tui1.png' lazy-load='true'></image>
+      <view class="right">
+        <view class="title">
+          <text class="title_1">古庄主 营养有机米 绿色无污染</text>
+          <text class="title_2">￥299</text>
+        </view>
+        <view class="classification">
+          <text class="title_1">颜色分类：酒红色；尺码：36</text>
+          <text class="title_2">x1</text>
+        </view>
+      </view>
+    </view>
+    <view class="item">
+      <view class="item_li">
+        <view class="left">
+          实际收款
+          <text>￥299</text>
+        </view>
+        <!-- <view class="right">
+          <image src='/pages/img/right.png' lazy-load='true'></image>
+        </view> -->
+      </view>
+      <view class="item_li" bindtap='tkyy'>
+        <view class="left">
+          退款原因
+        </view>
+        <view class="right">
+          <image src='/pages/img/right.png' lazy-load='true'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="pirce">
+    退款金额
+    <text>￥299</text>
+  </view>
+  <view class="explain">
+    退款金额最多￥299.00，含发货邮费￥0.00
+  </view>
+  <view class="pirce">
+    退款说明
+    <input type='text' placeholder='选填'></input>
+  </view>
+  <view class='footer'>
+    <view class="voucher">
+      上传凭证：
+      <input type='text' placeholder='不得超过三张'></input>
+    </view>
+    <view class="zp">
+      <view class="zp_1">
+      <image src='/pages/img/xj.png'></image>
+      <view class="tj">添加图片</view>
+      </view>
+    </view>
+  </view>
+  <view class="btn" bindtap='sq'>申请</view>
+</view>

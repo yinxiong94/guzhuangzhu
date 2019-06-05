@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    list: [{ id: 1, name: "九峰小区12栋1号设备" }, { id: 2, name: "九峰小区12栋2号设备" }]
   },
   mydevice:function(){
     wx.navigateTo({
