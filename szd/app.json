@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/personal/personal",
+      "pages/personal/personal",
     "pages/Return/Return",
     "pages/withdrawal/withdrawal",
     "pages/fault/fault",
@@ -8,6 +8,8 @@
     "pages/flowing/flowing",
     "pages/zhuangzheng/zhuangzheng",
     "pages/extension/extension",
+    "pages/index/index",
+  
     "pages/mydevice/mydevice",
     "pages/logs/logs",
     "pages/device/device"
@@ -18,6 +20,7 @@
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
   },
+  "sitemapLocation": "sitemap.json",
   "tabBar": {
     "list": [
       {

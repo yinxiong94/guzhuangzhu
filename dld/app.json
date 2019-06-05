@@ -1,13 +1,13 @@
 {
   "pages": [
+    "pages/mymember/mymember",
+    "pages/cash/cash",
     "pages/sign/sign",
     "pages/personal/personal",
    
     "pages/index/index",
     "pages/bound/bound",
-    "pages/cash/cash",
     "pages/tixian/tixian",
-    "pages/mymember/mymember",
     "pages/mydevice/mydevice",
     "pages/royalty/royalty",
     "pages/transaction/transaction",

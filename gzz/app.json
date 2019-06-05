@@ -1,5 +1,9 @@
 {
   "pages": [
+    "pages/personal/personal",
+    "pages/After/After",
+    "pages/reason/reason",
+    "pages/refund/refund",
     "pages/index/index",
     "pages/ddxq1/ddxq1",
     "pages/fill/fill",
@@ -13,7 +17,6 @@
     "pages/wddd/wddd",
     "pages/find/find",
     "pages/card/card",
-    "pages/personal/personal",
     "pages/member/member",
     "pages/membership/membership",
     "pages/recharge/recharge",
@@ -26,7 +29,6 @@
     "pages/gwc/gwc",
     "pages/logs/logs",
     "pages/d520/d520",
-    "pages/After/After",
     "pages/reason/reason",
     "pages/kkxx/kkxx",
     "pages/tjdz1/tjdz1"
