@@ -1,5 +1,7 @@
 // pages/cash/cash.js
 const app = getApp()
+var timespan = new Date().getTime();
+var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
 Page({
 
   /**
@@ -13,22 +15,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // var that = this;
-    // var id = wx.getStorageSync('userId');
-    // var a = wx.getStorageSync('Token');
-    // var timespan = new Date().getTime();
-    // var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
-    // var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
-    // wx.request({
-    //   url: app.globalData.url + '/api/Users/WithdrawPageList',
-    //   method: "POST",
-    //   header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
-    //   data: { agentId:, pageid:, pagesize: },
-    //   success(res) {
-    //     console.log(res)
-    //     that.setData({ list: res.data.result })
-    //   }
-    // })
+    var that = this;
+    var id = wx.getStorageSync('agentId');
+    var a = wx.getStorageSync('Token');
+    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
+    wx.request({
+      url: app.globalData.url + '/api/Users/WithdrawPageList',
+      method: "POST",
+      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      data: { agentId:id, pageid:1, pagesize: 10},
+      success(res) {
+        console.log(res)
+        that.setData({ list: res.data.result })
+      }
+    })
   },
 
   /**

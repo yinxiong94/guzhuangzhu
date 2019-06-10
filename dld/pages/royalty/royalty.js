@@ -1,4 +1,7 @@
 // pages/royalty/royalty.js
+const app = getApp()
+var timespan = new Date().getTime();
+var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
 Page({
 
   /**
@@ -12,7 +15,28 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this;
+    var id = wx.getStorageSync('agentId');
+    var a = wx.getStorageSync('Token');
+    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
+    wx.request({
+      url: app.globalData.url + '/api/Users/GetOnePrice',
+      method: "POST",
+      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      data: { agentId: id, pageid: 1, pagesize:5},
+      success(res) {
+        console.log(res)
+      }
+    })
+    wx.request({
+      url: app.globalData.url + '/api/Users/WithdrawPageListTime  ',
+      method: "POST",
+      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      data: { agentId: id, pageid: 1, pagesize: 5, year: 2019, month:3 },
+      success(res) {
+        console.log(res)
+      }
+    })
   },
 
   /**

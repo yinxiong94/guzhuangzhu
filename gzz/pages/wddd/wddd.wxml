@@ -25,7 +25,7 @@
   <view class='hj'>
       <view class='hj_1'>共1件商品，合计：<text>￥169.00</text></view>
       <text class='t_2'>去提货</text>
-      <text class='t_2 t_3' bindtap='tk'>申请退款</text>
+      <!-- <text class='t_2 t_3' bindtap='tk'>申请退款</text> -->
   </view>
 </view>
 
@@ -50,7 +50,7 @@
   <view class='hj'>
       <view class='hj_1'>共1件商品，合计：<text>￥169.00</text></view>
       <text class='t_2'>查看物流</text>
-      <text class='t_2 t_3'>申请退款</text>
+      <!-- <text class='t_2 t_3'>申请退款</text> -->
   </view>
 </view>
 

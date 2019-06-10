@@ -1,5 +1,8 @@
 // pages/commodity/commodity.js
+var WxParse = require('../../wxParse/wxParse.js');
 const app = getApp()
+var timespan = new Date().getTime();
+var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
 Page({
 
   /**
@@ -12,9 +15,32 @@ Page({
       list:[],
       list1:[],
       id:"",
-      ide:""
+      ide:"",
+      count: 1,
+      index:[],
+      count1:0,
+      list2:[]
   },
-
+  bindPickerChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      index: e.detail.value
+    })
+  },
+  tocar:function(){
+    wx.switchTab({
+      url: '/pages/gwc/gwc',
+    })
+  },
+  jian: function (e) {
+    var a = this.data.count - 1;
+    if (a < 1) { a = 1 }
+    this.setData({ count: a })
+  },
+  jia: function (e) {
+    var a = this.data.count + 1;
+    this.setData({ count: a })
+  },
   yhzx:function(){
     this.setData({isshow:true})
   },
@@ -27,12 +53,30 @@ Page({
   del:function(){
     this.setData({isshow1:false})
   },
+  nowshop:function(){
+    var that = this;
+    var a = wx.getStorageSync('Token'); 
+    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
+    wx.request({
+      url: app.globalData.url + '/api/product/OperationFreightByProduct',
+      method: "POST",
+      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      data: { productId: that.data.ide, productNum: that.data.count },
+      success(res) {
+        console.log(res)
+        if(res.data.code==200){
+          wx.navigateTo({
+            url: '/pages/fill/fill?id=' + that.data.ide + "&count=" + that.data.count + "&sid=1" + "&productName=" + that.data.list.productName + "&productWeight=" + that.data.list.productWeight + "&price=" 
+              + that.data.list.productPrice + "&freight=" + res.data.result.freight+"&imgurl="+that.data.list1[0],
+          })
+        }
+      }
+    })
+  },
   xz:function(e){
     this.setData({ id: e.target.dataset.zl})
     var that=this;
     var a = wx.getStorageSync('Token');
-    var timespan = new Date().getTime();
-    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
     var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
     wx.request({
       url: app.globalData.url + '/api/product/ProductDetailsByType',
@@ -41,23 +85,21 @@ Page({
       data: { productType: that.data.ide, productWeight:that.data.id },
       success(res) {
         console.log(res)
-        that.setData({ list: res.data.result,ide:res.data.result.productId})
+        that.setData({ list: res.data.result, productId: res.data.result.productId})
       }
     })
   },
   tocart:function(){
     var that = this;
     var a = wx.getStorageSync('Token');
-    var timespan = new Date().getTime();
-    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
     var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
     wx.request({
       url: app.globalData.url + '/api/Product/ProductCartAdd',
       method: "POST",
       header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
-      data: { openId: app.globalData.openId, productId: that.data.ide },
+      data: { openId: app.globalData.openId, productId: that.data.productId },
       success(res) {
-        console.log(res)
+        console.log(res,)
         if(res.data.code==200){
           wx.showToast({
             title: '加入成功',
@@ -75,8 +117,6 @@ Page({
     var that = this;
     var a = wx.getStorageSync('Token');
     console.log(a)
-    var timespan = new Date().getTime();
-    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
     var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
     // 轮播图
     wx.request({
@@ -88,7 +128,28 @@ Page({
         console.log(res)
         var gg = res.data.result.productImg.split(",")
         that.setData({ list: res.data.result, list1: gg, ide: res.data.result.productType, id: res.data.result.productWeight})
-        console.log(that.data.id)
+        var article =res.data.result.productDetails;
+        WxParse.wxParse('article', 'html', article, that, 5);
+      }
+    })
+    wx.request({
+      url: app.globalData.url + '/api/product/ProductCartInfo',
+      method: "POST",
+      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      data: { openId: app.globalData.openId },
+      success(res) {
+        console.log(res)
+        that.setData({ count1: res.data.result.length })
+      }
+    })
+    wx.request({
+      url: app.globalData.url + '/api/coupon/couponList',
+      method: "POST",
+      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      data: { openId: app.globalData.openId},
+      success(res) {
+        console.log(res)
+        that.setData({list2:res.data.result})
       }
     })
   },
@@ -97,14 +158,27 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    var that = this;
+    var a = wx.getStorageSync('Token');
+    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
+    // 轮播图
+    wx.request({
+      url: app.globalData.url + '/api/product/ProductCartInfo',
+      method: "POST",
+      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      data: { openId:app.globalData.openId },
+      success(res) {
+        console.log(res)
+        that.setData({count1:res.data.result.length})
+      }
+    })
   },
 
   /**

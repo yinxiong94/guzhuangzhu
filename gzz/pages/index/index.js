@@ -16,7 +16,31 @@ Page({
     row:[],
     row1:[]
   },
-  
+  lqyhq:function(e){
+    var id=e.target.dataset.id;
+    var that = this;
+    var a = wx.getStorageSync('Token');
+    var timespan = new Date().getTime();
+    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
+    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
+    wx.request({
+      url: app.globalData.url + '/api/coupon/ReceiveCoupon',
+      method: "POST",
+      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      data: { openId: app.globalData.openId, couponId:id},
+      success(res) {
+        wx.request({
+          url: app.globalData.url + '/api/coupon/couponList',
+          method: "POST",
+          header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+          data: { openId: app.globalData.openId },
+          success(res) {
+            that.setData({ list1: res.data.result })
+          }
+        })
+      }
+    })
+  },
   swiperChange(e) {
     this.setData({
       swiperIndex: e.detail.current
@@ -61,7 +85,7 @@ Page({
       url: app.globalData.url +'/api/coupon/couponList',
       method: "POST",
       header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
-      data:{openId:'00001'},
+      data:{openId:app.globalData.openId},
       success(res){
         that.setData({list1:res.data.result})
       }
@@ -81,6 +105,7 @@ Page({
       method: "POST",
       header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
       success(res) {
+        console.log(res)
         that.setData({row1:res.data.result})
       }
     })

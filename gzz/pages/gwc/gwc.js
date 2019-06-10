@@ -13,12 +13,31 @@ Page({
     a: 0,
     b: 0,
     c: false,
-    count:[]
+    count:[],
+    fid:""
   },
   nowshop:function(){
-    wx.navigateTo({
-      url: '/pages/fill/fill',
-    })
+    var aaa="";
+    for (var i = 0; i < this.data.list.length; i++) {
+      if (this.data.checked[i] === true) {
+        aaa += ","
+        aaa += this.data.list[i].productCartId;       
+      }
+    }
+    this.setData({fid:aaa.substr(1)})
+    if(this.data.fid.length==0){
+      wx.showToast({
+        title: '请选择商品',
+        duration:2000,
+        icon:"none"
+      })
+    }
+    else{
+      wx.navigateTo({
+        url: '/pages/fill1/fill1?ddd=' + this.data.fid,
+      })
+    }
+    
   },
   all: function () {
     this.data.b += 1;

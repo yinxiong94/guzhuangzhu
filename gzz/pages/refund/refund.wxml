@@ -24,12 +24,12 @@
           <image src='/pages/img/right.png' lazy-load='true'></image>
         </view> -->
       </view>
-      <view class="item_li" bindtap='tkyy'>
+      <!-- <view class="item_li" bindtap='tkyy'>
         <view class="right">
           <image src='/pages/img/right.png' lazy-load='true'></image>
         </view>
-      </view>
-      <view class="item_li">
+      </view> -->
+      <view class="item_li" bindtap='tkyy'>
         <view class="left">
           退款原因
         </view>

@@ -1,5 +1,8 @@
 // pages/mydevice/mydevice.js
 const app = getApp()
+var timespan = new Date().getTime();
+var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
+
 Page({
 
   /**
@@ -15,10 +18,7 @@ Page({
   onLoad: function (options) {
     var that=this;
     var id = wx.getStorageSync('userId');
-    console.log(id)
-    var a = wx.getStorageSync('Token');
-    var timespan = new Date().getTime();
-    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
+    var a = wx.getStorageSync('Token');  
     var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
     wx.request({
       url: app.globalData.url + '/api/machine/machinePageList',

@@ -1,4 +1,7 @@
 // pages/mymember/mymember.js
+const app = getApp()
+var timespan = new Date().getTime();
+var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
 Page({
 
   /**
@@ -12,7 +15,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this;
+    var id = wx.getStorageSync('agentId');
+    var ide = wx.getStorageSync("userId");
+    console.log(id,ide)
+    var a = wx.getStorageSync('Token');
+    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
+    wx.request({
+      url: app.globalData.url + '/api/Users/GetMemberinfo',
+      method: "POST",
+      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      data: { userId: ide, agentId:id },
+      success(res) {
+        console.log(res)
+      }
+    })
   },
 
   /**

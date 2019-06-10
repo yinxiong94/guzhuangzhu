@@ -1,3 +1,4 @@
+
 .db {
   width: 100%;
   background-color: #efeff4;
@@ -232,4 +233,333 @@
   font-weight: 400;
   color: rgba(255, 255, 255, 1);
   line-height: 98rpx;
+}
+.db {
+  width: 100%;
+  border-top: 1rpx solid #f1f1f1;
+  overflow: hidden;
+}
+
+.db .header {
+  width: 95%;
+  margin: 0 auto;
+  height: 90rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.db .header view {
+  width: 100rpx;
+  text-align: center;
+  font-size: 32rpx;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+  color: rgba(186, 186, 186, 1);
+  margin-right: 100rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  position: relative;
+}
+
+.db .header .jin {
+  color: #fbc00e;
+  border-bottom:6rpx solid #fbc00e
+}
+
+.db .header view .xian {
+  position: absolute;
+  width: 26rpx;
+  height: 6rpx;
+  background-color: #fbc00e;
+  bottom: 20rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 10rpx
+}
+
+.db .header view:nth-child(3) {
+  margin-right: 0;
+}
+
+.db .item {
+  width: 710rpx;
+  height: 180rpx;
+  margin: 0 auto;
+  margin-top: 20rpx;
+  display: flex;
+  border-radius: 14rpx;
+  overflow: hidden;
+  border: 1px solid rgba(251, 192, 14, 1);
+}
+
+.db .item .item_left {
+  width: 205rpx;
+  height: 180rpx;
+}
+
+.db .item .item_left .box {
+  width: 100%;
+  height: 152rpx;
+  border-right: 2rpx dashed rgba(201, 201, 201, 1);
+  margin-top: 13rpx;
+  overflow: hidden;
+}
+
+.db .item .item_left .box .pirce {
+  text-align: center;
+  margin-top: 24rpx;
+}
+
+.db .item .item_left .box .pirce .box_pirce {
+  font-size: 42rpx;
+  font-weight: bold;
+  color: rgba(177, 138, 62, 1);
+}
+
+.db .item .item_left .box .pirce .money {
+  font-size: 72rpx;
+  font-weight: bold;
+  color: rgba(177, 138, 62, 1);
+  height: 54rpx;
+  line-height: 54rpx;
+}
+
+.db .item .item_left .box .pirce .hui {
+  color: #bdbdbd;
+}
+
+.db .item .item_left .box .tips {
+  margin-top: 26rpx;
+  font-size: 30rpx;
+  text-align: center;
+  color: rgba(177, 138, 62, 1);
+  height: 28rpx;
+  line-height: 28rpx;
+}
+
+.db .item .item_left .box .hui {
+  color: #bdbdbd;
+}
+
+.db .item .img {
+  width: 110rpx;
+  height: 180rpx;
+  position: relative;
+}
+
+.db .item .img .text {
+  position: absolute;
+  width: 28rpx;
+  font-size: 30rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: #fff;
+  margin: 0;
+  padding: 15rpx 0;
+  box-sizing: border-box;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.db .item .img image {
+  width: 110rpx;
+  height: 180rpx;
+}
+
+.db .item .data {
+  flex: 1;
+  height: 180rpx;
+  margin-left: 17rpx;
+}
+
+.db .item .data .effective {
+  width: 72rpx;
+  height: 23rpx;
+  font-size: 24rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(163, 163, 163, 1);
+  margin-top: 34rpx;
+}
+
+.db .item .data .date {
+  font-size: 30rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(74, 74, 74, 1);
+  margin-top: 20rpx;
+}
+
+.db .item .data .surplus {
+  width: 151rpx;
+  height: 34rpx;
+  background: rgba(177, 138, 62, 0.1);
+  border-radius: 4px;
+  text-align: center;
+  margin-top: 20rpx;
+}
+
+.db .item .data .surplus view {
+  font-size: 24rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(220, 166, 0, 1);
+  height: 34rpx;
+  line-height: 34rpx;
+}
+.index{
+  position: fixed;
+  height: 100%;
+  padding: 20rpx 20rpx;
+  background: #ccc;
+  top:0
+}
+.t1000{
+  margin: auto;
+  font-size: 50rpx;
+  text-align: center;
+  width: 100%;
+  margin-top: 50rpx
+}
+.index1{
+  position: fixed;
+  height: 1334rpx;
+  background: #ccc;
+  width: 100%;
+  top:0;
+  z-index: 10000
+}
+.check{
+  transform:scale(.5);
+  vertical-align: middle
+}
+radio .wx-radio-input{
+    border-radius: 28rpx;
+    height: 56rpx;
+    width: 56rpx;
+    margin-top: -4rpx;
+    border: 2rpx solid #c6c6c6;
+}
+/* 选中后的 背景样式 （红色背景 无边框 可根据UI需求自己修改） */
+radio .wx-radio-input.wx-radio-input-checked{
+  background: #fbc00e;
+}
+/* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */
+radio .wx-radio-input.wx-radio-input-checked::before{
+  width: 40rpx;
+  height: 28rpx;
+  line-height: 28rpx;
+  text-align: center;
+  font-size: 38rpx;
+  color: #fff;
+  background: transparent;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+}
+.img111{
+  width: 187rpx;
+  height: 219rpx;
+  margin-left: 300rpx;
+  margin-top: 320rpx
+  /* margin-top: 320rpx */
+}
+.ty1{
+  width:192rpx;
+  height:26rpx;
+  opacity:0.2;
+}
+.t11{
+  width:330rpx;
+  height:28rpx;
+  font-size:28rpx;
+  font-family:PingFangSC;
+  font-weight:400;
+  color:rgba(153,153,153,1);
+  margin: auto
+}
+.t21{
+  font-size:32rpx;
+  font-family:PingFangSC;
+  font-weight:400;
+  color:rgba(255,255,255,1);
+  background: #F5D164;
+  width:310rpx;
+  height:80rpx;
+  border-radius:12rpx;
+  text-align: center;
+  line-height: 80rpx;
+  margin: auto;
+  margin-top: 40rpx
+}
+.list1{
+  width: 100%;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  margin-top: 20rpx;
+  background: #fff;
+  padding-top: 30rpx
+}
+.list_item1{
+  display: flex;
+  justify-content: space-between
+}
+.t_11{
+  font-size:34rpx;
+  font-family:PingFangSC;
+  font-weight:400;
+}
+.hx221{
+  width: 100%;
+  height: 110rpx
+}
+.t_21{
+  font-size:28rpx;
+  font-family:PingFangSC;
+  font-weight:400;
+  color:rgba(29,32,35,1);
+  white-space: pre-line;
+  padding-top: 30rpx;
+  padding-bottom: 45rpx
+}
+.hx_11{
+  width: 100%;
+  height: 1rpx;
+  background: #D5D5D5
+}
+.list_item11{
+  display: flex;
+  font-size: 28rpx;
+  justify-content: space-between;
+  line-height: 30rpx;
+  margin-top: 40rpx;
+  padding-bottom: 35rpx
+}
+.img21{
+  width: 32rpx;
+  height: 36rpx
+}
+.img31{
+  width: 36rpx;
+  height: 34rpx;
+  margin-left: 40rpx
+}
+.item1{display: flex;
+    margin-top: -10rpx
+    }
+.item1 view{
+  margin-top: 10rpx
+}
+.text1{
+  font-size:32rpx;
+  font-family:PingFangSC;
+  font-weight:400;
+  color:rgba(255,255,255,1);
+  width:750rpx;
+  height:110rpx;
+  background:rgba(251,192,14,1);
+  text-align: center;
+  line-height: 110rpx;
+  position: fixed;
+  bottom:0
 }

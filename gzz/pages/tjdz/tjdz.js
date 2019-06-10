@@ -92,8 +92,8 @@ Page({
             duration:2000,
             success(res){
               setTimeout(function(){
-                wx.navigateTo({
-                  url: '/pages/dz/dz',
+                wx.navigateBack({
+                  delta:1
                 })
               },2000)            
             }

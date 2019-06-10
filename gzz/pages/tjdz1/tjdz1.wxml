@@ -11,7 +11,7 @@
     <input bindinput="inputedit1" data-obj1="info"  data-item1="manager1" value="{{info.manager1}}"></input>
 </view>
 
-<picker mode="region" bindchange="bindPickerChange" bindPickerChange>
+<picker mode="region" bindchange="bindPickerChange">
 <view class='list list1' bindtap='r123'>
     <view>所在地区</view>
     <view>{{index}}</view>

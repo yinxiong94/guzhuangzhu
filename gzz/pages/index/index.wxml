@@ -19,7 +19,7 @@
       <view class='yhq_1_1'>￥<text class='big'>{{item.couponMoney}}</text></view>      
       <view class='yhq_1_2'>优惠券</view>
       <view class='yhq_1_3'>{{item.couponName}}</view>
-      <view class='yhq_1_4'>点击领取</view>
+      <view class='yhq_1_4' bindtap='lqyhq' data-id="{{item.couponId}}">点击领取</view>
       </view>
   </view>
   <view class='more' bindtap='yhqzx'>更多</view>
@@ -31,8 +31,9 @@
     <view class='v2'></view>
     <view class='v1'></view>
   </view>
-  <view class='more more2'>更多</view>
+ 
   <view class='list' bindtap='kthy'>
+   <view class='more more2 more3'>更多</view>
   <swiper  autoplay="{{false}}" previous-margin="{{'80rpx'}}" next-margin="{{'80rpx'}}" bindchange="swiperChange" current='1'>
    
       <swiper-item  wx:for="{{imgUrls}}" wx:key="{{index}}">
@@ -51,8 +52,9 @@
     <view class='v2'></view>
     <view class='v1'></view>
   </view>
-  <view class='more more1'>更多</view>
+ 
   <view class='deas_all'>
+   <view class='more more1 more4'>更多</view>
       <view class='deas_list' wx:for="{{row1}}">
         <image src="{{item.productImg}}" class='deas_img' bindtap='spxq' data-sid="{{item.productId}}"></image>  
         <image src="/pages/img/db.png" class='deas_img1'></image>  

@@ -1,10 +1,8 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/personal/personal",
     "pages/After/After",
-    "pages/reason/reason",
-    "pages/refund/refund",
-    "pages/index/index",
     "pages/ddxq1/ddxq1",
     "pages/fill/fill",
     "pages/txdd/txdd",
@@ -31,7 +29,8 @@
     "pages/d520/d520",
     "pages/reason/reason",
     "pages/kkxx/kkxx",
-    "pages/tjdz1/tjdz1"
+    "pages/tjdz1/tjdz1",
+    "pages/fill1/fill1"
   ],
   "window": {
     "enablePullDownRefresh": true,

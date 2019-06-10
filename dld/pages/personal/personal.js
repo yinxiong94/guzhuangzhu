@@ -1,4 +1,6 @@
 // pages/personal/personal.js
+var timespan = new Date().getTime();
+var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
 const app = getApp()
 Page({
 
@@ -48,13 +50,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-    var id = wx.getStorageSync('userId');
-    console.log(id)
     var a = wx.getStorageSync('Token');
-    var timespan = new Date().getTime();
-    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
     var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
+    var that = this;
+    var id = wx.getStorageSync('userId');    
     wx.request({
       url: app.globalData.url + '/api/Users/GetUser',
       method: "POST",

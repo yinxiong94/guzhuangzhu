@@ -22,7 +22,7 @@
         {{item.createTime}}-{{item.effectiveTime}}
       </view>
       <view class="surplus">
-        <view>剩余10张</view>
+        <view>剩余{{item.surplusNum}}张</view>
       </view>
     </view>
     <view class="img" data-id="{{item.couponId}}">
@@ -32,116 +32,4 @@
       <image lazy-load='true' src="/pages/img/ttt.png"></image>
     </view>
   </view>
-    <!-- <view class="item">
-    <view class="item_left">
-      <view class="box">
-        <view class="pirce">
-          <text class="box_pirce">￥</text>
-          <text class="money">50</text>
-        </view>
-        <view class="tips">
-          满500可用
-        </view>
-      </view>
-    </view>
-    <view class="data">
-      <view class="effective">有效期</view>
-      <view class="date">
-        2018.9.11-2019.9.11
-      </view>
-      <view class="surplus">
-        <view>剩余10张</view>
-      </view>
-    </view>
-    <view class="img">
-      <view class="text">
-        立即领取
-      </view>
-      <image lazy-load='true' src="/pages/img/ttt.png"></image>
-    </view>
-  </view>
-  <view class="item">
-    <view class="item_left">
-      <view class="box">
-        <view class="pirce">
-          <text class="box_pirce">￥</text>
-          <text class="money">50</text>
-        </view>
-        <view class="tips">
-          满500可用
-        </view>
-      </view>
-    </view>
-    <view class="data">
-      <view class="effective">有效期</view>
-      <view class="date">
-        2018.9.11-2019.9.11
-      </view>
-      <view class="surplus">
-        <view>剩余10张</view>
-      </view>
-    </view>
-    <view class="img">
-      <view class="text">
-        立即领取
-      </view>
-      <image lazy-load='true' src="/pages/img/ttt.png"></image>
-    </view>
-  </view>
-  <view class="item">
-    <view class="item_left">
-      <view class="box">
-        <view class="pirce">
-          <text class="box_pirce">￥</text>
-          <text class="money">50</text>
-        </view>
-        <view class="tips">
-          满500可用
-        </view>
-      </view>
-    </view>
-    <view class="data">
-      <view class="effective">有效期</view>
-      <view class="date">
-        2018.9.11-2019.9.11
-      </view>
-      <view class="surplus">
-        <view>剩余10张</view>
-      </view>
-    </view>
-    <view class="img">
-      <view class="text">
-        立即领取
-      </view>
-      <image lazy-load='true' src="/pages/img/ttt.png"></image>
-    </view>
-  </view>
-  <view class="item">
-    <view class="item_left">
-      <view class="box">
-        <view class="pirce">
-          <text class="box_pirce hui">￥</text>
-          <text class="money  hui">50</text>
-        </view>
-        <view class="tips  hui">
-          满500可用
-        </view>
-      </view>
-    </view>
-    <view class="data">
-      <view class="effective">有效期</view>
-      <view class="date">
-        2018.9.11-2019.9.11
-      </view>
-      <view class="surplus">
-        <view>剩余10张</view>
-      </view>
-    </view>
-    <view class="img">
-      <view class="text">
-        已领完
-      </view>
-      <image lazy-load='true' src="/pages/img/ttt1.png"></image>
-    </view>
-  </view> -->
 </view>

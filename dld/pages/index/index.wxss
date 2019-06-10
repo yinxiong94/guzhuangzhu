@@ -33,10 +33,13 @@ page{
   height: 87rpx;
 }
 .yhk{
-  width: 750rpx;
-  height: 350rpx;
+  width: 720rpx;
+  height: 300rpx;
   position: absolute;
-  top:0
+  top:20rpx;
+  left: 15rpx;
+  background:linear-gradient(-90deg,rgba(48,101,194,1) 0%,rgba(76,122,205,1) 100%);
+  border-radius: 20rpx
 }
 .js{
   width: 64rpx;

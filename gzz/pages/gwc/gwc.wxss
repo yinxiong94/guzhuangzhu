@@ -1,3 +1,6 @@
+page{
+  padding-bottom: 90rpx
+}
 .header{
   width: 750rpx;
   height: 1rpx;
@@ -123,6 +126,7 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
   bottom: 0;
   width: 100%;
   box-sizing: border-box;
+  background: #fff
 }
 .dbnav text{
   line-height: 85rpx;

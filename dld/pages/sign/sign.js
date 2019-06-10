@@ -1,5 +1,7 @@
 // pages/sign/sign.js
 const app = getApp()
+var timespan = new Date().getTime();
+var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
 Page({
 
   /**
@@ -32,9 +34,8 @@ Page({
     });
   },
   login:function(){
-    var a = wx.getStorageSync('Token');
-    var timespan = new Date().getTime();
-    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
+    var a = wx.getStorageSync('Token');   
+    console.log(a) 
     var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
     wx.request({
       url: app.globalData.url + '/api/users/LoginVerify',
@@ -51,6 +52,10 @@ Page({
             wx.setStorage({
               key: 'userId',
               data: res.data.result.UserId,
+            })
+            wx.setStorage({
+              key: 'agentId',
+              data: res.data.result.agentId,
             })
             setTimeout(function(){
               wx.switchTab({
@@ -73,14 +78,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // var id = wx.getStorageSync('userId');
-    // console.log(id)
-    // if(id!=null){
-    //   console.log(1)
-    //   wx.navigateTo({
-    //     url: '/pages/personal/personal',
-    //   })
-    // }
+    var id = wx.getStorageSync('userId');
+    console.log(id)
+    if(id!=null){
+      wx.switchTab({
+        url: '/pages/personal/personal',
+      })
+    }
   },
 
   /**

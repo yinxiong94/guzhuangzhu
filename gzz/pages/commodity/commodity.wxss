@@ -246,6 +246,7 @@
 .db .details {
   width: 100%;
   box-sizing: border-box;
+  
 }
 
 .db .details .details_text {

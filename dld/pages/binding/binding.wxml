@@ -2,15 +2,15 @@
   <view class="header">
     <view class="identity">请输入身份信息</view>
     <view class="item">
-      <text>真实姓名</text>
-      <input class="input" type='text' placeholder='请输入姓名'></input>
+      <text>开卡姓名</text>
+      <input class="input" type='text' placeholder='请输入姓名' bindinput="inputedit" data-obj="info"  data-item="manager" value="{{info.manager}}" ></input>
       <checkbox></checkbox>
     </view>
-    <view class="item">
+    <!-- <view class="item">
       <text>身份证号</text>
-      <input class="input" type='text' placeholder='请输入身份证号码'></input>
+      <input class="input" type='text' placeholder='请输入身份证号码' bindinput="inputedit1" data-obj1="info1"  data-item1="manager1" value="{{info.manager1}}"></input>
       <checkbox></checkbox>
-    </view>
+    </view> -->
   </view>
   <view class="mian">
     <view class="identity">
@@ -19,31 +19,27 @@
     </view>
     <view class="list">
       <text>银行卡号</text>
-      <input type='text' placeholder='请输入银行卡号'></input>
+      <input type='text' placeholder='请输入银行卡号' bindinput="inputedit2" data-obj2="info2"  data-item2="manager2" value="{{info.manager2}}"></input>
     </view>
     <view class="list">
-      <image class="img" lazy-load='true' src="/pages/img/yin.png"></image>
-      <view class="iconfont icon-arrow jiantou"></view>
+      <text>所属银行</text>
+      <!-- <image class="img" lazy-load='true' src="/pages/img/yin.png"></image> -->
+       <input type='text' placeholder='请输入银行名称' bindinput="inputedit3" data-obj3="info3"  data-item3="manager3" value="{{info.manager3}}"></input>
     </view>
-    <view class="list">
+    <!-- <view class="list">
       <text>手机号码</text>
-      <input type='text' placeholder='请输入手机号码'></input>
-    </view>
-    <view class="list">
-      <text>短信验证</text>
-      <input type='text' placeholder='请输入验证码'></input>
-      <image class="btn" lazy-load='true' src="/pages/img/btn.png"></image>
-    </view>
+      <input type='text' placeholder='请输入手机号码' bindinput="inputedit4" data-obj4="info4"  data-item4="manager4" value="{{info.manager4}}"></input>
+    </view> -->
   </view>
   <view class="footer">
     <view class="footer_a">
-      <checkbox></checkbox>
+      <checkbox bindtap='ty'></checkbox>
       <view class="footer_text">
         同意
         <text bindtap='yhxy'>用户协议</text>
         及其服务条款
       </view>
     </view>
-    <image lazy-load='true' src="/pages/img/btn1.png"></image>
+    <button class='btn1'  bindtap='tt' disabled='{{disabled}}'>确认绑卡</button>
   </view>
 </view>

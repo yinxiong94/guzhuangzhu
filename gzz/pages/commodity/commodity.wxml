@@ -3,7 +3,7 @@
     <view class='list_11'>
         <image src="/pages/img/img1.png" class='img_11'></image>
         <view class='item_11'>
-            <view class='tex'>￥218.9</view>
+            <view class='tex'>￥{{list.productPrice}}</view>
             <view class='item_22'>
                 <view>1Kg</view>
                 <view>3Kg</view>
@@ -16,15 +16,17 @@
     <text class='t_111'>配送区域</text><text class='t_222'>（配送地可能会影响库存，请正确选择）</text>
     <view class='item_333'>
         <image src="/pages/img/dz1.png"></image>
-        <view class='tex1'><text>长沙市</text><text>天心区</text><text>黑石铺路</text></view>
-        <view class="iconfont icon-jiantou jiantou"></view>
+        <view class='tex1'><text>{{index[0]}}</text><text>{{index[1]}}</text><text>{{index[2]}}</text></view>
+        <picker mode="region" bindchange="bindPickerChange">
+            <view class="iconfont icon-jiantou jiantou"></view>
+        </picker>
     </view>
       <view class='hx_11'></view>
   <view class='cart-item4'>
     <text>自定购买数量</text>
     <view class='butt'>
       <text bindtap='jian'>-</text>
-      <text class='sl'>1</text>
+      <text class='sl'>{{count}}</text>
       <text bindtap='jia'>+</text>
     </view>
   </view>
@@ -34,120 +36,31 @@
       <view>快递配送</view>
   </view> -->
 
-  <view class='item_99'>完成</view>
+  <view class='item_99' bindtap='del'>完成</view>
 
 </view>
 
 <view class='yhq' wx:if="{{isshow}}" catchtouchmove="true">
     <view class='yhq_1'>领券</view>
-    <view class="item">
+    <view class="item" wx:for="{{list2}}">
     <view class="item_left">
       <view class="box">
         <view class="pirce">
           <text class="box_pirce">￥</text>
-          <text class="money">50</text>
+          <text class="money">{{item.couponMoney}}</text>
         </view>
         <view class="tips">
-          满500可用
+          {{item.couponName}}
         </view>
       </view>
     </view>
     <view class="data">
       <view class="effective">有效期</view>
       <view class="date">
-        2018.9.11-2019.9.11
+        {{item.createTime}}-{{item.effectiveTime}}
       </view>
       <view class="surplus">
-        <view>剩余10张</view>
-      </view>
-    </view>
-    <view class="img">
-      <view class="text">
-        立即领取
-      </view>
-      <image lazy-load='true' src="/pages/img/ttt.png"></image>
-    </view>
-  </view>
-
-
-<view class="item">
-    <view class="item_left">
-      <view class="box">
-        <view class="pirce">
-          <text class="box_pirce">￥</text>
-          <text class="money">50</text>
-        </view>
-        <view class="tips">
-          满500可用
-        </view>
-      </view>
-    </view>
-    <view class="data">
-      <view class="effective">有效期</view>
-      <view class="date">
-        2018.9.11-2019.9.11
-      </view>
-      <view class="surplus">
-        <view>剩余10张</view>
-      </view>
-    </view>
-    <view class="img">
-      <view class="text">
-        立即领取
-      </view>
-      <image lazy-load='true' src="/pages/img/ttt.png"></image>
-    </view>
-  </view>
-
-
-  <view class="item">
-    <view class="item_left">
-      <view class="box">
-        <view class="pirce">
-          <text class="box_pirce">￥</text>
-          <text class="money">50</text>
-        </view>
-        <view class="tips">
-          满500可用
-        </view>
-      </view>
-    </view>
-    <view class="data">
-      <view class="effective">有效期</view>
-      <view class="date">
-        2018.9.11-2019.9.11
-      </view>
-      <view class="surplus">
-        <view>剩余10张</view>
-      </view>
-    </view>
-    <view class="img">
-      <view class="text">
-        立即领取
-      </view>
-      <image lazy-load='true' src="/pages/img/ttt.png"></image>
-    </view>
-  </view>
-
-<view class="item">
-    <view class="item_left">
-      <view class="box">
-        <view class="pirce">
-          <text class="box_pirce">￥</text>
-          <text class="money">50</text>
-        </view>
-        <view class="tips">
-          满500可用
-        </view>
-      </view>
-    </view>
-    <view class="data">
-      <view class="effective">有效期</view>
-      <view class="date">
-        2018.9.11-2019.9.11
-      </view>
-      <view class="surplus">
-        <view>剩余10张</view>
+        <view>剩余{{item.surplusNum}}张</view>
       </view>
     </view>
     <view class="img">
@@ -200,7 +113,7 @@
   <view class='list_item'>
       <view>选择</view>
       <view class='item1'>
-          <view class=" {{id==1000?'xz':''}}" data-zl="1000" bindtap='xz' >1Kg</view>
+          <view class=" {{id==1000?'xz':''}}" data-zl="1000" bindtap='xz'>1Kg</view>
           <view class=" {{id==3000?'xz':''}}"  data-zl="3000"  bindtap='xz'>3Kg</view>
           <view class=" {{id==5000?'xz':''}}"  data-zl="5000" bindtap='xz'>5Kg</view>
       </view>
@@ -261,14 +174,19 @@
   <view class="hhh"></view>
   <view class="details">
     <view class="details_text">详情介绍</view>
-    <!-- <image lazy-load='true' src="/pages/img/footer.png"></image> -->
+
+    <import src="../../wxParse/wxParse.wxml" />
+    <view class="wxParse">
+    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+    </view>
+
   </view>
   <view class="footer">
     <view class="footer_left">
-      <view class="shopping">
+      <view class="shopping" bindtap='tocar'>
         <image lazy-load='true' src="/pages/img/shopping.png"></image>
         <text>购物车</text>
-        <view class="yuan">1</view>
+        <view class="yuan">{{count1}}</view>
       </view>
     </view>
     <view class="footer_right">
@@ -276,7 +194,7 @@
         <view class="left" bindtap='tocart'>
           加入购物车
         </view>
-        <view class="right">
+        <view class="right" bindtap='nowshop'>
           立即购买
         </view>
       </view>

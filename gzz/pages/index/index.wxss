@@ -25,6 +25,9 @@ swiper{
   border-radius:50%;
   margin: auto 0
 }
+.more3{
+  top:-15rpx !important
+}
 .hy .v1{
   width:20rpx;
   height:20rpx;
@@ -139,7 +142,8 @@ swiper{
 .deas_all{
   width: 96%;
   margin: auto;
-  margin-top: 30rpx
+  margin-top: 30rpx;
+  position: relative
 }
 .deas_list{
   position: relative;
@@ -148,6 +152,9 @@ swiper{
 .deas_img{
   width: 720rpx;
   height: 385rpx
+}
+.more4{
+  top:-45rpx
 }
 .deas_img1{
   width: 735rpx;
