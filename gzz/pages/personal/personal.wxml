@@ -18,7 +18,8 @@
   </view>
   <view class="mian">
     <view class="title">我的电子会员卡</view>
-    <view class="img">
+    <view class='kong'  wx:if="{{list.cardNum==null}}">亲，您还未办理会员卡！</view>
+    <view class="img" wx:else>
       <view class="pirce">
         <text class="pirce_item1">余额:</text>
         <text class="pirce_item2">{{list.balance}}元</text>
@@ -28,7 +29,7 @@
           <text>{{list.cardNum}}</text>
       </view>
       <view class="integral">我的积分：{{list.point}}积分</view>
-      <image lazy-load='true' src="/pages/img/hui2.png" bindtap='cz'></image>
+      <image lazy-load='true' src="/pages/img/bg698.png" bindtap='cz'></image>
     </view>
   </view>
   <view class="list">
@@ -71,6 +72,13 @@
       <view class="item_left">
         <image lazy-load='true' src="/pages/img/dingwei.png" class='img21'></image>
         <text>我的地址</text>
+      </view>
+      <view class="iconfont icon-jiantou jiantou"></view>
+    </view>
+    <view class="item" bindtap='dl'>
+      <view class="item_left">
+        <image lazy-load='true' src="/pages/img/dingwei.png" class='img21'></image>
+        <text>代理入口</text>
       </view>
       <view class="iconfont icon-jiantou jiantou"></view>
     </view>

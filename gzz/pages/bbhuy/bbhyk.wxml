@@ -2,18 +2,18 @@
   <view class="header">
     <view class="list">
       <view class="text">姓名</view>
-      <input type='text' placeholder='请输入您的姓名'></input>
+      <input type='text' placeholder='请输入您的姓名' bindinput="inputedit" data-obj="info"  data-item="manager" value="{{info.manager}}"></input>
     </view>
     <view class="list">
       <view class="text">手机号码</view>
-      <input type='text' placeholder='请输入您的手机号码'></input>
+      <input type='text' placeholder='请输入您的手机号码' bindinput="inputedit1" data-obj1="info1"  data-item1="manager1" value="{{info.manager1}}"></input>
     </view>
     <view class="list">
       <view class="text">备注</view>
-      <input type='text' placeholder='请输入您想备注的信息'></input>
+      <input type='text' placeholder='请输入您想备注的信息' bindinput="inputedit2" data-obj2="info2"  data-item2="manager2" value="{{info.manager2}}"></input>
     </view>
   </view>
-  <view class="footer">
-    <view class="btn">提交信息</view>
+  <view class="footer" >
+    <view class="btn" bindtap='tjxx'>提交信息</view>
   </view>
 </view>

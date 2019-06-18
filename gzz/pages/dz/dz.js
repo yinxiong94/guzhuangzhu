@@ -1,5 +1,6 @@
 // pages/dz/dz.js
 const app = getApp()
+
 Page({
 
   /**
@@ -77,8 +78,8 @@ del1:function(e){
    */
   onLoad: function (options) {
     var that = this;
-    var a = wx.getStorageSync('Token');
-    var timespan = new Date().getTime();
+    var a = wx.getStorageSync('Token');   
+    var timespan = new Date().getTime(); 
     var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
     var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
     // 轮播图
@@ -89,8 +90,9 @@ del1:function(e){
       data: { openId:app.globalData.openId},
       success(res) {
         console.log(res)
+        var rest=res.data.result;
         that.setData({ list: res.data.result})
-        if (that.data.list.length!=0){
+        if (rest.length!=0){
           that.setData({
             show1:1
           })
@@ -115,7 +117,33 @@ del1:function(e){
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var that = this;
+    var a = wx.getStorageSync('Token');
+    var timespan = new Date().getTime();
+    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
+    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
+    // 轮播图
+    wx.request({
+      url: app.globalData.url + '/api/MemberCard/AddressList',
+      method: "POST",
+      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      data: { openId: app.globalData.openId },
+      success(res) {
+        console.log(res)
+        var rest = res.data.result;
+        that.setData({ list: res.data.result })
+        if (rest.length != 0) {
+          that.setData({
+            show1: 1
+          })
+        } else {
+          that.setData({
+            show1: 0
+          })
+        }
 
+      }
+    })
   },
 
   /**

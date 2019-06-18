@@ -1,5 +1,5 @@
 <view class='hx'></view>
-<view class='zfsy'>
+<!-- <view class='zfsy'>
   <view class="sysj">支付剩余时间</view>
   <view class='jsq'>
     <view>1</view>
@@ -8,31 +8,22 @@
     <view>3</view>
     <view>3</view>
   </view>
-</view>
+</view> -->
 <view class='hx'></view>
 <view class='zfsy'> 
-  <view class='cart'>
+  <view class='cart' wx:for="{{list[0].productOrder}}">
     <view class='cart-item'>
-      <image src="/pages/img/deas.png" class='img'></image>
+      <image src="{{item.productImg}}" class='img'></image>
       <view class='cart-item-1'>
-          <view class='title1'>古庄主营养有机米 10Kg</view>
-          <view class='title2'>10Kg</view>
-          <view class='title3'>￥66.69</view>
-      </view>
-    </view>
-  </view>
-  <view class='cart'>
-    <view class='cart-item'>
-      <image src="/pages/img/deas.png" class='img'></image>
-      <view class='cart-item-1'>
-          <view class='title1'>古庄主营养有机米 10Kg</view>
-          <view class='title2'>10Kg</view>
-          <view class='title3'>￥66.69</view>
+          <view class='title1'>{{item.productName}}  ×{{item.productNum}}</view>
+          <view class='title2'></view>
+          <view class='title3'>￥{{item.sumMoney}}</view>
       </view>
     </view>
   </view>
 </view>
 
+<radio-group >
 <view class='zfsy'> 
   <view class='cart'> 
     <view class='cart-item'>
@@ -41,7 +32,7 @@
           <view class='title1_1'>电子会员卡支付</view>
           <view class='title2_1'>电子会员卡余额支付</view>
       </view>
-      <checkbox class='check'></checkbox>
+      <radio class='check' data-id="0" bindtap="abc"></radio>
     </view>
   </view>
 
@@ -52,9 +43,9 @@
           <view class='title1_1'>微信支付</view>
           <view class='title2_1'>推荐安装最新版微信，支付更加便捷</view>
       </view>
-      <checkbox class='check'></checkbox>
+      <radio class='check' data-id="1" bindtap="abc"></radio>
     </view>
   </view>
 </view>
-
-<view class='qrzf' bindtap='ddxq'>确认支付：¥99.8</view>
+</radio-group>
+<button class='qrzf' bindtap='ddxq' disabled='{{disabled}}'>确认支付：¥{{price}}</button>

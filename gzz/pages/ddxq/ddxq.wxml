@@ -1,68 +1,67 @@
-<view class='item_3'>
+<view class='item_3' wx:if="{{list.address===null}}">
     <view class='t_11'>订单已生效</view>
     <view class='t_22'>请尽快前往距离最近的机器取米</view>
 </view>
-
-    <view class='cart'>
+<view class='item_3' wx:else>
+    <view class='t_11'>卖家已发货</view>
+    <view class='t_22'>剩余7天20时自动确认</view>
+</view>
+    <view class='cart' wx:for="{{list.productOrder}}">
     <view class='cart-item'>
-      <image src="/pages/img/deas.png" class='img'></image>
+      <image src="{{item.productImg}}" class='img'></image>
       <view class='cart-item-1'>
-          <view class='title1'>古庄主营养有机米 10Kg</view>
-          <view class='title2'>标准：10Kg</view>
+          <view class='title1'>{{item.productName}}</view>
+          <view class='title2'></view>
       </view>
       <view class='jg'>
-        <view class='jg1'>￥169</view>
-        <view class='jg2'>X2</view>
+        <view class='jg1'>￥{{item.productPrice}}</view>
+        <view class='jg2'>X{{item.productNum}}</view>
       </view>
-      <view class='tet'>申请退款</view>
+      <!-- <view class='tet'>申请退款</view> -->
     </view>
   </view>
 
   <image src="/pages/img/bb.png" class='bb'></image>
 
+<view  wx:if="{{list.address===null}}">
   <view class='qhm'>
       <text class='t1'>我的取货码</text>
-      <text class='t2'>888888</text>
+      <text class='t2'>{{list.productOrder[0].pickupCode}}</text>
   </view>
-  
   <view class='sb'>
       <view class='fjsb'>附近设备</view> 
-      <view class='cart ca'> 
+      <view class='cart ca' wx:for="{{markers}}"> 
         <view class='cart-item'>
-          <text>1</text>
+          <text>{{item.id}}</text>
           <image src="/pages/img/smj.png" class='img2'></image>
           <view class='cart-item-1'>
-              <view class='title1_1'>九峰小区北区12栋1号机</view>
-              <view class='title2_1'>距离我所在位置2.1KM</view>
+              <view class='title1_1'>{{item.title}}</view>
+              <view class='title2_1'>距离我所在位置{{item.distance/1000}}KM</view>
           </view>
-          <image src="/pages/img/dh.png" class='img8'></image>
+          <image src="/pages/img/dh.png" class='img8' data-latitude="{{item.latitude}}" data-longitude="{{item.longitude}}" bindtap='go' data-title="{{item.title}}"></image>
         </view>
       </view>
-      <view class='cart ca'> 
-        <view class='cart-item'>
-          <text>2</text>
-          <image src="/pages/img/smj.png" class='img2'></image>
-          <view class='cart-item-1'>
-              <view class='title1_1'>九峰小区北区12栋1号机</view>
-              <view class='title2_1'>距离我所在位置2.1KM</view>
-          </view>
-          <image src="/pages/img/dh.png" class='img8'></image>
-        </view>
-      </view>
-      <view class='cart ca'> 
-        <view class='cart-item'>
-          <text>3</text>
-          <image src="/pages/img/smj.png" class='img2'></image>
-          <view class='cart-item-1'>
-              <view class='title1_1'>九峰小区北区12栋1号机</view>
-              <view class='title2_1'>距离我所在位置2.1KM</view>
-          </view>
-          <image src="/pages/img/dh.png" class='img8'></image>
-        </view>
-      </view>
-      <view class='more'>查看更多设备</view>
+      <view class='more' bindtap='more'>查看更多设备</view>
   </view>
-
+</view>
+<view wx:else>
+    <view class="address">
+        <image src="/pages/img/dizhi .png"></image>
+        <view class="Contact">
+          <text class="name">{{list.address.consignee}}</text><text class="phone">{{list.address.phone}}</text>
+          <text class="dizhi">{{list.address.area}}{{list.address.address}}</text>
+        </view>
+      </view>
+      <view class="logistics">
+          <view><text>我的物流信息</text></view>
+          <image src="/pages/img/已发货.png"></image>
+          <view class="shou">
+            <text class="state">包裹正在等待揽收</text>
+            <text class="time">2019-05-15  11:27:28</text>
+          </view>
+          <image id="right" src="/pages/img/right.png"></image>
+      </view>
+</view>
   <view class='hot'>
       <view class='title_item'>热门文章</view>
       <view class='title_item_1'>谷庄主泰国稻花香米，纯精品泰国进口，36道工序精挑细选</view>

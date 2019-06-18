@@ -74,6 +74,11 @@
   color: rgba(34, 34, 34, 1);
 }
 
+.kong{
+  font-style: 32rpx;
+  text-align: center;
+  margin-top:80rpx;
+}
 .db .header .header_top .header_left .title .img {
   margin-top: 20rpx;
   display: flex;

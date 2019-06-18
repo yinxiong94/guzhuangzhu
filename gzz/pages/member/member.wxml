@@ -1,4 +1,7 @@
 <view class="db">
+
+<!-- <view class='kong' wx:if="{{list.length==0}}">暂无相关数据</view> -->
+
   <view class="header">
     <image lazy-load='true' src='/pages/img/bg698.png'></image>
     <view class="header_pirce">
@@ -25,7 +28,9 @@
       <image lazy-load='true' src="/pages/img/ril.png"></image>
     </view>
   </view>
-  <view class="item">
+   <view class='kong' wx:if="{{list.length==0}}">暂无相关数据</view>
+  <view class="item"  wx:else>
+   
     <view class="item_list" wx:for="{{list}}">
       <image lazy-load='true' src="{{userInfo.avatarUrl}}"></image>
       <view class="item_list_right">

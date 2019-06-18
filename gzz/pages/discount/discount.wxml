@@ -21,7 +21,8 @@
       <view class="date">
         {{item.createTime}}-{{item.effectiveTime}}
       </view>
-      <view class="surplus">
+      <view class="surplus" wx:if="{{id==1}}">
+      
         <view>剩余{{item.surplusNum}}张</view>
       </view>
     </view>

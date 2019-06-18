@@ -5,88 +5,27 @@
     </view>
     <text class="text">今日  交易总额</text>
     <view class="xian"></view>
-    <text class="pirce">10,500.00</text>
+    <text class="pirce">{{list.sumOrder}}元</text>
     <image lazy-load='true' src="/pages/img/bg.png"></image>
   </view>
     <view class="list">
-    <view class="list_zc">
-      <view class="item">
+    <view class="list_zc" wx:for="{{coco}}">
+      <view class="item" bindtap='xs'>
         <view class="list_item">
           <image lazy-load='true' src="/pages/img/nav.png"></image>
-          <text class="text">设备：九峰小区12栋1号设备</text>
+          <text class="text">设备：{{item.machineName}}</text>
         </view>
         <view class="list_item_right">
-          <text>￥3200.00</text>
+          <text>￥{{item.money}}</text>
           <view class="iconfont icon-jiantou"></view>
         </view>
       </view>
-      <view class="list_td">
-        <text class="tiem">12:22</text>
-        <text class="title">古庄主泰国稻花香米10Kg</text>
-        <text class="pirce">+120.00</text>
-      </view>
-      <view class="list_td">
-        <text class="tiem">12:22</text>
-        <text class="title">古庄主泰国稻花香米10Kg</text>
-        <text class="pirce">+120.00</text>
-      </view>
-      <view class="list_td">
-        <text class="tiem">12:22</text>
-        <text class="title">古庄主泰国稻花香米10Kg</text>
-        <text class="pirce">+120.00</text>
-      </view>
-      <view class="list_td">
-        <text class="tiem">12:22</text>
-        <text class="title">古庄主泰国稻花香米10Kg</text>
-        <text class="pirce">+120.00</text>
-      </view>
-    </view>
-    <view class="list_zc">
-      <view class="item">
-        <view class="list_item">
-          <image lazy-load='true' src="/pages/img/nav.png"></image>
-          <text class="text">设备：九峰小区12栋1号设备</text>
-        </view>
-        <view class="list_item_right">
-          <text>￥3200.00</text>
-          <view class="iconfont icon-jiantou"></view>
-        </view>
-      </view>
-    </view>
-    <view class="list_zc">
-      <view class="item">
-        <view class="list_item">
-          <image lazy-load='true' src="/pages/img/nav.png"></image>
-          <text class="text">设备：九峰小区12栋1号设备</text>
-        </view>
-        <view class="list_item_right">
-          <text>￥3200.00</text>
-          <view class="iconfont icon-jiantou"></view>
-        </view>
-      </view>
-    </view>
-    <view class="list_zc">
-      <view class="item">
-        <view class="list_item">
-          <image lazy-load='true' src="/pages/img/nav.png"></image>
-          <text class="text">设备：九峰小区12栋1号设备</text>
-        </view>
-        <view class="list_item_right">
-          <text>￥3200.00</text>
-          <view class="iconfont icon-jiantou"></view>
-        </view>
-      </view>
-    </view>
-    <view class="list_zc">
-      <view class="item">
-        <view class="list_item">
-          <image lazy-load='true' src="/pages/img/nav.png"></image>
-          <text class="text">设备：九峰小区12栋1号设备</text>
-        </view>
-        <view class="list_item_right">
-          <text>￥3200.00</text>
-          <view class="iconfont icon-jiantou"></view>
-        </view>
+      <view wx:if="{{isshow}}">
+          <view class="list_td" wx:for="{{item.obj}}"wx:for-item="cell">
+            <text class="tiem">{{cell.createTime}}</text>
+            <text class="title">{{cell.productName}}</text>
+            <text class="pirce">{{cell.orderMoney}}</text>
+          </view>
       </view>
     </view>
   </view>

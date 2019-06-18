@@ -1,11 +1,15 @@
 <view class="db">
-  <view class="title">又发现了10条新内容</view>
+  <!-- <view class="title">又发现了10条新内容</view> -->
    <view class='deas_all' wx:for="{{list}}">
       <view class='deas_list' data-uid="{{index}}" bindtap='wzxq' >
         <image src="{{item.articleImg}}" class='deas_img'  data-uid="{{index}}"></image>  
         <image src="/pages/img/db.png" class='deas_img1'  data-uid="{{index}}"></image>  
-        <view class='deas_text'  data-uid="{{index}}">{{item.articleName}}</view>     
-        <view class='deas_text1'  data-uid="{{index}}">{{item.articleContent}}</view>
+        <view class='deas_text'  data-uid="{{index}}">{{item.articleName}}</view>
+        <import src="../../wxParse/wxParse.wxml" />  
+        <view class="wxParse">
+        <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+        </view>   
+        <!-- <view class='deas_text1'  data-uid="{{index}}">{{item.articleContent}}</view> -->
         <view class='kong'></view>
       </view>   
   </view>

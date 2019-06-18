@@ -42,7 +42,7 @@ Page({
       var a = wx.getStorageSync('Token');
       var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
       wx.request({
-        url: app.globalData.url + '/api/Users/GetBackCardPrice',
+        url: app.globalData.url + '/api/Users/ApplyWithdraw',
         method: "POST",
         header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
         data: {
@@ -73,7 +73,7 @@ Page({
       header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
       success(res) {
         console.log(res)
-        that.setData({ price: res.data.result })
+        that.setData({ price: res.data.result.money})
       }
     })
     wx.request({

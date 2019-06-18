@@ -1,0 +1,33 @@
+<view class="top"></view>
+
+<view class='ss'>
+  <image src="/pages/img/ss.png"></image>
+  <input placeholder='搜索您的设备' type='text'></input>
+</view>
+
+<view class='details' wx:for="{{list}}">
+    <image src="/pages/img/sbbg.png" class='sbbg'></image>
+    <image src="/pages/img/sb2.png" class='sb'></image>
+    <view class='sb_text'>
+        <view>设备：{{item.machineName}}</view>
+        <view class='t1'>设备状态:<text>{{item.machineState==0?"正常":item.machineState==1?"异常":"维护"}}</text></view>
+        <view class='t1'>大米储备:<text>{{item.reserves}}%</text></view>
+    </view>
+</view>
+
+<view class='list_item'>
+  <block>
+    <view class='t1_item' bindtap='to' data-index="1">
+        <image src="fmj.png" wx:if="{{index==1}}"></image>
+        <image src="fmj1.png" wx:if="{{index==0}}"></image>
+        <view>我的设备</view>
+    </view>
+  </block>
+  <block>
+    <view class='t2_item' bindtap='to' data-index="0">
+        <image src="wd.png" wx:if="{{index==0}}"></image>
+        <image src="wd1.png" wx:if="{{index==1}}"></image>
+        <view>个人中心</view>
+    </view>   
+  </block>
+</view>

@@ -160,7 +160,7 @@
   display: flex;
 }
 
-.xinxi .total .left textarea {
+.xinxi .total .left input {
   flex: 1;
   font-size: 28rpx;
   font-family: PingFangSC;
@@ -168,6 +168,7 @@
   color: rgba(63, 69, 75, 1);
   margin-top: 31rpx;
   margin-left: 40rpx;
+  height: 200rpx
 }
 
 .xinxi .total .right {

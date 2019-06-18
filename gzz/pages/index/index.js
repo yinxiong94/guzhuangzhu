@@ -1,4 +1,5 @@
 const app = getApp()
+
 Page({
 
   /**
@@ -10,14 +11,16 @@ Page({
       '/pages/img/hui.png',
       '/pages/img/hui.png',
     ],
-    list:[],
+    list: [],
     swiperIndex: 1,
-    list1:[],
-    row:[],
-    row1:[]
+    list1: [],
+    row: [],
+    row1: [],
+    a: {}
   },
-  lqyhq:function(e){
-    var id=e.target.dataset.id;
+  // 领取优惠券
+  lqyhq: function(e) {
+    var id = e.target.dataset.id;
     var that = this;
     var a = wx.getStorageSync('Token');
     var timespan = new Date().getTime();
@@ -26,16 +29,35 @@ Page({
     wx.request({
       url: app.globalData.url + '/api/coupon/ReceiveCoupon',
       method: "POST",
-      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
-      data: { openId: app.globalData.openId, couponId:id},
+      header: {
+        'content-type': 'application/json',
+        signKey: a.signId,
+        timespan: timespan,
+        nonce: nonce,
+        signature: signature
+      },
+      data: {
+        openId: app.globalData.openId,
+        couponId: id
+      },
       success(res) {
         wx.request({
           url: app.globalData.url + '/api/coupon/couponList',
           method: "POST",
-          header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
-          data: { openId: app.globalData.openId },
+          header: {
+            'content-type': 'application/json',
+            signKey: a.signId,
+            timespan: timespan,
+            nonce: nonce,
+            signature: signature
+          },
+          data: {
+            openId: app.globalData.openId
+          },
           success(res) {
-            that.setData({ list1: res.data.result })
+            that.setData({
+              list1: res.data.result
+            })
           }
         })
       }
@@ -46,117 +68,295 @@ Page({
       swiperIndex: e.detail.current
     })
   },
-  kthy:function(){
+  // 加入购物车
+  gwc:function(e){
+    var cc=e.target.dataset.sid;
+    var a = wx.getStorageSync('Token');
+    var timespan = new Date().getTime();
+    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
+    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
+    wx.request({
+      url: app.globalData.url + '/api/Product/ProductCartAdd',
+      method: "POST",
+      header: {
+        'content-type': 'application/json',
+        signKey: a.signId,
+        timespan: timespan,
+        nonce: nonce,
+        signature: signature
+      },
+      data: { openId: app.globalData.openId, productId:cc},
+      success(res) {
+        if(res.data.code==200){
+          wx.showToast({
+            title: '添加购物车成功',
+            duration:2000
+          })
+        }
+      }
+    })
+  },
+  // 立即购买
+  nowshop:function(e){
+    var cc=e.target.dataset;
+    var that = this;
+    var a = wx.getStorageSync('Token');
+    var timespan = new Date().getTime();
+    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
+    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
+    wx.request({
+      url: app.globalData.url + '/api/product/OperationFreightByProduct',
+      method: "POST",
+      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      data: { productId: cc.sid, productNum: 1 },
+      success(res) {
+        if (res.data.code == 200) {
+          wx.navigateTo({
+            url: '/pages/fill/fill?id=' + cc.sid + "&count=" + 1 + "&sid=1" + "&productName=" + cc.name + "&productWeight=" + cc.wei + "&price="
+              + cc.price + "&freight=" + res.data.result.freight + "&imgurl=" + cc.img,
+          })
+        }
+      }
+    })
+  },
+  // 跳转开通会员
+  kthy: function() {
     wx.navigateTo({
       url: '/pages/membership/membership',
     })
   },
-  spxq:function(e){
+  // 跳转商品详情
+  spxq: function(e) {
     wx.navigateTo({
-      url: '/pages/commodity/commodity?id='+e.target.dataset.sid,
+      url: '/pages/commodity/commodity?id=' + e.target.dataset.sid,
     })
   },
-  yhqzx:function(){
+  // 跳转优惠券中心
+  yhqzx: function() {
     wx.navigateTo({
       url: '/pages/discount/discount',
     })
   },
+  // 轮播图跳转
+  // toss:function(e){
+  //     console.log(e.target.dataset.src)
+  //     wx.navigateTo({
+  //       url: e.target.dataset.src,
+  //     })
+  // },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {  
-    var that=this;  
-    var a=wx.getStorageSync('Token');
-    var timespan = new Date().getTime();   
-    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
-    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
-    // 轮播图
-    wx.request({
-      url: app.globalData.url + '/api/rotationChart/rotationChartList',
-      method:"POST",
-      header: { 'content-type': 'application/json', signKey:a.signId, timespan: timespan, nonce: nonce, signature: signature},
-      success(res){
-        console.log(res)
-        that.setData({list:res.data.result})
-      }
-    }),
-    // 优惠券 
-    wx.request({
-      url: app.globalData.url +'/api/coupon/couponList',
-      method: "POST",
-      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
-      data:{openId:app.globalData.openId},
-      success(res){
-        that.setData({list1:res.data.result})
-      }
-    }),
-    // 电子会员卡
-    wx.request({
-      url: app.globalData.url +'/api/memberCard/memberCardConfigList',
-      method: "POST",
-      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
-      success(res){
-        that.setData({ imgUrls: res.data.result })
-      }
-    }),
-    // 商品展示
-    wx.request({
-      url: app.globalData.url +'/api/product/productByHomeList',
-      method: "POST",
-      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
-      success(res) {
-        console.log(res)
-        that.setData({row1:res.data.result})
-      }
-    })
+  onLoad: function(options) {
+    var that = this;
+    wx.getStorage({
+      key: 'Token',
+      success: function(res) {
+        var a = res.data;
+        var timespan = new Date().getTime();
+        var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
+        var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
+        // 轮播图
+        wx.request({
+            url: app.globalData.url + '/api/rotationChart/rotationChartList',
+            method: "POST",
+            header: {
+              'content-type': 'application/json',
+              signKey: a.signId,
+              timespan: timespan,
+              nonce: nonce,
+              signature: signature
+            },
+            success(res) {
+              that.setData({
+                list: res.data.result
+              })
+            }
+          }),
+          // 优惠券 
+          wx.request({
+            url: app.globalData.url + '/api/coupon/couponList',
+            method: "POST",
+            header: {
+              'content-type': 'application/json',
+              signKey: a.signId,
+              timespan: timespan,
+              nonce: nonce,
+              signature: signature
+            },
+            data: {
+              openId: app.globalData.openId
+            },
+            success(res) {
+              that.setData({
+                list1: res.data.result
+              })
+            }
+          }),
+          // 电子会员卡
+          wx.request({
+            url: app.globalData.url + '/api/memberCard/memberCardConfigList',
+            method: "POST",
+            header: {
+              'content-type': 'application/json',
+              signKey: a.signId,
+              timespan: timespan,
+              nonce: nonce,
+              signature: signature
+            },
+            success(res) {
+              that.setData({
+                imgUrls: res.data.result
+              })
+            }
+          }),
+          // 商品展示
+          wx.request({
+            url: app.globalData.url + '/api/product/productByHomeList',
+            method: "POST",
+            header: {
+              'content-type': 'application/json',
+              signKey: a.signId,
+              timespan: timespan,
+              nonce: nonce,
+              signature: signature
+            },
+            success(res) {
+              that.setData({
+                row1: res.data.result
+              })
+            }
+          })
+      },
+    });
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-    
+  onReady: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-    
+  onShow: function() {
+    var that = this;
+    wx.getStorage({
+      key: 'Token',
+      success: function(res) {
+        var a = res.data;
+        var timespan = new Date().getTime();
+        var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
+        var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
+        // 轮播图
+        wx.request({
+            url: app.globalData.url + '/api/rotationChart/rotationChartList',
+            method: "POST",
+            header: {
+              'content-type': 'application/json',
+              signKey: a.signId,
+              timespan: timespan,
+              nonce: nonce,
+              signature: signature
+            },
+            success(res) {
+              that.setData({
+                list: res.data.result
+              })
+            }
+          }),
+          // 优惠券 
+          wx.request({
+            url: app.globalData.url + '/api/coupon/couponList',
+            method: "POST",
+            header: {
+              'content-type': 'application/json',
+              signKey: a.signId,
+              timespan: timespan,
+              nonce: nonce,
+              signature: signature
+            },
+            data: {
+              openId: app.globalData.openId
+            },
+            success(res) {
+              that.setData({
+                list1: res.data.result
+              })
+            }
+          }),
+          // 电子会员卡
+          wx.request({
+            url: app.globalData.url + '/api/memberCard/memberCardConfigList',
+            method: "POST",
+            header: {
+              'content-type': 'application/json',
+              signKey: a.signId,
+              timespan: timespan,
+              nonce: nonce,
+              signature: signature
+            },
+            success(res) {
+              that.setData({
+                imgUrls: res.data.result
+              })
+            }
+          }),
+          // 商品展示
+          wx.request({
+            url: app.globalData.url + '/api/product/productByHomeList',
+            method: "POST",
+            header: {
+              'content-type': 'application/json',
+              signKey: a.signId,
+              timespan: timespan,
+              nonce: nonce,
+              signature: signature
+            },
+            success(res) {
+              that.setData({
+                row1: res.data.result
+              })
+            }
+          })
+      },
+    });
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
-    
+  onHide: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
-    
+  onUnload: function() {
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-    
+  onPullDownRefresh: function() {
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-    
+  onReachBottom: function() {
+
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-    
+  onShareAppMessage: function() {
+
   }
 })

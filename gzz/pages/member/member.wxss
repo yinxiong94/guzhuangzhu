@@ -32,7 +32,11 @@
   font-size: 30rpx;
   margin-right: 20rpx;
 }
-
+.kong{
+  font-size: 32rpx;
+  margin-top: 300rpx;
+  text-align: center
+}
 .db .header .header_pirce .num {
   color: #fff;
   font-size: 60rpx;

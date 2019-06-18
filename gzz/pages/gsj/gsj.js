@@ -83,8 +83,9 @@ Page({
       url: app.globalData.url + '/api/memberCard/verificationOldPhone',
       method: "POST",
       header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
-      data: { phone: this.data.obj.manager, openId: '00001', code:this.data.obj1.manager1},
+      data: { phone: this.data.obj.manager, openId: app.globalData.openId, code:this.data.obj1.manager1},
       success(res) {
+
         if(res.data.code==200){
           wx.navigateTo({
             url: '/pages/d520/d520',

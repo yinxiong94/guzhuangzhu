@@ -26,7 +26,7 @@ quan:function(e){
       url: app.globalData.url + '/api/recharge/RechargeList',
       method: "POST",
       header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
-      data: { userId: '00001',page:1,size:10 },
+      data: { userId: app.globalData.openId,page:1,size:10 },
       success(res) {
         that.setData({ list: res.data.result })
       }
@@ -40,7 +40,7 @@ quan:function(e){
       url: app.globalData.url + '/api/recharge/ConsumeList',
       method: "POST",
       header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
-      data: { userId: '00001', page: 1, size: 10 },
+      data: { userId: app.globalData.openId, page: 1, size: 10 },
       success(res) {
         that.setData({ list: res.data.result })
       }
@@ -54,7 +54,7 @@ quan:function(e){
       url: app.globalData.url + '/api/recharge/RechargeConsumeList',
       method: "POST",
       header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
-      data: { userId: '00001', page: 1, size: 10 },
+      data: { userId: app.globalData.openId, page: 1, size: 10 },
       success(res) {
         that.setData({ list: res.data.result })
       }
@@ -66,6 +66,7 @@ quan:function(e){
    */
   onLoad: function (options) {
     this.setData({ balance: options.balance})
+    console.log(this.data.balance)
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -101,8 +102,9 @@ quan:function(e){
       url: app.globalData.url + '/api/recharge/RechargeConsumeList',
       method: "POST",
       header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
-      data: { userId:"00001", page: 1, size:10},
+      data: { userId: app.globalData.openId, page: 1, size: 10, beginTime: "", endTime:""},
       success(res) {
+        console.log(res)
         that.setData({ list: res.data.result })
       }
     })

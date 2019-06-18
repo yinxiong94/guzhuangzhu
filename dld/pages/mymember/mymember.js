@@ -22,12 +22,15 @@ Page({
     var a = wx.getStorageSync('Token');
     var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
     wx.request({
-      url: app.globalData.url + '/api/Users/GetMemberinfo',
+      url: app.globalData.url + '/api/users/MemberInfoByAgentId',
       method: "POST",
       header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
-      data: { userId: ide, agentId:id },
+      data: { key:id},
       success(res) {
         console.log(res)
+        that.setData({
+          list: res.data.result
+        })
       }
     })
   },

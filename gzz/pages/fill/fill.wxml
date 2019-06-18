@@ -1,17 +1,6 @@
 <!-- 填写订单 -->
 <view class="db">
-  <view class="top" wx:if='{{iftrue}}' bindtap='todz'>
-    <image class="img" src='/pages/img/dizhi.png' lazy-load='true'></image>
-    <view class="conter">
-      <view class="coco">
-        {{list1111.consignee}}
-        <text>{{list1111.phone}}</text>
-      </view>
-      <view class="coco_1">{{list1111.address}}</view>
-      <view class="coco_2"> {{list1111.area}}</view>
-    </view>
-    <image class="img1" src='/pages/img/right.png' lazy-load='true'></image>
-  </view>
+
   <view class="xinxi">
     <view class="list">
       <image src="{{imgurl}}" lazy-load='true'></image>
@@ -40,24 +29,39 @@
     <view class="total">
       <view class="left">配送方式</view>
       <view class="right">
-        <view class="xuan" bindtap='t1'>自取</view>
-        <view class="xuan" style='margin-left:16rpx;' bindtap='t2'>快递</view>
+        <view class="xuan {{iii==0?'xz':''}}" bindtap='t1' data-iii="0">自取</view>
+        <view class="xuan {{iii==1?'xz':''}}" style='margin-left:16rpx;' bindtap='t2' data-iii="1">快递</view>
       </view>
     </view>
     <view class="total" wx:if="{{isshow==1}}">
       <view class="left">运费：</view>
       <view class="right">￥{{freight}}</view>
     </view>
+    <view class="top" wx:if='{{iftrue}}' bindtap='todz'>
+      <!-- <image class="img" src='/pages/img/dizhi.png' lazy-load='true'></image> -->
+      <view class='left'>地址：</view>
+      <view wx:if="{{list1111.length==0}}" class='kong1'>暂无地址，请添加</view>
+      <view class="conter">
+        <view class="coco">
+          {{list1111.consignee}}
+          <text>{{list1111.phone}}</text>
+        </view>
+        <view class="coco_1">{{list1111.address}}</view>
+        <view class="coco_2"> {{list1111.area}}</view>
+      </view>
+      <image class="img1" src='/pages/img/right.png' lazy-load='true'></image>
+    </view>
     <view class="total">
       <view class="left">
         <text>留言</text>
-        <textarea placeholder='给卖家留言'></textarea>
+        <input bindinput="inputedit" data-obj="info" data-item="manager" value="{{info.manager}}"></input>
       </view>
     </view>
-    <view class="total" style='margin-top: 150rpx;border-top:0;'>
+    <view class='kong2' wx:if="{{iii==0}}">付款后请自行凭取米码到附近智能碾米机取米</view>
+    <!-- <view class="total" style='margin-top: 150rpx;border-top:0;'>
       <view class="left">实付金额：</view>
       <view class="right">￥{{zj}}</view>
-    </view>
+    </view> -->
   </view>
   <view class="footer">
     <view class="left">
@@ -69,75 +73,77 @@
     </view>
   </view>
 
-<view class='index' wx:if="{{isshow1}}">
-  <view class="item" wx:for="{{list111}}">
-    <view class="item_left">
-      <view class="box">
-        <view class="pirce">
-          <text class="box_pirce">￥</text>
-          <text class="money">{{item.couponMoney}}</text>
+  <view class='index' wx:if="{{isshow1}}">
+    <view class="item" wx:for="{{list111}}">
+      <view class="item_left">
+        <view class="box">
+          <view class="pirce">
+            <text class="box_pirce">￥</text>
+            <text class="money">{{item.couponMoney}}</text>
+          </view>
+          <view class="tips">
+            {{item.couponName}}
+          </view>
         </view>
-        <view class="tips">
-          {{item.couponName}}
+      </view>
+      <view class="data">
+        <view class="effective">有效期</view>
+        <view class="date">
+          {{item.createTime}}-{{item.effectiveTime}}
+        </view>
+        <view class="surplus">
+          <view>剩余{{item.surplusNum}}张</view>
         </view>
       </view>
-    </view>
-    <view class="data">
-      <view class="effective">有效期</view>
-      <view class="date">
-        {{item.createTime}}-{{item.effectiveTime}}
-      </view>
-      <view class="surplus">
-        <view>剩余{{item.surplusNum}}张</view>
+      <view class="img" data-price="{{item.couponMoney}}" bindtap='sy'>
+        <view class="text" data-price="{{item.couponMoney}}" data-msg="{{item.memberCouponId}}" bindtap='sy'>立即使用</view>
+        <image lazy-load='true' src="/pages/img/ttt.png" data-price="{{item.couponMoney}}" bindtap='sy'></image>
       </view>
     </view>
-    <view class="img" data-price="{{item.couponMoney}}" bindtap='sy'>
-      <view class="text" data-price="{{item.couponMoney}}" bindtap='sy'>立即使用</view>
-      <image lazy-load='true' src="/pages/img/ttt.png" data-price="{{item.couponMoney}}" bindtap='sy'></image>
-    </view>
-  </view>
 
-  <view class='t1000' bindtap='del'>×</view>
-</view>
+    <view class='t1000' bindtap='del'>×</view>
+  </view>
 
 </view>
 
 <view class='hx'></view>
 <view wx:if="{{show1==0}}">
 
-    <image src="/pages/img/dz.png" lazy-load='true' class="img"></image>
-    <view class='ty'></view>
-    <view class='t1'>亲，你还没有添加地址哦~</view>
-    <view class='t2' bindtap='tosh'>添加地址</view>
+  <image src="/pages/img/dz.png" lazy-load='true' class="img"></image>
+  <view class='ty'></view>
+  <view class='t1'>亲，你还没有添加地址哦~</view>
+  <view class='t2' bindtap='tosh'>添加地址</view>
 </view>
 
 <view class='index1' wx:if="{{isshow2}}" bindtap='t111'>
-<radio-group>
-<view >
-    <view class='list1' wx:for="{{list2}}">
-        <view class='list_item1' bindtap='t123456' data-consignee="{{item.consignee}}" data-phone="{{item.phone}}" data-area="{{item.area}}" data-address="{{item.address}}">
-            <view class='t_11'>{{item.consignee}}</view>
-            <view class='t_11'>{{item.phone}}</view>
+  <view class='kong' wx:if="{{list2.length==0}}">还没有地址哟</view>
+  <radio-group>
+    <view>
+      <view class='list1' wx:for="{{list2}}">
+        <view class='list_item1' bindtap='t123456' data-consignee="{{item.consignee}}" data-phone="{{item.phone}}" data-area="{{item.area}}" data-address="{{item.address}}" data-addressId="{{item.addressId}}">
+          <view class='t_11'>{{item.consignee}}</view>
+          <view class='t_11'>{{item.phone}}</view>
         </view>
-        <view class='t_21' bindtap='t123456' data-consignee="{{item.consignee}}" data-phone="{{item.phone}}" data-area="{{item.area}}" data-address="{{item.address}}">{{item.area}}
-        {{item.address}}</view>
-        <view class='hx_11' bindtap='t123456' data-consignee="{{item.consignee}}" data-phone="{{item.phone}}" data-area="{{item.area}}" data-address="{{item.address}}"></view>
-        <view class='list_item11' bindtap='t123456' data-consignee="{{item.consignee}}" data-phone="{{item.phone}}" data-area="{{item.area}}" data-address="{{item.address}}">
-            <view class='item1' bindtap='t123456' data-consignee="{{item.consignee}}" data-phone="{{item.phone}}" data-area="{{item.area}}" data-address="{{item.address}}">
-              <radio class='check' checked="{{item.isDefault==0}}" color="#fbc00e" data-fid="{{item.addressId}}" bindtap='f123' bindtap='t123456' data-consignee="{{item.consignee}}" data-phone="{{item.phone}}" data-area="{{item.area}}" data-address="{{item.address}}"></radio>
-              <view>设为默认地址</view>
-            </view>  
-            <view class='item'>       
-              <image src="/pages/img/bianji.png" class='img21' bindtap='bj1' data-fid="{{item.addressId}}" data-uid="{{index}}"></image>
-              <image src="/pages/img/shanchu.png" class='img31' bindtap='del1' data-fid="{{item.addressId}}"></image>
-            </view>  
+        <view class='t_21' bindtap='t123456' data-consignee="{{item.consignee}}" data-phone="{{item.phone}}" data-area="{{item.area}}" data-address="{{item.address}}" data-addressId="{{item.addressId}}">{{item.area}} {{item.address}}
         </view>
+        <view class='hx_11' bindtap='t123456' data-consignee="{{item.consignee}}" data-phone="{{item.phone}}" data-area="{{item.area}}" data-address="{{item.address}}" data-addressId="{{item.addressId}}"></view>
+        <view class='list_item11' bindtap='t123456' data-consignee="{{item.consignee}}" data-phone="{{item.phone}}" data-area="{{item.area}}" data-address="{{item.address}}" data-addressId="{{item.addressId}}">
+          <view class='item1' bindtap='t123456' data-consignee="{{item.consignee}}" data-phone="{{item.phone}}" data-area="{{item.area}}" data-address="{{item.address}}" data-addressId="{{item.addressId}}">
+            <radio class='check' checked="{{item.isDefault==0}}" color="#fbc00e" data-fid="{{item.addressId}}" bindtap='f123' bindtap='t123456' data-consignee="{{item.consignee}}" data-phone="{{item.phone}}" data-area="{{item.area}}" data-address="{{item.address}}"></radio>
+            <view>设为默认地址</view>
+          </view>
+          <view class='item'>
+            <image src="/pages/img/bianji.png" class='img21' bindtap='bj1' data-fid="{{item.addressId}}" data-uid="{{index}}"></image>
+            <image src="/pages/img/shanchu.png" class='img31' bindtap='del1' data-fid="{{item.addressId}}"></image>
+          </view>
+        </view>
+      </view>
+
+      <view class='hx221'></view>
+
+
+
     </view>
-
-    <view class='hx221'></view>
-
     <view class='text1' bindtap='tosh'>新增收货地址</view>
-
-</view> 
-</radio-group>
+  </radio-group>
 </view>

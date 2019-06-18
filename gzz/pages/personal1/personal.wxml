@@ -1,0 +1,49 @@
+<view class="top"></view>
+
+<view class='tx'>
+    <image  class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+    <view class='xx'>
+        <view class='t1'>{{list[0].userName}}</view>
+        <view class='t2'>{{list[0].address}}</view>
+    </view>
+</view>
+
+<view class='xxx'>
+    <view class='xq' bindtap='jyjl'>
+        <image src="/pages/img/jyjl.png" class='img1 m0'></image>
+        <view>交易记录</view>
+    </view>
+    <view class='xq' bindtap='wdtx'>
+        <image src="/pages/img/sk.png" class='img2 m0'></image>
+        <view>我的提现</view>
+    </view>
+    <view class='xq' bindtap='myyj'>
+        <image src="/pages/img/yj.png" class='img3'></image>
+        <view>我的佣金</view>
+    </view>
+    <view class='xq' bindtap='mymember'>
+        <image src="/pages/img/hy.png" class='img4'></image>
+        <view>我的会员</view>
+    </view>
+    <view class='xq' bindtap='yhk'>
+        <image src="/pages/img/yhk.png" class='img5'></image>
+        <view>我的银行卡</view>
+    </view>
+</view>
+
+<view class='list_item'>
+  <block>
+    <view class='t1_item' bindtap='to' data-index="1">
+        <image src="fmj.png" wx:if="{{index==0}}"></image>
+        <image src="fmj1.png" wx:if="{{index==1}}"></image>
+        <view>我的设备</view>
+    </view>
+  </block>
+  <block>
+    <view class='t2_item' bindtap='to' data-index="0">
+        <image src="wd.png" wx:if="{{index==1}}"></image>
+        <image src="wd1.png" wx:if="{{index==0}}"></image>
+        <view>个人中心</view>
+    </view>   
+  </block>
+</view>

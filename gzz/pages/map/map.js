@@ -4,8 +4,6 @@ Page({
     mapCtx: null,
     mapWidth: 200,
     mapHeight: 200,
-    longitude: "",
-    latitude: "",
     clientY:"",
     clientY1:"",
     height:0,
@@ -71,7 +69,7 @@ Page({
     var a = this.data.clientY - this.data.clientY1;
     changeData.d=a   
     if (a > 0) { 
-      if (this.data.height != 800) { changeData.height=a, console.log(this.data.height) }
+      if (this.data.height != 800) { changeData.height=a }
       else { changeData.height = 800}
       }
     this.setData(changeData)
@@ -80,6 +78,16 @@ Page({
     if (this.data.d > 0) { this.setData({ clientY1: e.changedTouches[0].clientY, height: 800 })}
     else { this.setData({height:0}) }
     
+  },
+  go:function(e){
+    console.log(e.target.dataset)
+    var a = e.target.dataset;
+    wx.openLocation({
+      latitude: a.latitude,
+      longitude: a.longitude,
+      name:a.title,
+      scale: 15
+    })
   },
   add: function () {
     var _this = this;
@@ -99,20 +107,6 @@ Page({
     })
   },
   onReady: function (e) {
-    var a=this.data.markers;  
-    for(var i=0;i<a.length;i++){
-     var l1 = a[i].latitude * Math.PI / 180.0;
-      var l2 = this.data.latitude * Math.PI / 180.0;
-      var l3=l1-l2;
-      var l4 = a[i].longitude * Math.PI / 180.0 - this.data.longitude * Math.PI / 180.0;
-      var s = 2 * Math.asin(Math.sqrt(Math.pow(Math.sin(l3 / 2), 2) + Math.cos(l1) * Math.cos(l2) * Math.pow(Math.sin(l4 / 2), 2)));
-      s = s * 6378.137;
-      s = s.toFixed(2);
-      this.setData({ ['jl[' + i + ']']:s})
-    }
-    var that = this;
-    // 使用 wx.createMapContext 获取 map 上下文
-    that.mapCtx = wx.createMapContext('loactionMap', this);
   },
   onLoad(options) {
     var that = this;
@@ -122,20 +116,15 @@ Page({
     var timespan = new Date().getTime();
     var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
     var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
+    console.log(app.globalData.latitude,app.globalData.longitude)
     wx.request({
       url: app.globalData.url + '/api/machine/NearMachinePageList',
       method: "POST",
       header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
-      data: { page: 1, size: 10, longitude:that.data.longitude,latitude:that.data.latitude},
+      data: { page: 1, size: 10, longitude:app.globalData.longitude,latitude:app.globalData.latitude},
       success(res) {
-       console.log(res)
-      //  var bb=res.data.result
-      //  for(var i=0;i<bb.length;i++){
-      //   var cc= bb[a].splice(0, 1) ;
-      //    that.setData({ markers:cc})
-      //  }
+      console.log(res.data.result)
       that.setData({markers:res.data.result})
-      //   console.log(that.data.markers)
       }
     })
   },
@@ -161,8 +150,6 @@ Page({
       fail: function (res) {
         wx.openSetting({
           success: function (data) {
-            console.log(4444)
-            console.log(data);
             that.authorAddress();
           },
           fail: function () {

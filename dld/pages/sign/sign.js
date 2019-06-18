@@ -80,7 +80,7 @@ Page({
   onLoad: function (options) {
     var id = wx.getStorageSync('userId');
     console.log(id)
-    if(id!=null){
+    if(id!==""){
       wx.switchTab({
         url: '/pages/personal/personal',
       })

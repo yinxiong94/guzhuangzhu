@@ -1,4 +1,5 @@
 // pages/find/find.js
+var WxParse = require('../../wxParse/wxParse.js');
 const app = getApp()
 Page({
 
@@ -12,7 +13,8 @@ Page({
       '/pages/img/deas.png'
     ],
     swiperIndex: 1,
-    list:[]
+    list:[],
+    article:[]
   },
   swiperChange(e) {
     this.setData({
@@ -45,6 +47,12 @@ Page({
       success(res) {
         console.log(res)
         that.setData({list:res.data.result})
+        for(var i=0;i<res.data.result.length;i++){
+          that.setData({ ['article[' + i + ']']: res.data.result[i].articleContent})
+          WxParse.wxParse('article', 'html', that.data.article[i], that, 5);
+        }
+        // var article = res.data.result[0].articleContent;
+        
       }
     })
   },

@@ -7,11 +7,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-      show:1,
-      list:[],
-      IdCard:""
+    show: 1,
+    list: [],
+    IdCard: ""
   },
-  bdyhk:function(){
+  bdyhk: function () {
     wx.navigateTo({
       url: '/pages/binding/binding',
     })
@@ -20,21 +20,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var that=this;
+    var that = this;
     var id = wx.getStorageSync('userId');
     var a = wx.getStorageSync('Token');
     var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
@@ -45,12 +45,12 @@ Page({
       data: { userid: id },
       success(res) {
         console.log(res)
-        if (res.data.result[0].BackName!=null){
-          that.setData({show:0})
+        if (res.data.result[0].BackName != null) {
+          that.setData({ show: 0 })
         }
         var a = res.data.result[0].IdCard;
         var b = a.replace(/^(\w{0})\w{15}(.*)$/, '$1**** **** **** **** $2')
-        that.setData({ list: res.data.result, IdCard:b})
+        that.setData({ list: res.data.result, IdCard: b })
       }
     })
   },
@@ -59,34 +59,34 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    
+
   }
 })

@@ -1,0 +1,22 @@
+<view class="top"></view>
+
+<view class="db" wx:if="{{show==1}}">
+  <view class="header">
+    <image lazy-load='true' src="/pages/img/bg1.png"></image>
+  </view>
+  <view class="btn" bindtap='bdyhk'>
+  <image lazy-load='true' src='/pages/img/bangding.png'></image>
+  </view>
+</view>
+
+<view class='db1' wx:if="{{show==0}}">
+<!-- <image src="/pages/img/bdyhk.png" class='yhk'></image> -->
+    <view class='yhk'></view>
+<!-- <image src="/pages/img/js.png" class='js'></image> -->
+<view class='kkk'>
+    <view class='kk'>{{list[0].BackName}}<text class='kk1'>银行卡</text></view>
+    <view class='kk2'><text>{{IdCard}}</text></view>
+</view>
+
+<image src="/pages/img/gh.png" class='gh' bindtap='bdyhk'></image>
+</view>

@@ -73,14 +73,12 @@ Page({
       header: { 'content-type': 'application/json', signKey: c.signId, timespan: timespan, nonce: nonce, signature: signature },
       data: { productCartId: b, operationType:  0},
       success(res) {
-        console.log(res)
       }
     })
   },
   jia: function (e) {
     var a = this.data.count[e.target.dataset.id] + 1;
     var b = e.target.dataset.uid;
-    console.log(b)
     this.setData({ ['count[' + e.target.dataset.id + ']']: a  })
     var that = this;
     var c = wx.getStorageSync('Token');
@@ -94,7 +92,7 @@ Page({
       header: { 'content-type': 'application/json', signKey: c.signId, timespan: timespan, nonce: nonce, signature: signature },
       data: { productCartId: b, operationType: 1 },
       success(res) {
-        console.log(res)
+        
       }
     })
   },
@@ -102,7 +100,6 @@ Page({
     var c = e.target.dataset.ind;
     var a = e.target.dataset.productprice;
     var b = e.target.dataset.productnum;
-    console.log(a,b,c,e.target)
     var sum = 0;
     if (!this.data.ind[c]) {
       var e = parseInt(this.data.a) + 1;  
@@ -130,7 +127,6 @@ Page({
     var b = e.target.dataset.uid;
     var that = this;
     var a = wx.getStorageSync('Token');
-    console.log(a)
     var timespan = new Date().getTime();
     var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
     var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
@@ -148,7 +144,6 @@ Page({
           header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
           data: { openId: app.globalData.openId },
           success(res) {
-            console.log(res)
             var ff = [];
             for (var i = 0; i < res.data.result.length; i++) {
               ff.push(res.data.result[i].productNum)
@@ -163,7 +158,26 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-   
+    var that = this;
+    var a = wx.getStorageSync('Token');
+    var timespan = new Date().getTime();
+    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
+    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
+    // 轮播图
+    wx.request({
+      url: app.globalData.url + '/api/product/ProductCartInfo',
+      method: "POST",
+      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      data: { openId: app.globalData.openId },
+      success(res) {
+        var ff = [];
+        for (var i = 0; i < res.data.result.length; i++) {
+          ff.push(res.data.result[i].productNum)
+        }
+        that.setData({ list: res.data.result, count: ff })
+
+      }
+    })
   },
 
   /**
@@ -179,7 +193,6 @@ Page({
   onShow: function () {
     var that = this;
     var a = wx.getStorageSync('Token');
-    console.log(a)
     var timespan = new Date().getTime();
     var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
     var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
@@ -190,7 +203,6 @@ Page({
       header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
       data: { openId: app.globalData.openId },
       success(res) {
-        console.log(res)
         var ff = [];
         for (var i = 0; i < res.data.result.length; i++) {
           ff.push(res.data.result[i].productNum)

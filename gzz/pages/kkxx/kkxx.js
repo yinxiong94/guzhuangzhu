@@ -1,5 +1,6 @@
 // pages/kkxx/kkxx.js
 const app = getApp()
+
 Page({
 
   /**
@@ -17,8 +18,8 @@ Page({
     obj3: [],
     info3: [],
     obj4: [],
-    info4: []
-
+    info4: [],
+    orderId:""
   },
   inputedit1: function (e) {
     // 1. input 和 info 双向数据绑定
@@ -87,7 +88,7 @@ Page({
     var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
     var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
     wx.request({
-      url: app.globalData.url + '/api/memberCard/bindMemberCard',
+      url: app.globalData.url + '/api/common/getVerificationCode',
       method: "POST",
       header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
       data: { phone: this.data.obj2.manager2, effectiveTime: 60 },
@@ -96,7 +97,7 @@ Page({
     })
   },
   tj:function(){
-    console.log(this.data.obj1.manager1,this.data.obj1.manager1,  this.data.obj2.manager2, this.data.obj3.manager3, this.data.obj4.manager4)
+    var that=this;
     var a = wx.getStorageSync('Token');
     var timespan = new Date().getTime();
     var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
@@ -105,7 +106,7 @@ Page({
       url: app.globalData.url + '/api/memberCard/bindMemberCard',
       method: "POST",
       header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
-      data: { memberName: this.data.obj1.manager1, nickName: this.data.obj1.manager1, phone: this.data.obj2.manager2, code: this.data.obj3.manager3, address: this.data.obj4.manager4, openId: '00001' },
+      data: { memberName: this.data.obj1.manager1, nickName: this.data.obj1.manager1, phone: this.data.obj2.manager2, code: this.data.obj3.manager3, address: this.data.obj4.manager4, openId: app.globalData.openId },
       success(res) {
         console.log(res)
           if(res.data.code==200){
@@ -113,10 +114,29 @@ Page({
               title: '信息提交成功',
               duration: 2000
             })
-            setTimeout(function(){
-              wx.switchTab({
-                url: '/pages/index/index',
-              })
+            setTimeout(()=>{           
+              var a = wx.getStorageSync('Token');
+              var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
+              wx.request({
+                url: app.globalData.url + '/api/recharge/RechargeWxPay',
+                method: "POST",
+                header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+                data: { openId: app.globalData.openId, orderId:that.data.orderId },
+                success(res) {
+                      console.log(res)
+                      var rest = res.data.result;
+                      wx.requestPayment({
+                        timeStamp: rest.timeStamp,
+                        nonceStr: rest.nonceStr,
+                        package: rest.package,
+                        signType: rest.signType,
+                        paySign: rest.paySign,
+                      })
+                    }
+              })   
+              // wx.switchTab({
+              //   url: '/pages/index/index',
+              // })
             },2000)
           } else{
             wx.showToast({
@@ -132,7 +152,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({ orderId: options.orderId})
   },
 
   /**

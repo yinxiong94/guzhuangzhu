@@ -1,50 +1,29 @@
 <view class="top"></view>
 
 <view class='tx'>
-    <image src="/pages/img/tx.png"></image>
-    <view class='xx'>
-        <view class='t1'>小浣熊</view>
-        <view class='t2'>长沙市天心区九峰小区</view>
-    </view>
+  <image src="/pages/img/tx.png"></image>
+  <view class='xx'>
+    <view class='t1'>小浣熊</view>
+    <view class='t2'>长沙市天心区九峰小区</view>
+  </view>
 </view>
 
 <view class='myhy'>我的会员：</view>
 
 <view class='id'>
-    <view>会员ID</view>
-    <view>联系方式</view>
-    <view>开卡小区</view>
+  <view>会员ID</view>
+  <view>联系方式</view>
+  <view>开卡小区</view>
 </view>
-
-<view class='hyxq'>
+<view
+wx:for="{{list}}"
+>
+  <view class='hyxq'>
     <view class='xm'>
-      <view>张三</view>
-      <view>余额:89.2</view>
+      <view>{{item.memberName}}</view>
+      <view>余额:{{item.balance}}</view>
     </view>
-    <view class='tel'>13888888888</view>
-    <view class='tel'>长沙市天心区九峰小区</view>
-</view>
-<view class='hyxq'>
-    <view class='xm'>
-      <view>张三</view>
-      <view>余额:89.2</view>
-    </view>
-    <view class='tel'>13888888888</view>
-    <view class='tel'>长沙市天心区九峰小区</view>
-</view>
-<view class='hyxq'>
-    <view class='xm'>
-      <view>张三</view>
-      <view>余额:89.2</view>
-    </view>
-    <view class='tel'>13888888888</view>
-    <view class='tel'>长沙市天心区九峰小区</view>
-</view>
-<view class='hyxq'>
-    <view class='xm'>
-      <view>张三</view>
-      <view>余额:89.2</view>
-    </view>
-    <view class='tel'>13888888888</view>
-    <view class='tel'>长沙市天心区九峰小区</view>
+    <view class='tel'>{{item.phone}}</view>
+    <view class='tel'>{{item.address}}</view>
+  </view>
 </view>

@@ -3,11 +3,11 @@ App({
   onLaunch: function () {
     var that = this
     //展示本地存储能力
-    // wx.clearStorageSync()
-    // wx.removeStorageSync({
-    //   key: 'Token',
-    //   success: function(res) {},
-    // })
+    //  wx.clearStorageSync()
+    wx.removeStorage({
+      key: 'Token',
+      success: function(res) {},
+    })
     var a = wx.getStorageSync('Token');
     console.log(!a)
     if (!a || new Date(a.timespan) <= new Date()) {

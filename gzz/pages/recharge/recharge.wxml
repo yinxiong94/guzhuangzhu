@@ -1,16 +1,17 @@
 <view class="db">
   <view class='kh'>卡号：</view>
-  <input type='text' placeholder='请输入充值卡号' class='czkh'></input>
+  <input type='text' placeholder='请输入充值卡号' class='czkh' bindinput="inputedit1" data-obj1="info1"  value="{{obj1}}"></input>
 
 
   <view class="mian">
-    <view  wx:for="{{list}}" wx:key="index" data-id="{{index}}" class="list {{index==index1?'red':''}}">
-      <view>
+  <block wx:for="{{list}}" wx:key="index" >
+    <view   data-id="{{index}}" class="list {{index==index1?'red':''}}" data-rechargeId="{{item.rechargeId}}"   bindtap='xz'>
+      <view >
         <text>{{item.amount}}元</text>
         <text class="list_s">送{{item.giveMoney}}元</text>
       </view>
     </view>
-    
+  </block >
   </view>
   <view class="payment">
     <view class='item'>
@@ -19,7 +20,7 @@
         <text>微信支付</text>
       </view>
       <view class="item_right">
-        <checkbox class='check'></checkbox>
+        <checkbox class='check' bindtap='wx'></checkbox>
       </view>
     </view>
   </view>
@@ -28,5 +29,5 @@
       <text>《充值协议》</text>
     </view>
   </view>
-  <view class="btn" bindtap='chongzhi'>去充值</view>
+  <button class="btn" bindtap='chongzhi' disabled='{{isshow}}'>去充值</button>
 </view>

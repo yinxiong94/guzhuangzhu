@@ -1,5 +1,6 @@
 // pages/personal/personal.js
 const app = getApp()
+
 Page({
 
   /**
@@ -23,10 +24,23 @@ Page({
       url: '/pages/bangka/bangka',
     })
   },
-  wdhyk:function(){
+  dl:function(){
     wx.navigateTo({
-      url: '/pages/member/member?balance=' + this.data.list.balance,
+      url: '/pages/sign/sign',
     })
+  },
+  wdhyk:function(){
+    if (this.data.list.cardNum==null){
+      wx.showToast({
+        title: '未开通会员卡',
+        duration:2000,
+        icon:"none"
+      })
+    } else {
+      wx.navigateTo({
+        url: '/pages/member/member?balance=' + this.data.list.balance,
+      })}
+
   },
   cz:function(){
     wx.navigateTo({
@@ -84,17 +98,17 @@ Page({
       })
     };
     var that = this;
-    var a = wx.getStorageSync('Token');
+    var a = wx.getStorageSync('Token'); 
     var timespan = new Date().getTime();
-    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
+    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1)); 
     var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
+    // 返回代理信息
     wx.request({
       url: app.globalData.url + '/api/MemberCard/MemberInfo',
       method: "POST",
       header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
-      data:  { openId:'00001' },
+      data:  { openId:app.globalData.openId },
       success(res) {
-        console.log(res)
           var a = res.data.result.phone;
           var b = a.replace(/^(\w{3})\w{4}(.*)$/, '$1****$2')
         that.setData({ list: res.data.result ,phone:b})
@@ -113,7 +127,22 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    var that = this;
+    var a = wx.getStorageSync('Token');
+    var timespan = new Date().getTime();
+    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
+    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
+    wx.request({
+      url: app.globalData.url + '/api/MemberCard/MemberInfo',
+      method: "POST",
+      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      data: { openId: app.globalData.openId },
+      success(res) {
+        var a = res.data.result.phone;
+        var b = a.replace(/^(\w{3})\w{4}(.*)$/, '$1****$2')
+        that.setData({ list: res.data.result, phone: b })
+      }
+    })
   },
 
   /**

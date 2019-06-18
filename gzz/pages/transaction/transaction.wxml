@@ -1,0 +1,35 @@
+<view class="db">
+  <view class="header">
+    <view class="calendar">
+    <picker mode="date"  fields="day" bindchange="abc">
+      <image lazy-load='true' src="/pages/img/rl.png"></image>
+    </picker>
+    </view>
+    <text class="text">今日  交易总额</text>
+    <view class="xian"></view>
+    <text class="pirce">{{list.sumOrder}}元</text>
+    <image lazy-load='true' src="/pages/img/bg.png"></image>
+  </view>
+  <view class='kong' wx:if="{{coco.length==0}}">暂无明细</view>
+  <view class="list" wx:else>
+    <view class="list_zc" wx:for="{{coco}}">
+      <view class="item" bindtap='xs'>
+        <view class="list_item">
+          <image lazy-load='true' src="/pages/img/nav.png"></image>
+          <text class="text">设备：{{item.machineName}}</text>
+        </view>
+        <view class="list_item_right">
+          <text>￥{{item.money}}</text>
+          <view class="iconfont icon-jiantou"></view>
+        </view>
+      </view>
+      <view wx:if="{{isshow}}">
+        <view class="list_td" wx:for="{{item.obj}}" wx:for-item="cell">
+          <text class="tiem">{{cell.createTime}}</text>
+          <text class="title">{{cell.productName}}</text>
+          <text class="pirce">{{cell.orderMoney}}</text>
+        </view>
+      </view>
+    </view>
+  </view> 
+</view>

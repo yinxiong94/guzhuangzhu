@@ -71,6 +71,7 @@ Page({
       obj4: this.data[dataset.obj4]
     });
   },
+  // 验证码倒计时
   getCode: function (options) {
     var that = this;
     var currentTime = that.data.currentTime
@@ -89,6 +90,7 @@ Page({
       }
     }, 1000)
   },
+  // 获取验证码
   getVerificationCode() {
     this.getCode();
     var that = this
@@ -106,6 +108,7 @@ Page({
       }
     })
   },
+  // 添加银行卡
   tj:function(){
     var a = wx.getStorageSync('Token');
     var timespan = new Date().getTime();
@@ -115,8 +118,9 @@ Page({
       url: app.globalData.url + '/api/memberCard/bindEntityCard',
       method: "POST",
       header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
-      data: { entityCardNo: this.data.obj.manager, nickName: this.data.obj1.manager1, phone: this.data.obj2.manager2, code: this.data.obj3.manager3, address: this.data.obj4.manager4, openId:'00001' },
+      data: { entityCardNo: this.data.obj.manager, nickName: this.data.obj1.manager1, phone: this.data.obj2.manager2, code: this.data.obj3.manager3, address: this.data.obj4.manager4, openId:app.globalData.openId},
       success(res) {
+        console.log(res)
         if(res.data.code==200){
           wx.showToast({
             title: '绑定成功',

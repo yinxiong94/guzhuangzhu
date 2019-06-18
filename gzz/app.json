@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/logs/logs",
     "pages/index/index",
     "pages/personal/personal",
     "pages/After/After",
-    "pages/ddxq1/ddxq1",
     "pages/fill/fill",
     "pages/txdd/txdd",
     "pages/ddxq/ddxq",
@@ -25,19 +25,33 @@
     "pages/bangka/bangka",
     "pages/ddzf/ddzf",
     "pages/gwc/gwc",
-    "pages/logs/logs",
     "pages/d520/d520",
     "pages/reason/reason",
     "pages/kkxx/kkxx",
     "pages/tjdz1/tjdz1",
-    "pages/fill1/fill1"
+    "pages/fill1/fill1",
+    "pages/sign/sign",
+    "pages/personal1/personal",
+    "pages/transaction/transaction",
+    "pages/tixian/tixian",
+    "pages/index1/index",
+    "pages/binding/binding",
+    "pages/cash/cash",
+    "pages/mymember/mymember",
+    "pages/mydevice/mydevice",
+    "pages/royalty/royalty"
   ],
   "window": {
-    "enablePullDownRefresh": true,
+    "enablePullDownRefresh": false,
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
   },
   "tabBar": {
     "selectedColor": "#fbc00e",

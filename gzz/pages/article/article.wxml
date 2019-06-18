@@ -13,7 +13,10 @@
       </view>
       <image lazy-load='true' src="{{img}}"></image>
       <view class="text_wz">
-        {{content}}
+        <import src="../../wxParse/wxParse.wxml" />  
+        <view class="wxParse">
+        <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+        </view>   
       </view>
     </view>
   </view>

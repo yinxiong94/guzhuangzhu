@@ -1,5 +1,6 @@
 // pages/discount/discount.js
 const app = getApp();
+
 Page({
 
   /**
@@ -11,34 +12,39 @@ Page({
   },
   quan:function(e){
     var that=this;
-    var a = e.target.dataset.id
-    this.setData({ id:a})
-    if(a==2){
-      var a = wx.getStorageSync('Token');
+    var b = e.target.dataset.id
+    this.setData({ id:b})
+    if(b==2){
+     
+      var a = wx.getStorageSync('Token'); 
       var timespan = new Date().getTime();
-      var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
-      var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
+      var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));     
+      var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();    
+      // 会员领取优惠券列表
       wx.request({
         url: app.globalData.url + '/api/coupon/MemberCouponList',
         method: "POST",
         header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
-        data: { openId: '00001' },
+        data: { openId: app.globalData.openId },
         success(res){
+          console.log(1,timespan)
           that.setData({list:res.data.result})
           console.log(res)
         }
       })
-    } else if(a==3){
+    } else if(b==3){
       var a = wx.getStorageSync('Token');
       var timespan = new Date().getTime();
-      var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
+      var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1)); 
       var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
+      // 会员到期优惠券列表
       wx.request({
         url: app.globalData.url + '/api/coupon/MemberCouponByExpireList',
         method: "POST",
         header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
-        data: { userId: '00001',page:1,size:10},
+        data: { userId: app.globalData.openId,page:1,size:10},
         success(res) {
+          console.log(2)
           that.setData({ list: res.data.result })
           console.log(res)
         }
@@ -49,11 +55,12 @@ Page({
       var timespan = new Date().getTime();
       var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
       var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
+      // 优惠券列表
       wx.request({
         url: app.globalData.url + '/api/coupon/couponList',
         method: "POST",
         header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
-        data: { openId: '00001' },
+        data: { openId: app.globalData.openId },
         success(res) {
           console.log(res)
           that.setData({ list: res.data.result })
@@ -61,6 +68,7 @@ Page({
       })
     }
   },
+  // 立即领取优惠券
   ljlq:function(e){
       console.log(e.target.dataset.id)
     var that = this;
@@ -69,16 +77,18 @@ Page({
     var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
     var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
     wx.request({
+      // 立即领取优惠券
       url: app.globalData.url + '/api/coupon/ReceiveCoupon',
       method: "POST",
       header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
       data: { openId: app.globalData.openId, couponId: e.target.dataset.id},
       success(res) {
         wx.request({
+          // 刷新优惠券列表
           url: app.globalData.url + '/api/coupon/couponList',
           method: "POST",
           header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
-          data: { openId: '00001' },
+          data: { openId: app.globalData.openId },
           success(res) {
             console.log(res)
             that.setData({ list: res.data.result })
@@ -96,13 +106,13 @@ Page({
     var timespan = new Date().getTime();
     var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
     var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
+    // 优惠券列表
       wx.request({
         url: app.globalData.url + '/api/coupon/couponList',
         method: "POST",
         header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
-        data: { openId: '00001' },
+        data: { openId: app.globalData.openId },
         success(res) {
-          console.log(res)
           that.setData({ list: res.data.result })
         }
       })

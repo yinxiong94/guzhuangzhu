@@ -8,9 +8,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    list:{},
+    coco:{},
+    isshow:false
   },
-
+xs:function(){
+    if(this.data.isshow==false){
+      this.setData({isshow:true})
+    } else {
+      this.setData({isshow:false})
+    }
+},
   /**
    * 生命周期函数--监听页面加载
    */
@@ -20,21 +28,25 @@ Page({
     var a = wx.getStorageSync('Token');
     var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
     wx.request({
-      url: app.globalData.url + '/api/Users/GetOnePrice',
+      url: app.globalData.url + '/api/Users/QueryCommission',
       method: "POST",
       header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
-      data: { agentId: id, pageid: 1, pagesize:5},
+      data: { key: id, page: 1, size: 5},
       success(res) {
         console.log(res)
+        let cop = res.data.result;
+        that.setData({ list: cop })
       }
     })
     wx.request({
-      url: app.globalData.url + '/api/Users/WithdrawPageListTime  ',
+      url: app.globalData.url + '/api/Users/MachinePageList',
       method: "POST",
       header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
-      data: { agentId: id, pageid: 1, pagesize: 5, year: 2019, month:3 },
+      data: { key: id, page: 1, size: 5, beginTime: "2019-6-6", endtime: "2019-6-7"},
       success(res) {
         console.log(res)
+        let list = res.data.result;
+        that.setData({ coco:list})
       }
     })
   },

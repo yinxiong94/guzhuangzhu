@@ -12,8 +12,8 @@
 		"autoAudits": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.6.6",
-	"appid": "wxfacfc9a34535692e",
+	"libVersion": "2.7.1",
+	"appid": "wx4d667e4f7fe9aa60",
 	"projectname": "guzhuangzhu",
 	"debugOptions": {
 		"hidedInDevtools": []

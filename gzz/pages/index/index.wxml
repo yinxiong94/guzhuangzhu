@@ -1,7 +1,7 @@
 <view class='slider'> 
     <swiper autoplay='4000' indicatorDots="true"> 
     <swiper-item wx:for="{{list}}"> 
-    <image src="{{item.rotationImg}}" lazy-load='true' ></image> 
+    <image src="{{item.rotationImg}}" lazy-load='true' data-src="{{item.rotationUrl}}" bindtap='toss'></image> 
     </swiper-item> 
     </swiper> 
   </view>
@@ -61,7 +61,7 @@
         <view class='deas_text'>{{item.productName}}</view>     
         <view class='deas_text1'>{{item.productIntroduce}}</view>
         <view class='deas_text2'>￥{{item.productPrice}}.00</view>
-        <image src="/pages/img/gwc.png" class='gwc'></image>
-        <image src="/pages/img/gm.png" class='gm'></image>
+        <image src="/pages/img/gwc.png" class='gwc' bindtap='gwc' data-sid="{{item.productId}}"></image>
+        <image src="/pages/img/gm.png" class='gm' bindtap='nowshop' data-sid="{{item.productId}}" data-name="{{item.productName}}" data-wei="{{item.productWeight}}" data-price="{{item.productPrice}}" data-img="{{item.productImg}}"></image>
       </view>
   </view>

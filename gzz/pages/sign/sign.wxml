@@ -1,0 +1,17 @@
+<view class="db">
+  <view class="header">
+    <image lazy-load='true' src="/pages/img/logo.png"></image>
+  </view>
+  <view class="mian">
+    <view class="list">
+      <input type='text' placeholder='请输入您的账号'  bindinput="inputedit" data-obj="info"  data-item="manager" value="{{info.manager}}"></input>
+      <image class="ren" lazy-load='true' src="/pages/img/ren.png"></image>
+    </view>
+    <view class="list">
+      <input type='text' placeholder='请输入密码'  bindinput="inputedit1" data-obj1="info1"  data-item1="manager1" value="{{info.manager1}}"></input>
+      <image class="ren" lazy-load='true' src="/pages/img/suo.png"></image>
+      <image class="yan" lazy-load='true' src="/pages/img/yan.png"></image>
+    </view>
+  </view>
+  <button class="btn" bindtap='login'>登录</button>
+</view>

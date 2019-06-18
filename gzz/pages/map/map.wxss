@@ -121,7 +121,8 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
 .cart-item-1{
   display: inline-block;
   vertical-align: top;
-  margin-left: 10rpx
+  margin-left: 10rpx;
+  width: 60%
 }
 .cart-item-1 cover-view{
   padding: 0rpx 20rpx
@@ -285,7 +286,7 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
 .img5{
   width: 54rpx;
   height: 86rpx;
-  margin-left:120rpx 
+  margin-left:80rpx 
 }
 .sl{
   display: inline-block;

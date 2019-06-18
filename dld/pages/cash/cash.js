@@ -8,9 +8,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+      isshow:false
   },
-
+  xs:function(){
+    if(this.data.isshow==false){
+      this.setData({isshow:true})
+    } else { 
+      this.setData({isshow:false})
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -23,9 +29,17 @@ Page({
       url: app.globalData.url + '/api/Users/WithdrawPageList',
       method: "POST",
       header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
-      data: { agentId:id, pageid:1, pagesize: 10},
+      data: { key: id, page: 1, size: 10},
       success(res) {
-        console.log(res)
+        that.setData({ list: res.data.result })
+        let coco = that.data.list;
+        let top = '';
+        coco.forEach(item=>{
+          item.obj.forEach(item1=>{
+            top = item1.BackIdCard.slice(-4);
+            item1.BackIdCard = top;
+          })
+        })
         that.setData({ list: res.data.result })
       }
     })

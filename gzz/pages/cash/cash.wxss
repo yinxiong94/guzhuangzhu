@@ -1,0 +1,109 @@
+@import "../icon/stylesheet";
+.top{
+  width: 750rpx;
+  height: 1rpx;
+  background:rgba(203,203,203,1);
+}
+.db .header .header_item {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 15rpx
+}
+
+.db .header .header_item .item {
+  padding: 0 31rpx;
+  height: 116rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.db .header .header_item .item .item_t {
+  margin-top: 15rpx;
+  display: flex;
+}
+
+.db .header .header_item .item .item_t text {
+  font-size: 36rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(56, 56, 56, 1);
+}
+
+.db .header .header_item .item .item_t .jiantou {
+  line-height: 50rpx;
+  margin-left: 38rpx;
+}
+
+.db .header .header_item .item .item_b {
+  font-size: 28rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(150, 150, 150, 1);
+  margin-top: 10rpx;
+}
+
+.db .header .header_item .list {
+  padding: 0 31rpx;
+  height: 116rpx;
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.db .header .header_item .list .list_right {
+  width: 160rpx;
+  height: 116rpx;
+  line-height: 116rpx;
+}
+
+.db .header .header_item .list .list_right .pirce {
+  font-size: 22rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(51, 51, 51, 1);
+}
+
+.db .header .header_item .list .list_right .money {
+  font-size: 36rpx;
+  font-family: PingFang-SC-Heavy;
+  font-weight: 800;
+  color: rgba(51, 51, 51, 1);
+}
+
+.db .header .header_item .list .list_left {
+  flex: 1;
+  height: 116rpx;
+  display: flex;
+  flex-direction: column;
+  margin-top: 14rpx;
+}
+
+.db .header .header_item .list .list_left .left_ka {
+  font-size: 28rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(51, 51, 51, 1);
+}
+
+.db .header .header_item .list .list_left .left_date {
+  font-size: 24rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(181, 181, 181, 1);
+  margin-top: 35rpx;
+}
+
+.ash {
+  background-color: rgba(244,244,244,1);
+}
+
+.white {
+  background-color: #fff;
+}
+.hhh{
+  width:597rpx;
+  height: 1rpx;
+  background-color: #eee;
+  margin: 0 auto;
+  margin-top: 25rpx;
+}

@@ -16,9 +16,9 @@
           <cover-image src="/pages/img/smj.png" class='img3'></cover-image>
           <cover-view class='cart-item-1'>
               <cover-view class='title1_1'>{{item.title}}</cover-view>
-              <cover-view class='title2_1'>距离我所在位置{{item.distance}}KM</cover-view>
-          </cover-view>
-          <cover-image src="/pages/img/dh.png" class='img5'></cover-image>
+              <cover-view class='title2_1'>距离我所在位置{{item.distance/1000}}KM</cover-view>
+          </cover-view> 
+          <cover-image src="/pages/img/dh.png" class='img5' data-latitude="{{item.latitude}}" data-longitude="{{item.longitude}}" bindtap='go' data-title="{{item.title}}"></cover-image>
         </cover-view>
         <cover-view class='hx2'></cover-view>
     </cover-view>

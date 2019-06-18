@@ -51,7 +51,7 @@
     <view class="total">
       <view class="left">
         <text>留言</text>
-        <textarea placeholder='给卖家留言'></textarea>
+        <input   bindinput="inputedit" data-obj="info"  data-item="manager" value="{{info.manager}}"></input>
       </view>
     </view>
     <view class="total" style='margin-top: 150rpx;border-top:0;'>
@@ -92,7 +92,7 @@
       </view>
     </view>
     <view class="img" data-price="{{item.couponMoney}}" bindtap='sy'>
-      <view class="text" data-price="{{item.couponMoney}}" bindtap='sy'>立即使用</view>
+      <view class="text" data-price="{{item.couponMoney}}" data-msg="{{item.memberCouponId}}" bindtap='sy'>立即使用</view>
       <image lazy-load='true' src="/pages/img/ttt.png" data-price="{{item.couponMoney}}" bindtap='sy'></image>
     </view>
   </view>

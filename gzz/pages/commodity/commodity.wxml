@@ -1,87 +1,46 @@
-<view class='yhq' wx:if="{{isshow1}}">
-    <image src="/pages/img/del.png" class='img_10' bindtap='del'></image>
-    <view class='list_11'>
-        <image src="/pages/img/img1.png" class='img_11'></image>
-        <view class='item_11'>
-            <view class='tex'>￥{{list.productPrice}}</view>
-            <view class='item_22'>
-                <view>1Kg</view>
-                <view>3Kg</view>
-                <view>5kg</view>
-            </view>
-        </view>
-       
-    </view>
-     <view class='hx_11'></view>
-    <text class='t_111'>配送区域</text><text class='t_222'>（配送地可能会影响库存，请正确选择）</text>
-    <view class='item_333'>
-        <image src="/pages/img/dz1.png"></image>
-        <view class='tex1'><text>{{index[0]}}</text><text>{{index[1]}}</text><text>{{index[2]}}</text></view>
-        <picker mode="region" bindchange="bindPickerChange">
-            <view class="iconfont icon-jiantou jiantou"></view>
-        </picker>
-    </view>
-      <view class='hx_11'></view>
-  <view class='cart-item4'>
-    <text>自定购买数量</text>
-    <view class='butt'>
-      <text bindtap='jian'>-</text>
-      <text class='sl'>{{count}}</text>
-      <text bindtap='jia'>+</text>
-    </view>
-  </view>
-
-  <!-- <view class='item_88'>
-      <view>机器取米</view>
-      <view>快递配送</view>
-  </view> -->
-
-  <view class='item_99' bindtap='del'>完成</view>
-
-</view>
-
-<view class='yhq' wx:if="{{isshow}}" catchtouchmove="true">
+<view wx:if="{{isshow}}" catchtouchmove="true" class='list11111'>
+  <view class='yhq'>
     <view class='yhq_1'>领券</view>
+    <view class='kong1' wx:if="{{list2.length==0}}">没有可领取的优惠券</view>
     <view class="item" wx:for="{{list2}}">
-    <view class="item_left">
-      <view class="box">
-        <view class="pirce">
-          <text class="box_pirce">￥</text>
-          <text class="money">{{item.couponMoney}}</text>
+      <view class="item_left">
+        <view class="box">
+          <view class="pirce">
+            <text class="box_pirce">￥</text>
+            <text class="money">{{item.couponMoney}}</text>
+          </view>
+          <view class="tips">
+            {{item.couponName}}
+          </view>
         </view>
-        <view class="tips">
-          {{item.couponName}}
+      </view>
+      <view class="data">
+        <view class="effective">有效期</view>
+        <view class="date">
+          {{item.createTime}}-{{item.effectiveTime}}
+        </view>
+        <view class="surplus">
+          <view>剩余{{item.surplusNum}}张</view>
         </view>
       </view>
-    </view>
-    <view class="data">
-      <view class="effective">有效期</view>
-      <view class="date">
-        {{item.createTime}}-{{item.effectiveTime}}
-      </view>
-      <view class="surplus">
-        <view>剩余{{item.surplusNum}}张</view>
+      <view class="img" data-couponId="{{item.couponId}}" bindtap='lqyhq'>
+        <view class="text" bindtap='lqyhq' data-couponId="{{item.couponId}}">
+          立即领取
+        </view>
+        <image lazy-load='true' src="/pages/img/ttt.png" bindtap='lqyhq' data-couponId="{{item.couponId}}"></image>
       </view>
     </view>
-    <view class="img">
-      <view class="text">
-        立即领取
-      </view>
-      <image lazy-load='true' src="/pages/img/ttt.png"></image>
-    </view>
+
+    <view class='wc' bindtap='wc'>完成</view>
+
   </view>
-
-  <view class='wc' bindtap='wc'>完成</view>
-
 </view>
 
 <view class="db">
-  <swiper  autoplay="{{false}}" >
-   
-      <swiper-item  wx:for="{{list1}}" wx:key="{{index}}">
-        <image src="{{item}}" class="ggg" lazy-load='true'/>
-      </swiper-item>
-    
+  <swiper autoplay="{{false}}">
+    <swiper-item wx:for="{{list1}}" wx:key="{{index}}">
+      <image src="{{item}}" class="ggg" lazy-load='true' />
+    </swiper-item>
   </swiper>
   <view class="header">
     <view class="title">
@@ -99,25 +58,32 @@
         <text class="title_num">累计销量：{{list.SalesVolume}}</text>
       </view>
       <view class='yh_list'>
-        <view class='yh'>优惠 <text class='yh_1'>领券后至少可减 <text class='yh_2'>￥5</text></text></view>
+        <view class='yh'>优惠
+          <text class='yh_1'>领券后至少可减 <text class='yh_2'>￥5</text></text>
+        </view>
         <view class='lq' bindtap='yhzx'>领券 ＞</view>
         <view class='mj_1'>满100减5元</view>
         <view class='mj_1 mj_2'>满100减5元</view>
       </view>
-        
+
       <view class='kong'></view>
     </view>
   </view>
   <view class="hhh"></view>
 
   <view class='list_item'>
-      <view>选择</view>
-      <view class='item1'>
-          <view class=" {{id==1000?'xz':''}}" data-zl="1000" bindtap='xz'>1Kg</view>
-          <view class=" {{id==3000?'xz':''}}"  data-zl="3000"  bindtap='xz'>3Kg</view>
-          <view class=" {{id==5000?'xz':''}}"  data-zl="5000" bindtap='xz'>5Kg</view>
-      </view>
-      <view class="iconfont icon-jiantou jiantou" bindtap='show_1'></view>
+    <view>选择</view>
+    <view class='item1'>
+      <view class=" {{id==1000?'xz':''}}" data-zl="1000" bindtap='xz'>1Kg</view>
+      <view class=" {{id==3000?'xz':''}}" data-zl="3000" bindtap='xz'>3Kg</view>
+      <view class=" {{id==5000?'xz':''}}" data-zl="5000" bindtap='xz'>5Kg</view>
+    </view>
+    <view class='butt'>
+      <text bindtap='jian'>-</text>
+      <text class='sl'>{{count}}</text>
+      <text bindtap='jia'>+</text>
+    </view>
+    <!-- <view class="iconfont icon-jiantou jiantou" bindtap='show_1'></view> -->
   </view>
 
   <view class="hhh"></view>
@@ -129,45 +95,26 @@
         <image lazy-load='true' src="/pages/img/fdj.png"></image>
       </view>
     </view>
-    <view class="ng_nei">
+    <view class="ng_nei" wx:for="{{markers}}">
       <view class="title_item">
-        <text class="title_item_text">1</text>
+        <text class="title_item_text">{{item.id}}</text>
         <view class="img">
           <image lazy-load='true' src="/pages/img/smj.png"></image>
         </view>
         <view class="position">
           <view class="position_top">
-            <text>九峰小区北区12栋1号机</text>
+            <text>{{item.title}}</text>
           </view>
           <view class="position_bottom">
-            <text>距离我所在位置2.1KM</text>
+            <text>距离我所在位置{{item.distance/1000}}KM</text>
           </view>
         </view>
       </view>
       <view class="title_right">
-        <image src="/pages/img/dh.png"></image>
+        <image src="/pages/img/dh.png" data-latitude="{{item.latitude}}" data-longitude="{{item.longitude}}" bindtap='go' data-title="{{item.title}}"></image>
       </view>
     </view>
-    <view class="ng_nei">
-      <view class="title_item">
-        <text class="title_item_text">2</text>
-        <view class="img">
-          <image lazy-load='true' src="/pages/img/smj.png"></image>
-        </view>
-        <view class="position">
-          <view class="position_top">
-            <text>九峰小区北区12栋1号机</text>
-          </view>
-          <view class="position_bottom">
-            <text>距离我所在位置2.1KM</text>
-          </view>
-        </view>
-      </view>
-      <view class="title_right">
-        <image src="/pages/img/dh.png"></image>
-      </view>
-    </view>
-    <view class="show">
+    <view class="show" bindtap='more'>
       显示更多设备
     </view>
   </view>
@@ -177,7 +124,7 @@
 
     <import src="../../wxParse/wxParse.wxml" />
     <view class="wxParse">
-    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+      <template is="wxParse" data="{{wxParseData:article.nodes}}" />
     </view>
 
   </view>
@@ -201,4 +148,3 @@
     </view>
   </view>
 </view>
-

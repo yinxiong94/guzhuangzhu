@@ -22,6 +22,11 @@ page{
   overflow: hidden;
   color:rgba(62,65,66,1);
 }
+.kong{
+  font-size: 32rpx;
+  margin-top: 300rpx;
+  text-align: center
+}
 .title2{
   font-size:26rpx;
   font-family:PingFang-SC-Medium;

@@ -1,4 +1,5 @@
 // pages/article /article.js
+var WxParse = require('../../wxParse/wxParse.js');
 Page({
 
   /**
@@ -15,8 +16,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that=this;
       console.log(options)
       this.setData({content:options.content,img:options.img,time:options.time,title:options.title})
+      var article = this.data.content;
+       WxParse.wxParse('article', 'html', article, that, 5);
   },
 
   /**

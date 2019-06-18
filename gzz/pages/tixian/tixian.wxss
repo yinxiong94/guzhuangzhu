@@ -1,0 +1,116 @@
+.top{
+  width: 750rpx;
+  height: 1rpx;
+  background:rgba(203,203,203,1);
+}
+.yhk{
+  width: 720rpx;
+  height: 300rpx;
+  position: absolute;
+   top:20rpx;
+  left: 15rpx;
+  background:linear-gradient(-90deg,rgba(48,101,194,1) 0%,rgba(76,122,205,1) 100%);
+  border-radius: 20rpx
+}
+.js{
+  width: 64rpx;
+  height: 64rpx;
+  position: absolute;
+  top:79rpx;
+  left: 68rpx
+}
+.kkk{
+  position: absolute;
+  top:90rpx;
+  left: 149rpx
+}
+.kk{
+  font-size: 28rpx;
+  color:#fff
+}
+.kk1{
+  display: inline-block;
+  border:1rpx solid #fff;
+  font-size: 22rpx;
+  padding-left: 16rpx;
+  padding-right: 16rpx;
+  margin-left: 10rpx
+}
+.kk2{
+  font-size: 80rpx;
+  color:#fff;
+  line-height: 32rpx;
+  margin-top: 50rpx
+}
+.kk2 text{
+  font-size: 36rpx;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 2rpx
+}
+.ktx{
+  margin-top: 355rpx;
+  margin-left: 28rpx;
+  font-size: 24rpx;
+  color:#A6ABB5
+  }
+  .ktx text{
+    font-size: 36rpx;
+    color:#000
+  }
+  input{
+    width: 84%;
+    margin: auto;
+    border-bottom: 2rpx solid rgba(254,229,154,1);
+    display: inline-block;
+    margin-top: 60rpx;
+    margin-left: 30rpx;
+    padding-bottom: 20rpx;
+    font-size: 60rpx;
+    padding-left: 50rpx;
+    color:#F5D164;
+  }
+  .aaa{
+    display: inline-block;
+    position: absolute;
+    top:67rpx;
+    left: 30rpx;
+    color:#F5D164;
+    font-size: 36rpx
+  }
+  .tx1{
+    position: relative
+  }
+  .tx2{
+    position: absolute;
+    top:70rpx;
+    right: 30rpx;
+    font-size: 27rpx;
+    font-weight: bold;
+    color:rgba(86,93,105,1);
+  }
+  .tx_1{
+    width: 92%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20rpx
+  }
+  .t1{
+    font-size:24rpx;
+    font-family:PingFang-SC-Medium;
+    font-weight:bold;
+    color:rgba(162,162,162,1);
+  }
+  .t2{
+    font-size:24rpx;
+    font-family:PingFang-SC-Medium;
+    font-weight:bold;
+    color:rgba(255,192,0,1);
+  }
+  .img9{
+    width: 689rpx;
+    height: 89rpx;
+    margin-left: 30rpx;
+    margin-top: 120rpx
+  }

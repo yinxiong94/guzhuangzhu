@@ -1,0 +1,172 @@
+@import "../icon/stylesheet.wxss";
+page{
+  background: #f1f1f1
+}
+.top{
+  width: 750rpx;
+  height: 1rpx;
+  background:rgba(203,203,203,1);
+}
+
+.db {
+  width: 100%;
+  background-color: #f1f1f1;
+}
+
+.db .header {
+  width: 93%;
+  margin: 0 auto;
+  height: 242rpx;
+  display: flex;
+  background-color: #fff;
+  justify-content: center;
+  margin-bottom: 20rpx;
+  border-radius: 12rpx;
+}
+
+.db .header image {
+  width: 120rpx;
+  height: 120rpx;
+  margin-top: 70rpx;
+  border-radius: 50%
+}
+.kong{
+  font-size: 32rpx;
+  text-align: center;
+  margin-top: 200rpx
+}
+.db .header .header_fr {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.db .header .header_fr .fr_text1 {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: rgba(255, 192, 0, 1);
+  font-family: PingFang-SC-Bold;
+}
+
+.db .header .header_fr .fr_text2 {
+  font-size: 26rpx;
+  font-weight: bold;
+  color: rgba(123, 123, 123, 1);
+  font-family: PingFang-SC-Bold;
+  margin-top: 12rpx;
+}
+
+.db .header .header_fl {
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
+  text-align: center;
+  position: relative;
+}
+
+.db .header .header_fl .fl_text1 {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: rgba(21, 21, 21, 1);
+  font-family: PingFang-SC-Medium;
+}
+
+.db .header .header_fl .fl_text2 {
+  font-size: 26rpx;
+  font-weight: bold;
+  color: rgba(123, 123, 123, 1);
+  font-family: PingFang-SC-Bold;
+  margin-top: 12rpx;
+}
+.db .header .header_fl image{
+  width: 37rpx;
+  height: 40rpx;
+  position: absolute;
+  top:-70rpx;
+  right: 24rpx;
+  border-radius: 0
+}
+
+.db .list {
+  width: 93%;
+  margin: 0 auto;
+  border-radius: 12rpx;
+  background-color: #fff;
+}
+
+.db .list .list_zc .item {
+  width: 100%;
+  display: flex;
+}
+
+.db .list .list_zc .item .list_item {
+  width: 550rpx;
+  height: 78rpx;
+  display: flex;
+  box-sizing: border-box;
+  padding: 20rpx 26rpx 0 13rpx;
+}
+
+.db .list .list_zc .item .list_item image {
+  width: 29rpx;
+  height: 35rpx;
+  margin-top: 4rpx;
+}
+
+.db .list .list_zc .item .list_item .text {
+  font-size: 30rpx;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+  color: rgba(51, 51, 51, 1);
+  margin-left: 33rpx;
+}
+
+.db .list .list_zc .item .list_item_right {
+  display: flex;
+}
+
+.db .list .list_zc .item .list_item_right text {
+  font-size: 24rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(79, 143, 243, 1);
+  margin-top: 27rpx;
+}
+
+.db .list .list_zc .item .list_item_right view {
+  line-height: 78rpx;
+  margin-left: 20rpx;
+  margin-right: 25rpx;
+}
+
+.db .list .list_zc .list_td {
+  display: flex;
+  height: 78rpx;
+  line-height: 78rpx;
+}
+
+.db .list .list_zc .list_td .tiem {
+  font-size: 22rpx;
+  width: 80rpx;
+  text-align: center;
+}
+
+.db .list .list_zc .list_td .title {
+  flex: 1;
+  font-size: 26rpx;
+  margin-left: 73rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(36, 36, 36, 1);
+}
+
+.db .list .list_zc .list_td .pirce {
+  width: 160rpx;
+  font-size: 26rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(79, 143, 243, 1);
+  text-align: center;
+}

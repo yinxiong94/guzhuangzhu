@@ -11,7 +11,7 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    list:[]
+    list: []
   },
   getUserInfo: function (e) {
     console.log(e)
@@ -21,27 +21,27 @@ Page({
       hasUserInfo: true
     })
   },
-  mymember:function(){
+  mymember: function () {
     wx.navigateTo({
       url: '/pages/mymember/mymember',
     })
   },
-  wdtx:function(){
+  wdtx: function () {
     wx.navigateTo({
       url: '/pages/tixian/tixian',
     })
   },
-  jyjl:function(){
+  jyjl: function () {
     wx.navigateTo({
       url: '/pages/transaction/transaction',
     })
   },
-  myyj:function(){
+  myyj: function () {
     wx.navigateTo({
       url: '/pages/royalty/royalty',
     })
   },
-  yhk:function(){
+  yhk: function () {
     wx.navigateTo({
       url: '/pages/index/index',
     })
@@ -53,7 +53,7 @@ Page({
     var a = wx.getStorageSync('Token');
     var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
     var that = this;
-    var id = wx.getStorageSync('userId');    
+    var id = wx.getStorageSync('userId');
     wx.request({
       url: app.globalData.url + '/api/Users/GetUser',
       method: "POST",
