@@ -7,7 +7,7 @@
     </view>
     <text class="text">今日  交易总额</text>
     <view class="xian"></view>
-    <text class="pirce">{{list.sumOrder}}元</text>
+    <text class="pirce">{{price}}元</text>
     <image lazy-load='true' src="/pages/img/bg.png"></image>
   </view>
   <view class='kong' wx:if="{{coco.length==0}}">暂无明细</view>

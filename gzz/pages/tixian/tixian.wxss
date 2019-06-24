@@ -88,6 +88,7 @@
     font-size: 27rpx;
     font-weight: bold;
     color:rgba(86,93,105,1);
+    z-index: 9999999999
   }
   .tx_1{
     width: 92%;

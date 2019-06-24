@@ -10,8 +10,8 @@
 <view class='ktx'>可提现金额:<text>{{price1}}</text>元</view>
 
 <view class='tx1'>
-    <text class='aaa'>￥</text><input bindinput="inputedit" data-obj="info"  data-item="manager" value="{{info.manager}}"></input>
-    <view class='tx2'>全部提现</view>
+    <text class='aaa'>￥</text><input bindinput="inputedit" data-obj="info"  data-item="manager" value="{{price11}}"></input>
+    <view class='tx2' bindtap='all'>全部提现</view>
 </view>
 
 <view class='tx_1'>

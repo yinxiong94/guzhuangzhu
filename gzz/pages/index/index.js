@@ -1,5 +1,5 @@
 const app = getApp()
-
+var WxParse = require('../../wxParse/wxParse.js');
 Page({
 
   /**
@@ -16,7 +16,8 @@ Page({
     list1: [],
     row: [],
     row1: [],
-    a: {}
+    a: {},
+    list2: [],
   },
   // 领取优惠券
   lqyhq: function(e) {
@@ -138,12 +139,45 @@ Page({
     })
   },
   // 轮播图跳转
-  // toss:function(e){
-  //     console.log(e.target.dataset.src)
-  //     wx.navigateTo({
-  //       url: e.target.dataset.src,
-  //     })
-  // },
+  toss:function(e){
+    var c = e.target.dataset.rotationrelationid;
+    var b = e.target.dataset.rotationtype;
+    var that = this;
+    var a = wx.getStorageSync('Token');
+    var timespan = new Date().getTime();
+    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
+    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
+    wx.request({
+      url: app.globalData.url + '/api/Article/ArticleList',
+      method: "POST",
+      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      data: { page: 1, size: 10 },
+      success(res) {
+        console.log(res)
+        that.setData({ list2: res.data.result })
+        for (var i = 0; i < res.data.result.length; i++) {
+          that.setData({ ['article[' + i + ']']: res.data.result[i].articleContent })
+          WxParse.wxParse('article', 'html', that.data.article[i], that, 5);
+        }
+        // var article = res.data.result[0].articleContent;
+
+      }
+    })
+    if(b==0){
+      for(var i=0;i<that.data.list2.length;i++){
+        if (that.data.list2[i].articleId==c){
+          wx.navigateTo({
+            url: '/pages/article/article?img=' + this.data.list2[i].articleImg + "&title=" + this.data.list2[i].articleName + "&content=" + this.data.list2[i].articleContent + "&time=" + this.data.list2[i].createTime,
+          })
+        }
+      }
+      
+    } else{
+      wx.navigateTo({
+        url: '/pages/commodity/commodity?id='+c,
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -168,6 +202,7 @@ Page({
               signature: signature
             },
             success(res) {
+              console.log(res)
               that.setData({
                 list: res.data.result
               })

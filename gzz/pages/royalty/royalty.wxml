@@ -3,12 +3,12 @@
 <view class="db">
   <view class="header">
     <view class="header_fr">
-      <text class="fr_text1">{{list.timeCommission}}</text>
+      <text class="fr_text1">{{price}}</text>
       <text class="fr_text2">今日佣金 (元)</text>
     </view>
     <image lazy-load='true' src="{{userInfo.avatarUrl}}"></image>
     <view class="header_fl">
-      <text class="fl_text1">{{list.totalCommission}}</text>
+      <text class="fl_text1">{{price1}}</text>
       <text class="fl_text2">累计佣金 (元)</text>
       <picker  mode="date"  fields="day" bindchange="abc">
       <image lazy-load='true' src="/pages/img/rly.png"></image>

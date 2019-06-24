@@ -11,13 +11,32 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    balance:""
+    balance:"",
+    beginTime: ""
+  },
+  abc:function(e){
+    this.setData({ beginTime: e.detail.value })
+    var that = this;
+    var a = wx.getStorageSync('Token');
+    var timespan = new Date().getTime();
+    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
+    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
+    wx.request({
+      url: app.globalData.url + '/api/recharge/RechargeConsumeList',
+      method: "POST",
+      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      data: { userId: app.globalData.openId, page: 1, size: 2, beginTime:that.data.beginTime },
+      success(res) {
+        console.log(res)
+        that.setData({ list: res.data.result })
+      }
+    })
   },
 quan:function(e){
   var that = this;
   var a = e.target.dataset.id
   this.setData({ id: a })
-  if (a == 2) {
+  if (a == 3) {
     var a = wx.getStorageSync('Token');
     var timespan = new Date().getTime();
     var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
@@ -31,7 +50,7 @@ quan:function(e){
         that.setData({ list: res.data.result })
       }
     })
-  } else if (a == 3) {
+  } else if (a == 2) {
     var a = wx.getStorageSync('Token');
     var timespan = new Date().getTime();
     var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));

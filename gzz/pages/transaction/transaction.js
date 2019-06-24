@@ -10,7 +10,8 @@ Page({
       isshow:false,
       list:[],
       coco:[],
-    beginTime:""
+    beginTime:"",
+    price:0
   },
   xs:function(){
     if(this.data.isshow==false){
@@ -78,7 +79,8 @@ Page({
       },
       success(res) {
         that.setData({
-          list: res.data.result
+          list: res.data.result,
+          price: res.data.result.sumOrder
         })
       }
     })

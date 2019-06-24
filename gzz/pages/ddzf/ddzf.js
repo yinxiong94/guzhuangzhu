@@ -1,7 +1,6 @@
 // pages/ddzf/ddzf.js
 const app = getApp()
 
-
 Page({
 
   /**
@@ -17,7 +16,6 @@ Page({
   },
   abc:function(e){   
     this.setData({ disabled: false, id: e.target.dataset.id})
-    
   },
   ddxq:function(){
     var that = this;
@@ -47,6 +45,36 @@ Page({
             })
           }
         })
+    } else{
+      wx.request({
+        url: app.globalData.url +'/api/product/PayProductOrder',
+        method:"POST",
+        header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+        data: { openId: app.globalData.openId, orderId: that.data.orderId, payType:0},
+        success(res){
+          console.log(res)
+          if(res.data.code==200){
+            wx.showToast({
+              title: '支付成功',
+              duration:2000,
+              success(res){               
+                setTimeout(function(){
+                  wx.switchTab({
+                    url: '/pages/index/index',
+                  })
+                },2000)
+              }
+            })
+          }
+          else if(res.data.code==424){
+            wx.showToast({
+              title: '会员卡余额不足',
+              duration:2000,
+              icon:"none"
+            })
+          }
+        }
+      })
     }
   },
   

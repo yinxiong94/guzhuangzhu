@@ -25,7 +25,9 @@
       </view>
     </view>
     <view class="nav_right">
+      <picker  mode="date"  fields="day" bindchange="abc">
       <image lazy-load='true' src="/pages/img/ril.png"></image>
+      </picker>
     </view>
   </view>
    <view class='kong' wx:if="{{list.length==0}}">暂无相关数据</view>
@@ -36,7 +38,7 @@
       <view class="item_list_right">
         <view class="item_list_top">
           <text>{{item.remark}}</text>
-          <text class='red'>-{{item.ammount}}</text>
+          <text class='red'>{{item.ammount}}</text>
         </view>
         <view class="item_list_bottom">
           <text>{{item.createTime}}</text>

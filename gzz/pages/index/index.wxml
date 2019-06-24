@@ -1,7 +1,7 @@
 <view class='slider'> 
     <swiper autoplay='4000' indicatorDots="true"> 
     <swiper-item wx:for="{{list}}"> 
-    <image src="{{item.rotationImg}}" lazy-load='true' data-src="{{item.rotationUrl}}" bindtap='toss'></image> 
+    <image src="{{item.rotationImg}}" lazy-load='true' data-rotationRelationId="{{item.rotationRelationId}}" data-rotationType="{{item.rotationType}}"  bindtap='toss'></image> 
     </swiper-item> 
     </swiper> 
   </view>

@@ -1,11 +1,12 @@
-<view class='item_3' wx:if="{{list.address===null}}">
-    <view class='t_11'>订单已生效</view>
-    <view class='t_22'>请尽快前往距离最近的机器取米</view>
-</view>
-<view class='item_3' wx:else>
+<view class='item_3'  wx:if="{{list.productOrder[0].pickupCode===null}}">
     <view class='t_11'>卖家已发货</view>
     <view class='t_22'>剩余7天20时自动确认</view>
 </view>
+<view class='item_3' wx:else >
+    <view class='t_11'>订单已生效</view>
+    <view class='t_22'>请尽快前往距离最近的机器取米</view>
+</view>
+
     <view class='cart' wx:for="{{list.productOrder}}">
     <view class='cart-item'>
       <image src="{{item.productImg}}" class='img'></image>
@@ -23,7 +24,26 @@
 
   <image src="/pages/img/bb.png" class='bb'></image>
 
-<view  wx:if="{{list.address===null}}">
+<view wx:if="{{list.productOrder[0].pickupCode===null}}"> 
+    <view class="address">
+        <image src="/pages/img/dizhi .png"></image>
+        <view class="Contact">
+          <text class="name">{{list.address.consignee}}</text><text class="phone">{{list.address.phone}}</text>
+          <text class="dizhi">{{list.address.area}}{{list.address.address}}</text>
+        </view>
+      </view>
+      <view class="logistics">
+          <view><text>我的物流信息</text></view>
+          <image src="/pages/img/已发货.png"></image>
+          <view class="shou">
+            <text class="state">包裹正在等待揽收</text>
+            <text class="time">2019-05-15  11:27:28</text>
+          </view>
+          <image id="right" src="/pages/img/right.png"></image>
+      </view>
+</view>
+
+<view  wx:else >
   <view class='qhm'>
       <text class='t1'>我的取货码</text>
       <text class='t2'>{{list.productOrder[0].pickupCode}}</text>
@@ -44,24 +64,7 @@
       <view class='more' bindtap='more'>查看更多设备</view>
   </view>
 </view>
-<view wx:else>
-    <view class="address">
-        <image src="/pages/img/dizhi .png"></image>
-        <view class="Contact">
-          <text class="name">{{list.address.consignee}}</text><text class="phone">{{list.address.phone}}</text>
-          <text class="dizhi">{{list.address.area}}{{list.address.address}}</text>
-        </view>
-      </view>
-      <view class="logistics">
-          <view><text>我的物流信息</text></view>
-          <image src="/pages/img/已发货.png"></image>
-          <view class="shou">
-            <text class="state">包裹正在等待揽收</text>
-            <text class="time">2019-05-15  11:27:28</text>
-          </view>
-          <image id="right" src="/pages/img/right.png"></image>
-      </view>
-</view>
+
   <view class='hot'>
       <view class='title_item'>热门文章</view>
       <view class='title_item_1'>谷庄主泰国稻花香米，纯精品泰国进口，36道工序精挑细选</view>

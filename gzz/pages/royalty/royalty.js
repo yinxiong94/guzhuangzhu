@@ -10,7 +10,10 @@ Page({
     list:{},
     coco:[],
     isshow:false,
-    beginTime:""
+    beginTime:"",
+    price:0,
+    price1:0
+
   },
 xs:function(){
     if(this.data.isshow==false){
@@ -59,7 +62,7 @@ xs:function(){
       data: { key: id, page: 1, size: 5},
       success(res) {
         let cop = res.data.result;
-        that.setData({ list: cop })
+        that.setData({ list: cop, price: cop.timeCommission, price1: cop.totalCommission })
       }
     })
     wx.request({

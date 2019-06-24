@@ -58,6 +58,7 @@ Page({
       success(res) {
         console.log(res)
         that.setData({ list: res.data.result})
+        console.log(that.data.list)
       }
     }),
     // 附近设备列表

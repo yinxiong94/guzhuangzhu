@@ -25,6 +25,10 @@ Page({
         wx.navigateTo({
           url: "/pages/ddzf/ddzf?orderId=" + b +"&price="+c,
         })
+      } else {
+        wx.navigateTo({
+          url: '/pages/ddxq/ddxq?orderId=' + b,
+        })
       }
  },
  t1:function(e){
