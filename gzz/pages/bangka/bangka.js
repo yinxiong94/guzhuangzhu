@@ -108,7 +108,6 @@ Page({
       }
     })
   },
-  // 添加银行卡
   tj:function(){
     var a = wx.getStorageSync('Token');
     var timespan = new Date().getTime();
@@ -194,6 +193,15 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '邀请你加入团队',
+      path: '/pages/logs/logs?openid=' + app.globalData.openId,
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   }
 })

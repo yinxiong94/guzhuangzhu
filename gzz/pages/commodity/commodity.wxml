@@ -1,4 +1,4 @@
-<view wx:if="{{isshow}}" catchtouchmove="true" class='list11111'>
+<!-- <view wx:if="{{isshow}}" catchtouchmove="true" class='list11111'>
   <view class='yhq'>
     <view class='yhq_1'>领券</view>
     <view class='kong1' wx:if="{{list2.length==0}}">没有可领取的优惠券</view>
@@ -34,7 +34,7 @@
     <view class='wc' bindtap='wc'>完成</view>
 
   </view>
-</view>
+</view> -->
 
 <view class="db">
   <swiper autoplay="{{false}}">
@@ -54,19 +54,19 @@
         {{list.productIntroduce}}
       </view>
       <view class="title_h4">
-        <text class="title_kg">重量：{{list.productWeight/1000}}Kg</text>
+        <text class="title_kg">重量：{{list.productWeight/500}}斤</text>
         <text class="title_num">累计销量：{{list.SalesVolume}}</text>
       </view>
       <view class='yh_list'>
-        <view class='yh'>优惠
+        <!-- <view class='yh'>优惠
           <text class='yh_1'>领券后至少可减 <text class='yh_2'>￥5</text></text>
-        </view>
-        <view class='lq' bindtap='yhzx'>领券 ＞</view>
-        <view class='mj_1'>满100减5元</view>
-        <view class='mj_1 mj_2'>满100减5元</view>
+        </view> -->
+        <!-- <view class='lq' bindtap='yhzx'>领券 ＞</view> -->
+        <!-- <view class='mj_1'>满100减5元</view>
+        <view class='mj_1 mj_2'>满100减5元</view> -->
       </view>
 
-      <view class='kong'></view>
+      <!-- <view class='kong'></view> -->
     </view>
   </view>
   <view class="hhh"></view>
@@ -74,9 +74,9 @@
   <view class='list_item'>
     <view>选择</view>
     <view class='item1'>
-      <view class=" {{id==1000?'xz':''}}" data-zl="1000" bindtap='xz'>1Kg</view>
-      <view class=" {{id==3000?'xz':''}}" data-zl="3000" bindtap='xz'>3Kg</view>
-      <view class=" {{id==5000?'xz':''}}" data-zl="5000" bindtap='xz'>5Kg</view>
+      <view class=" {{id==500?'xz':''}}" data-zl="500" bindtap='xz'>1斤</view>
+      <view class=" {{id==1500?'xz':''}}" data-zl="1500" bindtap='xz'>3斤</view>
+      <view class=" {{id==2500?'xz':''}}" data-zl="2500" bindtap='xz'>5斤</view>
     </view>
     <view class='butt'>
       <text bindtap='jian'>-</text>
@@ -91,11 +91,12 @@
     <view class="title">
       <text>大米设备</text>
       <view class="title_right">
-        <input type='text' placeholder='请输入您所在的小区'></input>
+        <!-- <input type='text' placeholder='请输入您所在的小区'></input> -->
+        <cover-view class="img888" bindtap="add">请输入您输在的小区</cover-view>
         <image lazy-load='true' src="/pages/img/fdj.png"></image>
       </view>
     </view>
-    <view class="ng_nei" wx:for="{{markers}}">
+    <view class="ng_nei" wx:for="{{markers}}" wx:key>
       <view class="title_item">
         <text class="title_item_text">{{item.id}}</text>
         <view class="img">
@@ -103,7 +104,7 @@
         </view>
         <view class="position">
           <view class="position_top">
-            <text>{{item.title}}</text>
+            <text>{{item.title}}  {{item.machineState==0?"正常":item.machineState==1?"异常":"维护"}}</text>
           </view>
           <view class="position_bottom">
             <text>距离我所在位置{{item.distance/1000}}KM</text>

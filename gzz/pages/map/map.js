@@ -97,11 +97,22 @@ Page({
         var address = res.address
         var latitude = res.latitude
         var longitude = res.longitude
+        console.log(res)
         _this.setData({
           name: name,
           address: address,
           latitude: latitude,
           longitude: longitude
+        })
+        wx.request({
+          url: app.globalData.url + '/api/machine/NearMachinePageList',
+          method: "POST",
+          header: { 'content-type': 'application/json'},
+          data: { page: 1, size: 10, longitude: _this.data.longitude, latitude: _this.data.longitude.latitude },
+          success(res) {
+            console.log(res.data.result)
+            _this.setData({ markers: res.data.result })
+          }
         })
       }
     })
@@ -112,18 +123,13 @@ Page({
     var that = this;
     that.authorAddress();
     that.setMapSize();
-    var a = wx.getStorageSync('Token');
-    var timespan = new Date().getTime();
-    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
-    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
-    console.log(app.globalData.latitude,app.globalData.longitude)
     wx.request({
       url: app.globalData.url + '/api/machine/NearMachinePageList',
       method: "POST",
-      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      header: { 'content-type': 'application/json'},
       data: { page: 1, size: 10, longitude:app.globalData.longitude,latitude:app.globalData.latitude},
       success(res) {
-      console.log(res.data.result)
+      console.log(res.data)
       that.setData({markers:res.data.result})
       }
     })

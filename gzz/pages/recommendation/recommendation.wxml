@@ -1,0 +1,6 @@
+<view class="list">
+    <view class="index" wx:for="{{list}}" wx:key>
+      <image src="{{item.avatarUrl}}"></image>
+      <view>{{item.memberName}}</view>
+    </view>
+</view>

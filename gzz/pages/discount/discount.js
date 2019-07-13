@@ -27,9 +27,7 @@ Page({
         header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
         data: { openId: app.globalData.openId },
         success(res){
-          console.log(1,timespan)
           that.setData({list:res.data.result})
-          console.log(res)
         }
       })
     } else if(b==3){
@@ -164,6 +162,15 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '邀请你加入团队',
+      path: '/pages/logs/logs?openid=' + app.globalData.openId,
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   }
 })

@@ -8,7 +8,9 @@ Page({
    */
   data: {
     imgUrls: [],
-    swiperIndex: 1
+    swiperIndex: 1,
+    list:[],
+    
   },
   swiperChange(e) {
     this.setData({
@@ -18,25 +20,18 @@ Page({
   // 立即开通会员
   kt: function() {
     var that = this;
-    var a = wx.getStorageSync('Token');
-    var timespan = new Date().getTime();
-    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
-    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
     wx.request({
       url: app.globalData.url + '/api/MemberCard/BuyMemberCardOrder',
       method: "POST",
       header: {
-        'content-type': 'application/json',
-        signKey: a.signId,
-        timespan: timespan,
-        nonce: nonce,
-        signature: signature
+        'content-type': 'application/json'
       },
       data: {
         openId: app.globalData.openId,
         memberConfigId: this.data.imgUrls[this.data.swiperIndex].configId
       },
       success(res) {
+        console.log(res)
         if (res.data.code == 200) {
           wx.navigateTo({
             url: '/pages/kkxx/kkxx?orderId=' + res.data.result.orderId,
@@ -54,25 +49,26 @@ Page({
    */
   onLoad: function(options) {
     var that = this;
-    var a = wx.getStorageSync('Token');
-    var timespan = new Date().getTime();
-    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
-    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
     // 电子优惠券列表
     wx.request({
       url: app.globalData.url + '/api/memberCard/memberCardConfigList',
       method: "POST",
       header: {
-        'content-type': 'application/json',
-        signKey: a.signId,
-        timespan: timespan,
-        nonce: nonce,
-        signature: signature
+        'content-type': 'application/json'
       },
       success(res) {
         that.setData({
           imgUrls: res.data.result
         })
+      }
+    })
+
+    wx.request({
+      url: app.globalData.url +"/api/MemberCard/MemberEquityList",
+      method:"post",
+      header: { 'content-type': 'application/json'},
+      success:res=>{
+        that.setData({list:res.data.result})
       }
     })
   },
@@ -123,6 +119,15 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
-
+    return {
+      title: '邀请你加入团队',
+      path: '/pages/logs/logs?openid=' + app.globalData.openId,
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   }
 })

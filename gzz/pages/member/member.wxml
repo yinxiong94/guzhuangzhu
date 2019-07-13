@@ -9,6 +9,14 @@
       <text class="num">{{balance}}元</text>
     </view>
   </view>
+   <view class='list_1'>
+      <picker mode="date" bindchange="bindPickerChange" bindPickerChange>
+        <view>{{index}}</view>
+      </picker>
+      <picker mode="date" bindchange="bindPickerChange1" bindPickerChange>
+        <view>{{index1}}</view>
+      </picker>
+    </view>
   <view class="nav">
     <view class="nav_left">
       <view class="list">
@@ -24,11 +32,11 @@
         <image lazy-load='true' src='/pages/img/xian.png' wx:if="{{id==3}}"></image>
       </view>
     </view>
-    <view class="nav_right">
+    <!-- <view class="nav_right">
       <picker  mode="date"  fields="day" bindchange="abc">
       <image lazy-load='true' src="/pages/img/ril.png"></image>
       </picker>
-    </view>
+    </view> -->
   </view>
    <view class='kong' wx:if="{{list.length==0}}">暂无相关数据</view>
   <view class="item"  wx:else>
@@ -37,7 +45,7 @@
       <image lazy-load='true' src="{{userInfo.avatarUrl}}"></image>
       <view class="item_list_right">
         <view class="item_list_top">
-          <text>{{item.remark}}</text>
+          <text>{{item.remark}} {{item.payType==0?"余额支付":item.payType==1?"微信支付":"积分支付"}}</text>
           <text class='red'>{{item.ammount}}</text>
         </view>
         <view class="item_list_bottom">

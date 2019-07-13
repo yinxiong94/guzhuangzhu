@@ -30,7 +30,7 @@ Page({
       url: app.globalData.url + '/api/Users/WithdrawPageList',
       method: "POST",
       header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
-      data: { key: id, page: 1, size: 10},
+      data: { key: id, page: 1, size: 500},
       success(res) {
         that.setData({ list: res.data.result })
         let coco = that.data.list;

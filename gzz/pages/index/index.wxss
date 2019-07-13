@@ -23,6 +23,13 @@ swiper{
   margin: auto;
   margin-top: 30rpx
 }
+.ooo{
+  text-align: center;
+  width: 100%;
+  font-size: 28rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx
+}
 .hy .v2{
   width:26rpx;
   height:26rpx;
@@ -243,8 +250,8 @@ swiper{
 }
 .iii{
  position: absolute;
- top:177rpx;
- left:207rpx;
+ top:188rpx;
+ left:185rpx;
  font-size:60rpx;
 font-family:SourceHanSansCN-Bold;
 font-weight:bold;

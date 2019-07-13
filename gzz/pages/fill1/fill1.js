@@ -32,7 +32,8 @@ Page({
     memberCouponId: "",
     obj: [],
     info: [],
-    addressId:""
+    addressId:"",
+    iii:2
   },
   inputedit: function (e) {
     // 1. input 和 info 双向数据绑定
@@ -44,35 +45,30 @@ Page({
       obj: this.data[dataset.obj]
     });
   },
-  t1: function () {
+  t1: function (e) {
     this.setData({ isshow: 0, iftrue: false })
     var a = this.data.price1 - this.data.price2;
-    this.setData({ zj: a })
+    this.setData({ zj: a, iii: e.target.dataset.iii})
   },
-  t2: function () {
+  t2: function (e) {
     this.setData({ isshow: 1, iftrue: true })
     var a = this.data.price1 - this.data.price2 - (-this.data.freight)
-    this.setData({ zj: a })
+    this.setData({ zj: a, iii: e.target.dataset.iii})
   },
   t111: function () {
     this.setData({ isshow2: false })
   },
   tozf: function () {
     var that = this;
-    var a = wx.getStorageSync('Token');
-    var timespan = new Date().getTime();
-    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
-    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
-    console.log(app.globalData.openId+"2", that.data.sid+"3", that.data.addressId+"4",  this.data.isshow + "152", this.data.freight + "152", this.data.memberCouponId + "152", this.data.obj.message + "152")
     wx.request({
       url: app.globalData.url + '/api/product/ProductCartPlaceOrder',
       method: "POST",
-      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      header: { 'content-type': 'application/json' },
       data: { openId: app.globalData.openId, productCartIds: that.data.sid, addressId:that.data.addressId , pickupWay:that.data.isshow, freight: that.data.freight, memberCouponId:that.data.memberCouponId, message:that.data.obj.message},
       success(res) {
         console.log(res)
         wx.navigateTo({
-          url: '/pages/ddzf/ddzf?orderId=' + res.data.result.orderId +"&productId="+that.data.sid+"&price="+that.data.zj,
+          url: '/pages/ddzf/ddzf?orderId=' + res.data.result.orderId +"&productId="+that.data.sid+"&price="+that.data.zj+"&point="+res.data.result.point,
         })
       }
     })
@@ -104,14 +100,10 @@ Page({
   },
   f123: function (e) {
     var that = this;
-    var a = wx.getStorageSync('Token');
-    var timespan = new Date().getTime();
-    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
-    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
     wx.request({
       url: app.globalData.url + '/api/MemberCard/SetDefaultAddress',
       method: "POST",
-      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      header: { 'content-type': 'application/json'},
       data: { addressId: e.target.dataset.fid },
       success(res) {
       }
@@ -124,21 +116,17 @@ Page({
   },
   del1: function (e) {
     var that = this;
-    var a = wx.getStorageSync('Token');
-    var timespan = new Date().getTime();
-    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
-    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
     // 轮播图
     wx.request({
       url: app.globalData.url + '/api/MemberCard/AddressDel',
       method: "POST",
-      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      header: { 'content-type': 'application/json' },
       data: { addressId: e.target.dataset.fid },
       success(res) {
         wx.request({
           url: app.globalData.url + '/api/MemberCard/AddressList',
           method: "POST",
-          header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+          header: { 'content-type': 'application/json' },
           data: { openId: app.globalData.openId },
           success(res) {
             console.log(res)
@@ -155,14 +143,10 @@ Page({
     this.setData({sid:options.ddd})
     var that = this;
     var ggg = 0;
-    var a = wx.getStorageSync('Token');
-    var timespan = new Date().getTime();
-    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
-    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
     wx.request({
       url: app.globalData.url + '/api/product/ProdyctCartList',
       method: "POST",
-      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      header: { 'content-type': 'application/json'},
       data: { cartList:that.data.sid},
       success(res) {
         var rest=res.data.result;
@@ -174,7 +158,7 @@ Page({
         wx.request({
           url: app.globalData.url + '/api/coupon/AvailableMemberCoupon',
           method: "POST",
-          header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+          header: { 'content-type': 'application/json' },
           data: { openId: app.globalData.openId, sumMoney: that.data.price1 },
           success(res) {
             that.setData({ list111: res.data.result })
@@ -185,7 +169,7 @@ Page({
     wx.request({
       url: app.globalData.url + '/api/product/OperationFreightByCart',
       method: "POST",
-      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      header: { 'content-type': 'application/json' },
       data: { openId: app.globalData.openId, productCartIds:that.data.sid},
       success(res) {
         that.setData({freight:res.data.result.freight})
@@ -194,10 +178,22 @@ Page({
     wx.request({
       url: app.globalData.url + '/api/MemberCard/AddressList',
       method: "POST",
-      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      header: { 'content-type': 'application/json' },
       data: { openId: app.globalData.openId },
       success(res) {
-        that.setData({addressId: res.data.result[0].addressId })
+        if (res.data.result.length == 0) {
+          that.setData({
+            list1111: "",
+            list2: "",
+            addressId: ""
+          })
+        } else {
+          that.setData({
+            list1111: res.data.result[0],
+            list2: res.data.result,
+            addressId: res.data.result[0].addressId
+          })
+        }
       }
     })
   },
@@ -218,14 +214,10 @@ Page({
       this.setData({ zj: a })
     }
     var that = this;
-    var a = wx.getStorageSync('Token');
-    var timespan = new Date().getTime();
-    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
-    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
     wx.request({
       url: app.globalData.url + '/api/MemberCard/AddressList',
       method: "POST",
-      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      header: { 'content-type': 'application/json'},
       data: { openId: app.globalData.openId },
       success(res) {
         that.setData({ list1111: res.data.result[0], list2: res.data.result})

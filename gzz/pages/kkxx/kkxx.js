@@ -83,14 +83,10 @@ Page({
     this.getCode();
     var that = this
     that.setData({ disabled: true });
-    var a = wx.getStorageSync('Token');
-    var timespan = new Date().getTime();
-    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
-    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
     wx.request({
       url: app.globalData.url + '/api/common/getVerificationCode',
       method: "POST",
-      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      header: { 'content-type': 'application/json' },
       data: { phone: this.data.obj2.manager2, effectiveTime: 60 },
       success(res) {
       }
@@ -98,14 +94,10 @@ Page({
   },
   tj:function(){
     var that=this;
-    var a = wx.getStorageSync('Token');
-    var timespan = new Date().getTime();
-    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
-    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
     wx.request({
       url: app.globalData.url + '/api/memberCard/bindMemberCard',
       method: "POST",
-      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      header: { 'content-type': 'application/json'},
       data: { memberName: this.data.obj1.manager1, nickName: this.data.obj1.manager1, phone: this.data.obj2.manager2, code: this.data.obj3.manager3, address: this.data.obj4.manager4, openId: app.globalData.openId },
       success(res) {
         console.log(res)
@@ -114,29 +106,32 @@ Page({
               title: '信息提交成功',
               duration: 2000
             })
-            setTimeout(()=>{           
-              var a = wx.getStorageSync('Token');
-              var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
-              wx.request({
-                url: app.globalData.url + '/api/recharge/RechargeWxPay',
-                method: "POST",
-                header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
-                data: { openId: app.globalData.openId, orderId:that.data.orderId },
-                success(res) {
-                      console.log(res)
-                      var rest = res.data.result;
-                      wx.requestPayment({
-                        timeStamp: rest.timeStamp,
-                        nonceStr: rest.nonceStr,
-                        package: rest.package,
-                        signType: rest.signType,
-                        paySign: rest.paySign,
-                      })
-                    }
-              })   
-              // wx.switchTab({
-              //   url: '/pages/index/index',
-              // })
+            setTimeout(()=>{          
+              // wx.request({
+              //   url: app.globalData.url + '/api/recharge/RechargeWxPay',
+              //   method: "POST",
+              //   header: { 'content-type': 'application/json' },
+              //   data: { openId: app.globalData.openId, orderId:that.data.orderId },
+              //   success(res) {
+              //         console.log(res)
+              //         var rest = res.data.result;
+              //         wx.requestPayment({
+              //           timeStamp: rest.timeStamp,
+              //           nonceStr: rest.nonceStr,
+              //           package: rest.package,
+              //           signType: rest.signType,
+              //           paySign: rest.paySign,
+              //           success:res=>{
+              //             wx.switchTab({
+              //               url: '/pages/personal/personal',
+              //             })
+              //           }
+              //         })
+              //       }
+              // })   
+              wx.navigateTo({
+                url: '/pages/recharge/recharge',
+              })              
             },2000)
           } else{
             wx.showToast({
@@ -201,6 +196,24 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '邀请你加入团队',
+      path: '/pages/logs/logs?openid=' + app.globalData.openId,
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        return {
+          title: '邀请你加入团队',
+          path: '/pages/logs/logs?openid=' + app.globalData.openId,
+          success: function (res) {
+            // 转发成功
+          },
+          fail: function (res) {
+            // 转发失败
+          }
+        }  // 转发失败
+      }
+    }
   }
 })

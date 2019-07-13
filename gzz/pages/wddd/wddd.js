@@ -11,10 +11,16 @@ Page({
     sid:1
   },
  ddxq:function(e){
-   console.log(e.currentTarget.dataset.orderid)
+   var id = e.currentTarget.dataset.ind;
+   if(this.data.list[id].payState==2){
+     wx.navigateTo({
+       url: '/pages/ddxq/ddxq?orderId=' + e.currentTarget.dataset.orderid + "&uuu=" +2,
+     }) 
+   } else{
    wx.navigateTo({
-     url: '/pages/ddxq/ddxq?orderId=' + e.currentTarget.dataset.orderid,
-   })
+     url: '/pages/ddxq/ddxq?orderId=' + e.currentTarget.dataset.orderid + "&uuu=" + e.currentTarget.dataset.ccc,
+     })
+   }
  },
  to345:function(e){
       var a=e.target.dataset.uid;
@@ -27,24 +33,19 @@ Page({
         })
       } else {
         wx.navigateTo({
-          url: '/pages/ddxq/ddxq?orderId=' + b,
+          url: '/pages/ddxq/ddxq?orderId=' + b + "&uuu=" + e.currentTarget.dataset.ccc,
         })
       }
  },
  t1:function(e){
    this.setData({ sid: e.target.dataset.sid})
    var that = this;
-   var a = wx.getStorageSync('Token');
-   var timespan = new Date().getTime();
-   var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
-   var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
    wx.request({
      url: app.globalData.url + '/api/product/OrderInfoList',
      method: "POST",
-     header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+     header: { 'content-type': 'application/json' },
      data: { key: app.globalData.openId, page: 1, size: that.data.size },
      success(res) {
-       console.log(res)
      if(that.data.sid==1){
        that.setData({list:res.data.result})
      } else if(that.data.sid==2){
@@ -54,17 +55,39 @@ Page({
            cc.push(res.data.result[i])
          }
        }
-       console.log(cc)
        that.setData({list:cc})
      } else if(that.data.sid==3){
        var cc = []
        for (var i = 0; i < res.data.result.length; i++) {
          if (res.data.result[i].payState == 1) {
+           if (res.data.result[i].pickupWay==0){
+           cc.push(res.data.result[i])
+           }
+         }
+       }
+       that.setData({ list: cc })     
+     }
+      else if(that.data.sid==4){
+        var cc=[]
+       for (var i = 0; i < res.data.result.length; i++) {
+           if (res.data.result[i].payState == 1) {
+             if (res.data.result[i].pickupWay == 1) {
+               cc.push(res.data.result[i])
+             }
+           }
+      }
+       that.setData({ list: cc })
+     }
+      else if(that.data.sid==5) {
+       var cc = []
+       for (var i = 0; i < res.data.result.length; i++) {
+         if (res.data.result[i].payState == 2) {
            cc.push(res.data.result[i])
          }
        }
+       console.log(cc)
        that.setData({ list: cc })
-     }
+      }
      }
    })
  },
@@ -78,14 +101,10 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    var a = wx.getStorageSync('Token');
-    var timespan = new Date().getTime();
-    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
-    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
     wx.request({
       url: app.globalData.url + '/api/product/OrderInfoList',
       method: "POST",
-      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      header: { 'content-type': 'application/json' },
       data: { key: app.globalData.openId, page:1,size:that.data.size},
       success(res) {
        console.log(res)
@@ -134,19 +153,61 @@ Page({
    */
   onReachBottom: function () {
     var that = this;
-    var a = wx.getStorageSync('Token');
-    var timespan = new Date().getTime();
-    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
-    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
     that.setData({size:that.data.size-(-5)})
     wx.request({
       url: app.globalData.url + '/api/product/OrderInfoList',
       method: "POST",
-      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      header: { 'content-type': 'application/json' },
       data: { key: app.globalData.openId, page: 1, size: that.data.size },
       success(res) {
         console.log(res)
         that.setData({ list: res.data.result })
+        wx.request({
+          url: app.globalData.url + '/api/product/OrderInfoList',
+          method: "POST",
+          header: { 'content-type': 'application/json' },
+          data: { key: app.globalData.openId, page: 1, size: that.data.size },
+          success(res) {
+            if (that.data.sid == 1) {
+              that.setData({ list: res.data.result })
+            } else if (that.data.sid == 2) {
+              console.log(2)
+              var cc = []
+              for (var i = 0; i < res.data.result.length; i++) {
+                if (res.data.result[i].payState == 0) {
+                  cc.push(res.data.result[i])
+                }
+              }
+              console.log(cc)
+              that.setData({ list: cc })
+            } else if (that.data.sid == 3) {
+              console.log(3)
+              var cc = []
+              for (var i = 0; i < res.data.result.length; i++) {
+                if (res.data.result[i].payState == 1) {
+                  if (res.data.result[i].pickupWay == 0) {
+                    cc.push(res.data.result[i])
+                  }
+                }
+              }
+              console.log(cc)
+
+            }
+            else if (that.data.sid == 4) {
+              console.log(4)
+              var cc = []
+              for (var i = 0; i < res.data.result.length; i++) {
+                if (res.data.result[i].payState == 1) {
+                  if (res.data.result[i].pickupWay == 1) {
+                    cc.push(res.data.result[i])
+                  }
+                }
+              }
+              console.log(cc)
+              that.setData({ list: cc })
+            }
+          }
+        })
       }
     })
   },
@@ -155,6 +216,15 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '邀请你加入团队',
+      path: '/pages/logs/logs?openid=' + app.globalData.openId,
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    } 
   }
 })

@@ -1,7 +1,6 @@
 // pages/commodity/commodity.js
 var WxParse = require('../../wxParse/wxParse.js');
 const app = getApp()
-
 Page({
 
   /**
@@ -22,7 +21,8 @@ Page({
       productId:"",
     markers:[],
     page:1,
-    size:2
+    size:2,
+    uuu:""
   },
   // 选择省市区
   bindPickerChange: function (e) {
@@ -40,28 +40,49 @@ Page({
   lqyhq:function(e){
     var couponId = e.target.dataset.couponid;
     var that = this;
-    var a = wx.getStorageSync('Token');
-    var timespan = new Date().getTime();
-    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
-    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
     wx.request({
       url: app.globalData.url + '/api/coupon/ReceiveCoupon',
       method: "POST",
-      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      header: { 'content-type': 'application/json' },
       data: { openId: app.globalData.openId, couponId: couponId},
       success(res) {
         wx.request({
           url: app.globalData.url + '/api/coupon/couponList',
           method: "POST",
-          header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+          header: { 'content-type': 'application/json'},
           data: { openId: app.globalData.openId },
           success(res) {
-            console.log(res)
             that.setData({ list2: res.data.result })
           }
         })
       }
       })
+  },
+  add:function(){
+    var _this = this;
+    wx.chooseLocation({
+      success: function (res) {
+        var name = res.name
+        var address = res.address
+        var latitude = res.latitude
+        var longitude = res.longitude
+        _this.setData({
+          name: name,
+          address: address,
+          latitude: latitude,
+          longitude: longitude
+        })
+        wx.request({
+          url: app.globalData.url + '/api/machine/NearMachinePageList',
+          method: "POST",
+          header: { 'content-type': 'application/json' },
+          data: { page: 1, size: 10, longitude: _this.data.longitude, latitude: _this.data.longitude.latitude },
+          success(res) {
+            _this.setData({ markers: res.data.result })
+          }
+        })
+      }
+    })
   },
   // 商品数量减
   jian: function (e) {
@@ -88,38 +109,38 @@ Page({
   },
   // 立即购买
   nowshop:function(){
-    var that = this;
-    var a = wx.getStorageSync('Token'); 
-    var timespan = new Date().getTime();
-    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
-    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
-    wx.request({
-      url: app.globalData.url + '/api/product/OperationFreightByProduct',
-      method: "POST",
-      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
-      data: { productId: that.data.productId, productNum: that.data.count },
-      success(res) {
-        if(res.data.code==200){
-          wx.navigateTo({
-            url: '/pages/fill/fill?id=' + that.data.productId + "&count=" + that.data.count + "&sid=1" + "&productName=" + that.data.list.productName + "&productWeight=" + that.data.list.productWeight + "&price=" 
-              + that.data.list.productPrice + "&freight=" + res.data.result.freight+"&imgurl="+that.data.list1[0],
-          })
+    if(!this.data.uuu){
+      wx.showToast({
+        title: '请选择斤数',
+        duration:2000,
+        icon:"none"
+      })
+    } else{
+      var that = this;
+      wx.request({
+        url: app.globalData.url + '/api/product/OperationFreightByProduct',
+        method: "POST",
+        header: { 'content-type': 'application/json' },
+        data: { productId: that.data.productId, productNum: that.data.count },
+        success(res) {
+          if (res.data.code == 200) {
+            wx.navigateTo({
+              url: '/pages/fill/fill?id=' + that.data.productId + "&count=" + that.data.count + "&sid=1" + "&productName=" + that.data.list.productName + "&productWeight=" + that.data.list.productWeight + "&price="
+                + that.data.list.productPrice + "&freight=" + res.data.result.freight + "&imgurl=" + that.data.list1[0],
+            })
+          }
         }
-      }
-    })
+      })
+    }  
   },
   // 选择公斤规格
   xz:function(e){
-    this.setData({ id: e.target.dataset.zl})
-    var that=this;
-    var a = wx.getStorageSync('Token');
-    var timespan = new Date().getTime();
-    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
-    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
+    var that = this;
+    this.setData({ id: e.target.dataset.zl, uuu: e.target.dataset.zl}) 
     wx.request({
       url: app.globalData.url + '/api/product/ProductDetailsByType',
       method: "POST",
-      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      header: { 'content-type': 'application/json'},
       data: { productType: that.data.ide, productWeight:that.data.id },
       success(res) {
         that.setData({ list: res.data.result, productId: res.data.result.productId})
@@ -130,24 +151,18 @@ Page({
   more:function(){
     this.data.size+=2;
     var that = this;
-    var a = wx.getStorageSync('Token');
-    var timespan = new Date().getTime();
-    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
-    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
     wx.request({
       url: app.globalData.url + '/api/machine/NearMachinePageList',
       method: "POST",
-      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      header: { 'content-type': 'application/json' },
       data: { page: that.data.page, size: that.data.size, longitude: app.globalData.longitude, latitude: app.globalData.latitude },
       success(res) {
-        console.log(res.data.result)
         that.setData({ markers: res.data.result })
       }
     })
   },
   // 导航去附近设备
   go: function (e) {
-    console.log(e.target.dataset)
     var a = e.target.dataset;
     wx.openLocation({
       latitude: a.latitude,
@@ -158,16 +173,19 @@ Page({
   },
   // 添加购物车
   tocart:function(){
+    if(!this.data.uuu){
+      wx.showToast({
+        title: '请选择斤数',
+        duration: 2000,
+        icon: "none"
+      })
+    } else{
     var that = this;
-    var a = wx.getStorageSync('Token');
-    var timespan = new Date().getTime();
-    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
-    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
     wx.request({
       url: app.globalData.url + '/api/Product/ProductCartAdd',
       method: "POST",
-      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
-      data: { openId: app.globalData.openId, productId: that.data.productId },
+      header: { 'content-type': 'application/json'},
+      data: { openId: app.globalData.openId, productId: that.data.productId, productNum: that.data.count },
       success(res) {
         if(res.data.code==200){
           wx.showToast({
@@ -177,7 +195,7 @@ Page({
           wx.request({
             url: app.globalData.url + '/api/product/ProductCartInfo',
             method: "POST",
-            header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+            header: { 'content-type': 'application/json' },
             data: { openId: app.globalData.openId },
             success(res) {
               that.setData({ count1: res.data.result.length })
@@ -185,29 +203,24 @@ Page({
           })
         }
       }
-    })
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
     this.setData({ sid:options.id,productId:options.id})
     var that = this;
-    var a = wx.getStorageSync('Token');
-    var timespan = new Date().getTime();
-    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
-    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
     // 商品详情
     wx.request({
       url: app.globalData.url + '/api/product/ProductDetails',
       method: "POST",
-      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      header: { 'content-type': 'application/json'},
       data: { productId:that.data.sid},
       success(res) {
-        console.log(res)
         var gg = res.data.result.productImg.split(",")
-        that.setData({ list: res.data.result, list1: gg, ide: res.data.result.productType, id: res.data.result.productWeight})
+        that.setData({ list: res.data.result, list1: gg, ide: res.data.result.productType})
         var article =res.data.result.productDetails;
         WxParse.wxParse('article', 'html', article, that, 5);
       }
@@ -216,7 +229,7 @@ Page({
     wx.request({
       url: app.globalData.url + '/api/product/ProductCartInfo',
       method: "POST",
-      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      header: { 'content-type': 'application/json'},
       data: { openId: app.globalData.openId },
       success(res) {
         that.setData({ count1: res.data.result.length })
@@ -226,22 +239,19 @@ Page({
     wx.request({
       url: app.globalData.url + '/api/coupon/couponList',
       method: "POST",
-      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      header: { 'content-type': 'application/json'},
       data: { openId: app.globalData.openId},
       success(res) {
-        console.log(res)
         that.setData({list2:res.data.result})
-        console.log(that.data.list2.length)
       }
     })
     // 附近设备列表
     wx.request({
       url: app.globalData.url + '/api/machine/NearMachinePageList',
       method: "POST",
-      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      header: { 'content-type': 'application/json'},
       data: { page: that.data.page, size: that.data.size, longitude: app.globalData.longitude, latitude: app.globalData.latitude },
       success(res) {
-        console.log(res.data.result)
         that.setData({ markers: res.data.result })
       }
     })
@@ -258,21 +268,17 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.setData({id:"",uuu:""})
     var that = this;
-    var a = wx.getStorageSync('Token');
-    var timespan = new Date().getTime();
-    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
-    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
-    console.log(that.data.sid)
     // 商品详情
     wx.request({
       url: app.globalData.url + '/api/product/ProductDetails',
       method: "POST",
-      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      header: { 'content-type': 'application/json' },
       data: { productId: that.data.sid },
       success(res) {
         var gg = res.data.result.productImg.split(",")
-        that.setData({ list: res.data.result, list1: gg, ide: res.data.result.productType, id: res.data.result.productWeight })
+        that.setData({ list: res.data.result, list1: gg, ide: res.data.result.productType}) 
         var article = res.data.result.productDetails;
         WxParse.wxParse('article', 'html', article, that, 5);
       }
@@ -281,7 +287,7 @@ Page({
     wx.request({
       url: app.globalData.url + '/api/product/ProductCartInfo',
       method: "POST",
-      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      header: { 'content-type': 'application/json'},
       data: { openId: app.globalData.openId },
       success(res) {
         that.setData({ count1: res.data.result.length })
@@ -291,7 +297,7 @@ Page({
     wx.request({
       url: app.globalData.url + '/api/coupon/couponList',
       method: "POST",
-      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      header: { 'content-type': 'application/json' },
       data: { openId: app.globalData.openId },
       success(res) {
         that.setData({ list2: res.data.result })
@@ -331,6 +337,15 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '邀请你加入团队',
+      path: '/pages/logs/logs?openid=' + app.globalData.openId,
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   }
 })

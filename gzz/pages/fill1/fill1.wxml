@@ -1,6 +1,6 @@
 <!-- 填写订单 -->
 <view class="db">
-  <view class="top" wx:if='{{iftrue}}' bindtap='todz'>
+  <!-- <view class="top" wx:if='{{iftrue}}' bindtap='todz'>
     <image class="img" src='/pages/img/dizhi.png' lazy-load='true'></image>
     <view class="conter">
       <view class="coco">
@@ -11,9 +11,9 @@
       <view class="coco_2"> {{list1111.area}}</view>
     </view>
     <image class="img1" src='/pages/img/right.png' lazy-load='true'></image>
-  </view>
+  </view> -->
   <view class="xinxi">
-    <view class="list" wx:for="{{list3}}">
+    <view class="list" wx:for="{{list3}}" wx:key="index">
       <image src="{{item.productImg}}" lazy-load='true'></image>
       <view class="right">
         <view class='title'>
@@ -40,13 +40,27 @@
     <view class="total">
       <view class="left">配送方式</view>
       <view class="right">
-        <view class="xuan" bindtap='t1'>自取</view>
-        <view class="xuan" style='margin-left:16rpx;' bindtap='t2'>快递</view>
+        <view class="xuan {{iii==0?'xz':''}}" bindtap='t1' data-iii="0">自取</view>
+        <view class="xuan {{iii==1?'xz':''}}" style='margin-left:16rpx;' bindtap='t2' data-iii="1">快递</view>
       </view>
     </view>
     <view class="total" wx:if="{{isshow==1}}">
       <view class="left">运费：</view>
       <view class="right">￥{{freight}}</view>
+    </view>
+    <view class="top" wx:if='{{iftrue}}' bindtap='todz'>
+      <!-- <image class="img" src='/pages/img/dizhi.png' lazy-load='true'></image> -->
+      <view class='left'>地址：</view>
+      <view wx:if="{{list1111.length==0}}" class='kong1'>暂无地址，请添加</view>
+      <view class="conter">
+        <view class="coco">
+          {{list1111.consignee}}
+          <text>{{list1111.phone}}</text>
+        </view>
+        <view class="coco_1">{{list1111.address}}</view>
+        <view class="coco_2"> {{list1111.area}}</view>
+      </view>
+      <image class="img1" src='/pages/img/right.png' lazy-load='true'></image>
     </view>
     <view class="total">
       <view class="left">
@@ -54,10 +68,10 @@
         <input   bindinput="inputedit" data-obj="info"  data-item="manager" value="{{info.manager}}"></input>
       </view>
     </view>
-    <view class="total" style='margin-top: 150rpx;border-top:0;'>
+    <!-- <view class="total" style='margin-top: 150rpx;border-top:0;'>
       <view class="left">实付金额：</view>
       <view class="right">￥{{zj}}</view>
-    </view>
+    </view> -->
   </view>
   <view class="footer">
     <view class="left">
@@ -70,7 +84,7 @@
   </view>
 
 <view class='index' wx:if="{{isshow1}}">
-  <view class="item" wx:for="{{list111}}">
+  <view class="item" wx:for="{{list111}}" wx:key="index">
     <view class="item_left">
       <view class="box">
         <view class="pirce">
@@ -114,7 +128,7 @@
 <view class='index1' wx:if="{{isshow2}}" bindtap='t111'>
 <radio-group>
 <view >
-    <view class='list1' wx:for="{{list2}}">
+    <view class='list1' wx:for="{{list2}}" wx:key="index">
         <view class='list_item1' bindtap='t123456' data-consignee="{{item.consignee}}" data-phone="{{item.phone}}" data-area="{{item.area}}" data-address="{{item.address}}">
             <view class='t_11'>{{item.consignee}}</view>
             <view class='t_11'>{{item.phone}}</view>

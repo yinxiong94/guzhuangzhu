@@ -19,9 +19,24 @@ Page({
       url: '/pages/wddd/wddd',
     })
   },
+  tj:function(){
+    wx.navigateTo({
+      url: '/pages/recommendation/recommendation',
+    })
+  },
+  tokt:function(){
+    wx.navigateTo({
+      url: '/pages/membership/membership',
+    })
+  },
   bdhyk:function(){
     wx.navigateTo({
       url: '/pages/bangka/bangka',
+    })
+  },
+  tojfmx:function(){
+    wx.navigateTo({
+      url: '/pages/flowing1/flowing',
     })
   },
   dl:function(){
@@ -36,6 +51,11 @@ Page({
         duration:2000,
         icon:"none"
       })
+      setTimeout(function(){
+        wx.navigateTo({
+          url: '/pages/membership/membership',
+        })
+      },2000)
     } else {
       wx.navigateTo({
         url: '/pages/member/member?balance=' + this.data.list.balance,
@@ -98,17 +118,14 @@ Page({
       })
     };
     var that = this;
-    var a = wx.getStorageSync('Token'); 
-    var timespan = new Date().getTime();
-    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1)); 
-    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
     // 返回代理信息
     wx.request({
       url: app.globalData.url + '/api/MemberCard/MemberInfo',
       method: "POST",
-      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      header: { 'content-type': 'application/json' },
       data:  { openId:app.globalData.openId },
       success(res) {
+        console.log(res)
           var a = res.data.result.phone;
           var b = a.replace(/^(\w{3})\w{4}(.*)$/, '$1****$2')
         that.setData({ list: res.data.result ,phone:b})
@@ -128,14 +145,10 @@ Page({
    */
   onShow: function () {
     var that = this;
-    var a = wx.getStorageSync('Token');
-    var timespan = new Date().getTime();
-    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
-    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
     wx.request({
-      url: app.globalData.url + '/api/MemberCard/MemberInfo',
+      url: app.globalData.url + "/api/MemberCard/MemberInfo",
       method: "POST",
-      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      header: { 'content-type': 'application/json'},
       data: { openId: app.globalData.openId },
       success(res) {
         var a = res.data.result.phone;
@@ -177,6 +190,15 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '邀请你加入团队',
+      path: '/pages/logs/logs?openid=' + app.globalData.openId,
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   }
 })

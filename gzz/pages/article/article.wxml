@@ -21,13 +21,13 @@
     </view>
   </view>
 </view>
-<view class='cart'>
-  <view class='cart-item'>
-    <image src="/pages/img/deas.png" class='img'></image>
+<view class='cart' wx:if="{{productId!==0}}">
+  <view class='cart-item' data-productId="{{list.productId}}" bindtap='toxq'>
+    <image src="{{url}}" class='img'></image>
     <view class='cart-item-1'>
-        <view class='title1'>古庄主营养有机米 10Kg</view>
-        <view class='title2'>已有10000+人购买</view>
-        <view class='title3'>￥66.69</view>
+        <view class='title1'>{{list.productName}}</view>
+        <view class='title2'>已有{{list.SalesVolume}}人购买</view>
+        <view class='title3'>￥{{list.productPrice}}</view>
     </view>
     <view class='butt'>购买
     </view>

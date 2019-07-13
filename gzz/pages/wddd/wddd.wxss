@@ -25,6 +25,7 @@ page{
   background: #fff;
   margin-top: 20rpx;
   border-bottom: 1rpx solid rgba(229,229,229,1);
+  display: flex
 }
 .kong{
   font-size: 32rpx;
@@ -44,7 +45,7 @@ page{
   font-weight:500;
   color:rgba(170,170,170,1);
   display: inline-block;
-  margin-left: 476rpx
+  margin-left: 360rpx
 }
 .cart{
   position: relative;

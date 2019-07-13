@@ -27,6 +27,29 @@ page{
   text-align: center;
   margin-top: 200rpx
 }
+ .butt text{
+      display: inline-block;
+      border: 1rpx solid #ccc;
+      width: 36rpx;
+      text-align: center
+    }
+    .butt{
+      display: inline-block;
+    }
+     .butt .sl{
+      border-left:0;
+      border-right:0;
+      display: inline-block;
+      width: 40rpx ;
+    }
+    .butt text{
+      display: inline-block;
+      width: 40rpx;
+      border:1rpx solid #eee;
+      text-align: center;
+      height: 40rpx;
+      line-height: 40rpx
+    }
 .top .img {
   width: 60rpx;
   height: 60rpx;
@@ -265,6 +288,7 @@ page{
   font-weight: 400;
   color: rgba(255, 255, 255, 1);
   line-height: 98rpx;
+  z-index: 10000
 }
 .db {
   width: 100%;

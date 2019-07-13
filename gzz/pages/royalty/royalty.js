@@ -12,8 +12,38 @@ Page({
     isshow:false,
     beginTime:"",
     price:0,
-    price1:0
-
+    price1:0,
+    index:"请选择开始时间",
+    index1:"请选择结束时间",
+    sid:1,
+    endTime:"",
+    page:1,
+    size:100
+  },
+  type: function (e) {
+    var that = this;
+    var id = wx.getStorageSync('agentId');
+    this.setData({ sid: e.currentTarget.dataset.sid })
+    wx.request({
+      url: app.globalData.url + "/api/Users/MachineOrderPageList",
+      method: "POST",
+      header: {
+        'content-type': 'application/json'
+      },
+      data: {
+        key: id,
+        page: this.data.page,
+        size: this.data.size,
+        beginTime: this.data.beginTime,
+        endTime: this.data.endTime,
+        type: this.data.sid
+      },
+      success(res) {
+        that.setData({
+          coco: res.data.result
+        })
+      }
+    })
   },
 xs:function(){
     if(this.data.isshow==false){
@@ -22,6 +52,74 @@ xs:function(){
       this.setData({isshow:false})
     }
 },
+  bindPickerChange: function (e) {
+    this.setData({ sid: 4 })
+    var that = this;
+    var id = wx.getStorageSync('agentId');
+    if (this.data.beginTime) {
+      wx.request({
+        url: app.globalData.url + "/api/Users/MachineOrderPageList",
+        method: "POST",
+        header: {
+          'content-type': 'application/json'
+        },
+        data: {
+          key: id,
+          page: this.data.page,
+          size: this.data.size,
+          beginTime: this.data.beginTime,
+          endTime: this.data.endTime,
+          type: this.data.sid
+        },
+        success(res) {
+          that.setData({
+            coco: res.data.result
+          })
+        }
+      })
+    }
+    this.setData({
+      index: e.detail.value,
+      beginTime: e.detail.value
+    })
+  },
+  bindPickerChange1: function (e) {
+    this.setData({ sid: 4 })
+    var that = this;
+    var id = wx.getStorageSync('agentId');
+    this.setData({
+      index1: e.detail.value,
+      endTime: e.detail.value
+    })
+    if (!this.data.beginTime) {
+      wx.showToast({
+        title: '请选择开始时间',
+        duration: 2000,
+        icon: "none"
+      })
+    } else {
+      wx.request({
+        url: app.globalData.url + "/api/Users/MachineOrderPageList",
+        method: "POST",
+        header: {
+          'content-type': 'application/json'
+        },
+        data: {
+          key: id,
+          page: this.data.page,
+          size: this.data.size,
+          beginTime: this.data.beginTime,
+          endTime: this.data.endTime,
+          type: this.data.sid
+        },
+        success(res) {
+          that.setData({
+            coco: res.data.result
+          })
+        }
+      })
+    }
+  },
   abc: function (e) {
     this.setData({ beginTime: e.detail.value })
     var that = this;
@@ -34,7 +132,7 @@ xs:function(){
       url: app.globalData.url + '/api/Users/MachinePageList',
       method: "POST",
       header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
-      data: { key: id, page: 1, size: 5, beginTime: that.data.beginTime },
+      data: { key: id, page: 1, size: 500, beginTime: that.data.beginTime },
       success(res) {
         console.log(res)
         let list = res.data.result;
@@ -59,8 +157,9 @@ xs:function(){
       url: app.globalData.url + '/api/Users/QueryCommission',
       method: "POST",
       header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
-      data: { key: id, page: 1, size: 5},
+      data: { key: id, page: 1, size: 500},
       success(res) {
+        console.log(res)
         let cop = res.data.result;
         that.setData({ list: cop, price: cop.timeCommission, price1: cop.totalCommission })
       }
@@ -69,7 +168,7 @@ xs:function(){
       url: app.globalData.url + '/api/Users/MachinePageList',
       method: "POST",
       header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
-      data: { key: id, page: 1, size: 5, beginTime: that.data.beginTime},
+      data: { key: id, page: 1, size: 500, beginTime: that.data.beginTime},
       success(res) {
         let list = res.data.result;
         that.setData({ coco:list})

@@ -24,7 +24,11 @@
   line-height: 90rpx;
   position: relative;
 }
-
+.fff{
+  width: 100%;
+  margin:50rpx auto;
+  text-align: center
+}
 .db .header .jin {
   color: #fbc00e;
   border-bottom:6rpx solid #fbc00e

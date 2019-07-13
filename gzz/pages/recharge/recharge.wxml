@@ -1,6 +1,6 @@
 <view class="db">
-  <view class='kh'>卡号：</view>
-  <input type='text' placeholder='请输入充值卡号' class='czkh' bindinput="inputedit1" data-obj1="info1"  value="{{obj1}}"></input>
+  <view class='kh'>手机号：</view>
+  <input type='text' placeholder='请输入手机号码' class='czkh' bindinput="inputedit1" data-obj1="info1"  value="{{obj1}}"></input>
 
 
   <view class="mian">

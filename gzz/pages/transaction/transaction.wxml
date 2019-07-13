@@ -1,14 +1,27 @@
 <view class="db">
   <view class="header">
     <view class="calendar">
-    <picker mode="date"  fields="day" bindchange="abc">
+    <!-- <picker mode="date"  fields="day" bindchange="abc">
       <image lazy-load='true' src="/pages/img/rl.png"></image>
-    </picker>
+    </picker> -->
     </view>
-    <text class="text">今日  交易总额</text>
+    <text class="text">设备交易总额</text>
     <view class="xian"></view>
     <text class="pirce">{{price}}元</text>
     <image lazy-load='true' src="/pages/img/bg.png"></image>
+    <view class='list_1'>
+      <picker mode="date" bindchange="bindPickerChange" bindPickerChange>
+        <view>{{index}}</view>
+      </picker>
+      <picker mode="date" bindchange="bindPickerChange1" bindPickerChange>
+        <view>{{index1}}</view>
+      </picker>
+    </view>
+  </view>
+  <view class='list_2'>
+      <view class="{{sid==1?'list_3':''}}" data-sid="1" bindtap='type'>今日</view>
+      <view data-sid="2" class="{{sid==2?'list_3':''}}" bindtap='type'>近1个月</view>
+      <view data-sid="3" class="{{sid==3?'list_3':''}}" bindtap='type'>近3个月</view>
   </view>
   <view class='kong' wx:if="{{coco.length==0}}">暂无明细</view>
   <view class="list" wx:else>

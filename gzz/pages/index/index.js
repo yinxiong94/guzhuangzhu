@@ -23,19 +23,11 @@ Page({
   lqyhq: function(e) {
     var id = e.target.dataset.id;
     var that = this;
-    var a = wx.getStorageSync('Token');
-    var timespan = new Date().getTime();
-    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
-    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
     wx.request({
       url: app.globalData.url + '/api/coupon/ReceiveCoupon',
       method: "POST",
       header: {
-        'content-type': 'application/json',
-        signKey: a.signId,
-        timespan: timespan,
-        nonce: nonce,
-        signature: signature
+        'content-type': 'application/json'
       },
       data: {
         openId: app.globalData.openId,
@@ -46,11 +38,7 @@ Page({
           url: app.globalData.url + '/api/coupon/couponList',
           method: "POST",
           header: {
-            'content-type': 'application/json',
-            signKey: a.signId,
-            timespan: timespan,
-            nonce: nonce,
-            signature: signature
+            'content-type': 'application/json'
           },
           data: {
             openId: app.globalData.openId
@@ -72,21 +60,13 @@ Page({
   // 加入购物车
   gwc:function(e){
     var cc=e.target.dataset.sid;
-    var a = wx.getStorageSync('Token');
-    var timespan = new Date().getTime();
-    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
-    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
     wx.request({
       url: app.globalData.url + '/api/Product/ProductCartAdd',
       method: "POST",
       header: {
-        'content-type': 'application/json',
-        signKey: a.signId,
-        timespan: timespan,
-        nonce: nonce,
-        signature: signature
+        'content-type': 'application/json'
       },
-      data: { openId: app.globalData.openId, productId:cc},
+      data: { openId: app.globalData.openId, productId: cc, productNum:1},
       success(res) {
         if(res.data.code==200){
           wx.showToast({
@@ -99,25 +79,24 @@ Page({
   },
   // 立即购买
   nowshop:function(e){
-    var cc=e.target.dataset;
-    var that = this;
-    var a = wx.getStorageSync('Token');
-    var timespan = new Date().getTime();
-    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
-    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
-    wx.request({
-      url: app.globalData.url + '/api/product/OperationFreightByProduct',
-      method: "POST",
-      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
-      data: { productId: cc.sid, productNum: 1 },
-      success(res) {
-        if (res.data.code == 200) {
-          wx.navigateTo({
-            url: '/pages/fill/fill?id=' + cc.sid + "&count=" + 1 + "&sid=1" + "&productName=" + cc.name + "&productWeight=" + cc.wei + "&price="
-              + cc.price + "&freight=" + res.data.result.freight + "&imgurl=" + cc.img,
-          })
-        }
-      }
+    // var cc=e.target.dataset;
+    // var that = this;
+    // wx.request({
+    //   url: app.globalData.url + '/api/product/OperationFreightByProduct',
+    //   method: "POST",
+    //   header: { 'content-type': 'application/json' },
+    //   data: { productId: cc.sid, productNum: 1 },
+    //   success(res) {
+    //     if (res.data.code == 200) {
+    //       wx.navigateTo({
+    //         url: '/pages/fill/fill?id=' + cc.sid + "&count=" + 1 + "&sid=1" + "&productName=" + cc.name + "&productWeight=" + cc.wei + "&price="
+    //           + cc.price + "&freight=" + res.data.result.freight + "&imgurl=" + cc.img,
+    //       })
+    //     }
+    //   }
+    // })
+    wx.navigateTo({
+      url: '/pages/commodity/commodity?id=' + e.target.dataset.sid,
     })
   },
   // 跳转开通会员
@@ -143,17 +122,12 @@ Page({
     var c = e.target.dataset.rotationrelationid;
     var b = e.target.dataset.rotationtype;
     var that = this;
-    var a = wx.getStorageSync('Token');
-    var timespan = new Date().getTime();
-    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
-    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
     wx.request({
       url: app.globalData.url + '/api/Article/ArticleList',
       method: "POST",
-      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      header: { 'content-type': 'application/json'},
       data: { page: 1, size: 10 },
       success(res) {
-        console.log(res)
         that.setData({ list2: res.data.result })
         for (var i = 0; i < res.data.result.length; i++) {
           that.setData({ ['article[' + i + ']']: res.data.result[i].articleContent })
@@ -182,27 +156,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    console.log(app.globalData.openId)
     var that = this;
-    wx.getStorage({
-      key: 'Token',
-      success: function(res) {
-        var a = res.data;
-        var timespan = new Date().getTime();
-        var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
-        var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
         // 轮播图
         wx.request({
             url: app.globalData.url + '/api/rotationChart/rotationChartList',
             method: "POST",
             header: {
-              'content-type': 'application/json',
-              signKey: a.signId,
-              timespan: timespan,
-              nonce: nonce,
-              signature: signature
+              'content-type': 'application/json'
             },
             success(res) {
-              console.log(res)
               that.setData({
                 list: res.data.result
               })
@@ -213,11 +176,7 @@ Page({
             url: app.globalData.url + '/api/coupon/couponList',
             method: "POST",
             header: {
-              'content-type': 'application/json',
-              signKey: a.signId,
-              timespan: timespan,
-              nonce: nonce,
-              signature: signature
+              'content-type': 'application/json'
             },
             data: {
               openId: app.globalData.openId
@@ -233,11 +192,7 @@ Page({
             url: app.globalData.url + '/api/memberCard/memberCardConfigList',
             method: "POST",
             header: {
-              'content-type': 'application/json',
-              signKey: a.signId,
-              timespan: timespan,
-              nonce: nonce,
-              signature: signature
+              'content-type': 'application/json'
             },
             success(res) {
               that.setData({
@@ -250,11 +205,7 @@ Page({
             url: app.globalData.url + '/api/product/productByHomeList',
             method: "POST",
             header: {
-              'content-type': 'application/json',
-              signKey: a.signId,
-              timespan: timespan,
-              nonce: nonce,
-              signature: signature
+              'content-type': 'application/json'
             },
             success(res) {
               that.setData({
@@ -262,8 +213,6 @@ Page({
               })
             }
           })
-      },
-    });
   },
 
   /**
@@ -278,86 +227,61 @@ Page({
    */
   onShow: function() {
     var that = this;
-    wx.getStorage({
-      key: 'Token',
-      success: function(res) {
-        var a = res.data;
-        var timespan = new Date().getTime();
-        var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
-        var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
-        // 轮播图
-        wx.request({
-            url: app.globalData.url + '/api/rotationChart/rotationChartList',
-            method: "POST",
-            header: {
-              'content-type': 'application/json',
-              signKey: a.signId,
-              timespan: timespan,
-              nonce: nonce,
-              signature: signature
-            },
-            success(res) {
-              that.setData({
-                list: res.data.result
-              })
-            }
-          }),
-          // 优惠券 
-          wx.request({
-            url: app.globalData.url + '/api/coupon/couponList',
-            method: "POST",
-            header: {
-              'content-type': 'application/json',
-              signKey: a.signId,
-              timespan: timespan,
-              nonce: nonce,
-              signature: signature
-            },
-            data: {
-              openId: app.globalData.openId
-            },
-            success(res) {
-              that.setData({
-                list1: res.data.result
-              })
-            }
-          }),
-          // 电子会员卡
-          wx.request({
-            url: app.globalData.url + '/api/memberCard/memberCardConfigList',
-            method: "POST",
-            header: {
-              'content-type': 'application/json',
-              signKey: a.signId,
-              timespan: timespan,
-              nonce: nonce,
-              signature: signature
-            },
-            success(res) {
-              that.setData({
-                imgUrls: res.data.result
-              })
-            }
-          }),
-          // 商品展示
-          wx.request({
-            url: app.globalData.url + '/api/product/productByHomeList',
-            method: "POST",
-            header: {
-              'content-type': 'application/json',
-              signKey: a.signId,
-              timespan: timespan,
-              nonce: nonce,
-              signature: signature
-            },
-            success(res) {
-              that.setData({
-                row1: res.data.result
-              })
-            }
-          })
+    // 轮播图
+    wx.request({
+      url: app.globalData.url + '/api/rotationChart/rotationChartList',
+      method: "POST",
+      header: {
+        'content-type': 'application/json'
       },
-    });
+      success(res) {
+        that.setData({
+          list: res.data.result
+        })
+      }
+    }),
+      // 优惠券 
+      wx.request({
+        url: app.globalData.url + '/api/coupon/couponList',
+        method: "POST",
+        header: {
+          'content-type': 'application/json'
+        },
+        data: {
+          openId: app.globalData.openId
+        },
+        success(res) {
+          that.setData({
+            list1: res.data.result
+          })
+        }
+      }),
+      // 电子会员卡
+      wx.request({
+        url: app.globalData.url + '/api/memberCard/memberCardConfigList',
+        method: "POST",
+        header: {
+          'content-type': 'application/json'
+        },
+        success(res) {
+          that.setData({
+            imgUrls: res.data.result
+          })
+        }
+      }),
+      // 商品展示
+      wx.request({
+        url: app.globalData.url + '/api/product/productByHomeList',
+        method: "POST",
+        header: {
+          'content-type': 'application/json'
+        },
+        success(res) {
+          that.setData({
+            row1: res.data.result
+          })
+        }
+      })
   },
 
   /**
@@ -391,7 +315,16 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
-
+  onShareAppMessage: function(res) {
+    return {
+      title: '邀请你加入团队',
+      path: '/pages/logs/logs?openid=' + app.globalData.openId,
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   }
 })

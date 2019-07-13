@@ -1,14 +1,14 @@
 <view class='header'></view>
 <view class='kong' wx:if="{{list.length==0}}">亲，您的购物车还没有宝贝哦</view>
-<view  wx:for="{{list}}">
+<view  wx:for="{{list}}" wx:key="index">
 <view class="title">谷庄主官方自营</view>
 <view class='cart'>
   <checkbox class='check' data-productNum="{{count[index]}}" data-productPrice="{{item.productPrice}}"  bindtap='change' data-ind='{{index}}' checked='{{checked[index]}}'></checkbox>
   <view class='cart-item'>
-    <image src="{{item.productImg}}" class='img'></image>
-    <view class='cart-item-1'>
+    <image src="{{item.productImg}}" class='img'  data-productId="{{item.productId}}" bindtap='tosp'></image>
+    <view class='cart-item-1'  data-productId="{{item.productId}}" bindtap='tosp'>
         <view class='title1'>{{item.productName}}</view>
-        <view class='title2'>{{item.productWeight/1000}}kg</view>
+        <view class='title2'>{{item.productWeight/500}}斤</view>
         <view class='title3'>￥{{item.productPrice}}</view>
     </view>
     <view class='butt'>

@@ -22,6 +22,9 @@ padding: 40rpx 50rpx;
 box-sizing: border-box;
 margin-bottom: 30rpx
 }
+.hui{
+  color:#ccc !important
+}
 .t_11{
   font-size:26rpx;
   font-family:PingFang-SC-Medium;
@@ -172,7 +175,8 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
 .cart-item-1{
   display: inline-block;
   vertical-align: top;
-  margin-left: 10rpx
+  margin-left: 10rpx;
+  width: 360rpx
 }
 .cart-item-1 view{
   padding: 0rpx 20rpx
@@ -220,29 +224,31 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
 .qhm{
   width: 95%;
   margin: auto;
-  line-height: 136rpx;
   background: #fff;
   border-radius: 14rpx;
-  height: 136rpx
+  display: flex
 }
 .t1{
-  font-size:28rpx;
+  font-size:26rpx;
   font-family:PingFang-SC-Bold;
   font-weight:bold;
   color:rgba(67,67,67,1);
   display: inline-block;
   margin-left: 15rpx;
-  height: 136rpx;
-  vertical-align: top
+  height: 100rpx;
+  vertical-align: top;
+  width: 230rpx;
+  line-height: 100rpx
 }
 .t2{
-  font-size:54rpx;
+  font-size:38rpx;
   font-family:PingFang-SC-Bold;
   font-weight:bold;
   color:#fbc00e;
   display: inline-block;
-  margin-left: 112rpx;
-  height: 136rpx
+  margin-left: 30rpx;
+  height: 100rpx;
+  line-height: 100rpx
 }
 .tet{
   position: absolute;
@@ -355,5 +361,5 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
   height: 86rpx;
   position: absolute;
   top:0;
-  right:-200rpx;
+  right:-150rpx;
 }

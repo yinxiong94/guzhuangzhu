@@ -9,10 +9,15 @@
           {{productName}}
         </view>
         <view class="color">
-          重量：{{productWeight/1000}}Kg
+          重量：{{productWeight/500}}斤
         </view>
         <view class="pirce">
           <view class='text_1'>￥{{price}}</view>
+          <!-- <view class='butt'>
+            <text bindtap='jian'>-</text>
+            <text class='sl'>{{count}}</text>
+            <text bindtap='jia'>+</text>
+          </view> -->
           <view class='text_2'>x{{count}}</view>
         </view>
       </view>
@@ -68,13 +73,13 @@
       实付金额:
       <text>￥{{zj}}</text>
     </view>
-    <view class="right" bindtap='tozf'>
+    <view class="right" catchtap='tozf'>
       提交订单
     </view>
   </view>
 
   <view class='index' wx:if="{{isshow1}}">
-    <view class="item" wx:for="{{list111}}">
+    <view class="item" wx:for="{{list111}}" wx:key>
       <view class="item_left">
         <view class="box">
           <view class="pirce">
@@ -95,9 +100,9 @@
           <view>剩余{{item.surplusNum}}张</view>
         </view>
       </view>
-      <view class="img" data-price="{{item.couponMoney}}" bindtap='sy'>
+      <view class="img">
         <view class="text" data-price="{{item.couponMoney}}" data-msg="{{item.memberCouponId}}" bindtap='sy'>立即使用</view>
-        <image lazy-load='true' src="/pages/img/ttt.png" data-price="{{item.couponMoney}}" bindtap='sy'></image>
+        <image lazy-load='true' src="/pages/img/ttt.png" data-price="{{item.couponMoney}}"  data-msg="{{item.memberCouponId}}"  bindtap='sy'></image>
       </view>
     </view>
 
@@ -119,7 +124,7 @@
   <view class='kong' wx:if="{{list2.length==0}}">还没有地址哟</view>
   <radio-group>
     <view>
-      <view class='list1' wx:for="{{list2}}">
+      <view class='list1' wx:for="{{list2}}" wx:key>
         <view class='list_item1' bindtap='t123456' data-consignee="{{item.consignee}}" data-phone="{{item.phone}}" data-area="{{item.area}}" data-address="{{item.address}}" data-addressId="{{item.addressId}}">
           <view class='t_11'>{{item.consignee}}</view>
           <view class='t_11'>{{item.phone}}</view>

@@ -10,7 +10,7 @@ Page({
     isshow: 0,
     iftrue: false,
     id: "",
-    count: "",
+    count: 1,
     list: [],
     list1: [],
     productName: "",
@@ -65,6 +65,16 @@ Page({
       iii: e.target.dataset.iii
     })
   },
+  jian: function (e) {
+    var a = this.data.count - 1;
+    if (a < 1) { a = 1 }
+    this.setData({ count: a })
+  },
+  // 商品数量加
+  jia: function (e) {
+    var a = this.data.count - (-1);
+    this.setData({ count: a })
+  },
   t111: function() {
     this.setData({
       isshow2: false
@@ -87,19 +97,11 @@ Page({
         })
       } else {
         var that = this;
-        var a = wx.getStorageSync('Token');
-        var timespan = new Date().getTime();
-        var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
-        var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
         wx.request({
           url: app.globalData.url + '/api/product/ProductPlaceOrder',
           method: "POST",
           header: {
-            'content-type': 'application/json',
-            signKey: a.signId,
-            timespan: timespan,
-            nonce: nonce,
-            signature: signature
+            'content-type': 'application/json'
           },
           data: {
             openId: app.globalData.openId,
@@ -114,26 +116,18 @@ Page({
           success(res) {
             console.log(res)
             wx.navigateTo({
-              url: '/pages/ddzf/ddzf?orderId=' + res.data.result.orderId + "&productId=" + that.data.id + "&price=" + that.data.zj,
+              url: '/pages/ddzf/ddzf?orderId=' + res.data.result.orderId + "&productId=" + that.data.id + "&price=" + that.data.zj + "&point=" + res.data.result.point + "&pickupWay=" + that.data.isshow
             })
           }
         })
       }
     } else {
       var that = this;
-      var a = wx.getStorageSync('Token');
-      var timespan = new Date().getTime();
-      var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
-      var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
       wx.request({
         url: app.globalData.url + '/api/product/ProductPlaceOrder',
         method: "POST",
         header: {
-          'content-type': 'application/json',
-          signKey: a.signId,
-          timespan: timespan,
-          nonce: nonce,
-          signature: signature
+          'content-type': 'application/json'
         },
         data: {
           openId: app.globalData.openId,
@@ -148,7 +142,7 @@ Page({
         success(res) {
           console.log(res)
           wx.navigateTo({
-            url: '/pages/ddzf/ddzf?orderId=' + res.data.result.orderId + "&productId=" + that.data.id + "&price=" + that.data.zj,
+            url: '/pages/ddzf/ddzf?orderId=' + res.data.result.orderId + "&productId=" + that.data.id + "&price=" + that.data.zj + "&point=" + res.data.result.point + "&pickupWay=" + that.data.isshow,
           })
         }
       })
@@ -177,11 +171,11 @@ Page({
     })
   },
   sy: function(e) {
-    console.log(e.target.dataset.price)
+    console.log(e)
     this.setData({
       isshow1: false,
-      price2: e.target.dataset.price,
-      memberCouponId: e.target.dataset.memberCouponId
+      price2: e.currentTarget.dataset.price,
+      memberCouponId: e.currentTarget.dataset.msg
     })
     if (this.data.isshow == 0) {
       var a = this.data.price1 - this.data.price2
@@ -202,20 +196,12 @@ Page({
   },
   f123: function(e) {
     var that = this;
-    var a = wx.getStorageSync('Token');
-    var timespan = new Date().getTime();
-    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
-    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
     // 轮播图
     wx.request({
       url: app.globalData.url + '/api/MemberCard/SetDefaultAddress',
       method: "POST",
       header: {
-        'content-type': 'application/json',
-        signKey: a.signId,
-        timespan: timespan,
-        nonce: nonce,
-        signature: signature
+        'content-type': 'application/json'
       },
       data: {
         addressId: e.target.dataset.fid
@@ -226,27 +212,18 @@ Page({
     })
   },
   bj1: function(e) {
-    console.log(1)
     wx.navigateTo({
       url: '/pages/tjdz1/tjdz1?addressId=' + e.target.dataset.fid + "&consignee=" + this.data.list2[e.target.dataset.uid].consignee + "&phone=" + this.data.list2[e.target.dataset.uid].phone + "&area=" + this.data.list2[e.target.dataset.uid].area + "&address=" + this.data.list2[e.target.dataset.uid].address,
     })
   },
   del1: function(e) {
     var that = this;
-    var a = wx.getStorageSync('Token');
-    var timespan = new Date().getTime();
-    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
-    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
     // 轮播图
     wx.request({
       url: app.globalData.url + '/api/MemberCard/AddressDel',
       method: "POST",
       header: {
-        'content-type': 'application/json',
-        signKey: a.signId,
-        timespan: timespan,
-        nonce: nonce,
-        signature: signature
+        'content-type': 'application/json'
       },
       data: {
         addressId: e.target.dataset.fid
@@ -257,11 +234,7 @@ Page({
           url: app.globalData.url + '/api/MemberCard/AddressList',
           method: "POST",
           header: {
-            'content-type': 'application/json',
-            signKey: a.signId,
-            timespan: timespan,
-            nonce: nonce,
-            signature: signature
+            'content-type': 'application/json'
           },
           data: {
             openId: app.globalData.openId
@@ -296,19 +269,11 @@ Page({
       })
     }
     var that = this;
-    var a = wx.getStorageSync('Token');
-    var timespan = new Date().getTime();
-    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
-    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
     wx.request({
       url: app.globalData.url + '/api/coupon/AvailableMemberCoupon',
       method: "POST",
       header: {
-        'content-type': 'application/json',
-        signKey: a.signId,
-        timespan: timespan,
-        nonce: nonce,
-        signature: signature
+        'content-type': 'application/json'
       },
       data: {
         openId: app.globalData.openId,
@@ -325,11 +290,7 @@ Page({
       url: app.globalData.url + '/api/MemberCard/AddressList',
       method: "POST",
       header: {
-        'content-type': 'application/json',
-        signKey: a.signId,
-        timespan: timespan,
-        nonce: nonce,
-        signature: signature
+        'content-type': 'application/json'
       },
       data: {
         openId: app.globalData.openId
@@ -371,19 +332,11 @@ Page({
       })
     }
     var that = this;
-    var a = wx.getStorageSync('Token');
-    var timespan = new Date().getTime();
-    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
-    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
     wx.request({
       url: app.globalData.url + '/api/MemberCard/AddressList',
       method: "POST",
       header: {
-        'content-type': 'application/json',
-        signKey: a.signId,
-        timespan: timespan,
-        nonce: nonce,
-        signature: signature
+        'content-type': 'application/json'
       },
       data: {
         openId: app.globalData.openId
@@ -438,6 +391,15 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
-
+    return {
+      title: '邀请你加入团队',
+      path: '/pages/logs/logs?openid=' + app.globalData.openId,
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   }
 })

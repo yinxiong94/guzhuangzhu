@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/logs/logs",
+    "pages/flowing/flowing",
     "pages/index/index",
     "pages/personal/personal",
     "pages/After/After",
@@ -10,6 +11,7 @@
     "pages/refund/refund",
     "pages/tjdz/tjdz",
     "pages/dz/dz",
+    "pages/flowing1/flowing",
     "pages/commodity/commodity",
     "pages/bbhuy/bbhyk",
     "pages/wddd/wddd",
@@ -39,7 +41,8 @@
     "pages/cash/cash",
     "pages/mymember/mymember",
     "pages/mydevice/mydevice",
-    "pages/royalty/royalty"
+    "pages/royalty/royalty",
+    "pages/recommendation/recommendation"
   ],
   "window": {
     "enablePullDownRefresh": false,

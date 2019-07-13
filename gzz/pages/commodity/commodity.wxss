@@ -7,7 +7,7 @@ page{
 }
 .db .ggg {
   width: 750rpx;
-  height: 360rpx;
+  height: 500rpx;
 }
 
 .db .header {
@@ -19,6 +19,17 @@ page{
 .yh_list{
   margin-top: 10rpx;
   position: relative
+}
+.img888{
+  width: 314rpx;
+  height: 50rpx;
+  font-size: 24rpx;
+  border:1rpx solid #ccc;
+  padding-left: 50rpx;
+  box-sizing: border-box;
+  line-height: 50rpx;
+  color:#ccc;
+  border-radius: 25rpx
 }
 .xz{
   background: #ffbf00 !important;
@@ -33,6 +44,9 @@ color:#fff
   float: left;
   font-size: 24rpx;
   color:#989898
+}
+swiper{
+  height: 500rpx
 }
 .yh_1{
   color:#000

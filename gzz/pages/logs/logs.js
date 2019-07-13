@@ -8,13 +8,17 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    code:""
+    code:"",
+    openid:""
   },
   login:function(){
 
   },
   //事件处理函数
-  onLoad: function () {
+  onLoad: function (options) {
+    if(options.openid){
+      this.setData({ openid: options.openid })
+    }
     wx.login({
       success: res => {
         this.setData({ code: res.code })
@@ -59,16 +63,17 @@ Page({
     })
     app.globalData.userInfo = e.detail.userInfo;
     var that = this;
-    var a = wx.getStorageSync('Token');
-    var timespan = new Date().getTime();
-    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
-    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
     wx.request({
       url: app.globalData.url + '/api/memberCard/MemberLogin',
       method: "POST",
-      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
-      data: { code: that.data.code, iv: e.detail.iv, encryptedData: e.detail.encryptedData, signature: e.detail.signature, rawData: e.detail.rawData },
+      header: { 'content-type': 'application/json'},
+      data: { code: that.data.code, iv: e.detail.iv, encryptedData: e.detail.encryptedData, signature: e.detail.signature, rawData: e.detail.rawData, recommendOpenId:that.data.openid },
       success(res) {
+        app.globalData.openId = res.data.result.openId
+        wx.setStorage({
+          key: "openId",
+          data: res.data.result.openId,
+        })
       }
     })
     this.setData({

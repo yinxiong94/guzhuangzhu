@@ -48,6 +48,7 @@ Page({
       header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
       data: { phone: this.data.obj.manager, effectiveTime: 60 },
       success(res) {
+        console.log(res)
       }
     })
   },

@@ -12,7 +12,12 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     balance:"",
-    beginTime: ""
+    beginTime: "",
+    index: "请选择开始时间",
+    index1: "请选择结束时间",
+    page:1,
+    size:1000,
+    endTime: ""
   },
   abc:function(e){
     this.setData({ beginTime: e.detail.value })
@@ -25,12 +30,80 @@ Page({
       url: app.globalData.url + '/api/recharge/RechargeConsumeList',
       method: "POST",
       header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
-      data: { userId: app.globalData.openId, page: 1, size: 2, beginTime:that.data.beginTime },
+      data: { userId: app.globalData.openId, page: 1, size: 100, beginTime:that.data.beginTime },
       success(res) {
         console.log(res)
         that.setData({ list: res.data.result })
       }
     })
+  },
+  bindPickerChange: function (e) {
+    this.setData({ sid: 4 })
+    var that = this;
+    var id = wx.getStorageSync('agentId');
+    if (this.data.beginTime) {
+      wx.request({
+        url: app.globalData.url + "/api/recharge/RechargeConsumeList",
+        method: "POST",
+        header: {
+          'content-type': 'application/json'
+        },
+        data: {
+          userId: app.globalData.openId,
+          page: this.data.page,
+          size: this.data.size,
+          beginTime: this.data.beginTime,
+          endTime: this.data.endTime
+        },
+        success(res) {
+          console.log(res)
+          that.setData({
+            list: res.data.result
+          })
+        }
+      })
+    }
+    this.setData({
+      index: e.detail.value,
+      beginTime: e.detail.value
+    })
+  },
+  bindPickerChange1: function (e) {
+    this.setData({ sid: 4 })
+    var that = this;
+    var id = wx.getStorageSync('agentId');
+    this.setData({
+      index1: e.detail.value,
+      endTime: e.detail.value
+    })
+    if (!this.data.beginTime) {
+      wx.showToast({
+        title: '请选择开始时间',
+        duration: 2000,
+        icon: "none"
+      })
+    } else {
+      wx.request({
+        url: app.globalData.url + "/api/recharge/RechargeConsumeList",
+        method: "POST",
+        header: {
+          'content-type': 'application/json'
+        },
+        data: {
+          userId: app.globalData.openId,
+          page: this.data.page,
+          size: this.data.size,
+          beginTime: this.data.beginTime,
+          endTime: this.data.endTime
+        },
+        success(res) {
+          console.log(res)
+          that.setData({
+            list: res.data.result
+          })
+        }
+      })
+    }
   },
 quan:function(e){
   var that = this;
@@ -45,7 +118,9 @@ quan:function(e){
       url: app.globalData.url + '/api/recharge/RechargeList',
       method: "POST",
       header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
-      data: { userId: app.globalData.openId,page:1,size:10 },
+      data: {
+        userId: app.globalData.openId, page: 1, size: 1000, beginTime: this.data.beginTime,
+        endTime: this.data.endTime},
       success(res) {
         that.setData({ list: res.data.result })
       }
@@ -59,7 +134,9 @@ quan:function(e){
       url: app.globalData.url + '/api/recharge/ConsumeList',
       method: "POST",
       header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
-      data: { userId: app.globalData.openId, page: 1, size: 10 },
+      data: {
+        userId: app.globalData.openId, page: 1, size: 1000, beginTime: this.data.beginTime,
+        endTime: this.data.endTime},
       success(res) {
         that.setData({ list: res.data.result })
       }
@@ -73,7 +150,9 @@ quan:function(e){
       url: app.globalData.url + '/api/recharge/RechargeConsumeList',
       method: "POST",
       header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
-      data: { userId: app.globalData.openId, page: 1, size: 10 },
+      data: {
+        userId: app.globalData.openId, page: 1, size: 1000, beginTime: this.data.beginTime,
+        endTime: this.data.endTime },
       success(res) {
         that.setData({ list: res.data.result })
       }
@@ -121,7 +200,7 @@ quan:function(e){
       url: app.globalData.url + '/api/recharge/RechargeConsumeList',
       method: "POST",
       header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
-      data: { userId: app.globalData.openId, page: 1, size: 10, beginTime: "", endTime:""},
+      data: { userId: app.globalData.openId, page: 1, size: 100, beginTime: "", endTime:""},
       success(res) {
         console.log(res)
         that.setData({ list: res.data.result })
@@ -175,6 +254,15 @@ quan:function(e){
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '邀请你加入团队',
+      path: '/pages/logs/logs?openid=' + app.globalData.openId,
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   }
 })

@@ -22,4 +22,4 @@
     <textarea placeholder='详细地址：如道路、门牌号、小区、楼栋号、单元室等' bindinput="inputedit2" data-obj2="info2"  data-item2="manager2" value="{{info.manager2}}"></textarea>
 </view>
 
-<view class='t1' bindtap='bc'>保存</view>
+<view class='t1' catchtap='bc'>保存</view>

@@ -1,59 +1,24 @@
 //app.js
 App({
   onLaunch: function () {
+    var that = this;
     this.authorAddress()
     wx.getStorage({
       key: 'login',
       success: function (res) {
+        console.log(res)
         wx.switchTab({
           url: '/pages/index/index',
         })
       },
     })
-    var that=this
     //展示本地存储能力
-    wx.getStorage({
-      key: 'Token',
-      success: function(res) {
-        var timespan = new Date().getTime();        //时间戳
-        var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));     //随机数
-        var signKey = '123456';        //请求秘钥
-        wx.request({
-          url: that.globalData.url + '/api/Token/GetToken',
-          header: { 'content-type': 'application/json', signKey: signKey, timespan: timespan, nonce: nonce },
-          method:"Get",
-          data: { signKey: signKey },
-          success(res) {
-            if (res.code = 200) {
-              wx.setStorage({
-                key: 'Token',
-                data: res.data.result
-              })
-            }
-          }
-        })
-      },
-      fail:function(){
-          //如果Token过期请求Token
-          var timespan = new Date().getTime();        //时间戳
-          var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));     //随机数
-          var signKey = '123456';        //请求秘钥
-          wx.request({
-            url: that.globalData.url + '/api/Token/GetToken?signKey=123456',
-            header: { 'content-type': 'application/json', signKey: signKey, timespan: timespan, nonce: nonce },
-            method: "Get",
-            success(res) {
-              if (res.code = 200) {
-                wx.setStorage({
-                  key: 'Token',
-                  data: res.data.result
-                })
-              }
-            }
-          })
-        }    
-    })
-   
+   wx.getStorage({
+     key: 'openId',
+     success: function(res) {
+       that.globalData.openId=res.data
+     },
+   })
     // var b = wx.getStorage('Token');
     // console.log(b)
     var logs = wx.getStorageSync('logs') || []
@@ -61,21 +26,23 @@ App({
     wx.setStorageSync('logs', logs)
 
 var a;
+
     // 登录
     wx.login({
       success: res => {
+        console.log(res)
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        var url = 'https://api.weixin.qq.com/sns/jscode2session?appid=wx4d667e4f7fe9aa60&secret=74a4aa67350fe14ccf2d6dac58fefb6e&js_code=' + res.code + '&grant_type=authorization_code';
-        wx.request({
-          url: url,
-          data: {},
-          header: {
-            'content-type': 'application/json'
-          },
-          success: function (res) {
-            that.globalData.openId = res.data.openid //返回openid
-          }
-        })
+        // var url = 'https://api.weixin.qq.com/sns/jscode2session?appid=wx4d667e4f7fe9aa60&secret=74a4aa67350fe14ccf2d6dac58fefb6e&js_code=' + res.code + '&grant_type=authorization_code';
+        // wx.request({
+        //   url: url,
+        //   data: {},
+        //   header: {
+        //     'content-type': 'application/json'
+        //   },
+        //   success: function (res) {
+        //     that.globalData.openId = res.data.openid //返回openid
+        //   }
+        // })
       }
     });
     // 获取用户信息

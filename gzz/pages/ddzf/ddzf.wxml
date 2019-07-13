@@ -11,7 +11,7 @@
 </view> -->
 <view class='hx'></view>
 <view class='zfsy'> 
-  <view class='cart' wx:for="{{list[0].productOrder}}">
+  <view class='cart' wx:for="{{list[0].productOrder}}" wx:key="index">
     <view class='cart-item'>
       <image src="{{item.productImg}}" class='img'></image>
       <view class='cart-item-1'>
@@ -29,10 +29,22 @@
     <view class='cart-item'>
       <image src="/pages/img/k.png" class='img1'></image>
       <view class='cart-item-1 hyzf'>
-          <view class='title1_1'>电子会员卡支付</view>
-          <view class='title2_1'>电子会员卡余额支付</view>
+          <view class='title1_1'>电子会员卡支付 </view>
+          <view class='title2_1'>会员卡余额：{{meb.balance}}元</view>
       </view>
       <radio class='check' data-id="0" bindtap="abc"></radio>
+    </view>
+  </view>
+
+  <view class='cart'> 
+    <view class='cart-item'>
+      <image src="/pages/img/jf.png" class='img2'></image>
+      <view class='cart-item-1 hyzf1'>
+          <view class='title1_1'>积分支付 </view>
+          <view class='title2_1'>剩余积分：{{meb.point}}</view>
+      </view>
+
+      <radio class='check' data-id="2" bindtap="abc"></radio>
     </view>
   </view>
 
@@ -46,6 +58,8 @@
       <radio class='check' data-id="1" bindtap="abc"></radio>
     </view>
   </view>
+
 </view>
 </radio-group>
-<button class='qrzf' bindtap='ddxq' disabled='{{disabled}}'>确认支付：¥{{price}}</button>
+<button class='qrzf' bindtap='ddxq' disabled='{{disabled}}'  wx:if="{{id==2}}">所需积分：{{point}}</button>
+<button class='qrzf' bindtap='ddxq' disabled='{{disabled}}' wx:else>确认支付：¥{{price}}</button>

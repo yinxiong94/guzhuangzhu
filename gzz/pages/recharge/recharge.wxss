@@ -182,7 +182,7 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
   border-bottom: 1rpx solid rgba(221,222,226,1);
   width: 698rpx;
   margin: auto;
-  padding-left: 100rpx;
+  padding-left: 130rpx;
   box-sizing: border-box;
   margin-top: 50rpx
 }

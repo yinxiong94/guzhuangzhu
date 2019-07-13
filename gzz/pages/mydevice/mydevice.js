@@ -11,6 +11,11 @@ Page({
       list:[],
     index: 0
   },
+  toxq:function(e){
+    wx.navigateTo({
+      url: '/pages/flowing/flowing?machineId=' + e.currentTarget.dataset.machineid,
+    })
+  },
   to: function (e) {
     this.setData({ index: e.currentTarget.dataset.index })
     if (this.data.index == 0) {

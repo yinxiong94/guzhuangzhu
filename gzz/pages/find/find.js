@@ -25,7 +25,7 @@ Page({
   wzxq: function (e) {
     var a=e.target.dataset.uid
     wx.navigateTo({
-      url: '/pages/article/article?img=' + this.data.list[a].articleImg + "&title=" + this.data.list[a].articleName + "&content=" + this.data.list[a].articleContent + "&time=" + this.data.list[a].createTime,
+      url: '/pages/article/article?img=' + this.data.list[a].articleImg + "&title=" + this.data.list[a].articleName + "&content=" + this.data.list[a].articleContent + "&time=" + this.data.list[a].createTime + "&productId=" + this.data.list[a].productId,
     })
   },
   /**
@@ -35,14 +35,10 @@ Page({
 
   onLoad: function (options) {
     var that=this;
-    var a = wx.getStorageSync('Token');
-    var timespan = new Date().getTime();
-    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
-    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
     wx.request({
       url: app.globalData.url + '/api/Article/ArticleList',
       method: "POST",
-      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      header: { 'content-type': 'application/json'},
       data: { page: 1, size: 10 },
       success(res) {
         console.log(res)
@@ -103,6 +99,15 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '邀请你加入团队',
+      path: '/pages/logs/logs?openid=' + app.globalData.openId,
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   }
 })

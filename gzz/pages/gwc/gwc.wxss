@@ -116,7 +116,8 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
     line-height: 40rpx;
     position: absolute;
     top:135rpx;
-    right: -20rpx
+    right: -20rpx;
+    z-index: 1000000
 }
 .butt text{
   width: 46rpx;

@@ -11,21 +11,9 @@
   </view>
   <view class="mian">
     <view class="mian_title">电子会员卡权益</view>
-    <view class="discount">
-      <image lazy-load='true' src="/pages/img/gou.png"></image>
-      <text>无须再进行支付，即可终端取米</text>
-    </view>
-    <view class="discount">
-      <image lazy-load='true' src="/pages/img/gou.png"></image>
-      <text>享受会员卡支付8.8折</text>
-    </view>
-    <view class="discount">
-      <image lazy-load='true' src="/pages/img/gou.png"></image>
-      <text>享受会员特价活动</text>
-    </view>
-    <view class="discount">
-      <image lazy-load='true' src="/pages/img/gou.png"></image>
-      <text>等等的一些电子会员卡的权益说明</text>
+    <view class="discount" wx:for="{{list}}" wx:key="index">
+      <!-- <image lazy-load='true' src="/pages/img/gou.png"></image> -->
+      <text>{{item.memberEquityContent}}</text>
     </view>
   </view>
   <view class="footer" bindtap='kt'>

@@ -12,22 +12,22 @@ Page({
     list:[],
     price:"",
     disabled:true,
-    id:""
+    id:"",
+    meb:{},
+    point:"",
+    pickupWay:""
   },
   abc:function(e){   
     this.setData({ disabled: false, id: e.target.dataset.id})
   },
   ddxq:function(){
+    console.log(this.data.id)
     var that = this;
-    var a = wx.getStorageSync('Token');
-    var timespan = new Date().getTime();
-    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
-    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
     if(that.data.id==1){
     wx.request({
       url: app.globalData.url + '/api/product/ProductOrderWxPay',
       method: "POST",
-      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      header: { 'content-type': 'application/json' },
       data: { openId: app.globalData.openId, orderId:that.data.orderId },
       success(res) {
             var rest = res.data.result;
@@ -38,18 +38,18 @@ Page({
               signType: rest.signType,
               paySign: rest.paySign,
               success(res){
-                wx.switchTab({
-                  url: '/pages/index/index',
+                wx.navigateTo({
+                  url: '/pages/ddxq/ddxq?orderId=' + that.data.orderId + "&uuu=" + 1,
                 })
               }
             })
           }
         })
-    } else{
+    } else if(that.data.id==0) {
       wx.request({
         url: app.globalData.url +'/api/product/PayProductOrder',
         method:"POST",
-        header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+        header: { 'content-type': 'application/json' },
         data: { openId: app.globalData.openId, orderId: that.data.orderId, payType:0},
         success(res){
           console.log(res)
@@ -59,14 +59,14 @@ Page({
               duration:2000,
               success(res){               
                 setTimeout(function(){
-                  wx.switchTab({
-                    url: '/pages/index/index',
+                  wx.navigateTo({
+                    url: '/pages/ddxq/ddxq?orderId=' + that.data.orderId + "&uuu=" + 1,
                   })
                 },2000)
               }
             })
           }
-          else if(res.data.code==424){
+          else {
             wx.showToast({
               title: '会员卡余额不足',
               duration:2000,
@@ -75,6 +75,36 @@ Page({
           }
         }
       })
+    } else {
+      wx.request({
+        url: app.globalData.url + '/api/product/PayProductOrder',
+        method: "POST",
+        header: { 'content-type': 'application/json' },
+        data: { openId: app.globalData.openId, orderId: that.data.orderId, payType: 2 },
+        success(res) {
+          console.log(res)
+          if (res.data.code == 200) {
+            wx.showToast({
+              title: '支付成功',
+              duration: 2000,
+              success(res) {
+                setTimeout(function () {
+                  wx.navigateTo({
+                    url: '/pages/ddxq/ddxq?orderId=' + that.data.orderId + "&uuu=" + 1,
+                  })
+                }, 2000)
+              }
+            })
+          }
+          else {
+            wx.showToast({
+              title: '会员卡积分不足',
+              duration: 2000,
+              icon: "none"
+            })
+          }
+        }
+    })
     }
   },
   
@@ -83,21 +113,27 @@ Page({
    */
   onLoad: function (options) {
       console.log(options)
-      this.setData({orderId:options.orderId,price:options.price})
-        var that = this;
-        var a = wx.getStorageSync('Token');
-    var timespan = new Date().getTime();
-    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
-        var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
+    this.setData({ orderId: options.orderId, price: options.price, point: options.point, pickupWay: options.pickupWay})
+      var that = this;
         wx.request({
           url: app.globalData.url + '/api/product/ProductOrderList',
           method: "POST",
-          header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+          header: { 'content-type': 'application/json'},
           data: { orderId: that.data.orderId },
           success(res) {
             var cc=[];
             cc.push(res.data.result)
            that.setData({list:cc})
+          }
+        })
+        wx.request({
+          url: app.globalData.url +"/api/MemberCard/MemberInfo",
+          method:"post",
+          header: { 'content-type': 'application/json' },
+          data: { openId:app.globalData.openId},
+          success:res=>{
+            that.setData({meb:res.data.result})
+            console.log(that.data.meb)
           }
         })
       

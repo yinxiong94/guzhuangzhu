@@ -46,15 +46,11 @@ Page({
   },
   r123:function(){
     var that = this;
-    var a = wx.getStorageSync('Token');
-    var timespan = new Date().getTime();
-    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
-    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
     // 轮播图
     wx.request({
       url: app.globalData.url + '/api/common/GetAreaList',
       method: "POST",
-      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      header: { 'content-type': 'application/json' },
       success(res) {
         console.log(res)
       }
@@ -72,17 +68,12 @@ Page({
         gg+=this.data.index[i];
         gg+=","
     }
-    console.log(gg)
     var that = this;
-    var a = wx.getStorageSync('Token');
-    var timespan = new Date().getTime();
-    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
-    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
     // 轮播图
     wx.request({
       url: app.globalData.url + '/api/MemberCard/AddressAdd',
       method: "POST",
-      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      header: { 'content-type': 'application/json' },
       data: { openId: app.globalData.openId, consignee: this.data.obj.manager, phone: this.data.obj1.manager1, area: gg, address:this.data.obj2.manager2},
       success(res) {
         console.log(res)

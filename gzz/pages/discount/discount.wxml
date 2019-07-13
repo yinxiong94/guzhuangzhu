@@ -4,6 +4,7 @@
     <view bindtap='quan' data-id="2" class="{{id==2?'jin':''}}">我的券</view>
     <view bindtap='quan' data-id="3" class="{{id==3?'jin':''}}">到期</view>
   </view>
+  <view class="fff" wx:if="{{list.length==0}}">暂无优惠券</view>
   <view class="item" wx:for="{{list}}">
     <view class="item_left">
       <view class="box">

@@ -16,14 +16,41 @@ page{
 .db .header {
   width: 93%;
   margin: 0 auto;
-  height: 242rpx;
+  height: 300rpx;
   display: flex;
   background-color: #fff;
   justify-content: center;
   margin-bottom: 20rpx;
   border-radius: 12rpx;
 }
+.list_1{
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top:234rpx;
+  width: 100%;
+  padding: 0 50rpx;
+  box-sizing: border-box;
+  font-size: 32rpx
+}
+.list_2{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  font-size: 30rpx;
 
+  margin-top: 20rpx
+}
+.list_2 view{
+    width: 140rpx;
+    text-align: center;
+    padding: 5rpx 0 15rpx 0
+}
+.list_3{
+  border-bottom: 4rpx solid #fbc00e;
+  font-size: 36rpx;
+  color:#fbc00e
+}
 .db .header image {
   width: 120rpx;
   height: 120rpx;
@@ -94,6 +121,7 @@ page{
   margin: 0 auto;
   border-radius: 12rpx;
   background-color: #fff;
+  margin-top: 10rpx
 }
 
 .db .list .list_zc .item {
@@ -145,21 +173,23 @@ page{
   display: flex;
   height: 78rpx;
   line-height: 78rpx;
+  justify-content:space-around
 }
 
 .db .list .list_zc .list_td .tiem {
   font-size: 22rpx;
-  width: 80rpx;
+  width: 130rpx;
   text-align: center;
+  overflow: hidden;
+  white-space: nowrap
 }
 
 .db .list .list_zc .list_td .title {
-  flex: 1;
   font-size: 26rpx;
-  margin-left: 73rpx;
   font-family: PingFang-SC-Medium;
   font-weight: 500;
   color: rgba(36, 36, 36, 1);
+  text-align: center
 }
 
 .db .list .list_zc .list_td .pirce {

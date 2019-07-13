@@ -23,6 +23,18 @@
   justify-content: space-between;
   padding-top: 21rpx;
 }
+.btncz{
+  position: absolute;
+  width: 100rpx;
+  height: 50rpx;
+  border:1rpx solid #fff;
+  color:#fff;
+  top:170rpx;
+  right: 180rpx;
+  text-align: center;
+  font-size: 28rpx;
+  line-height: 50rpx
+}
 .userinfo-avatar{
   width: 160rpx;
   height: 160rpx;
@@ -35,6 +47,14 @@
   padding-left: 18rpx;
   display: flex;
   position: relative;
+}
+.img31{
+  width: 48rpx;
+  height: 56rpx
+}
+.img41{
+  width: 50rpx;
+  height: 50rpx
 }
 .kh1{
   position: absolute;
@@ -160,7 +180,7 @@
   z-index: 10;
   color: #fff;
   font-size: 26rpx;
-  bottom: 24rpx;
+  bottom: 60rpx;
   left: 20rpx;
 }
 

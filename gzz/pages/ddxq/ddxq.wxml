@@ -1,6 +1,7 @@
-<view class='item_3'  wx:if="{{list.productOrder[0].pickupCode===null}}">
-    <view class='t_11'>卖家已发货</view>
-    <view class='t_22'>剩余7天20时自动确认</view>
+<view wx:if="{{uuu==0}}"></view>
+<view class='item_3 t_11' wx:elif="{{uuu==2}}">订单已完成</view>
+<view class='item_3'  wx:elif="{{!list.productOrder[0].pickupCode}}">
+    <view class='t_11'>卖家已接单</view>
 </view>
 <view class='item_3' wx:else >
     <view class='t_11'>订单已生效</view>
@@ -8,11 +9,11 @@
 </view>
 
     <view class='cart' wx:for="{{list.productOrder}}">
-    <view class='cart-item'>
+    <view class='cart-item' data-productId="{{item.productId}}" bindtap="toxq">
       <image src="{{item.productImg}}" class='img'></image>
       <view class='cart-item-1'>
           <view class='title1'>{{item.productName}}</view>
-          <view class='title2'></view>
+          <view class='title2'>{{item.productWeight/500}}斤</view>
       </view>
       <view class='jg'>
         <view class='jg1'>￥{{item.productPrice}}</view>
@@ -24,7 +25,8 @@
 
   <image src="/pages/img/bb.png" class='bb'></image>
 
-<view wx:if="{{list.productOrder[0].pickupCode===null}}"> 
+<view wx:if="{{uuu==0}}"></view>
+<view wx:elif="{{!list.productOrder[0].pickupCode}}"> 
     <view class="address">
         <image src="/pages/img/dizhi .png"></image>
         <view class="Contact">
@@ -43,10 +45,14 @@
       </view>
 </view>
 
+<view wx:elif="{{uuu==2}}"></view>
+
 <view  wx:else >
   <view class='qhm'>
       <text class='t1'>我的取货码</text>
-      <text class='t2'>{{list.productOrder[0].pickupCode}}</text>
+      <view>
+      <text  wx:for="{{list.productOrder}}" wx:key class='t2 {{item.payState==2?"hui":""}}'>{{item.pickupCode}}</text>
+      </view>
   </view>
   <view class='sb'>
       <view class='fjsb'>附近设备</view> 
@@ -55,7 +61,7 @@
           <text>{{item.id}}</text>
           <image src="/pages/img/smj.png" class='img2'></image>
           <view class='cart-item-1'>
-              <view class='title1_1'>{{item.title}}</view>
+              <view class='title1_1'>{{item.title}} {{item.machineState==0?"正常":item.machineState==1?"异常":"维护"}}</view>
               <view class='title2_1'>距离我所在位置{{item.distance/1000}}KM</view>
           </view>
           <image src="/pages/img/dh.png" class='img8' data-latitude="{{item.latitude}}" data-longitude="{{item.longitude}}" bindtap='go' data-title="{{item.title}}"></image>
@@ -65,7 +71,7 @@
   </view>
 </view>
 
-  <view class='hot'>
+  <!-- <view class='hot'>
       <view class='title_item'>热门文章</view>
       <view class='title_item_1'>谷庄主泰国稻花香米，纯精品泰国进口，36道工序精挑细选</view>
       <view class='mmm'>
@@ -74,4 +80,4 @@
         <image src="/pages/img/xff.png"></image>
       </view>
       
-  </view>
+  </view> -->

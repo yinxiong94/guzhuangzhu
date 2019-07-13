@@ -30,7 +30,6 @@ Page({
     this.setData({
       obj1: value
     });
-    console.log(this.data.obj1)
   },
   // 选择充值额度
   xz:function(e){
@@ -50,6 +49,13 @@ Page({
       header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
       data: { memberCard: that.data.obj1, rechargeId: that.data.rechargeId},
       success(res){
+        if(res.data.code!=200){
+          wx.showToast({
+            title: '无效手机号码',
+            duration:2000,
+            icon:"none"
+          })
+        } else{
         that.setData({ orderId:res.data.result.orderId})
         wx.request({
           url: app.globalData.url + '/api/recharge/RechargeWxPay',
@@ -66,13 +72,22 @@ Page({
               signType: rest.signType,
               paySign: rest.paySign,
               success(res){
-                wx.switchTab({
-                  url: '/pages/index/index',
+                wx.showToast({
+                  title: '充值成功',
+                  duration:2000,
+                  icon:"none"
                 })
+                setTimeout(function(){
+                  wx.switchTab({
+                    url: '/pages/personal/personal',
+                  })
+                },2000)
+                
               }
             })
           }
-        })
+          })
+        }
       }
       })   
   },
@@ -102,7 +117,8 @@ Page({
       header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
       data:{openId:app.globalData.openId},
       success(res) {
-        that.setData({ obj1: res.data.result.cardNum})
+        console.log(res)
+        that.setData({ obj1: res.data.result.phone})
       }
     })
   },
@@ -153,6 +169,15 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '邀请你加入团队',
+      path: '/pages/logs/logs?openid=' + app.globalData.openId,
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   }
 })

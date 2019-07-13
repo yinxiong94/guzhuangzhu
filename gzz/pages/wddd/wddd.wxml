@@ -2,6 +2,8 @@
     <view class="{{sid==1?'ls':''}}" bindtap='t1' data-sid="1">全部</view>
     <view class="{{sid==2?'ls':''}}"  bindtap='t1' data-sid="2">待付款</view>
     <view class="{{sid==3?'ls':''}}"  bindtap='t1' data-sid="3">待提货</view>
+    <view class="{{sid==4?'ls':''}}"  bindtap='t1' data-sid="4">待发货</view>
+    <view class="{{sid==5?'ls':''}}"  bindtap='t1' data-sid="5">已完成</view>
 </view> 
 
 <view class='kong' wx:if="{{list.length==0}}">亲，您还没有任何相关订单哦</view>
@@ -9,19 +11,20 @@
 <view class='all' wx:for="{{list}}">
   <view class='deas'>
       <text class='t1' >{{item.createTime}}</text>
-      <text class='t2' wx:if="{{item.payState==1}}" >待提货</text> 
+      <text class='t2' wx:if="{{item.payState==1}}" >
+          <text wx:if="{{item.pickupWay==0}}">待提货</text>
+          <text wx:elif="{{item.pickupWay==1}}">待发货</text>
+      </text> 
       <text class='t2' wx:elif="{{item.payState==0}}" >待付款</text> 
       <text class='t2' wx:elif="{{item.payState==2}}" >交易完成</text> 
-      <text class='t2' wx:else="{{item.payState==3}}" >已取消</text> 
-
   </view>
-  <block  wx:for="{{item.obj}}" >
-  <view class='cart'  data-orderId="{{item.orderId}}" bindtap='ddxq'>    
+  <block  wx:for="{{item.obj}}">
+  <view class='cart'  data-orderId="{{item.orderId}}" data-ccc="{{item.payState}}" data-ind="{{index}}" bindtap='ddxq'>    
       <view class='cart-item'   >
         <image src="{{item.productImg}}" class='img' ></image>
         <view class='cart-item-1' >
             <view class='title1'>{{item.productName}}</view>
-            <!-- <view class='title2'>标准：10Kg</view> -->
+            <view class='title2'>{{item.productWeight/500}}斤</view>
         </view>
         <view class='jg' >
           <view class='jg1' >￥{{item.productPrice}}</view>
@@ -32,9 +35,10 @@
   </block>
   <view class='hj' >
       <view class='hj_1'  >共{{item.obj.length}}件商品，合计：<text>￥{{item.payMoney}}</text></view>
-       <text class='t_2' wx:if="{{item.payState==0}}" data-uid="0" bindtap='to345' data-orderId="{{item.orderId}}" data-payMoney="{{item.payMoney}}">去付款</text>
-      <text class='t_2' wx:elif="{{item.obj[0].pickupCode!==null}}" data-uid="1" bindtap='to345' data-orderId="{{item.orderId}}">去提货</text>     
-      <text class='t_2' wx:else  data-uid="2" bindtap='to345' data-orderId="{{item.orderId}}">查看物流</text>
+       <text class='t_2' wx:if="{{item.payState==0}}" data-uid="0" bindtap='to345' data-orderId="{{item.orderId}}" data-payMoney="{{item.payMoney}}" data-ccc="{{item.payState}}">去付款</text>
+       <text  wx:elif="{{item.payState==2}}"></text>
+      <text class='t_2' wx:elif="{{item.obj[0].pickupCode!==null}}" data-uid="1" bindtap='to345' data-orderId="{{item.orderId}}" data-ccc="{{item.payState}}">去提货</text>     
+      <text class='t_2' wx:else  data-uid="2" bindtap='to345' data-orderId="{{item.orderId}}" data-ccc="{{item.payState}}">查看物流</text>
       <!-- <text class='t_2 t_3' bindtap='tk'>申请退款</text> -->
   </view>
 </view>

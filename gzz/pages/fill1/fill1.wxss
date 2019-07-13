@@ -3,25 +3,45 @@
   width: 100%;
   background-color: #efeff4;
   overflow: hidden;
+  height: 100%
 }
-
+page{
+  height: 100%;
+  padding-bottom: 100rpx
+}
 .top {
-  width: 710rpx;
-  height: 230rpx;
+  width: 650rpx;
+  height: 230rpx !important;
   margin: 0 auto;
   background-color: #fff;
-  margin-top: 20rpx;
-  border-radius: 10rpx;
   display: flex;
+  border-top: 1rpx solid #ccc;
+  font-size: 28rpx;
+  font-family: PingFangSC;
+  font-weight: bold;
+  color: rgba(63, 69, 75, 1);
+  line-height: 90rpx;
 }
-
+.kong2{
+  font-size: 32rpx;
+  text-align: center;
+  margin-top: 200rpx
+}
 .top .img {
   width: 60rpx;
   height: 60rpx;
   margin-top: 85rpx;
   margin-left: 30rpx;
 }
-
+.kong1{
+  line-height: 232rpx;
+  margin-left:190rpx;
+}
+.kong{
+  font-size: 32rpx;
+  text-align: center;
+  margin-top: 300rpx
+}
 .top .img1 {
   width: 21rpx;
   height: 21rpx;
@@ -76,6 +96,7 @@
   border-radius: 10rpx;
   overflow: hidden;
   padding-top: 10rpx;
+  padding-bottom: 175rpx
 }
 
 .xinxi .list {
@@ -167,10 +188,15 @@
   font-weight: bold;
   color: rgba(63, 69, 75, 1);
   margin-top: 31rpx;
-  margin-left: 40rpx;
+  margin-left: 20rpx;
+  border:1rpx solid #ccc;
   height: 200rpx
 }
+.xz{
+ background:#ffbf00 !important;
+ color:#fff !important ;
 
+}
 .xinxi .total .right {
   flex: 1;
   font-size: 24rpx;
@@ -187,12 +213,12 @@
   width: 100rpx;
   height: 40rpx;
   font-size: 24rpx;
-  background-color: #fbc00e;
+  background-color: #eeeeee;
   text-align: center;
   line-height: 40rpx;
   border-radius: 20rpx;
   margin-top: 25rpx;
-  color: #fff;
+  color: #000;
 }
 
 .xinxi .total .jian {
@@ -205,6 +231,11 @@
 .footer {
   display: flex;
   margin-top: 20rpx;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border-top:1rpx solid #ccc;
+  z-index: 100000000000
 }
 
 .footer .left {
@@ -239,6 +270,8 @@
   width: 100%;
   border-top: 1rpx solid #f1f1f1;
   overflow: hidden;
+  height: 100%;
+  padding-bottom: 400rpx
 }
 
 .db .header {
@@ -413,9 +446,10 @@
   position: fixed;
   height: 100%;
   padding: 20rpx 20rpx;
-  background: #fff;
+  background: #ccc;
   top:0;
-  width: 100%
+  width: 100%;
+  z-index: 10000000000
 }
 .t1000{
   margin: auto;
@@ -430,7 +464,7 @@
   background: #ccc;
   width: 100%;
   top:0;
-  z-index: 10000
+  z-index: 10000000000
 }
 .check{
   transform:scale(.5);
