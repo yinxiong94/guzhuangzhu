@@ -75,16 +75,12 @@ Page({
   },
   bc: function (e) {
     var that = this;
-    var a = wx.getStorageSync('Token');
-    var timespan = new Date().getTime();
-    var nonce = Math.floor((Math.random() + Math.floor(Math.random() * 9 + 1)) * Math.pow(10, 10 - 1));
-    var signature = [timespan, nonce, a.signId, a.signToken].sort().join('').toUpperCase();
-    console.log(this.data.info.manager2)
     // 轮播图
+    if (this.data.addressId && this.data.info.manager && this.data.info.manager1 && this.data.index && this.data.info.manager2){
     wx.request({
       url: app.globalData.url + '/api/MemberCard/AddressModify',
       method: "POST",
-      header: { 'content-type': 'application/json', signKey: a.signId, timespan: timespan, nonce: nonce, signature: signature },
+      header: { 'content-type': 'application/json' },
       data: { addressId: this.data.addressId, openId: app.globalData.openId, consignee: this.data.info.manager, phone: this.data.info.manager1, area: this.data.index, address: this.data.info.manager2 },
       success(res) {
         console.log(res)
@@ -102,7 +98,14 @@ Page({
           })
         }
       }
-    })
+      })
+    } 
+    else {
+      wx.showToast({
+        title: '信息请填写完整',
+        icon:"none"
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面加载
@@ -158,6 +161,15 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '邀请你加入团队',
+      path: '/pages/logs/logs?openid=' + app.globalData.openId,
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   }
 })

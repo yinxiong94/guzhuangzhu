@@ -55,7 +55,7 @@
       </view>
       <view class="iconfont icon-jiantou jiantou"></view>
     </view>
-        <view class="item" bindtap='bdhyk'>
+        <view class="item" bindtap='bdhyk' data-ids="{{list.isEntityCard}}">
       <view class="item_left">
         <image lazy-load='true' src="/pages/img/dd3.png" class='img10'></image>
         <text>绑定实体卡</text>

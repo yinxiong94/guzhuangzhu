@@ -8,7 +8,7 @@
 
 <view class='list'>
     <view>手机号码</view>
-    <input bindinput="inputedit1" data-obj1="info1"  data-item1="manager1" value="{{info.manager1}}"></input>
+    <input bindinput="inputedit1" data-obj1="info1"  data-item1="manager1" value="{{info.manager1}}" type="number"></input>
 </view>
 
 <picker mode="region" bindchange="bindPickerChange" bindPickerChange>

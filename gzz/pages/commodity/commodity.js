@@ -219,6 +219,7 @@ Page({
       header: { 'content-type': 'application/json'},
       data: { productId:that.data.sid},
       success(res) {
+        console.log(res)
         var gg = res.data.result.productImg.split(",")
         that.setData({ list: res.data.result, list1: gg, ide: res.data.result.productType})
         var article =res.data.result.productDetails;

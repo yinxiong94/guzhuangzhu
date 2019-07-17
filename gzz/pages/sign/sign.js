@@ -23,6 +23,12 @@ Page({
       obj: this.data[dataset.obj]
     });
   },
+  // 返回商城主页
+  home:function(){
+    wx.switchTab({
+      url: '/pages/index/index',
+    })
+  },
   inputedit1: function (e) {
     // 1. input 和 info 双向数据绑定
     let dataset = e.currentTarget.dataset;
@@ -78,13 +84,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var id = wx.getStorageSync('userId');
-    console.log(id)
-    if(id!==""){
-      wx.navigateTo({
-        url: '/pages/personal1/personal',
-      })
-    }
+    
   },
 
   /**
@@ -132,6 +132,15 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '邀请你加入团队',
+      path: '/pages/logs/logs?openid=' + app.globalData.openId,
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   }
 })

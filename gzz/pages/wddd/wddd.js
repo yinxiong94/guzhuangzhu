@@ -22,6 +22,27 @@ Page({
      })
    }
  },
+//  取消订单
+ qxdd:function(e){
+   wx.showModal({
+     title: '取消订单',
+     content: '是否取消订单',
+     success:res=>{
+       console.log(res)
+       if (res.confirm==true){
+         wx.request({
+           url: app.globalData.url + "/api/product/OrderDel",
+           method: "POST",
+           header: { 'content-type': 'application/json' },
+           data: { orderId: e.target.dataset.orderid },
+           success: res => {
+             this.getdata()
+           }
+         })
+       }    
+     }
+   }) 
+ },
  to345:function(e){
       var a=e.target.dataset.uid;
       var b = e.target.dataset.orderid;
@@ -96,21 +117,23 @@ Page({
      url: '/pages/refund/refund',
    })
  },
+ getdata:function(){
+   var that = this;
+   wx.request({
+     url: app.globalData.url + '/api/product/OrderInfoList',
+     method: "POST",
+     header: { 'content-type': 'application/json' },
+     data: { key: app.globalData.openId, page: 1, size: that.data.size },
+     success(res) {
+       that.setData({ list: res.data.result })
+     }
+   })
+ },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-    wx.request({
-      url: app.globalData.url + '/api/product/OrderInfoList',
-      method: "POST",
-      header: { 'content-type': 'application/json' },
-      data: { key: app.globalData.openId, page:1,size:that.data.size},
-      success(res) {
-       console.log(res)
-       that.setData({list:res.data.result})
-      }
-    })
+      
   },
 
   /**
@@ -124,7 +147,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getdata()
   },
 
   /**

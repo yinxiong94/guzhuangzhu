@@ -203,16 +203,7 @@ Page({
         // 转发成功
       },
       fail: function (res) {
-        return {
-          title: '邀请你加入团队',
-          path: '/pages/logs/logs?openid=' + app.globalData.openId,
-          success: function (res) {
-            // 转发成功
-          },
-          fail: function (res) {
-            // 转发失败
-          }
-        }  // 转发失败
+        // 转发失败
       }
     }
   }

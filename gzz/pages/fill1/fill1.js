@@ -48,12 +48,12 @@ Page({
   t1: function (e) {
     this.setData({ isshow: 0, iftrue: false })
     var a = this.data.price1 - this.data.price2;
-    this.setData({ zj: a, iii: e.target.dataset.iii})
+    this.setData({ zj: a.toFixed(2), iii: e.target.dataset.iii})
   },
   t2: function (e) {
     this.setData({ isshow: 1, iftrue: true })
     var a = this.data.price1 - this.data.price2 - (-this.data.freight)
-    this.setData({ zj: a, iii: e.target.dataset.iii})
+    this.setData({ zj: a.toFixed(2), iii: e.target.dataset.iii})
   },
   t111: function () {
     this.setData({ isshow2: false })
@@ -87,10 +87,10 @@ Page({
     this.setData({ isshow1: false })
   },
   sy: function (e) {
-    this.setData({ isshow1: false, price2: e.target.dataset.price, memberCouponId: e.target.dataset.memberCouponId })
+    this.setData({ isshow1: false, price2: e.target.dataset.price.toFixed(2), memberCouponId: e.target.dataset.memberCouponId })
     if (this.data.isshow == 0) {
       var a = this.data.price1 - this.data.price2
-      this.setData({ zj: a })
+      this.setData({ zj: a.toFixed(2) })
     }
   },
   tosh: function () {
@@ -154,7 +154,7 @@ Page({
         for (var i = 0; i < rest.length; i++) {
           ggg += rest[i].productNum *rest[i].productPrice
         }
-        that.setData({ price1: ggg,zj:ggg })
+        that.setData({ price1: ggg.toFixed(2), zj: ggg.toFixed(2) })
         wx.request({
           url: app.globalData.url + '/api/coupon/AvailableMemberCoupon',
           method: "POST",
@@ -211,7 +211,7 @@ Page({
   onShow: function () {
     if (this.data.isshow == 0) {
       var a = this.data.price1 - this.data.price2
-      this.setData({ zj: a })
+      this.setData({ zj: a.toFixed(2) })
     }
     var that = this;
     wx.request({
@@ -257,6 +257,15 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '邀请你加入团队',
+      path: '/pages/logs/logs?openid=' + app.globalData.openId,
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   }
 })

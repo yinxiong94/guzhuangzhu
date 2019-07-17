@@ -25,7 +25,7 @@ Page({
   wzxq: function (e) {
     var a=e.target.dataset.uid
     wx.navigateTo({
-      url: '/pages/article/article?img=' + this.data.list[a].articleImg + "&title=" + this.data.list[a].articleName + "&content=" + this.data.list[a].articleContent + "&time=" + this.data.list[a].createTime + "&productId=" + this.data.list[a].productId,
+      url: '/pages/article/article?img=' + this.data.list[a].articleImg + "&title=" + this.data.list[a].articleName + "&time=" + this.data.list[a].createTime + "&productId=" + this.data.list[a].productId + "&articleId=" + this.data.list[a].articleId,
     })
   },
   /**
@@ -64,7 +64,23 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var that = this;
+    wx.request({
+      url: app.globalData.url + '/api/Article/ArticleList',
+      method: "POST",
+      header: { 'content-type': 'application/json' },
+      data: { page: 1, size: 10 },
+      success(res) {
+        console.log(res)
+        that.setData({ list: res.data.result })
+        for (var i = 0; i < res.data.result.length; i++) {
+          that.setData({ ['article[' + i + ']']: res.data.result[i].articleContent })
+          WxParse.wxParse('article', 'html', that.data.article[i], that, 5);
+        }
+        // var article = res.data.result[0].articleContent;
 
+      }
+    })
   },
 
   /**

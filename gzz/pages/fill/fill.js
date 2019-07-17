@@ -50,7 +50,7 @@ Page({
     })
     var a = this.data.price1 - this.data.price2;
     this.setData({
-      zj: a,
+      zj: a.toFixed(2),
       iii: e.target.dataset.iii
     })
   },
@@ -61,7 +61,7 @@ Page({
     })
     var a = this.data.price1 - this.data.price2 - (-this.data.freight)
     this.setData({
-      zj: a,
+      zj: a.toFixed(2),
       iii: e.target.dataset.iii
     })
   },
@@ -174,18 +174,18 @@ Page({
     console.log(e)
     this.setData({
       isshow1: false,
-      price2: e.currentTarget.dataset.price,
+      price2: e.currentTarget.dataset.price.toFixed(2),
       memberCouponId: e.currentTarget.dataset.msg
     })
     if (this.data.isshow == 0) {
       var a = this.data.price1 - this.data.price2
       this.setData({
-        zj: a
+        zj: a.toFixed(2)
       })
     } else {
       var a = this.data.price1 - this.data.price2 - (-this.data.freight)
       this.setData({
-        zj: a
+        zj: a.toFixed(2)
       })
     }
   },
@@ -265,7 +265,7 @@ Page({
     if (options.sid == 1) {
       var a = options.count * options.price
       this.setData({
-        price1: a
+        price1: a.toFixed(2)
       })
     }
     var that = this;
@@ -328,7 +328,7 @@ Page({
     if (this.data.isshow == 0) {
       var a = this.data.price1 - this.data.price2
       this.setData({
-        zj: a
+        zj: a.toFixed(2)
       })
     }
     var that = this;

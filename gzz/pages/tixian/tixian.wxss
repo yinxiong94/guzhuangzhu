@@ -47,7 +47,7 @@
   display: inline-block;
   vertical-align: top;
   margin-top: 2rpx
-}
+} 
 .ktx{
   margin-top: 355rpx;
   margin-left: 28rpx;
@@ -65,8 +65,8 @@
     display: inline-block;
     margin-top: 60rpx;
     margin-left: 30rpx;
-    padding-bottom: 20rpx;
-    font-size: 60rpx;
+    padding-bottom:20rpx;
+    font-size: 50rpx;
     padding-left: 50rpx;
     color:#F5D164;
   }

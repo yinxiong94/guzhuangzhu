@@ -6,7 +6,7 @@
     </view>
     <view class="list">
       <view class="text">手机号码</view>
-      <input type='text' placeholder='请输入您的手机号码' bindinput="inputedit1" data-obj1="info1"  data-item1="manager1" value="{{info.manager1}}"></input>
+      <input type="number" placeholder='请输入您的手机号码' bindinput="inputedit1" data-obj1="info1"  data-item1="manager1" value="{{info.manager1}}" ></input>
     </view>
     <view class="list">
       <view class="text">备注</view>

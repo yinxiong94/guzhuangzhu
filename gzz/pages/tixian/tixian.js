@@ -62,6 +62,14 @@ Page({
             wx.showToast({
               title: '请等待审核',
             })
+          } else if(res.data.code==422){
+            wx.showToast({
+              title: '最低提现100',
+            })
+          } else if(res.data.code==432){
+            wx.showToast({
+              title: '每月仅提现一次',
+            })
           }
         }
       })
@@ -149,6 +157,15 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '邀请你加入团队',
+      path: '/pages/logs/logs?openid=' + app.globalData.openId,
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   }
 })

@@ -36,7 +36,7 @@ Page({
           wx.navigateTo({
             url: '/pages/kkxx/kkxx?orderId=' + res.data.result.orderId,
           })
-        } else {
+        } else if(res.data.code==415) {
           wx.navigateTo({
             url: '/pages/recharge/recharge',
           })

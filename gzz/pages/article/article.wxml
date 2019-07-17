@@ -11,7 +11,7 @@
       <view class="text_wz">
        
       </view>
-      <image lazy-load='true' src="{{img}}"></image>
+      <!-- <image lazy-load='true' src="{{img}}"></image> -->
       <view class="text_wz">
         <import src="../../wxParse/wxParse.wxml" />  
         <view class="wxParse">
@@ -26,7 +26,7 @@
     <image src="{{url}}" class='img'></image>
     <view class='cart-item-1'>
         <view class='title1'>{{list.productName}}</view>
-        <view class='title2'>已有{{list.SalesVolume}}人购买</view>
+        <view class='title2'>已有{{list.SalesVolume==null?'0':list.SalesVolume}}人购买</view>
         <view class='title3'>￥{{list.productPrice}}</view>
     </view>
     <view class='butt'>购买

@@ -30,6 +30,24 @@ Page({
       })
     }
   },
+  tc:function(){
+    wx.removeStorage({
+      key: 'userId',
+      success: function(res) {
+        wx.showToast({
+          title: '退出成功',
+          duration: 2000,
+          success: res => {
+            setTimeout(() => {
+              wx.reLaunch({
+                url: '/pages/sign/sign',
+              })
+            }, 2000)
+          }
+        })
+      },
+    })    
+  },
   mymember: function () {
     wx.navigateTo({
       url: '/pages/mymember/mymember',
@@ -147,6 +165,15 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '邀请你加入团队',
+      path: '/pages/logs/logs?openid=' + app.globalData.openId,
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   }
 })

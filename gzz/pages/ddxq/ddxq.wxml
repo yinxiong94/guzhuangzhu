@@ -8,7 +8,7 @@
     <view class='t_22'>请尽快前往距离最近的机器取米</view>
 </view>
 
-    <view class='cart' wx:for="{{list.productOrder}}">
+    <view class='cart' wx:for="{{list.productOrder}}" wx:key>
     <view class='cart-item' data-productId="{{item.productId}}" bindtap="toxq">
       <image src="{{item.productImg}}" class='img'></image>
       <view class='cart-item-1'>
@@ -51,12 +51,12 @@
   <view class='qhm'>
       <text class='t1'>我的取货码</text>
       <view>
-      <text  wx:for="{{list.productOrder}}" wx:key class='t2 {{item.payState==2?"hui":""}}'>{{item.pickupCode}}</text>
+      <text  wx:for="{{list.productOrder}}" wx:key class='t2 {{item.payState==2?"hui":""}}' wx:key>{{item.pickupCode}}</text>
       </view>
   </view>
   <view class='sb'>
       <view class='fjsb'>附近设备</view> 
-      <view class='cart ca' wx:for="{{markers}}"> 
+      <view class='cart ca' wx:for="{{markers}}" wx:key> 
         <view class='cart-item'>
           <text>{{item.id}}</text>
           <image src="/pages/img/smj.png" class='img2'></image>

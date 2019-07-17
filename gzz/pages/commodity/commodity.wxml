@@ -55,7 +55,7 @@
       </view>
       <view class="title_h4">
         <text class="title_kg">重量：{{list.productWeight/500}}斤</text>
-        <text class="title_num">累计销量：{{list.SalesVolume}}</text>
+        <text class="title_num">累计销量：{{list.SalesVolume==null?'0':list.SalesVolume}}</text>
       </view>
       <view class='yh_list'>
         <!-- <view class='yh'>优惠

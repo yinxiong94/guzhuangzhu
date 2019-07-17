@@ -12,7 +12,8 @@ Page({
       time:"",
       title:"",
     productId:"",
-    list:{}
+    list:{},
+    articleId:""
   },
 toxq:function(e){
   wx.navigateTo({
@@ -24,24 +25,31 @@ toxq:function(e){
    */
   onLoad: function (options) {
     var that=this;
-      console.log(options)
-    this.setData({ content: options.content, img: options.img, time: options.time, title: options.title, productId: options.productId})
-      var article = this.data.content;
-       WxParse.wxParse('article', 'html', article, that, 5);
-       if(that.data.productId){
-       wx.request({
-         url: app.globalData.url +"/api/product/ProductDetails",
-         method:"post",
-         header: { 'content-type': 'application/json'},
-         data: { productId: this.data.productId},
-         success:res=>{
-           var gg=res.data.result.productImg.split(",")
-           this.setData({list:res.data.result,url:gg[0]})
-         }
-         })
-       } else{
-         that.setData({productId:0})
-       }
+    this.setData({ img: options.img, time: options.time, title: options.title, productId: options.productId, articleId: options.articleId})
+    wx.request({
+      url: app.globalData.url +"/api/Article/ArticleDetails",
+      method: "post",
+      header: { 'content-type': 'application/json' },
+      data: { articleId: that.data.articleId},
+      success:res=>{
+        var article = res.data.result.articleContent;
+        WxParse.wxParse('article', 'html', article, that, 5);
+        if (that.data.productId) {
+          wx.request({
+            url: app.globalData.url + "/api/product/ProductDetails",
+            method: "post",
+            header: { 'content-type': 'application/json' },
+            data: { productId: this.data.productId },
+            success: res => {
+              var gg = res.data.result.productImg.split(",")
+              this.setData({ list: res.data.result, url: gg[0] })
+            }
+          })
+        } else {
+          that.setData({ productId: 0 })
+        }
+      }
+    })
   },
 
   /**

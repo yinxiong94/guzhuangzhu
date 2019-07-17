@@ -29,6 +29,10 @@
         <image src="/pages/img/yhk.png" class='img5'></image>
         <view>我的银行卡</view>
     </view>
+    <view class='xq' bindtap='tc'>
+        <image src="/pages/img/tc.png" class='img6'></image>
+        <view>退出登录</view>
+    </view>
 </view>
 
 <view class='list_item'>

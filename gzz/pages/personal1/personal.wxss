@@ -65,9 +65,9 @@
 .xxx .xq:nth-child(1),.xxx .xq:nth-child(2){
   height: 191rpx;
 }
-.xxx .xq:last-child{
+/* .xxx .xq:last-child{
   border-bottom: 0
-}
+} */
 .xq view{
   font-size: 26rpx;
   margin-top: 45rpx
@@ -99,6 +99,11 @@
   width: 55rpx;
   height: 43rpx;
   margin-top: 77rpx
+}
+.img6{
+  width: 55rpx;
+  height: 53rpx;
+  margin-top: 67rpx
 }
 .userinfo-avatar{
   width: 160rpx;

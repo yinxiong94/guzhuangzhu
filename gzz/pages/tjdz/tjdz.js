@@ -62,14 +62,15 @@ Page({
       index: e.detail.value
     })
   },
-  bc:function(e){
-    var gg="";
-    for(var i=0;i<this.data.index.length;i++){
-        gg+=this.data.index[i];
-        gg+=","
-    }
+  bc:function(e){  
     var that = this;
     // 轮播图
+    if (this.data.addressId && this.data.info.manager && this.data.info.manager1 && this.data.index && this.data.info.manager2){
+      var gg = "";
+      for (var i = 0; i < this.data.index.length; i++) {
+        gg += this.data.index[i];
+        gg += ","
+      }
     wx.request({
       url: app.globalData.url + '/api/MemberCard/AddressAdd',
       method: "POST",
@@ -91,7 +92,14 @@ Page({
           })
         }
       }
-    })
+      })
+    }
+     else{
+       wx.showToast({
+         title: '信息请填写完整',
+         icon:"none"
+       })
+     }
   },
   /**
    * 生命周期函数--监听页面加载
@@ -148,6 +156,15 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '邀请你加入团队',
+      path: '/pages/logs/logs?openid=' + app.globalData.openId,
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   }
 })

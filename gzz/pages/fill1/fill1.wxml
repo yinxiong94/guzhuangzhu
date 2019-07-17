@@ -35,6 +35,7 @@
     <view class="total" bindtap='tolq'>
       <view class="left">优惠券</view>
       <view class="right">-￥{{price2}}</view>
+      <view class="ooo">{{list111.length}}张可用</view>
       <image class="jian" src="/pages/img/right.png" lazy-load='true'></image>
     </view>
     <view class="total">

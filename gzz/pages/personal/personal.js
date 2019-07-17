@@ -29,10 +29,18 @@ Page({
       url: '/pages/membership/membership',
     })
   },
-  bdhyk:function(){
+  bdhyk:function(e){
+    if(e.currentTarget.dataset.ids==1){
     wx.navigateTo({
       url: '/pages/bangka/bangka',
-    })
+      })
+    } else{
+      wx.showToast({
+        title: '您已绑定实体卡',
+        icon:"none",
+        duration:2000
+      })
+    }
   },
   tojfmx:function(){
     wx.navigateTo({
@@ -40,9 +48,16 @@ Page({
     })
   },
   dl:function(){
+    var id = wx.getStorageSync('userId');
+    if (id !== "") {
+      wx.navigateTo({
+        url: '/pages/personal1/personal',
+      })
+    } else{
     wx.navigateTo({
       url: '/pages/sign/sign',
-    })
+      })
+    }
   },
   wdhyk:function(){
     if (this.data.list.cardNum==null){

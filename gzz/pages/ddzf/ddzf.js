@@ -112,8 +112,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      console.log(options)
-    this.setData({ orderId: options.orderId, price: options.price, point: options.point, pickupWay: options.pickupWay})
+    this.setData({ orderId: options.orderId, price: options.price, point: options.point, pickupWay: options.pickupWay })    
+  },  
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {  
       var that = this;
         wx.request({
           url: app.globalData.url + '/api/product/ProductOrderList',
@@ -133,24 +145,8 @@ Page({
           data: { openId:app.globalData.openId},
           success:res=>{
             that.setData({meb:res.data.result})
-            console.log(that.data.meb)
           }
         })
-      
-  },  
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
   },
 
   /**
@@ -185,6 +181,15 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '邀请你加入团队',
+      path: '/pages/logs/logs?openid=' + app.globalData.openId,
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
   }
 })
